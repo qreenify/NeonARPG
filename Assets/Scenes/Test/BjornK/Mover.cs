@@ -1,17 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class Mover : MonoBehaviour {
-    [SerializeField] Transform destination;
     NavMeshAgent navMeshAgent;
+    Ray cameraToMouseRay;
+    new Camera camera;
     void Start() 
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        camera = FindObjectOfType<Camera>();
     }
     void Update() 
     {
-        navMeshAgent.destination = destination.position;
+        if (Input.GetMouseButtonDown(0)) 
+        {
+            MoveToClickPoint();
+        }
+        Debug.DrawRay(cameraToMouseRay.origin, cameraToMouseRay.direction * 500, Color.magenta);
+    }
+
+    void MoveToClickPoint() 
+    {
+        cameraToMouseRay = camera.ScreenPointToRay(Input.mousePosition);
+        var hasHit = Physics.Raycast(cameraToMouseRay, out var hitPoint);
+
+        if (!hasHit)
+            return;
+        navMeshAgent.destination = hitPoint.point;
     }
 }
