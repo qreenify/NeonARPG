@@ -7,8 +7,9 @@ public class ProjectileMovement : MonoBehaviour
 {
     public float speed;
     public float destroyAfter = 10f;
-    private void Start()
+    public void Setup(Vector3 targetPosition)
     {
+        transform.LookAt(targetPosition);
         Destroy(gameObject, destroyAfter);
     }
     private void Update()

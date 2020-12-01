@@ -7,12 +7,12 @@ public class RangedAttack : MonoBehaviour
 {
     public float timeToReload = 5f;
     public float reloadTime;
-    public GameObject target;
-    public GameObject projectilePrefab;
+    public Transform target;
+    public ProjectileMovement projectilePrefab;
 
     private void Update()
     {
-        transform.LookAt(target.transform);
+        transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
         reloadTime += Time.deltaTime;
         if (reloadTime >= timeToReload)
         {
@@ -23,6 +23,7 @@ public class RangedAttack : MonoBehaviour
 
     private void SpawnProjectile()
     {
-        Instantiate(projectilePrefab, transform.position, transform.rotation);
+        ProjectileMovement projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        projectile.Setup(target.position);
     }
 }
