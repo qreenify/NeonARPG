@@ -9,6 +9,9 @@ public class EnemyPatrol : MonoBehaviour
     public List<Vector3> destinations;
     private NavMeshAgent _agent;
     private int _destinationIndex;
+    public float patrolSpeed;
+    public float coolDown;
+    private float _coolDown;
 
     private int DestinationIndex
     {
@@ -19,14 +22,29 @@ public class EnemyPatrol : MonoBehaviour
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _agent.destination = destinations[DestinationIndex];
+        SetDestination();
+        _coolDown = coolDown;
     }
     
     void Update()
     {
         if (!InRange()) return;
-        DestinationIndex++;
+        if (_coolDown > 0)
+        {
+            _coolDown -= Time.deltaTime;
+        }
+        else
+        {
+            DestinationIndex++;
+            SetDestination();
+            _coolDown = coolDown;
+        }
+    }
+
+    public void SetDestination()
+    {
         _agent.destination = destinations[DestinationIndex];
+        _agent.speed = patrolSpeed;
     }
 
     bool InRange()
@@ -39,5 +57,23 @@ public class EnemyPatrol : MonoBehaviour
     void SavePos()
     {
         destinations.Add(transform.position);
+    }
+
+    void OnDrawGizmos()
+    {
+        for (int i = 0; i < destinations.Count; i++)
+        {
+            Gizmos.color = Color.red;
+            if (i == destinations.Count - 1)
+            {
+                Gizmos.DrawLine(destinations[i], destinations[0]);
+                Gizmos.DrawSphere(destinations[0], 1);
+            }
+            else
+            {
+                Gizmos.DrawLine(destinations[i], destinations[i + 1]);
+                Gizmos.DrawSphere(destinations[i + 1], 1);
+            }
+        }
     }
 }
