@@ -5,33 +5,13 @@ using UnityEngine;
 public class PressEscMenu : MonoBehaviour
 {
     public KeyCode enterMenuKey;
-    public bool MenuActive;
-    public GameObject menuObject;
+    public EnterExitMenu enterExitMenu;
   
     void Update()
     {
-        if (Input.GetKeyDown(enterMenuKey) && !MenuActive)
+        if (Input.GetKeyDown(enterMenuKey))
         {
-            MenuActive = true;
-        }
-
-        else if (Input.GetKeyDown(enterMenuKey) && MenuActive)
-        {
-            MenuActive = false;
-
-        }
-        DisplayMenu();
-    }
-
-    public void DisplayMenu()
-    {
-        if (MenuActive)
-        {
-            menuObject.SetActive(true);
-        }
-        else
-        {
-            menuObject.SetActive(false);
+            enterExitMenu.ToggleActive();
         }
     }
 }
