@@ -13,8 +13,7 @@ public class EnterExitMenu : MonoBehaviour
 
     void Update()
     {
-        MenuActive();
-        
+        //MenuActive();
     }
     public void OnClickEnterMenu()
     {
@@ -42,8 +41,6 @@ public class EnterExitMenu : MonoBehaviour
 
     public void ToggleActive()
     {
-        
-            menuObject.SetActive(!menuObject.activeSelf);
-        
+        gameObject.SetActive(!gameObject.activeSelf);
     }
 }
