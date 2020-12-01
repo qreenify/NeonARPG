@@ -1,37 +1,36 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;
-    private int _health;
-    public UnityEvent<string> onHealthChanged;
-    public UnityEvent<int> onDamageTaken;
+    public float maxHealth;
+    private float _currentHealth;
+    public UnityEvent<float> onMaxHealthSet;
+    public UnityEvent<string> onHealthUI;
+    public UnityEvent<float> onHealthChanged;
+    public UnityEvent<float> onDamageTaken;
 
-    public int health
+    public float CurrentHealth
     {
-        get => _health;
+        get => _currentHealth;
         set
         {
-            _health = Mathf.Clamp(value, 0, maxHealth);
-            onHealthChanged.Invoke(_health.ToString());
+            _currentHealth = Mathf.Clamp(value, 0, maxHealth);
+            onHealthUI.Invoke(_currentHealth.ToString());
+            onHealthChanged.Invoke(_currentHealth);
             SendMessage("OnHealthChanged", SendMessageOptions.DontRequireReceiver);
-            if (_health == 0)
-            {
-                SendMessage("OnDeath");
-            }
         }
     }
 
     private void Start()
     {
-        _health = maxHealth;
+        onMaxHealthSet.Invoke(maxHealth);
+        CurrentHealth = maxHealth;
     }
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        health -= damage;
+        CurrentHealth -= damage;
         onDamageTaken.Invoke(damage);
         SendMessage("OnDamageTaken", SendMessageOptions.DontRequireReceiver);
     }
@@ -39,7 +38,7 @@ public class Health : MonoBehaviour
     [ContextMenu("TakeDamage")]
     public void TakeDamage()
     {
-        health -= 5;
+        CurrentHealth -= 5;
         onDamageTaken.Invoke(5);
         SendMessage("OnDamageTaken", SendMessageOptions.DontRequireReceiver);
     }
