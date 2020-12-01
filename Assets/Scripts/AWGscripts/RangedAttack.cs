@@ -12,6 +12,7 @@ public class RangedAttack : MonoBehaviour
 
     private void Update()
     {
+        transform.LookAt(target.transform);
         reloadTime += Time.deltaTime;
         if (reloadTime >= timeToReload)
         {
