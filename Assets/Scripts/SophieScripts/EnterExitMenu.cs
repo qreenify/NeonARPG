@@ -1,18 +1,49 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnterExitMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject menuObject;
+    public bool menuActivated;
+
     void Start()
     {
-        
+        menuActivated = false;    
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        MenuActive();
+        
+    }
+    public void OnClickEnterMenu()
+    {
+        
+        menuActivated = true;
+    }
+
+    public void OnClickExitMenu()
+    {
+        menuActivated = false;
+    }
+
+    public void MenuActive()
+    {
+        if (menuActivated)
+        {
+            menuObject.SetActive(true);
+            ToggleActive();
+        }
+        else
+        {
+            menuObject.SetActive(false);
+        }
+    }
+
+    public void ToggleActive()
+    {
+        
+            menuObject.SetActive(!menuObject.activeSelf);
         
     }
 }
