@@ -10,6 +10,11 @@ public class Obstacle : MonoBehaviour
 
    private void Update()
    {
+      Move();
+   }
+
+   private void Move()
+   {
       _currentTime += Time.deltaTime / cycleTime;
       transform.position = Vector3.Lerp(startPos, endPos, _currentTime);
       if (transform.position != endPos) return;
