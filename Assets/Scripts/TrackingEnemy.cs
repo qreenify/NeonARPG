@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class TrackingEnemy : MonoBehaviour
+[RequireComponent(typeof(EnemyAI))]
+public class TrackingEnemy : AIBehaviour
 {
     public float trackingRange;
     private GameObject _player;
@@ -17,16 +18,18 @@ public class TrackingEnemy : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<EnemyAI>().meleeMode = this;
         _agent = GetComponent<NavMeshAgent>();
         GetComponent<SphereCollider>().radius = trackingRange;
     }
 
-    private void Update()
+    public override bool DoUpdate()
     {
         if (InRange)
         {
             Chase();
             _coolDown = coolDown;
+            return true;
         }
         else
         {
@@ -47,6 +50,7 @@ public class TrackingEnemy : MonoBehaviour
                     _agent.destination = transform.position;
             }
         }
+        return false;
     }
 
     void Chase()

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyPatrol : MonoBehaviour
+[RequireComponent(typeof(EnemyAI))]
+public class EnemyPatrol : AIBehaviour
 {
     public float range;
     public List<Vector3> destinations;
@@ -21,14 +22,15 @@ public class EnemyPatrol : MonoBehaviour
 
     void Start()
     {
+        GetComponent<EnemyAI>().patrolMode = this;
         _agent = GetComponent<NavMeshAgent>();
         SetDestination();
         _coolDown = coolDown;
     }
     
-    void Update()
+    public override bool DoUpdate()
     {
-        if (!InRange()) return;
+        if (!InRange()) return true;
         if (_coolDown > 0)
         {
             _coolDown -= Time.deltaTime;
@@ -39,6 +41,7 @@ public class EnemyPatrol : MonoBehaviour
             SetDestination();
             _coolDown = coolDown;
         }
+        return true;
     }
 
     public void SetDestination()
