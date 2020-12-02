@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
     public float damage;
     public float range;
     public float timeBetweenAttacks;
+    public Transform debugSphere;
     private float _currentCooldown;
 
     public bool ReadyToAttack => _currentCooldown < 0;
@@ -12,6 +14,13 @@ public class MeleeAttack : MonoBehaviour
     private void Update()
     {
         _currentCooldown -= Time.deltaTime;
+    }
+
+    private void LateUpdate()
+    {
+        var newPos = debugSphere.position;
+        newPos.y = 0.1f;
+        debugSphere.position = newPos;
     }
 
     public void Attack(GameObject target)
@@ -28,5 +37,13 @@ public class MeleeAttack : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(this.transform.position, range);
+    }
+
+    private void OnValidate()
+    {
+        var newScale = debugSphere.localScale;
+        newScale.x = range * 2;
+        newScale.z = range * 2;
+        debugSphere.localScale = newScale;
     }
 }

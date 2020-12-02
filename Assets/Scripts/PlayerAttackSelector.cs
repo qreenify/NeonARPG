@@ -14,7 +14,7 @@ public class PlayerAttackSelector : MonoBehaviour
     {
         if (!ranged)
         {
-            if (!Input.GetMouseButtonDown(0)) return;
+            if (!Input.GetMouseButton(0)) return;
             if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit)) return;
             if (!hit.collider.gameObject.CompareTag("Enemy")) return;
             var enemy = hit.collider.gameObject;
@@ -22,7 +22,7 @@ public class PlayerAttackSelector : MonoBehaviour
         }
         else
         {
-            if (!Input.GetMouseButtonDown(0)) return;
+            if (!Input.GetMouseButton(0)) return;
             if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit)) return;
             GetComponent<PlayerRanged>().TrySpawnProjectile(hit.point);
         }

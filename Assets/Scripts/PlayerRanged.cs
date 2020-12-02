@@ -35,6 +35,7 @@ public class PlayerRanged : MonoBehaviour
     {
         yield return new WaitForSeconds(attackDelay);
         if (_agent.velocity != Vector3.zero) yield break;
+        StopAllCoroutines();
         transform.LookAt(new Vector3(position.x, transform.position.y, position.z));
         reloadTime = 0;
         var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
