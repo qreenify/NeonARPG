@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedAttack : MonoBehaviour
+public class RangedAttack : AIBehaviour
 {
     public float timeToReload = 5f;
     public float reloadTime;
@@ -11,7 +11,12 @@ public class RangedAttack : MonoBehaviour
     public Transform target;
     public ProjectileMovement projectilePrefab;
 
-    private void Update()
+    void Start()
+    {
+        GetComponent<EnemyAI>().rangedMode = this;
+    }
+
+    public override bool DoUpdate()
     {
         transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
         reloadTime += Time.deltaTime;
@@ -20,6 +25,7 @@ public class RangedAttack : MonoBehaviour
             SpawnProjectile();
             reloadTime -= timeToReload;
         }
+        return true;
     }
 
     private void SpawnProjectile()
