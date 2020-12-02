@@ -19,8 +19,8 @@ public class Health : MonoBehaviour
         {
             _currentHealth = Mathf.Clamp(value, 0, maxHealth);
             onHealthUI.Invoke(_currentHealth.ToString());
+            Defeat();
             onHealthChanged.Invoke(_currentHealth);
-            SendMessage("OnHealthChanged", SendMessageOptions.DontRequireReceiver);
         }
     }
 
@@ -34,7 +34,6 @@ public class Health : MonoBehaviour
     {
         CurrentHealth -= damage;
         onDamageTaken.Invoke(damage);
-        SendMessage("OnDamageTaken", SendMessageOptions.DontRequireReceiver);
     }
     
     [ContextMenu("TakeDamage")]
@@ -42,7 +41,6 @@ public class Health : MonoBehaviour
     {
         CurrentHealth -= 5;
         onDamageTaken.Invoke(5);
-        SendMessage("OnDamageTaken", SendMessageOptions.DontRequireReceiver);
     }
     
     public void Defeat()
@@ -67,8 +65,7 @@ public class Health : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            Defeat();
+            TakeDamage();
         }
     }
-    
 }
