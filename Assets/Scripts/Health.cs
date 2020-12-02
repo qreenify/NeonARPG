@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     public UnityEvent<string> onHealthUI;
     public UnityEvent<float> onHealthChanged;
     public UnityEvent<float> onDamageTaken;
+    public UnityEvent onDefeat;
+    public UnityEvent onRevive;
 
     public float CurrentHealth
     {
@@ -42,4 +44,31 @@ public class Health : MonoBehaviour
         onDamageTaken.Invoke(5);
         SendMessage("OnDamageTaken", SendMessageOptions.DontRequireReceiver);
     }
+    
+    public void Defeat()
+    {
+        if (CurrentHealth > 0)
+        {
+            return;
+        }
+        gameObject.SetActive(false);
+        onDefeat.Invoke();
+        //TODO: Trigger defeat sound / animation
+    }
+    
+    public void Revive()
+    {
+        gameObject.SetActive(true);
+        onRevive.Invoke();
+        //TODO: Trigger revive sound / animation
+    }
+    
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            Defeat();
+        }
+    }
+    
 }
