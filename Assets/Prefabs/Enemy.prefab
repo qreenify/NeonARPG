@@ -494,10 +494,10 @@ GameObject:
   - component: {fileID: 7178580223411431468}
   - component: {fileID: 5782691811626310732}
   - component: {fileID: 5782691811626310733}
-  - component: {fileID: 5782691811626310734}
-  - component: {fileID: 1010405764}
-  - component: {fileID: 1010405765}
   - component: {fileID: 1010405766}
+  - component: {fileID: 1010405764}
+  - component: {fileID: 8832993683943960778}
+  - component: {fileID: 3874045691444405640}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -628,7 +628,7 @@ MonoBehaviour:
   - {x: 0.3, y: 1, z: 0}
   - {x: -32.966, y: 4.1, z: -10.9}
   - {x: -32.966, y: 1, z: 7.04}
-  - {x: -14.13, y: 1, z: 32.28}
+  - {x: -11.86, y: 1, z: 24}
   - {x: 30.13, y: 1, z: 0.5}
   patrolSpeed: 5
   coolDown: 3
@@ -648,7 +648,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5782691811626310734
+--- !u!114 &1010405766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -657,13 +657,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5782691811626310731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe3470d05ea7764cae79474f366a779, type: 3}
+  m_Script: {fileID: 11500000, guid: d34b8857ea9d5a5498d8b8d1d671fd6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackingRange: 10
-  player: {fileID: 0}
-  chaseSpeed: 10
-  coolDown: 3
+  timeToReload: 1
+  reloadTime: 0
+  damage: 5
+  target: {fileID: 0}
+  projectilePrefab: {fileID: 5764349890807282735, guid: b0a26010cdf2ed143b09d1ebf2728733, type: 3}
 --- !u!114 &1010405764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,19 +680,7 @@ MonoBehaviour:
   maxHealth: 10
   onMaxHealthSet:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_maxValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onHealthUI:
     m_PersistentCalls:
       m_Calls:
@@ -709,35 +698,17 @@ MonoBehaviour:
         m_CallState: 2
   onHealthChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1010405765}
-        m_TargetAssemblyTypeName: PlayerDefeat, Assembly-CSharp
-        m_MethodName: Defeat
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1010405765
+  onDefeat:
+    m_PersistentCalls:
+      m_Calls: []
+  onRevive:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8832993683943960778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -746,31 +717,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 5782691811626310731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2ef5d8f7b03ef45ad89a05e5916e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: dfe3470d05ea7764cae79474f366a779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDefeat:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRevive:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1010405766
-MonoBehaviour:
+  trackingRange: 10
+  chaseSpeed: 8
+  coolDown: 2
+--- !u!135 &3874045691444405640
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5782691811626310731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d34b8857ea9d5a5498d8b8d1d671fd6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToReload: 1
-  reloadTime: 0
-  target: {fileID: 0}
-  projectilePrefab: {fileID: 5764349890807282735, guid: b0a26010cdf2ed143b09d1ebf2728733, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.00001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5994510480227804267
 GameObject:
   m_ObjectHideFlags: 0
