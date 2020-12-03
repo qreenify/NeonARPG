@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public TrackingEnemy meleeMode;
+    /*public TrackingEnemy meleeMode;
     public RangedAttack rangedMode;
     public EnemyPatrol patrolMode;
 
@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (patrolMode.DoUpdate()) return;
         }
-    }
+    }*/
 }
 public abstract class AIBehaviour : MonoBehaviour
 {

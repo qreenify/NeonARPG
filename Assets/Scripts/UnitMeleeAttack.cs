@@ -11,7 +11,7 @@ namespace Unit
         public float attackDamage = 10;
         public float coolDown = 3;
         private float _currentCooldown;
-        
+        public bool showGizmos = true;
         public bool CooldownFinished => _currentCooldown <= 0;
         public bool InAttackRange
         {
@@ -32,11 +32,12 @@ namespace Unit
         }
         public override bool Enter()
         {
+            unit.MoveTo(unit.target.position);
             return true;
         }
         public override bool DoUpdate()
         {
-            if (Attack())
+            if (!IsPossible() ||  Attack())
             {
                 return false;
             }
@@ -54,25 +55,44 @@ namespace Unit
 
         bool Attack()
         {
-            if (InAttackRange && CooldownFinished)
+            if (InAttackRange && unit.TargetInView())
             {
                 unit.StopMove();
-                Debug.Log("Damage!");
-                unit.target.GetComponent<Health>().TakeDamage(attackDamage);
-                _currentCooldown = coolDown;
-                return true;
+                if (CooldownFinished)
+                {
+                    Debug.Log("Damage!");
+                    unit.target.GetComponent<Health>().TakeDamage(attackDamage);
+                    _currentCooldown = coolDown;
+                    return true;
+                }
+                transform.LookAt(new Vector3(unit.target.position.x, transform.position.y, unit.target.position.z));
+                return false;
             }
             else
             {
+                //transform.position = unit.target.position;
                 unit.MoveTo(unit.target.position);
                 return false;
             }
         }
 
+        private void OnValidate()
+        {
+            if (GetComponent<UnitRangedAttack>() != null)
+            {
+                GetComponent<UnitRangedAttack>().minRange = maxRange;
+            }
+        }
+
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, range);
+            if (showGizmos)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(transform.position, range);
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(transform.position, maxRange);
+            }
         }
     }
 }

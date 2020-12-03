@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(EnemyAI))]
 public class TrackingEnemy : AIBehaviour
 {
     public float trackingRange;
@@ -18,9 +17,8 @@ public class TrackingEnemy : AIBehaviour
 
     private void Start()
     {
-        GetComponent<EnemyAI>().meleeMode = this;
         _agent = GetComponent<NavMeshAgent>();
-        GetComponent<SphereCollider>().radius = trackingRange;
+        //GetComponent<SphereCollider>().radius = trackingRange;
     }
 
     public override bool DoUpdate()
@@ -42,7 +40,7 @@ public class TrackingEnemy : AIBehaviour
             if (_coolDown <= 0 && !_coolDownFinished)
             {
                 _coolDownFinished = true;
-                if (TryGetComponent(out EnemyPatrol enemyPatrol))
+                if (TryGetComponent(out Unit.EnemyPatrol enemyPatrol))
                 {
                     enemyPatrol.SetDestination();
                 }
