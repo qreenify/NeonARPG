@@ -42,7 +42,7 @@ namespace Unit
 
         public override bool DoUpdate()
         {
-            if (!InRange()) return true;
+            if (!InRange()) return IsPossible();
             if (_coolDown > 0)
             {
                 _coolDown -= Time.deltaTime;

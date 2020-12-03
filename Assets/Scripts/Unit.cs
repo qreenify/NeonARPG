@@ -69,7 +69,8 @@ namespace Unit
         }
         public bool TargetInView()
         {
-            return true;
+            return Physics.Raycast(transform.position, (target.transform.position - transform.position).normalized,
+                out RaycastHit ray) && ray.collider.gameObject.CompareTag("Player");
         }
         public void MoveTo(Vector3 position)
         {

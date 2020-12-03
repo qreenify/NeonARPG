@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using unit = Unit.Unit;
 
-[RequireComponent(typeof(unit))] [RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(SphereCollider))]
 public class Sensor : MonoBehaviour
 {
     public float range;
@@ -11,7 +10,7 @@ public class Sensor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-             GetComponent<unit>().target = other.transform;
+             GetComponentInParent<unit>().target = other.transform;
         }
     }
     
@@ -19,7 +18,7 @@ public class Sensor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GetComponent<unit>().target = null;
+            GetComponentInParent<unit>().target = null;
         }
     }
 
