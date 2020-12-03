@@ -4,27 +4,30 @@ using UnityEngine;
 namespace Unit
 {
     [RequireComponent(typeof(Unit))]
-    public class UnitMeleeAttack : UnitAction
+    public class UnitRangedAttack : UnitAction
     {
+        [Tooltip("Do Not tuchies")]
+        public float minRange;
         public float maxRange = 10;
-        public float range = 2;
+        public float range = 5;
         public float attackDamage = 10;
         public float coolDown = 3;
         private float _currentCooldown;
         public bool showGizmos = true;
+
         public bool CooldownFinished => _currentCooldown <= 0;
         public bool InAttackRange
         {
             get => Vector3.Distance(transform.position, unit.target.position) < range;
         }
-        public bool InMaxRange
+        public bool InRange
         {
-            get => Vector3.Distance(transform.position, unit.target.position) < maxRange;
+            get => Vector3.Distance(transform.position, unit.target.position) < maxRange && Vector3.Distance(transform.position, unit.target.position) > minRange;
         }
 
         public override bool IsPossible()
         {
-            if(unit.target == null || !unit.target.gameObject.activeSelf || !InMaxRange)
+            if(unit.target == null || !unit.target.gameObject.activeSelf || !InRange)
             {
                 return false;
             }
@@ -53,6 +56,14 @@ namespace Unit
             if (_currentCooldown > 0) _currentCooldown -= Time.deltaTime;
         }
 
+        public void OnValidate()
+        {
+            if(minRange > maxRange)
+            {
+                maxRange = minRange;
+            }
+        }
+
         bool Attack()
         {
             if (InAttackRange && CooldownFinished)
@@ -71,14 +82,6 @@ namespace Unit
             }
         }
 
-        private void OnValidate()
-        {
-            if (GetComponent<UnitRangedAttack>() != null)
-            {
-                GetComponent<UnitRangedAttack>().minRange = maxRange;
-            }
-        }
-
         private void OnDrawGizmos()
         {
             if (showGizmos)
@@ -87,6 +90,8 @@ namespace Unit
                 Gizmos.DrawWireSphere(transform.position, range);
                 Gizmos.color = Color.yellow;
                 Gizmos.DrawWireSphere(transform.position, maxRange);
+                Gizmos.color = Color.gray;
+                Gizmos.DrawWireSphere(transform.position, minRange);
             }
         }
     }
