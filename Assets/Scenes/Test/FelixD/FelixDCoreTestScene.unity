@@ -1231,7 +1231,6 @@ GameObject:
   - component: {fileID: 1339140579}
   - component: {fileID: 1339140583}
   - component: {fileID: 1339140578}
-  - component: {fileID: 1339140577}
   - component: {fileID: 1339140584}
   m_Layer: 0
   m_Name: NewEnemy
@@ -1240,24 +1239,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1339140577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339140576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f24e5bddef9c5af44b48736e5bd4de94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unit: {fileID: 0}
-  maxRange: 5
-  range: 2
-  attackDamage: 10
-  coolDown: 3
-  showGizmos: 1
 --- !u!114 &1339140578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1387,7 +1368,7 @@ MonoBehaviour:
   unit: {fileID: 0}
   minRange: 5
   maxRange: 19.84
-  range: 5
+  range: 10.71
   attackDamage: 10
   coolDown: 3
   showGizmos: 1
@@ -1507,7 +1488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1389273369
 MonoBehaviour:
   m_ObjectHideFlags: 0

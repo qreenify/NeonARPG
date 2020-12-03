@@ -20,14 +20,14 @@ namespace Unit
         {
             get => Vector3.Distance(transform.position, unit.target.position) < range;
         }
-        public bool InMaxRange
+        public bool InRange
         {
-            get => Vector3.Distance(transform.position, unit.target.position) < maxRange;
+            get => Vector3.Distance(transform.position, unit.target.position) < maxRange && Vector3.Distance(transform.position, unit.target.position) > minRange;
         }
 
         public override bool IsPossible()
         {
-            if(unit.target == null || !unit.target.gameObject.activeSelf || !InMaxRange)
+            if(unit.target == null || !unit.target.gameObject.activeSelf || !InRange)
             {
                 return false;
             }
@@ -90,7 +90,7 @@ namespace Unit
                 Gizmos.DrawWireSphere(transform.position, range);
                 Gizmos.color = Color.yellow;
                 Gizmos.DrawWireSphere(transform.position, maxRange);
-                Gizmos.color = Color.yellow;
+                Gizmos.color = Color.gray;
                 Gizmos.DrawWireSphere(transform.position, minRange);
             }
         }
