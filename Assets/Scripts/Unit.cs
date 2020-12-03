@@ -44,22 +44,32 @@ namespace Unit
             }
         }
 
+        //Unit Actions Selection
         void SetCurrentAction()
         {
             foreach (UnitAction action in possibleActions)
             {
                 if (action.IsPossible())
                 {
-                    currentAction = action;
-                    currentAction.Enter();
+                    SetAction(action);
                     break;
                 }
             }
         }
+        void SetAction(UnitAction action)
+        {
+            currentAction = action;
+            currentAction.Enter();
+        }
 
+        //Shared Action Methods
         public bool InRange(Vector3 position)
         {
             return Vector3.Distance(transform.position, position) < interactionRange;
+        }
+        public bool TargetInView()
+        {
+            return true;
         }
         public void MoveTo(Vector3 position)
         {
