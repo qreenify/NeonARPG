@@ -73,12 +73,15 @@ namespace Unit
         }
         public void MoveTo(Vector3 position)
         {
-            if(position != navMeshAgent.destination)
-                navMeshAgent.SetDestination(position);
+            if (position != navMeshAgent.destination)
+            {
+                Debug.Log("Moving!");
+                navMeshAgent.destination = position;
+            }
         }
         public void StopMove()
         {
-            navMeshAgent.isStopped = true;
+            navMeshAgent.destination = transform.position;
         }
         //What's needed:
         //Melee attack
