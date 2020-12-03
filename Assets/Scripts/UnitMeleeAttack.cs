@@ -55,7 +55,7 @@ namespace Unit
 
         bool Attack()
         {
-            if (InAttackRange)
+            if (InAttackRange && unit.TargetInView())
             {
                 unit.StopMove();
                 if (CooldownFinished)
