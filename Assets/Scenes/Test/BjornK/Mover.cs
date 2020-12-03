@@ -27,5 +27,6 @@ public class Mover : MonoBehaviour {
         if (!hasHit)
             return;
         navMeshAgent.destination = hitPoint.point;
+        GetComponent<Unit.Unit>().target = null;
     }
 }
