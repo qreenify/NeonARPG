@@ -66,13 +66,17 @@ namespace Unit
 
         bool Attack()
         {
-            if (InAttackRange && CooldownFinished)
+            if (InAttackRange)
             {
                 unit.StopMove();
-                Debug.Log("Damage!");
-                unit.target.GetComponent<Health>().TakeDamage(attackDamage);
-                _currentCooldown = coolDown;
-                return true;
+                if (CooldownFinished)
+                {
+                    Debug.Log("Damage!");
+                    unit.target.GetComponent<Health>().TakeDamage(attackDamage);
+                    _currentCooldown = coolDown;
+                    return true;
+                }
+                return false;
             }
             else
             {
