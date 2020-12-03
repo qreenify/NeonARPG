@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
@@ -22,5 +21,17 @@ public class Obstacle : MonoBehaviour
       startPos = endPos;
       endPos = start;
       _currentTime = 0;
+   }
+
+   [ContextMenu("SaveStartPos")]
+   private void SaveStartPos()
+   {
+      startPos = transform.position;
+   }
+   
+   [ContextMenu("SaveEndPos")]
+   private void SaveEndPos()
+   {
+      endPos = transform.position;
    }
 }

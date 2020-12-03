@@ -20,7 +20,7 @@ public class TrackingEnemy : AIBehaviour
     {
         GetComponent<EnemyAI>().meleeMode = this;
         _agent = GetComponent<NavMeshAgent>();
-        GetComponent<SphereCollider>().radius = trackingRange;
+        //GetComponent<SphereCollider>().radius = trackingRange;
     }
 
     public override bool DoUpdate()
