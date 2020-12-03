@@ -13,7 +13,7 @@ public class RangedAttack : AIBehaviour
 
     void Start()
     {
-        GetComponent<EnemyAI>().rangedMode = this;
+        
     }
 
     public override bool DoUpdate()
