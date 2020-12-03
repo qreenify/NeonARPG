@@ -1231,7 +1231,7 @@ GameObject:
   - component: {fileID: 1339140579}
   - component: {fileID: 1339140583}
   - component: {fileID: 1339140578}
-  - component: {fileID: 1339140584}
+  - component: {fileID: 1339140577}
   m_Layer: 0
   m_Name: NewEnemy
   m_TagString: Untagged
@@ -1239,6 +1239,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1339140577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339140576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f24e5bddef9c5af44b48736e5bd4de94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  maxRange: 10
+  range: 4
+  attackDamage: 10
+  coolDown: 3
+  showGizmos: 1
 --- !u!114 &1339140578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1353,25 +1371,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1339140584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339140576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436571613e27efe42907d3ea64536194, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unit: {fileID: 0}
-  minRange: 5
-  maxRange: 19.84
-  range: 10.71
-  attackDamage: 10
-  coolDown: 3
-  showGizmos: 1
 --- !u!1 &1368060519
 GameObject:
   m_ObjectHideFlags: 0
