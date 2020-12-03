@@ -66,6 +66,10 @@ namespace Unit
 
         bool Attack()
         {
+            if (!IsPossible())
+            {
+                return false;
+            }
             if (InAttackRange && unit.TargetInView())
             {
                 unit.StopMove();
