@@ -78,9 +78,9 @@ namespace Unit
 
         private void OnValidate()
         {
-            if (GetComponent<UnitRangedAttack>() != null)
+            if (TryGetComponent<UnitRangedAttack>(out var rangedAttack))
             {
-                GetComponent<UnitRangedAttack>().minRange = maxRange;
+                rangedAttack.minRange = GetComponent<Mover>() == null ? maxRange : range;
             }
         }
 

@@ -10,6 +10,7 @@ namespace Unit
     {
         public List<UnitAction> possibleActions = new List<UnitAction>();
         public UnitAction currentAction;
+        public string tagToSearchFor = "Player";
 
         private NavMeshAgent navMeshAgent;
 
@@ -33,6 +34,11 @@ namespace Unit
                 //Queue move + Melee attack...
             }
 
+            if (TryGetComponent(out Mover mover))
+            {
+                currentAction.DoUpdate();
+                return;
+            }
             if (currentAction == null)
             {
                 SetCurrentAction();
@@ -70,7 +76,7 @@ namespace Unit
         public bool TargetInView()
         {
             return Physics.Raycast(transform.position, (target.transform.position - transform.position).normalized,
-                out RaycastHit ray) && ray.collider.gameObject.CompareTag("Player");
+                out RaycastHit ray) && ray.collider.gameObject.CompareTag(tagToSearchFor);
         }
         public void MoveTo(Vector3 position)
         {

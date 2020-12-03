@@ -2,7 +2,7 @@
 using UnityEngine.AI;
 
 public class Mover : MonoBehaviour {
-    public NavMeshAgent navMeshAgent;
+    [HideInInspector] public NavMeshAgent navMeshAgent;
     Ray cameraToMouseRay;
     new Camera camera;
     void Start() 

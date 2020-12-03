@@ -8,7 +8,8 @@ namespace Unit
     {
         [Tooltip("Do Not tuchies")]
         public float minRange;
-        public float maxRange = 10;
+        public float maxRange = 10; 
+        [Tooltip("The Range At Which The AI Will Stop And Do Damage")]
         public float range = 5;
         public float attackDamage = 10;
         public float coolDown = 3;
