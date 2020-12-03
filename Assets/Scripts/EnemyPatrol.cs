@@ -7,12 +7,12 @@ namespace Unit
     [RequireComponent(typeof(Unit))]
     public class EnemyPatrol : UnitAction
     {
-        public float range;
+        public float range = 1.5f;
         public List<Vector3> destinations;
         private NavMeshAgent _agent;
         private int _destinationIndex;
-        public float patrolSpeed;
-        public float coolDown;
+        public float patrolSpeed = 3;
+        public float coolDown = 1;
         private float _coolDown;
         private float _originalSpeed;
 
@@ -84,18 +84,21 @@ namespace Unit
 
         void OnDrawGizmos()
         {
-            for (int i = 0; i < destinations.Count; i++)
+            if (destinations.Count > 1)
             {
-                Gizmos.color = Color.red;
-                if (i == destinations.Count - 1)
+                for (int i = 0; i < destinations.Count; i++)
                 {
-                    Gizmos.DrawLine(destinations[i], destinations[0]);
-                    Gizmos.DrawSphere(destinations[0], 1);
-                }
-                else
-                {
-                    Gizmos.DrawLine(destinations[i], destinations[i + 1]);
-                    Gizmos.DrawSphere(destinations[i + 1], 1);
+                    Gizmos.color = Color.red;
+                    if (i == destinations.Count - 1)
+                    {
+                        Gizmos.DrawLine(destinations[i], destinations[0]);
+                        Gizmos.DrawSphere(destinations[0], 1);
+                    }
+                    else
+                    {
+                        Gizmos.DrawLine(destinations[i], destinations[i + 1]);
+                        Gizmos.DrawSphere(destinations[i + 1], 1);
+                    }
                 }
             }
         }

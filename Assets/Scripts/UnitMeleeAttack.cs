@@ -37,7 +37,7 @@ namespace Unit
         }
         public override bool DoUpdate()
         {
-            if (Attack())
+            if (!IsPossible() ||  Attack())
             {
                 return false;
             }
