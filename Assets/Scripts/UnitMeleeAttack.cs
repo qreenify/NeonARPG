@@ -55,7 +55,7 @@ namespace Unit
 
         bool Attack()
         {
-            if (InAttackRange)
+            if (InAttackRange && unit.TargetInView())
             {
                 unit.StopMove();
                 if (CooldownFinished)
@@ -65,6 +65,7 @@ namespace Unit
                     _currentCooldown = coolDown;
                     return true;
                 }
+                transform.LookAt(new Vector3(unit.target.position.x, transform.position.y, unit.target.position.z));
                 return false;
             }
             else
