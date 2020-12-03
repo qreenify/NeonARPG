@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class MeleeAttack : MonoBehaviour
+public class PlayerMeleeAttack : MonoBehaviour
 {
     public float damage;
     public float range;
@@ -35,7 +35,7 @@ public class MeleeAttack : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, range);
     }
 

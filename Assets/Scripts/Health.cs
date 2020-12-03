@@ -19,6 +19,7 @@ public class Health : MonoBehaviour
         {
             _currentHealth = Mathf.Clamp(value, 0, maxHealth);
             onHealthUI.Invoke(_currentHealth.ToString());
+            Debug.Log($"{gameObject.name} {_currentHealth}/{maxHealth}");
             Defeat();
             onHealthChanged.Invoke(_currentHealth);
         }

@@ -18,7 +18,7 @@ public class PlayerAttackSelector : MonoBehaviour
             if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit)) return;
             if (!hit.collider.gameObject.CompareTag("Enemy")) return;
             var enemy = hit.collider.gameObject;
-            GetComponent<MeleeAttack>().Attack(enemy);
+            GetComponent<PlayerMeleeAttack>().Attack(enemy);
         }
         else
         {
