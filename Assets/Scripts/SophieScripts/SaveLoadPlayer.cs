@@ -14,7 +14,7 @@ public class SaveLoadPlayer : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-        health = data.health;
+        health = data.healthdata;
 
         Vector3 position;
 
@@ -25,4 +25,5 @@ public class SaveLoadPlayer : MonoBehaviour
         transform.position = position;
 
     }
+    
 }
