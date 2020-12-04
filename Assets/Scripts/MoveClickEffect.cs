@@ -5,6 +5,7 @@ public class MoveClickEffect : MonoBehaviour
 {
     public ParticleSystem effect;
     private float _originalSimulationSpeed;
+    public float startSimSpeed;
 
     private void Awake()
     {
