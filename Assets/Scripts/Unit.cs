@@ -41,11 +41,8 @@ namespace Unit
                 currentAction.DoUpdate();
                 return;
             }
-            if (currentAction == null)
-            {
-                SetCurrentAction();
-            }
-            else if(!currentAction.DoUpdate())
+            SetCurrentAction();
+            if(currentAction != null && !currentAction.DoUpdate())
             {
                 currentAction.Exit();
                 currentAction = null;
@@ -66,6 +63,11 @@ namespace Unit
         }
         void SetAction(UnitAction action)
         {
+            if (action == currentAction) return;
+            if (currentAction != null)
+            {
+                currentAction.Exit();
+            }
             currentAction = action;
             currentAction.Enter();
         }
