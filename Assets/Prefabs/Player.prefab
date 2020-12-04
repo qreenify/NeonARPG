@@ -738,6 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 100
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -783,6 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
+  priority: 0
   maxRange: 1000
   range: 3
   attackDamage: 10
@@ -818,7 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  minRange: 3
+  priority: 0
   maxRange: 1000
   range: 12
   attackDamage: 10

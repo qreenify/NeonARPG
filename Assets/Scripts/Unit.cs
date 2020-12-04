@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -26,6 +27,7 @@ namespace Unit
                 possibleActions.Add(action);
                 action.unit = this;
             }
+            SortActions();
         }
         void Update()
         {
@@ -90,6 +92,12 @@ namespace Unit
         {
             navMeshAgent.destination = transform.position;
         }
+
+        public void SortActions()
+        {
+            var comparer = new UnitActionComparer();
+            possibleActions.Sort(comparer);
+        }
         //What's needed:
         //Melee attack
         //Ranged attack
@@ -99,9 +107,18 @@ namespace Unit
     public abstract class UnitAction : MonoBehaviour
     {
         public Unit unit;
+        public int priority;
         public abstract bool IsPossible();
         public abstract bool Enter();
         public abstract bool DoUpdate();
         public abstract bool Exit();
+    }
+
+    public class UnitActionComparer : IComparer<UnitAction>
+    {
+        public int Compare(UnitAction x, UnitAction y)
+        {
+            return y.priority.CompareTo(x.priority);
+        }
     }
 }

@@ -76,14 +76,6 @@ namespace Unit
             }
         }
 
-        private void OnValidate()
-        {
-            if (TryGetComponent<UnitRangedAttack>(out var rangedAttack))
-            {
-                rangedAttack.minRange = GetComponent<Mover>() == null ? maxRange : range;
-            }
-        }
-
         private void OnDrawGizmos()
         {
             if (showGizmos)
