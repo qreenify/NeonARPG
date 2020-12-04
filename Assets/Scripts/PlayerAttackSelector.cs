@@ -21,6 +21,7 @@ public class PlayerAttackSelector : MonoBehaviour
         if (!hit.collider.gameObject.CompareTag("Enemy")) return;
         var enemy = hit.collider.gameObject;
         GetComponent<Unit.Unit>().target = enemy.transform;
+        Destroy(GetComponent<Mover>().currentAnimation);
     }
 
     private void ToggleWeapon()

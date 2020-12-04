@@ -723,6 +723,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 0}
+  moveAnimation: {fileID: 6019112211287591810, guid: df9b3f812db9f9240a2eb0f8453991c9, type: 3}
+  currentAnimation: {fileID: 0}
 --- !u!114 &3988166680928562342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,6 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  _currentHealth: 100
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -781,6 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
+  priority: 0
   maxRange: 1000
   range: 3
   attackDamage: 10
@@ -816,7 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  minRange: 3
+  priority: 0
   maxRange: 1000
   range: 12
   attackDamage: 10

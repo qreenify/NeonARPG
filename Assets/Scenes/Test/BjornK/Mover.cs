@@ -14,7 +14,7 @@ public class Mover : MonoBehaviour {
     }
     void Update() 
     {
-        if (Input.GetMouseButton(1)) 
+        if (Input.GetMouseButtonDown(0)) 
         {
             MoveToClickPoint();
         }
@@ -29,12 +29,12 @@ public class Mover : MonoBehaviour {
         if (!hasHit)
             return;
         navMeshAgent.destination = hitPoint.point;
-        /*if (currentAnimation != null)
+        if (currentAnimation != null)
         {
             Destroy(currentAnimation);
         }
         currentAnimation = Instantiate(moveAnimation);
-        currentAnimation.transform.position = hitPoint.point;*/
+        currentAnimation.transform.position = hitPoint.point;
         GetComponent<Unit.Unit>().target = null;
     }
 }

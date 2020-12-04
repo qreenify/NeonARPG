@@ -7,7 +7,6 @@ namespace Unit
     public class UnitRangedAttack : UnitAction
     {
         [Tooltip("Do Not tuchies")]
-        public float minRange;
         public float maxRange = 10; 
         [Tooltip("The Range At Which The AI Will Stop And Do Damage")]
         public float range = 5;
@@ -23,7 +22,7 @@ namespace Unit
         }
         public bool InRange
         {
-            get => Vector3.Distance(transform.position, unit.target.position) < maxRange && Vector3.Distance(transform.position, unit.target.position) > minRange;
+            get => Vector3.Distance(transform.position, unit.target.position) < maxRange;
         }
 
         public override bool IsPossible()
@@ -55,14 +54,6 @@ namespace Unit
         private void Update()
         {
             if (_currentCooldown > 0) _currentCooldown -= Time.deltaTime;
-        }
-
-        public void OnValidate()
-        {
-            if(minRange > maxRange)
-            {
-                maxRange = minRange;
-            }
         }
 
         bool Attack()
@@ -100,8 +91,6 @@ namespace Unit
                 Gizmos.DrawWireSphere(transform.position, range);
                 Gizmos.color = Color.yellow;
                 Gizmos.DrawWireSphere(transform.position, maxRange);
-                Gizmos.color = Color.gray;
-                Gizmos.DrawWireSphere(transform.position, minRange);
             }
         }
     }
