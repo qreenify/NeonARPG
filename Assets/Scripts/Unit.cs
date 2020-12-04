@@ -31,11 +31,6 @@ namespace Unit
         }
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                //Queue move + Melee attack...
-            }
-
             if (TryGetComponent(out Mover mover))
             {
                 currentAction.DoUpdate();
