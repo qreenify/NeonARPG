@@ -76,6 +76,12 @@ namespace Unit
                    Mathf.Abs(difference.z) < range;
         }
 
+        [ContextMenu("ClearPos")]
+        void ClearPos()
+        {
+            destinations.Clear();
+        }
+
         [ContextMenu("SavePos")]
         void SavePos()
         {
