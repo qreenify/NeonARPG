@@ -5,6 +5,8 @@ public class Mover : MonoBehaviour {
     [HideInInspector] public NavMeshAgent navMeshAgent;
     Ray cameraToMouseRay;
     new Camera camera;
+    public GameObject moveAnimation;
+    public GameObject currentAnimation;
     void Start() 
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -27,6 +29,12 @@ public class Mover : MonoBehaviour {
         if (!hasHit)
             return;
         navMeshAgent.destination = hitPoint.point;
+        /*if (currentAnimation != null)
+        {
+            Destroy(currentAnimation);
+        }
+        currentAnimation = Instantiate(moveAnimation);
+        currentAnimation.transform.position = hitPoint.point;*/
         GetComponent<Unit.Unit>().target = null;
     }
 }
