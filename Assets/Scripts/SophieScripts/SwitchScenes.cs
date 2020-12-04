@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScenes : MonoBehaviour
 {     
-    //public int index = 1;
     //public FadeAnim fadeanim;
    public void OnClickNewScene(int index)
     {
