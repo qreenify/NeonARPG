@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerAttackSelector : MonoBehaviour
 {
-    Camera _camera;
+    private Camera _camera;
     public bool ranged;
     public KeyCode weaponSwitch;
 
@@ -16,12 +16,19 @@ public class PlayerAttackSelector : MonoBehaviour
     private void Update()
     {
         ToggleWeapon();
+        Select();
+    }
+
+    private void Select()
+    {
         if (!Input.GetMouseButton(0)) return;
         if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit)) return;
-        if (!hit.collider.gameObject.CompareTag("Enemy")) return;
-        var enemy = hit.collider.gameObject;
-        GetComponent<Unit.Unit>().target = enemy.transform;
-        Destroy(GetComponent<Mover>().currentAnimation);
+        if (hit.collider.gameObject.CompareTag("Enemy"))
+        {
+            var enemy = hit.collider.gameObject;
+            GetComponent<Unit.Unit>().target = enemy.transform;
+            Destroy(GetComponent<Mover>().currentAnimation); 
+        }
     }
 
     private void ToggleWeapon()
