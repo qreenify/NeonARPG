@@ -5,8 +5,10 @@ using UnityEngine;
 public class InstantlyDestroy : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool active;
     void Awake()
     {
-        Destroy(gameObject);
+        if(active)
+            Destroy(gameObject);
     }
 }
