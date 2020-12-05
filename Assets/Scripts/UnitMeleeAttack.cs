@@ -60,7 +60,7 @@ namespace Unit
                 unit.StopMove();
                 if (CooldownFinished)
                 {
-                    Debug.Log("Damage!");
+                    //Debug.Log("Damage!");
                     unit.target.GetComponent<Health>().TakeDamage(attackDamage);
                     _currentCooldown = coolDown;
                     return true;

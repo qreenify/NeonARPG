@@ -86,7 +86,7 @@ namespace Unit
         {
             if (position != navMeshAgent.destination)
             {
-                Debug.Log("Moving!");
+                //Debug.Log("Moving!");
                 navMeshAgent.destination = position;
             }
         }
