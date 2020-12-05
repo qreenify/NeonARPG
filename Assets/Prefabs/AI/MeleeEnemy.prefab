@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 4631111914531391745}
   m_Layer: 0
   m_Name: MeleeEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -639,6 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  currentHealth: 10
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -683,6 +684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleActions: []
   currentAction: {fileID: 0}
+  tagToSearchFor: Player
   target: {fileID: 0}
   interactionRange: 0
 --- !u!114 &4631111914531391745
@@ -698,6 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
+  priority: 0
   maxRange: 1000
   range: 2
   attackDamage: 10
