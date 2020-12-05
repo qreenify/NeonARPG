@@ -30,7 +30,7 @@ namespace Unit
 
         public override bool IsPossible()
         {
-            return unit.target == null;
+            return true;
         }
 
         public override bool Enter()
