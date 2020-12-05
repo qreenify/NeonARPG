@@ -5,7 +5,8 @@ public class ExitGame : MonoBehaviour
     public AudioSource endGameSound;
     public void Quit()
     {
-        endGameSound.Play();
+        if(endGameSound != null)
+            endGameSound.Play();
         Application.Quit();
 
 #if UNITY_EDITOR
