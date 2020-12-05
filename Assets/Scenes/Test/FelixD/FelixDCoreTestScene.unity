@@ -5587,6 +5587,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1975505787}
     m_Modifications:
+    - target: {fileID: 4537296833519019434, guid: a07605f9afeed624d94a8efb1fee9212, type: 3}
+      propertyPath: endPos.x
+      value: 12.68619
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537296833519019434, guid: a07605f9afeed624d94a8efb1fee9212, type: 3}
+      propertyPath: endPos.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537296833519019434, guid: a07605f9afeed624d94a8efb1fee9212, type: 3}
+      propertyPath: endPos.z
+      value: -28.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537296833519019434, guid: a07605f9afeed624d94a8efb1fee9212, type: 3}
+      propertyPath: startPos.x
+      value: 12.68619
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537296833519019434, guid: a07605f9afeed624d94a8efb1fee9212, type: 3}
+      propertyPath: startPos.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537296833519019434, guid: a07605f9afeed624d94a8efb1fee9212, type: 3}
+      propertyPath: startPos.z
+      value: -20.3466
+      objectReference: {fileID: 0}
     - target: {fileID: 4537296833519019435, guid: a07605f9afeed624d94a8efb1fee9212, type: 3}
       propertyPath: m_Name
       value: MovingObstacle (1)
@@ -5609,7 +5633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4537296833519019437, guid: a07605f9afeed624d94a8efb1fee9212, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.346603
+      value: -20.3466
       objectReference: {fileID: 0}
     - target: {fileID: 4537296833519019437, guid: a07605f9afeed624d94a8efb1fee9212, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7014,6 +7038,10 @@ PrefabInstance:
     - target: {fileID: 6494906191284388364, guid: a7da84b99c0872a4d9f30c93014795f6, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637478218498520683, guid: a7da84b99c0872a4d9f30c93014795f6, type: 3}
+      propertyPath: avoidancePriority
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7da84b99c0872a4d9f30c93014795f6, type: 3}
@@ -8818,6 +8846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48ed25f0322d244a9397c5ed8813e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updatesPerSec: 1
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
