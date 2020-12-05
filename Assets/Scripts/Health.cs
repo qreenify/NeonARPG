@@ -57,6 +57,7 @@ public class Health : MonoBehaviour
     
     public void Revive()
     {
+        CurrentHealth = maxHealth;
         gameObject.SetActive(true);
         onRevive.Invoke();
         //TODO: Trigger revive sound / animation
