@@ -1,5 +1,6 @@
 ﻿using Unit;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerAttackSelector : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class PlayerAttackSelector : MonoBehaviour
     private void Select()
     {
         if (!Input.GetMouseButton(0)) return;
-        if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit)) return;
+        if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit) || FindObjectOfType<EventSystem>().IsPointerOverGameObject()) return;
         if (hit.collider.gameObject.CompareTag("Enemy"))
         {
             var enemy = hit.collider.gameObject;

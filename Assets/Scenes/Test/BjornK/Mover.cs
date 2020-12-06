@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class Mover : MonoBehaviour {
     [HideInInspector] public NavMeshAgent navMeshAgent;
@@ -26,7 +27,7 @@ public class Mover : MonoBehaviour {
         cameraToMouseRay = camera.ScreenPointToRay(Input.mousePosition);
         var hasHit = Physics.Raycast(cameraToMouseRay, out var hitPoint);
 
-        if (!hasHit)
+        if (!hasHit || FindObjectOfType<EventSystem>().IsPointerOverGameObject())
             return;
         navMeshAgent.destination = hitPoint.point;
         if (currentAnimation != null)
