@@ -18,8 +18,6 @@ public class SaveLoadPlayer : MonoBehaviour
         health = data.healthdata;
         GetComponent<Health>().CurrentHealth = health;
 
-        //health = data.healthdata;
-
 
         Vector3 position;
 

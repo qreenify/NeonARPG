@@ -6,6 +6,11 @@ namespace Unit
     [RequireComponent(typeof(Unit))]
     public class UnitMeleeAttack : UnitAction
     {
+<<<<<<< Updated upstream
+=======
+        public DrawAttackLine drawAttackLine;
+        public float maxRange = 10;
+>>>>>>> Stashed changes
         public float range = 2;
         public float attackDamage = 10;
         public float coolDown = 3;
@@ -57,7 +62,8 @@ namespace Unit
                 {
                     //Debug.Log("Damage!");
                     unit.target.GetComponent<Health>().TakeDamage(attackDamage);
-                    _currentCooldown = coolDown;
+                    _currentCooldown = coolDown; 
+                    drawAttackLine.DrawLine(unit.target);
                     return true;
                 }
                 transform.LookAt(new Vector3(unit.target.position.x, transform.position.y, unit.target.position.z));
