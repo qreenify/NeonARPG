@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Unit
 {
-    public class UnitApproach : UnitAction
+    public class Approach : UnitAction
     {
         public float maxRange = 10;
         public bool showGizmos = true;
@@ -32,7 +30,7 @@ namespace Unit
             {
                 return false;
             }
-            Approach();
+            DoApproach();
             return IsPossible();
         }
         public override bool Exit()
@@ -40,7 +38,7 @@ namespace Unit
             return true;
         }
 
-        public void Approach()
+        public void DoApproach()
         {
             if (IsPossible())
             {

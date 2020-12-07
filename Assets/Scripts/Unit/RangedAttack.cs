@@ -1,11 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 namespace Unit
 {
     [RequireComponent(typeof(Unit))]
-    public class UnitRangedAttack : UnitAction
+    public class RangedAttack : UnitAction
     {
         [Tooltip("The Range At Which The AI Will Stop And Do Damage")]
         public float range = 5;

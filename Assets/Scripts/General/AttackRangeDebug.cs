@@ -19,10 +19,10 @@ public class AttackRangeDebug : MonoBehaviour
         if (attackAction == null || debugSphere == null) return;
         switch (attackAction)
         {
-            case UnitMeleeAttack meleeAttack:
+            case MeleeAttack meleeAttack:
                 debugSphere.localScale = new Vector3(meleeAttack.range * 2, debugSphere.localScale.y, meleeAttack.range * 2);
                 break;
-            case UnitRangedAttack rangedAttack:
+            case Unit.RangedAttack rangedAttack:
                 debugSphere.localScale = new Vector3(rangedAttack.range * 2, debugSphere.localScale.y, rangedAttack.range * 2);
                 break;
         }

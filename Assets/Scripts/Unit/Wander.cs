@@ -1,12 +1,11 @@
-﻿using System;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 namespace Unit
 {
-   public class UnitWander : UnitAction
+   public class Wander : UnitAction
    {
       public float wanderSpeed = 5;
       public float wanderRange = 20;

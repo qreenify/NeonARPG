@@ -50,10 +50,10 @@ public class PlayerController : MonoBehaviour
                 var inRange = false;
                 switch (_unit.currentAction)
                 {
-                    case UnitRangedAttack rangedAttack:
+                    case Unit.RangedAttack rangedAttack:
                         inRange = rangedAttack.InAttackRange;
                         break;
-                    case UnitMeleeAttack meleeAttack:
+                    case MeleeAttack meleeAttack:
                         inRange = meleeAttack.InAttackRange;
                         break;
                 }
