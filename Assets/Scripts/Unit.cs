@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Unit
 {
@@ -12,8 +13,8 @@ namespace Unit
         public List<UnitAction> possibleActions = new List<UnitAction>();
         public UnitAction currentAction;
         public string tagToSearchFor = "Player";
-        [Range(1, 50)] [Tooltip("The higher the value the more delay between updates")]
-        public int updateRate = 25;
+        [Range(1, 10)]
+        public float updatesPerSecond = 4;
         private int _tick;
 
         private NavMeshAgent navMeshAgent;
@@ -22,8 +23,11 @@ namespace Unit
 
         public float interactionRange;
 
+        private int UpdateRate => Mathf.RoundToInt(50 / updatesPerSecond);
+
         private void Start()
         {
+            _tick = Random.Range(0, UpdateRate);
             navMeshAgent = GetComponent<NavMeshAgent>();
             foreach(UnitAction action in GetComponents<UnitAction>())
             {
@@ -34,24 +38,14 @@ namespace Unit
         }
         void FixedUpdate()
         {
-            if (_tick % updateRate == 0)
+            if (_tick % UpdateRate == 0)
             {
-                if (TryGetComponent(out Mover mover))
-                {
-                   currentAction.DoUpdate();
-                   return;
-                }
                 SetCurrentAction();
                 if(currentAction != null && !currentAction.DoUpdate())
                 {
                    currentAction.Exit();
                    currentAction = null;
                 } 
-            }
-            
-            if (_tick == int.MaxValue)
-            {
-                _tick = 0;
             }
             _tick++;
         }
@@ -61,7 +55,7 @@ namespace Unit
         {
             foreach (UnitAction action in possibleActions)
             {
-                if (action.IsPossible())
+                if (action.enabled && action.IsPossible())
                 {
                     SetAction(action);
                     break;
@@ -108,9 +102,24 @@ namespace Unit
             possibleActions.Sort(comparer);
         }
 
+        public void Clear()
+        {
+            currentAction = null;
+
+            possibleActions = new List<UnitAction>();
+
+            foreach (UnitAction action in GetComponents<UnitAction>())
+            {
+                possibleActions.Add(action);
+                action.unit = this;
+            }
+
+            SortActions();
+        }
+
         private void OnValidate()
         {
-            updateRate = Mathf.Clamp(updateRate, 1, 50);
+            updatesPerSecond = Mathf.Clamp(updatesPerSecond, 1, 10);
         }
 
         //What's needed:

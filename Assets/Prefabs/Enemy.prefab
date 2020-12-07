@@ -556,6 +556,8 @@ GameObject:
   - component: {fileID: 1663563492}
   - component: {fileID: 1663563494}
   - component: {fileID: 1663563504}
+  - component: {fileID: 6133157753091492733}
+  - component: {fileID: 2846615792088882329}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -769,11 +771,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 2
-  maxRange: 7.5
+  priority: 4
   range: 3.75
   attackDamage: 10
-  coolDown: 0.5
+  coolDown: 3
   showGizmos: 1
 --- !u!114 &1663563494
 MonoBehaviour:
@@ -788,11 +789,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 1
-  maxRange: 20
+  priority: 2
   range: 15
   attackDamage: 5
   coolDown: 3
+  windUpTime: 0.4
   showGizmos: 1
 --- !u!114 &1663563504
 MonoBehaviour:
@@ -809,9 +810,41 @@ MonoBehaviour:
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
-  updateRate: 25
+  updateRate: 12
   target: {fileID: 0}
   interactionRange: 0
+--- !u!114 &6133157753091492733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782691811626310731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9570acde0f24f9046a95387fcd7bed13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  priority: 3
+  maxRange: 10
+  showGizmos: 1
+--- !u!114 &2846615792088882329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782691811626310731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9570acde0f24f9046a95387fcd7bed13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  priority: 1
+  maxRange: 20
+  showGizmos: 1
 --- !u!1 &5994510480227804267
 GameObject:
   m_ObjectHideFlags: 0

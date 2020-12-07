@@ -6,7 +6,10 @@ namespace Unit
     [RequireComponent(typeof(Unit))]
     public class UnitMeleeAttack : UnitAction
     {
+
+        public DrawAttackLine drawAttackLine;
         public float maxRange = 10;
+
         public float range = 2;
         public float attackDamage = 10;
         public float coolDown = 3;
@@ -17,14 +20,10 @@ namespace Unit
         {
             get => Vector3.Distance(transform.position, unit.target.position) < range;
         }
-        public bool InMaxRange
-        {
-            get => Vector3.Distance(transform.position, unit.target.position) < maxRange;
-        }
 
         public override bool IsPossible()
         {
-            if(unit.target == null || !unit.target.gameObject.activeSelf || !InMaxRange)
+            if (unit.target == null || !unit.target.gameObject.activeSelf || !InAttackRange)
             {
                 return false;
             }
@@ -62,18 +61,14 @@ namespace Unit
                 {
                     //Debug.Log("Damage!");
                     unit.target.GetComponent<Health>().TakeDamage(attackDamage);
-                    _currentCooldown = coolDown;
+                    _currentCooldown = coolDown; 
+                    drawAttackLine.DrawLine(unit.target);
                     return true;
                 }
                 transform.LookAt(new Vector3(unit.target.position.x, transform.position.y, unit.target.position.z));
                 return false;
             }
-            else
-            {
-                //transform.position = unit.target.position;
-                unit.MoveTo(unit.target.position);
-                return false;
-            }
+            return false;
         }
 
         private void OnDrawGizmos()
@@ -82,8 +77,6 @@ namespace Unit
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawWireSphere(transform.position, range);
-                Gizmos.color = Color.yellow;
-                Gizmos.DrawWireSphere(transform.position, maxRange);
             }
         }
     }

@@ -575,12 +575,11 @@ GameObject:
   - component: {fileID: 1332847337867473620}
   - component: {fileID: 576841731}
   - component: {fileID: 7637478218498520683}
-  - component: {fileID: 7637478218498520682}
   - component: {fileID: 3988166680928562342}
-  - component: {fileID: 106219003}
   - component: {fileID: 106218994}
   - component: {fileID: 106218996}
   - component: {fileID: 106219005}
+  - component: {fileID: 5352683844936759058}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -710,21 +709,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7637478218498520682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6494906191284388364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ce69647bb7d81e4792fc3a86f598398, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
-  moveAnimation: {fileID: 6019112211287591810, guid: df9b3f812db9f9240a2eb0f8453991c9, type: 3}
-  currentAnimation: {fileID: 0}
 --- !u!114 &3988166680928562342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,20 +756,6 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &106219003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6494906191284388364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec886f2912d805a4baa49ec16fdbba39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ranged: 0
-  weaponSwitch: 49
 --- !u!114 &106218994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,8 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 0
-  maxRange: 1000
+  priority: 2
   range: 3
   attackDamage: 10
   coolDown: 3
@@ -820,7 +789,7 @@ MonoBehaviour:
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Enemy
-  updateRate: 5
+  updatesPerSecond: 10
   target: {fileID: 0}
   interactionRange: 0
 --- !u!114 &106219005
@@ -836,12 +805,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 0
-  maxRange: 1000
+  priority: 1
   range: 12
   attackDamage: 10
   coolDown: 3
+  windUpTime: 0.4
   showGizmos: 1
+--- !u!114 &5352683844936759058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6494906191284388364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aeaef56e94f8124eaecfc12e89430e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerActions:
+  - {fileID: 106218994}
+  - {fileID: 106219005}
+  ranged: 0
+  weaponSwitch: 49
+  navMeshAgent: {fileID: 0}
+  moveAnimation: {fileID: 6019112211287591810, guid: df9b3f812db9f9240a2eb0f8453991c9, type: 3}
+  currentAnimation: {fileID: 0}
 --- !u!1 &8601741310573821199
 GameObject:
   m_ObjectHideFlags: 0
