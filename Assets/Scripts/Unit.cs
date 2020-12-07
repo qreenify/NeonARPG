@@ -12,7 +12,7 @@ namespace Unit
         public List<UnitAction> possibleActions = new List<UnitAction>();
         public UnitAction currentAction;
         public string tagToSearchFor = "Player";
-        [Range(1, 50)] [Tooltip("The higher the value the more delay between updates")]
+        [Range(1, 50)] [Tooltip("The higher the value the more delay between updates 50 = once per second")]
         public int updateRate = 25;
         private int _tick;
 
