@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SaveLoadPlayer : MonoBehaviour
 {
-    public int health = 40;
+    public float health;
 
     public void SavePlayer()
     {
+        health = GetComponent<Health>().CurrentHealth;
         SaveSystem.SavePlayer(this);
     }
 
@@ -15,6 +16,10 @@ public class SaveLoadPlayer : MonoBehaviour
     {
         PlayerData data = SaveSystem.LoadPlayer();
         health = data.healthdata;
+        GetComponent<Health>().CurrentHealth = health;
+
+        //health = data.healthdata;
+
 
         Vector3 position;
 
