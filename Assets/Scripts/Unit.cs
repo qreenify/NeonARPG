@@ -12,6 +12,9 @@ namespace Unit
         public List<UnitAction> possibleActions = new List<UnitAction>();
         public UnitAction currentAction;
         public string tagToSearchFor = "Player";
+        [Range(1, 50)] [Tooltip("The higher the value the more delay between updates")]
+        public int updateRate = 25;
+        private int _tick;
 
         private NavMeshAgent navMeshAgent;
 
@@ -29,19 +32,28 @@ namespace Unit
             }
             SortActions();
         }
-        void Update()
+        void FixedUpdate()
         {
-            if (TryGetComponent(out Mover mover))
+            if (_tick % updateRate == 0)
             {
-                currentAction.DoUpdate();
-                return;
+                if (TryGetComponent(out Mover mover))
+                {
+                   currentAction.DoUpdate();
+                   return;
+                }
+                SetCurrentAction();
+                if(currentAction != null && !currentAction.DoUpdate())
+                {
+                   currentAction.Exit();
+                   currentAction = null;
+                } 
             }
-            SetCurrentAction();
-            if(currentAction != null && !currentAction.DoUpdate())
+            
+            if (_tick == int.MaxValue)
             {
-                currentAction.Exit();
-                currentAction = null;
+                _tick = 0;
             }
+            _tick++;
         }
 
         //Unit Actions Selection
@@ -95,6 +107,12 @@ namespace Unit
             var comparer = new UnitActionComparer();
             possibleActions.Sort(comparer);
         }
+
+        private void OnValidate()
+        {
+            updateRate = Mathf.Clamp(updateRate, 1, 50);
+        }
+
         //What's needed:
         //Melee attack
         //Ranged attack

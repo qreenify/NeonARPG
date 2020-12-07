@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -31,10 +32,14 @@ namespace Unit
          return true;
       }
 
-      public override bool DoUpdate()
+      private void Update()
       {
          if (_currentCooldown > 0) _currentCooldown -= Time.deltaTime;
-         else Move();
+      }
+
+      public override bool DoUpdate()
+      {
+         if (_currentCooldown <= 0) Move();
          return true;
       }
 

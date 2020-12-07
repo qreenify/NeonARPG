@@ -40,7 +40,7 @@ public class TrackingEnemy : AIBehaviour
             if (_coolDown <= 0 && !_coolDownFinished)
             {
                 _coolDownFinished = true;
-                if (TryGetComponent(out Unit.EnemyPatrol enemyPatrol))
+                if (TryGetComponent(out Unit.UnitPatrol enemyPatrol))
                 {
                     enemyPatrol.SetDestination();
                 }

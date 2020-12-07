@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public UnityEvent<string> onHealthUI;
     public UnityEvent<float> onHealthChanged;
     public UnityEvent<float> onDamageTaken;
+    public UnityEvent<float> onHealthIncreased;
     public UnityEvent onDefeat;
     public UnityEvent onRevive;
 
@@ -18,6 +19,10 @@ public class Health : MonoBehaviour
         get => currentHealth;
         set
         {
+            if (value < currentHealth)
+                onDamageTaken.Invoke(currentHealth - value);
+            else if (value > currentHealth) 
+                onHealthIncreased.Invoke(value - currentHealth);
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
             onHealthUI.Invoke(currentHealth.ToString());
             Debug.Log($"{gameObject.name} {currentHealth}/{maxHealth}");
