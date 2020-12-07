@@ -47,7 +47,7 @@ namespace Unit
                 Vector3 targetPosition = unit.target.position;
                 //transform.position += unit.target.position - transform.position;
 
-                unit.MoveTo((transform.position - targetPosition) + transform.position);
+                unit.MoveTo(((transform.position - targetPosition).normalized * 10) + transform.position);
             }
         }
 
