@@ -108,6 +108,21 @@ namespace Unit
             possibleActions.Sort(comparer);
         }
 
+        public void Clear()
+        {
+            currentAction = null;
+
+            possibleActions = new List<UnitAction>();
+
+            foreach (UnitAction action in GetComponents<UnitAction>())
+            {
+                possibleActions.Add(action);
+                action.unit = this;
+            }
+
+            SortActions();
+        }
+
         private void OnValidate()
         {
             updateRate = Mathf.Clamp(updateRate, 1, 50);
