@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Unit
 {
     [RequireComponent(typeof(Unit))]
-    public class UnitPatrol : UnitAction
+    public class Patrol : UnitAction
     {
         public float range = 1.5f;
         public List<Vector3> destinations;

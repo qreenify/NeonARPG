@@ -46,11 +46,11 @@ public class PlayerAttackSelector : MonoBehaviour
     {
         if (ranged)
         {
-            GetComponent<Unit.Unit>().currentAction = GetComponent<UnitRangedAttack>();
+            GetComponent<Unit.Unit>().currentAction = GetComponent<Unit.RangedAttack>();
         }
         else
         {
-            GetComponent<Unit.Unit>().currentAction = GetComponent<UnitMeleeAttack>();
+            GetComponent<Unit.Unit>().currentAction = GetComponent<MeleeAttack>();
         }
     }
 }

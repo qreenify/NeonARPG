@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Unit
 {
-    public class UnitFlee : UnitAction
+    public class Flee : UnitAction
     {
         public float maxRange = 10;
         public bool showGizmos = true;
@@ -32,7 +30,7 @@ namespace Unit
             {
                 return false;
             }
-            Flee();
+            DoFlee();
             return IsPossible();
         }
         public override bool Exit()
@@ -40,7 +38,7 @@ namespace Unit
             return true;
         }
 
-        public void Flee()
+        public void DoFlee()
         {
             if (IsPossible())
             {

@@ -6,7 +6,7 @@ public class EnemyAI : MonoBehaviour
 {
     /*public TrackingEnemy meleeMode;
     public RangedAttack rangedMode;
-    public UnitPatrol patrolMode;
+    public Patrol patrolMode;
 
     public void Update()
     {
