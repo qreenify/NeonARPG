@@ -1,17 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+[System.Serializable]
 public class SwitchScenes : MonoBehaviour
-{     
-    //public int index = 1;
+{
     //public FadeAnim fadeanim;
-   public void OnClickNewScene(int index)
+
+    public int currentScene;
+    public int nextScene;
+
+    public void SaveScene()
+    {
+        SaveSystem.SaveScene(this);
+    }
+    public void LoadScene()
+    {
+        SceneData data = SaveSystem.LoadScene();
+        currentScene = data.scenedata;
+        SceneManager.LoadScene(currentScene);
+
+    }
+    public void OnClickNewScene()
     {
         //fadeanim.StartCoroutine("Fading");
-        SceneManager.LoadScene(index);
+        SceneManager.LoadScene(nextScene);
 
     }
 
-
+  
 }

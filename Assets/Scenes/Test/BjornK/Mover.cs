@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class Mover : MonoBehaviour {
-    public NavMeshAgent navMeshAgent;
+    [HideInInspector] public NavMeshAgent navMeshAgent;
     Ray cameraToMouseRay;
     new Camera camera;
+    public GameObject moveAnimation;
+    public GameObject currentAnimation;
     void Start() 
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -12,7 +15,7 @@ public class Mover : MonoBehaviour {
     }
     void Update() 
     {
-        if (Input.GetMouseButton(1)) 
+        if (Input.GetMouseButtonDown(0)) 
         {
             MoveToClickPoint();
         }
@@ -24,8 +27,15 @@ public class Mover : MonoBehaviour {
         cameraToMouseRay = camera.ScreenPointToRay(Input.mousePosition);
         var hasHit = Physics.Raycast(cameraToMouseRay, out var hitPoint);
 
-        if (!hasHit)
+        if (!hasHit || FindObjectOfType<EventSystem>().IsPointerOverGameObject())
             return;
         navMeshAgent.destination = hitPoint.point;
+        if (currentAnimation != null)
+        {
+            Destroy(currentAnimation);
+        }
+        currentAnimation = Instantiate(moveAnimation);
+        currentAnimation.transform.position = hitPoint.point;
+        GetComponent<Unit.Unit>().target = null;
     }
 }

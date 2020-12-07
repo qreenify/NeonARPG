@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
     public float maxHealth;
-    private float _currentHealth;
+    [SerializeField] private float currentHealth;
     public UnityEvent<float> onMaxHealthSet;
     public UnityEvent<string> onHealthUI;
     public UnityEvent<float> onHealthChanged;
@@ -14,21 +15,20 @@ public class Health : MonoBehaviour
 
     public float CurrentHealth
     {
-        get => _currentHealth;
+        get => currentHealth;
         set
         {
-            _currentHealth = Mathf.Clamp(value, 0, maxHealth);
-            onHealthUI.Invoke(_currentHealth.ToString());
-            Debug.Log($"{gameObject.name} {_currentHealth}/{maxHealth}");
+            currentHealth = Mathf.Clamp(value, 0, maxHealth);
+            onHealthUI.Invoke(currentHealth.ToString());
+            Debug.Log($"{gameObject.name} {currentHealth}/{maxHealth}");
             Defeat();
-            onHealthChanged.Invoke(_currentHealth);
+            onHealthChanged.Invoke(currentHealth);
         }
     }
 
     private void Start()
     {
         onMaxHealthSet.Invoke(maxHealth);
-        CurrentHealth = maxHealth;
     }
     
     public void TakeDamage(float damage)
@@ -50,13 +50,14 @@ public class Health : MonoBehaviour
         {
             return;
         }
-        gameObject.SetActive(false);
         onDefeat.Invoke();
+        gameObject.SetActive(false);
         //TODO: Trigger defeat sound / animation
     }
     
     public void Revive()
     {
+        CurrentHealth = maxHealth;
         gameObject.SetActive(true);
         onRevive.Invoke();
         //TODO: Trigger revive sound / animation
@@ -68,5 +69,10 @@ public class Health : MonoBehaviour
         {
             TakeDamage();
         }
+    }
+
+    private void OnValidate()
+    {
+        currentHealth = maxHealth;
     }
 }

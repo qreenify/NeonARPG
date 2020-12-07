@@ -650,9 +650,10 @@ GameObject:
   - component: {fileID: 2404992468046605792}
   - component: {fileID: 8151515844709064747}
   - component: {fileID: 4631111913639379721}
+  - component: {fileID: 3559255235070534441}
   m_Layer: 0
   m_Name: RangedEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,7 +753,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
+  m_Speed: 5
   m_Acceleration: 24
   avoidancePriority: 50
   m_AngularSpeed: 1500
@@ -793,6 +794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  currentHealth: 10
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -837,6 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleActions: []
   currentAction: {fileID: 0}
+  tagToSearchFor: Player
   target: {fileID: 0}
   interactionRange: 0
 --- !u!114 &4631111913639379721
@@ -852,11 +855,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  minRange: 5
+  priority: 0
   maxRange: 10
   range: 8
   attackDamage: 10
   coolDown: 3
+  showGizmos: 1
+--- !u!114 &3559255235070534441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151515844709064751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3006df26faaaa458bf90d6c2223ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  priority: 1
+  maxRange: 5
   showGizmos: 1
 --- !u!1 &8237356869472245775
 GameObject:

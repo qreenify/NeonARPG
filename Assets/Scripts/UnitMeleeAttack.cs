@@ -60,7 +60,7 @@ namespace Unit
                 unit.StopMove();
                 if (CooldownFinished)
                 {
-                    Debug.Log("Damage!");
+                    //Debug.Log("Damage!");
                     unit.target.GetComponent<Health>().TakeDamage(attackDamage);
                     _currentCooldown = coolDown;
                     return true;
@@ -73,14 +73,6 @@ namespace Unit
                 //transform.position = unit.target.position;
                 unit.MoveTo(unit.target.position);
                 return false;
-            }
-        }
-
-        private void OnValidate()
-        {
-            if (GetComponent<UnitRangedAttack>() != null)
-            {
-                GetComponent<UnitRangedAttack>().minRange = maxRange;
             }
         }
 

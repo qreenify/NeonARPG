@@ -1,30 +1,55 @@
-﻿using UnityEngine;
+﻿using Unit;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerAttackSelector : MonoBehaviour
 {
-    Camera _camera;
+    private Camera _camera;
     public bool ranged;
+    public KeyCode weaponSwitch;
 
     private void Start()
     {
         _camera = Camera.main;
+        SetWeapon();
     }
 
     private void Update()
     {
-        if (!ranged)
+        ToggleWeapon();
+        Select();
+    }
+
+    private void Select()
+    {
+        if (!Input.GetMouseButton(0)) return;
+        if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit) || FindObjectOfType<EventSystem>().IsPointerOverGameObject()) return;
+        if (hit.collider.gameObject.CompareTag("Enemy"))
         {
-            if (!Input.GetMouseButton(0)) return;
-            if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit)) return;
-            if (!hit.collider.gameObject.CompareTag("Enemy")) return;
             var enemy = hit.collider.gameObject;
-            GetComponent<PlayerMeleeAttack>().Attack(enemy);
+            GetComponent<Unit.Unit>().target = enemy.transform;
+            Destroy(GetComponent<Mover>().currentAnimation); 
+        }
+    }
+
+    private void ToggleWeapon()
+    {
+        if (Input.GetKeyDown(weaponSwitch))
+        {
+            ranged = !ranged;
+            SetWeapon();
+        }
+    }
+
+    private void SetWeapon()
+    {
+        if (ranged)
+        {
+            GetComponent<Unit.Unit>().currentAction = GetComponent<UnitRangedAttack>();
         }
         else
         {
-            if (!Input.GetMouseButton(0)) return;
-            if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit)) return;
-            GetComponent<PlayerRanged>().TrySpawnProjectile(hit.point);
+            GetComponent<Unit.Unit>().currentAction = GetComponent<UnitMeleeAttack>();
         }
     }
 }

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4158873431110996488}
   m_Layer: 0
   m_Name: MixedPatrolEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  currentHealth: 10
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -206,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleActions: []
   currentAction: {fileID: 0}
+  tagToSearchFor: Player
   target: {fileID: 0}
   interactionRange: 0
 --- !u!114 &2072211179428251249
@@ -221,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
+  priority: 0
   maxRange: 5
   range: 2
   attackDamage: 10
@@ -239,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  minRange: 5
+  priority: 0
   maxRange: 12312
   range: 8
   attackDamage: 10
@@ -258,6 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
+  priority: 0
   range: 0
   destinations:
   - {x: 0, y: 0, z: 0}

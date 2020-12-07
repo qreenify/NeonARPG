@@ -6,6 +6,11 @@ public class Sensor : MonoBehaviour
 {
     public float range;
 
+    private void Awake()
+    {
+        GetComponent<SphereCollider>().isTrigger = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

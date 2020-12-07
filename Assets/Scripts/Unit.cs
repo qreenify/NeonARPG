@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,6 +11,7 @@ namespace Unit
     {
         public List<UnitAction> possibleActions = new List<UnitAction>();
         public UnitAction currentAction;
+        public string tagToSearchFor = "Player";
 
         private NavMeshAgent navMeshAgent;
 
@@ -25,19 +27,17 @@ namespace Unit
                 possibleActions.Add(action);
                 action.unit = this;
             }
+            SortActions();
         }
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.P))
+            if (TryGetComponent(out Mover mover))
             {
-                //Queue move + Melee attack...
+                currentAction.DoUpdate();
+                return;
             }
-
-            if (currentAction == null)
-            {
-                SetCurrentAction();
-            }
-            else if(!currentAction.DoUpdate())
+            SetCurrentAction();
+            if(currentAction != null && !currentAction.DoUpdate())
             {
                 currentAction.Exit();
                 currentAction = null;
@@ -58,6 +58,11 @@ namespace Unit
         }
         void SetAction(UnitAction action)
         {
+            if (action == currentAction) return;
+            if (currentAction != null)
+            {
+                currentAction.Exit();
+            }
             currentAction = action;
             currentAction.Enter();
         }
@@ -70,19 +75,25 @@ namespace Unit
         public bool TargetInView()
         {
             return Physics.Raycast(transform.position, (target.transform.position - transform.position).normalized,
-                out RaycastHit ray) && ray.collider.gameObject.CompareTag("Player");
+                out RaycastHit ray) && ray.collider.gameObject.CompareTag(tagToSearchFor);
         }
         public void MoveTo(Vector3 position)
         {
             if (position != navMeshAgent.destination)
             {
-                Debug.Log("Moving!");
+                //Debug.Log("Moving!");
                 navMeshAgent.destination = position;
             }
         }
         public void StopMove()
         {
             navMeshAgent.destination = transform.position;
+        }
+
+        public void SortActions()
+        {
+            var comparer = new UnitActionComparer();
+            possibleActions.Sort(comparer);
         }
         //What's needed:
         //Melee attack
@@ -93,9 +104,18 @@ namespace Unit
     public abstract class UnitAction : MonoBehaviour
     {
         public Unit unit;
+        public int priority;
         public abstract bool IsPossible();
         public abstract bool Enter();
         public abstract bool DoUpdate();
         public abstract bool Exit();
+    }
+
+    public class UnitActionComparer : IComparer<UnitAction>
+    {
+        public int Compare(UnitAction x, UnitAction y)
+        {
+            return y.priority.CompareTo(x.priority);
+        }
     }
 }

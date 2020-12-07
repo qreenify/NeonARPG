@@ -3,13 +3,12 @@ using UnityEngine.Events;
 
 public class PlayerEnter : MonoBehaviour
 {
-    public UnityEvent playerEnterEvent;
-    
+    public UnityEvent<Mover> playerEnterEvent;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.TryGetComponent<Mover>(out var mover))
         {
-            playerEnterEvent.Invoke();
+            playerEnterEvent.Invoke(mover);
         }
     }
 }

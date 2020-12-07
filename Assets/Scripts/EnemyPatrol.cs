@@ -30,7 +30,7 @@ namespace Unit
 
         public override bool IsPossible()
         {
-            return unit.target == null;
+            return true;
         }
 
         public override bool Enter()
@@ -74,6 +74,12 @@ namespace Unit
             var difference = transform.position - destinations[DestinationIndex];
             return Mathf.Abs(difference.x) < range && Mathf.Abs(difference.y) < range &&
                    Mathf.Abs(difference.z) < range;
+        }
+
+        [ContextMenu("ClearPos")]
+        void ClearPos()
+        {
+            destinations.Clear();
         }
 
         [ContextMenu("SavePos")]
