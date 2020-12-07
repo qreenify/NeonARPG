@@ -11,7 +11,7 @@ public class MoveClickEffect : MonoBehaviour
     {
         var main = effect.main;
         _originalSimulationSpeed = main.simulationSpeed;
-        main.simulationSpeed = 100f;
+        main.simulationSpeed = startSimSpeed;
     }
 
     private void Update()

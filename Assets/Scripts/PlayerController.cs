@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private Camera _camera;
     private Unit.Unit _unit;
+    public float maxDistance = 50;
     public UnitAction[] playerActions;
     public bool ranged;
     public KeyCode weaponSwitch;
@@ -33,28 +34,48 @@ public class PlayerController : MonoBehaviour
     {
         if (!Input.GetMouseButton(0)) return;
         var eventSystem = FindObjectOfType<EventSystem>();
-        if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit) || eventSystem != null && eventSystem.IsPointerOverGameObject());
-        if (hit.collider.gameObject.CompareTag("Enemy"))
+        if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit) || eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
+        if (Vector3.Distance(hit.point, transform.position) > maxDistance) return;
+        if (hit.collider != null)
         {
-            var enemy = hit.collider.gameObject;
-            _unit.target = enemy.transform;
-            if (currentAnimation != null) 
-            { 
-                Destroy(currentAnimation);
-            }
-        }
-        else
-        {
-            _unit.target = null;
-            if (currentAnimation != null) 
-            { 
-                Destroy(currentAnimation);
-            }
-            currentAnimation = Instantiate(moveAnimation);
-            currentAnimation.transform.position = hit.point;
-        }
+            if (hit.collider.gameObject.CompareTag("Enemy") && hit.collider.gameObject.TryGetComponent(out Health health))
+            {
+                var enemy = hit.collider.gameObject;
+                _unit.target = enemy.transform;
+                if (currentAnimation != null) 
+                { 
+                    Destroy(currentAnimation);
+                }
 
-        navMeshAgent.destination = hit.point;
+                var inRange = false;
+                switch (_unit.currentAction)
+                {
+                    case UnitRangedAttack rangedAttack:
+                        inRange = rangedAttack.InAttackRange;
+                        break;
+                    case UnitMeleeAttack meleeAttack:
+                        inRange = meleeAttack.InAttackRange;
+                        break;
+                }
+
+                if (!inRange)
+                {
+                    navMeshAgent.destination = hit.point;
+                }
+            }
+            
+            else
+            {
+                _unit.target = null;
+                if (currentAnimation != null) 
+                { 
+                    Destroy(currentAnimation);
+                }
+                currentAnimation = Instantiate(moveAnimation);
+                currentAnimation.transform.position = hit.point;
+                navMeshAgent.destination = hit.point;
+            }
+        }
     }
 
     private void ToggleWeapon()
