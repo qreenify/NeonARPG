@@ -1,4 +1,5 @@
-﻿using Unit;
+﻿using System;
+using Unit;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -6,6 +7,8 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     private Camera _camera;
+    private Unit.Unit _unit;
+    public UnitAction[] playerActions;
     public bool ranged;
     public KeyCode weaponSwitch;
     [HideInInspector] public NavMeshAgent navMeshAgent;
@@ -16,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         _camera = Camera.main;
+        _unit = GetComponent<Unit.Unit>();
         SetWeapon();
     }
 
@@ -33,20 +37,24 @@ public class PlayerController : MonoBehaviour
         if (hit.collider.gameObject.CompareTag("Enemy"))
         {
             var enemy = hit.collider.gameObject;
-            GetComponent<Unit.Unit>().target = enemy.transform;
-            Destroy(GetComponent<Mover>().currentAnimation); 
+            _unit.target = enemy.transform;
+            if (currentAnimation != null) 
+            { 
+                Destroy(currentAnimation);
+            }
         }
         else
         {
-            navMeshAgent.destination = hit.point;
-            if (currentAnimation != null)
-            {
+            _unit.target = null;
+            if (currentAnimation != null) 
+            { 
                 Destroy(currentAnimation);
             }
             currentAnimation = Instantiate(moveAnimation);
             currentAnimation.transform.position = hit.point;
-            GetComponent<Unit.Unit>().target = null;
         }
+
+        navMeshAgent.destination = hit.point;
     }
 
     private void ToggleWeapon()
@@ -62,11 +70,23 @@ public class PlayerController : MonoBehaviour
     {
         if (ranged)
         {
-            GetComponent<Unit.Unit>().currentAction = GetComponent<UnitRangedAttack>();
+            for (int i = 0; i < playerActions.Length; i++)
+            {
+                playerActions[i].enabled = i == (int) PlayerActions.Ranged;
+            }
         }
         else
         {
-            GetComponent<Unit.Unit>().currentAction = GetComponent<UnitMeleeAttack>();
+            for (int i = 0; i < playerActions.Length; i++)
+            {
+                playerActions[i].enabled = i == (int) PlayerActions.Melee;
+            }
         }
     }
+}
+
+public enum PlayerActions
+{
+    Melee,
+    Ranged
 }
