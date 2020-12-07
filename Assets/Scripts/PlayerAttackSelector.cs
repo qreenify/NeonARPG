@@ -23,7 +23,8 @@ public class PlayerAttackSelector : MonoBehaviour
     private void Select()
     {
         if (!Input.GetMouseButton(0)) return;
-        if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit) || FindObjectOfType<EventSystem>().IsPointerOverGameObject()) return;
+        var eventSystem = FindObjectOfType<EventSystem>();
+        if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit) || eventSystem != null && eventSystem.IsPointerOverGameObject());
         if (hit.collider.gameObject.CompareTag("Enemy"))
         {
             var enemy = hit.collider.gameObject;
