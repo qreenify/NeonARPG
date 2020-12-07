@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisableOnAwake : MonoBehaviour
+public class SetActiveOnAwake : MonoBehaviour
 {
+    public bool state;
     // Start is called before the first frame update
     void Awake()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(state);
     }
 }
