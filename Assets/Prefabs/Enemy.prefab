@@ -747,6 +747,9 @@ MonoBehaviour:
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
+  onHealthIncreased:
+    m_PersistentCalls:
+      m_Calls: []
   onDefeat:
     m_PersistentCalls:
       m_Calls: []
@@ -770,7 +773,7 @@ MonoBehaviour:
   maxRange: 7.5
   range: 3.75
   attackDamage: 10
-  coolDown: 3
+  coolDown: 0.5
   showGizmos: 1
 --- !u!114 &1663563494
 MonoBehaviour:
@@ -806,6 +809,7 @@ MonoBehaviour:
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
+  updateRate: 25
   target: {fileID: 0}
   interactionRange: 0
 --- !u!1 &5994510480227804267
