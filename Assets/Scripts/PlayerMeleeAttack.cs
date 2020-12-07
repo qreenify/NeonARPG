@@ -38,12 +38,4 @@ public class PlayerMeleeAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, range);
     }
-
-    private void OnValidate()
-    {
-        var newScale = debugSphere.localScale;
-        newScale.x = range * 2;
-        newScale.z = range * 2;
-        debugSphere.localScale = newScale;
-    }
 }
