@@ -10,13 +10,13 @@ public class Portal : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
-    public void TeleportToLocation(Mover mover)
+    public void TeleportToLocation(PlayerController controller)
     {
         var position = otherPortal.transform.position;
         var teleportLocation = position + otherPortal.offset;
-        mover.navMeshAgent.enabled = false;
-        mover.transform.position = teleportLocation;
-        mover.navMeshAgent.enabled = true;
-        mover.navMeshAgent.destination = teleportLocation;
+        controller.navMeshAgent.enabled = false;
+        controller.transform.position = teleportLocation;
+        controller.navMeshAgent.enabled = true;
+        controller.navMeshAgent.destination = teleportLocation;
     }
 }
