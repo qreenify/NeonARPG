@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Unit
 {
     [RequireComponent(typeof(Unit))]
-    public class EnemyPatrol : UnitAction
+    public class UnitPatrol : UnitAction
     {
         public float range = 1.5f;
         public List<Vector3> destinations;
@@ -40,14 +41,19 @@ namespace Unit
             return true;
         }
 
-        public override bool DoUpdate()
+        private void Update()
         {
-            if (!InRange()) return IsPossible();
+            if (!InRange()) return; 
             if (_coolDown > 0)
             {
                 _coolDown -= Time.deltaTime;
             }
-            else
+        }
+
+        public override bool DoUpdate()
+        {
+            if (!InRange()) return IsPossible();
+            if (_coolDown < 0)
             {
                 DestinationIndex++;
                 SetDestination();
