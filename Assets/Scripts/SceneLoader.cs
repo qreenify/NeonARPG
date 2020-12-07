@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public string sceneName;
-    public bool addative;
+    public LoadSceneMode mode = LoadSceneMode.Additive;
     public bool onAwake = true;
     private void Awake()
     {
@@ -15,9 +15,6 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadScene()
     {
-        if (addative)
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-        else
-            SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName, mode);
     }
 }
