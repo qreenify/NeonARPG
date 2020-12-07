@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     public float maxHealth;
+    public AutoHealing autoHealing;
     [SerializeField] private float currentHealth;
     public UnityEvent<float> onMaxHealthSet;
     public UnityEvent<string> onHealthUI;
@@ -41,7 +42,7 @@ public class Health : MonoBehaviour
         CurrentHealth -= damage;
         onDamageTaken.Invoke(damage);
     }
-    
+
     [ContextMenu("TakeDamage")]
     public void TakeDamage()
     {

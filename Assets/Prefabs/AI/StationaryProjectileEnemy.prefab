@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &906996294198656928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2047902131138326154}
+  - component: {fileID: 2851583326112001819}
+  - component: {fileID: 3420370679579227232}
+  m_Layer: 2
+  m_Name: Sensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2047902131138326154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906996294198656928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 981559379042643431}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2851583326112001819
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906996294198656928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3420370679579227232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906996294198656928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07147bdfc8c3357488734e2d880526a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 20
 --- !u!1 &2404992467416572213
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +280,8 @@ GameObject:
   - component: {fileID: 8151515844709064745}
   - component: {fileID: 610214546741488195}
   - component: {fileID: 2404992468046605792}
-  - component: {fileID: 4550482145241171462}
+  - component: {fileID: 3522284968995766814}
+  - component: {fileID: 6816525587710541447}
   m_Layer: 0
   m_Name: StationaryProjectileEnemy
   m_TagString: Enemy
@@ -243,6 +302,7 @@ Transform:
   m_Children:
   - {fileID: 2404992467416572214}
   - {fileID: 1866768628930964893}
+  - {fileID: 2047902131138326154}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -393,7 +453,7 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4550482145241171462
+--- !u!114 &3522284968995766814
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -402,13 +462,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 8151515844709064751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23518e3cefdb9b74cb7d4e6b2d73fd35, type: 3}
+  m_Script: {fileID: 11500000, guid: d48ed25f0322d244a9397c5ed8813e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToReload: 5
-  damage: 10
+  possibleActions: []
+  currentAction: {fileID: 0}
+  tagToSearchFor: Player
+  updatesPerSecond: 10
   target: {fileID: 0}
+  interactionRange: 0
+--- !u!114 &6816525587710541447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151515844709064751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e443ffffbebc9d4289f2d219213ac3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  priority: 0
+  range: 20
+  attackDamage: 10
+  coolDown: 1
+  windUpTime: 0.1
+  showGizmos: 1
+  projectilePrefab: {fileID: 888326878830134328, guid: b0a26010cdf2ed143b09d1ebf2728733, type: 3}
   projectileSpawnPoint: {fileID: 3520652644294793507}
-  projectilePrefab: {fileID: 6619497736996178519, guid: 5033d80d352cb5249bc44349ad35d133, type: 3}
-  attackRange: 5
-  objectToPan: {fileID: 1866768628930964893}
