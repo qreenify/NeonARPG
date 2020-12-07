@@ -5846,6 +5846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
+  priority: 0
   maxRange: 12412
   range: 2
   attackDamage: 10
@@ -5866,6 +5867,7 @@ MonoBehaviour:
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
+  updateRate: 25
   target: {fileID: 0}
   interactionRange: 0
 --- !u!195 &1389273371
@@ -6399,6 +6401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
+  priority: 0
   maxRange: 10
   showGizmos: 1
 --- !u!1 &1446635352 stripped
@@ -10292,8 +10295,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8601846268794846642, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
+      propertyPath: onDefeat.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601846268794846642, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
+      propertyPath: onDefeat.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601846268794846642, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
+      propertyPath: onDefeat.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5298830620119625370}
+    - target: {fileID: 8601846268794846642, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
+      propertyPath: onDefeat.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601846268794846642, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
+      propertyPath: onDefeat.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Clear
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601846268794846642, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
+      propertyPath: onDefeat.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Unit.Unit, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8601846268794846642, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
+      propertyPath: onDefeat.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
+--- !u!114 &5298830620119625370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2819211636055437433, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
+  m_PrefabInstance: {fileID: 5298830620119625369}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48ed25f0322d244a9397c5ed8813e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5427839572703163401
 PrefabInstance:
   m_ObjectHideFlags: 0
