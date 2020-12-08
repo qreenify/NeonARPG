@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class SetTimePlayed : MonoBehaviour
@@ -13,5 +14,11 @@ public class SetTimePlayed : MonoBehaviour
     public void SetTimePlayedText()
     {
         onTimePlayed.Invoke(TimePlayed.GetTimePlayed());
+    }
+
+    private void OnDestroy()
+    {
+        TimePlayed.SaveDestroyedTime();
+        TimePlayed.SaveTimePlayed();
     }
 }
