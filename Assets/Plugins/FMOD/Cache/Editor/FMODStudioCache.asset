@@ -1,6 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8084762116623059877
+--- !u!114 &-6449647223405513028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Menu/Buttons/Start
+  m_EditorClassIdentifier: 
+  Path: event:/Menu/Buttons/Start
+  guid: 52b9a4a55f8db74a8af231e65feb6bec
+  Banks:
+  - {fileID: 2545407025938720555}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-4170133795930077985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,336 +35,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: Assets/FMODTest/Team5_Neon_Knights/Build/Desktop/Master.strings.bank
+  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637429500348681537
+  lastModified: 637429586907640454
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 700
-  Exists: 1
---- !u!114 &-4450828996743256565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Music.bank
-  Name: Music
-  lastModified: 637429557567223111
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-3919687026643971833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Buttons/Start
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Buttons/Start
-  guid: 52b9a4a55f8db74a8af231e65feb6bec
-  Banks:
-  - {fileID: 5938037705209931324}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-3697584332225201584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Buttons/Start
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Buttons/Start
-  guid: 52b9a4a55f8db74a8af231e65feb6bec
-  Banks:
-  - {fileID: -1804882926886795066}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-3442615790359313413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Music/MenuMusic
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Music/MenuMusic
-  guid: 8181c0872171d842ae7c0fbd4d970565
-  Banks:
-  - {fileID: -2630596784732953999}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 102857
---- !u!114 &-2681783932373181810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Buttons/Quit
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Buttons/Quit
-  guid: ac246d30830c294885002a3b3e3e5fc0
-  Banks:
-  - {fileID: 5938037705209931324}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-2630596784732953999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/Music.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Music.bank
-  Name: Build/Desktop/Music
-  lastModified: 637429557567223111
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-2104405129929127416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Music/MenuMusic
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Music/MenuMusic
-  guid: 8181c0872171d842ae7c0fbd4d970565
-  Banks:
-  - {fileID: 611283313848673881}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 102857
---- !u!114 &-1934264647505708437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Buttons/Quit
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Buttons/Quit
-  guid: ac246d30830c294885002a3b3e3e5fc0
-  Banks:
-  - {fileID: -1804882926886795066}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-1839259041974024768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Buttons/Quit
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Buttons/Quit
-  guid: ac246d30830c294885002a3b3e3e5fc0
-  Banks:
-  - {fileID: 128525885771938519}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-1804882926886795066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/SFX.bank
-  Name: Build/Desktop/SFX
-  lastModified: 637429586447143077
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-1652098063972224753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.bank
-  Name: Build/Desktop/Master
-  lastModified: 637429583647220171
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-939268630565820861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Buttons/Start
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Buttons/Start
-  guid: 52b9a4a55f8db74a8af231e65feb6bec
-  Banks:
-  - {fileID: -879989494346692651}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-879989494346692651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/SFX.bank
-  Name: Build/Desktop/SFX
-  lastModified: 637429557567512322
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-873667566589049110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.bank
-  Name: Master
-  lastModified: 637429557565687203
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-197416926081178317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.strings.bank
-  Name: Build/Desktop/Master.strings
-  lastModified: 637429557566674561
-  LoadResult: 0
-  FileSizes:
-  - Name: 
-    Value: 954
-  - Name: 
-    Value: 954
-  - Name: 
-    Value: 954
-  - Name: Assets
-    Value: 954
-  - Name: Build
-    Value: 954
-  - Name: Metadata
-    Value: 954
-  - Name: Plugins
     Value: 954
   Exists: 1
 --- !u!114 &11400000
@@ -357,176 +56,22 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 8357124313168957225}
-  - {fileID: 2027223347287313595}
-  - {fileID: 2351690641189289456}
-  - {fileID: -1804882926886795066}
+  - {fileID: -4170133795930077985}
+  - {fileID: 8008296921586986664}
+  - {fileID: 5833532443386023083}
+  - {fileID: 2545407025938720555}
   EditorEvents:
-  - {fileID: 7895624186103690140}
-  - {fileID: -3697584332225201584}
-  - {fileID: -1934264647505708437}
+  - {fileID: 4247768401219825343}
+  - {fileID: -6449647223405513028}
+  - {fileID: 5854478931853981112}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 2027223347287313595}
+  - {fileID: 8008296921586986664}
   StringsBanks:
-  - {fileID: 8357124313168957225}
-  stringsBankWriteTime: 637429586446983012
+  - {fileID: -4170133795930077985}
+  stringsBankWriteTime: 637429586907640454
   cacheVersion: 5
---- !u!114 &37986406095723544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.bank
-  Name: Build/Desktop/Master
-  lastModified: 637429557565687203
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &128525885771938519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/SFX.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/SFX.bank
-  Name: Build/Desktop/SFX
-  lastModified: 637429557567512322
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &420173343155465690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Music/MenuMusic
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Music/MenuMusic
-  guid: 8181c0872171d842ae7c0fbd4d970565
-  Banks:
-  - {fileID: -4450828996743256565}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 102857
---- !u!114 &611283313848673881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/Music.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Music.bank
-  Name: Build/Desktop/Music
-  lastModified: 637429557567223111
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &1407878119780537844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMODTest/Team5_Neon_Knights/Build/Desktop/Master.bank
-  Name: Master
-  lastModified: 637429500347912043
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &2027223347287313595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.bank
-  Name: Build/Desktop/Master
-  lastModified: 637429570684402531
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &2351690641189289456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/Music.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Music.bank
-  Name: Build/Desktop/Music
-  lastModified: 637429586447093041
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &5571739127036021378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Buttons/Start
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Buttons/Start
-  guid: 52b9a4a55f8db74a8af231e65feb6bec
-  Banks:
-  - {fileID: 128525885771938519}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &5938037705209931324
+--- !u!114 &2545407025938720555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -544,70 +89,7 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
---- !u!114 &6189968521263140311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  lastModified: 637429557566674561
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 954
-  Exists: 1
---- !u!114 &6917936039367972145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Build/Desktop/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.strings.bank
-  Name: Build/Desktop/Master.strings
-  lastModified: 637429586907640454
-  LoadResult: 0
-  FileSizes:
-  - Name: 
-    Value: 954
-  Exists: 1
---- !u!114 &7100759671098990313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Buttons/Quit
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Buttons/Quit
-  guid: ac246d30830c294885002a3b3e3e5fc0
-  Banks:
-  - {fileID: -879989494346692651}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &7895624186103690140
+--- !u!114 &4247768401219825343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -622,7 +104,7 @@ MonoBehaviour:
   Path: event:/Menu/Music/MenuMusic
   guid: 8181c0872171d842ae7c0fbd4d970565
   Banks:
-  - {fileID: 2351690641189289456}
+  - {fileID: 5833532443386023083}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -630,7 +112,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 102857
---- !u!114 &8357124313168957225
+--- !u!114 &5833532443386023083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -640,13 +122,52 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Desktop/Master.strings.bank
+  m_Name: bank:/Music.bank
   m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.strings.bank
-  Name: Desktop/Master.strings
-  lastModified: 637429586446983012
+  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Music.bank
+  Name: Music
+  lastModified: 637429557567223111
   LoadResult: 0
-  FileSizes:
-  - Name: 
-    Value: 954
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5854478931853981112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Menu/Buttons/Quit
+  m_EditorClassIdentifier: 
+  Path: event:/Menu/Buttons/Quit
+  guid: ac246d30830c294885002a3b3e3e5fc0
+  Banks:
+  - {fileID: 2545407025938720555}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &8008296921586986664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.bank
+  Name: Master
+  lastModified: 637429583647220171
+  LoadResult: 0
+  FileSizes: []
   Exists: 1

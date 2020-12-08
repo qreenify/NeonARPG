@@ -7,26 +7,38 @@ using UnityEngine.SceneManagement;
 public class Revive : MonoBehaviour
 {
     public int sceneIndex;
-    public Vector3 fixedLocation;
-    public Mover mover;
+    public Vector3 currentRespawnPoint;
+    private Vector3 _fixedLocation;
+    private int _fixedSceneIndex;
+    public PlayerController playerController;
+    private static Revive _revive;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (_revive != null)
+            Destroy(gameObject);
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            SetMover();
+            _fixedLocation = currentRespawnPoint;
+            _fixedSceneIndex = sceneIndex;
+            _revive = this;
+        }
     }
 
     public void SetMover()
     {
-        mover = FindObjectOfType<Mover>();
+        playerController = PlayerController.playerController;
     }
 
     [ContextMenu("Revive At Fixed Location")]
-    void ReviveFixedLocation()
+    public void ReviveFixedLocation()
     {
         if (SceneManager.GetActiveScene().buildIndex == sceneIndex)
         {
-            mover.transform.position = fixedLocation;
-            mover.GetComponent<Health>().Revive();
+            playerController.transform.position = currentRespawnPoint;
+            playerController.GetComponent<Health>().Revive();
         }
         else
             StartCoroutine(LoadSceneAsync());
@@ -39,10 +51,15 @@ public class Revive : MonoBehaviour
         {
             yield return null;
         }
-        SetMover();
-        mover.navMeshAgent.enabled = false;
-        mover.transform.position = fixedLocation;
-        mover.GetComponent<Health>().Revive();
-        mover.navMeshAgent.enabled = true;
+        playerController.navMeshAgent.enabled = false;
+        playerController.transform.position = currentRespawnPoint;
+        playerController.GetComponent<Health>().Revive();
+        playerController.navMeshAgent.enabled = true;
+    }
+
+    [ContextMenu("SaveRespawnPoint")]
+    public void SaveRespawnPoint()
+    {
+        currentRespawnPoint = FindObjectOfType<PlayerController>().transform.position;
     }
 }

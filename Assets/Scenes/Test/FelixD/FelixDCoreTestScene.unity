@@ -2565,6 +2565,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: MainHUD
+  mode: 1
+  onAwake: 1
 --- !u!1001 &289189881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8829,7 +8831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   priority: 0
-  maxRange: 12412
+  drawAttackLine: {fileID: 0}
   range: 2
   attackDamage: 10
   coolDown: 3
@@ -8846,10 +8848,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48ed25f0322d244a9397c5ed8813e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updatesPerSec: 1
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
+  updatesPerSecond: 4
   target: {fileID: 0}
   interactionRange: 0
 --- !u!195 &1389273371
@@ -15332,6 +15334,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
+--- !u!1 &3921473423398513640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4631111914531391748, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
+  m_PrefabInstance: {fileID: 3921473423398513639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &3921473423398513641
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3921473423398513640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4250997835860350354
 PrefabInstance:
   m_ObjectHideFlags: 0
