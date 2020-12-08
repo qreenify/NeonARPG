@@ -1,35 +1,43 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WayPointTravel : MonoBehaviour
 {
-    public int code;
-    float time = 0;
+    public GameObject[] Button;
 
-    private void Update()
+    private void Start()
     {
-        if(time > 0)
+        for (int i = 0; i < Button.Length; i++)
         {
-            time -= Time.deltaTime;
+
+            Button[i].SetActive(false);
         }
     }
 
+
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.name == "Player" && time <= 0)
+        if (collision.gameObject.name == "Player")
         {
-            foreach (WayPointTravel wp in FindObjectsOfType<WayPointTravel>()) {
+            for (int i = 0; i < Button.Length; i++)
+            {
 
-                if (wp.code == code && wp != this)
-                {
-                    wp.time = 2;
-                    Vector3 position = wp.gameObject.transform.position;                   
-                    position.y += 2;
-                    collision.gameObject.transform.position = position;
-                }
+                Button[i].SetActive(true);
             }
+        }
+    }
 
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.name == "Player")
+        {
+            for (int i = 0; i < Button.Length; i++)
+            {
+
+                Button[i].SetActive(false);
+            }
         }
     }
 }
