@@ -8,25 +8,33 @@ public class Revive : MonoBehaviour
 {
     public int sceneIndex;
     public Vector3 fixedLocation;
-    public Mover mover;
+    public PlayerController playerController;
+    public static Revive revive;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (revive != null)
+            Destroy(gameObject);
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            SetMover();
+            revive = this;
+        }
     }
 
     public void SetMover()
     {
-        mover = FindObjectOfType<Mover>();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     [ContextMenu("Revive At Fixed Location")]
-    void ReviveFixedLocation()
+    public void ReviveFixedLocation()
     {
         if (SceneManager.GetActiveScene().buildIndex == sceneIndex)
         {
-            mover.transform.position = fixedLocation;
-            mover.GetComponent<Health>().Revive();
+            playerController.transform.position = fixedLocation;
+            playerController.GetComponent<Health>().Revive();
         }
         else
             StartCoroutine(LoadSceneAsync());
@@ -40,9 +48,9 @@ public class Revive : MonoBehaviour
             yield return null;
         }
         SetMover();
-        mover.navMeshAgent.enabled = false;
-        mover.transform.position = fixedLocation;
-        mover.GetComponent<Health>().Revive();
-        mover.navMeshAgent.enabled = true;
+        playerController.navMeshAgent.enabled = false;
+        playerController.transform.position = fixedLocation;
+        playerController.GetComponent<Health>().Revive();
+        playerController.navMeshAgent.enabled = true;
     }
 }

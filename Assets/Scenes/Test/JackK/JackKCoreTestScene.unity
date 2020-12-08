@@ -1323,9 +1323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16befad9eb966554d94f574db17b9abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 3
+  sceneIndex: 5
   fixedLocation: {x: -35.923, y: 4.02, z: -10.762}
-  mover: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!4 &447545618
 Transform:
   m_ObjectHideFlags: 0
@@ -1654,9 +1654,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3988166680928562342, guid: a7da84b99c0872a4d9f30c93014795f6, type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988166680928562342, guid: a7da84b99c0872a4d9f30c93014795f6, type: 3}
+      propertyPath: currentHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988166680928562342, guid: a7da84b99c0872a4d9f30c93014795f6, type: 3}
+      propertyPath: onDefeat.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988166680928562342, guid: a7da84b99c0872a4d9f30c93014795f6, type: 3}
       propertyPath: onDefeat.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 447545617}
+    - target: {fileID: 3988166680928562342, guid: a7da84b99c0872a4d9f30c93014795f6, type: 3}
+      propertyPath: onDefeat.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMover
+      objectReference: {fileID: 0}
     - target: {fileID: 6494906191284388364, guid: a7da84b99c0872a4d9f30c93014795f6, type: 3}
       propertyPath: m_Name
       value: Player
