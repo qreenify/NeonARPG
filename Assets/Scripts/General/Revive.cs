@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Revive : MonoBehaviour
 {
-    public string scene;
+    public string scene = "Hub";
     public Vector3 currentRespawnPoint;
     private static Revive _revive;
 
