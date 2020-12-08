@@ -67,6 +67,10 @@ public class Health : MonoBehaviour
         CurrentHealth = maxHealth;
         gameObject.SetActive(true);
         onRevive.Invoke();
+        if (TryGetComponent(out Unit.Unit unit))
+        {
+            unit.Clear();
+        }
         //TODO: Trigger revive sound / animation
     }
     

@@ -8,7 +8,7 @@ public class PlayerHealthUI : MonoBehaviour
 
     private void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        var player = PlayerController.playerController;
         if(player == null)
         {
             Destroy(this);
@@ -21,6 +21,7 @@ public class PlayerHealthUI : MonoBehaviour
             return;
         }
         health.onHealthChanged.AddListener(UpdateAmount);
+        UpdateAmount(health.CurrentHealth);
     }
 
     public void UpdateAmount(float health)
