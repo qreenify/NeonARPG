@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Revive : MonoBehaviour
 {
-    public string scene;
+    public string scene = "Hub";
     public Vector3 currentRespawnPoint;
     private static Revive _revive;
+    private static bool _revived;
 
     private void Awake()
     {
@@ -18,8 +19,11 @@ public class Revive : MonoBehaviour
             scene = _revive.scene;
             currentRespawnPoint = _revive.currentRespawnPoint;
             Destroy(_revive.gameObject);
-            
-            ReviveFixedLocation();
+            if (_revived)
+            {
+                ReviveFixedLocation();
+                _revived = false;
+            }
         }
             
         _revive = this;
@@ -34,7 +38,10 @@ public class Revive : MonoBehaviour
             PlayerController.playerController.GetComponent<Health>().Revive();
         }
         else
+        {
+            _revived = true;
             SceneManager.LoadScene(scene);
+        }
     }
     
     public void ReviveCurrentLocation()

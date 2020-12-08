@@ -1,47 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7271934978636985304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Menu/Buttons/Quit
-  m_EditorClassIdentifier: 
-  Path: event:/Menu/Buttons/Quit
-  guid: ac246d30830c294885002a3b3e3e5fc0
-  Banks:
-  - {fileID: 8608088212250310361}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-5892878090240572784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.bank
-  Name: Master
-  lastModified: 637429583647220171
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
---- !u!114 &-4836537606069378023
+--- !u!114 &-6449647223405513028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,7 +15,7 @@ MonoBehaviour:
   Path: event:/Menu/Buttons/Start
   guid: 52b9a4a55f8db74a8af231e65feb6bec
   Banks:
-  - {fileID: 8608088212250310361}
+  - {fileID: 2545407025938720555}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -64,7 +23,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
---- !u!114 &-1494763267752766618
+--- !u!114 &-4170133795930077985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,13 +33,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
+  m_Name: bank:/Desktop/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Music.bank
-  Name: Music
-  lastModified: 637429557567223111
+  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.strings.bank
+  Name: Desktop/Master.strings
+  lastModified: 637429580887229751
   LoadResult: 0
-  FileSizes: []
+  FileSizes:
+  - Name: 
+    Value: 954
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -95,22 +56,22 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 28095522533511016}
-  - {fileID: -5892878090240572784}
-  - {fileID: -1494763267752766618}
-  - {fileID: 8608088212250310361}
+  - {fileID: -4170133795930077985}
+  - {fileID: 8008296921586986664}
+  - {fileID: 5833532443386023083}
+  - {fileID: 2545407025938720555}
   EditorEvents:
-  - {fileID: 6983635807068881390}
-  - {fileID: -4836537606069378023}
-  - {fileID: -7271934978636985304}
+  - {fileID: 4247768401219825343}
+  - {fileID: -6449647223405513028}
+  - {fileID: 5854478931853981112}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -5892878090240572784}
+  - {fileID: 8008296921586986664}
   StringsBanks:
-  - {fileID: 28095522533511016}
-  stringsBankWriteTime: 637429586907640454
+  - {fileID: -4170133795930077985}
+  stringsBankWriteTime: 637429580887229751
   cacheVersion: 5
---- !u!114 &28095522533511016
+--- !u!114 &2545407025938720555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,17 +81,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/SFX.bank
   m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  lastModified: 637429586907640454
+  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/SFX.bank
+  Name: SFX
+  lastModified: 637429580887419687
   LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 954
+  FileSizes: []
   Exists: 1
---- !u!114 &6983635807068881390
+--- !u!114 &4247768401219825343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +104,7 @@ MonoBehaviour:
   Path: event:/Menu/Music/MenuMusic
   guid: 8181c0872171d842ae7c0fbd4d970565
   Banks:
-  - {fileID: -1494763267752766618}
+  - {fileID: 5833532443386023083}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -153,7 +112,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 102857
---- !u!114 &8608088212250310361
+--- !u!114 &5833532443386023083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,11 +122,52 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/SFX.bank
+  m_Name: bank:/Music.bank
   m_EditorClassIdentifier: 
-  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/SFX.bank
-  Name: SFX
-  lastModified: 637429557567512322
+  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Music.bank
+  Name: Music
+  lastModified: 637429580887329707
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5854478931853981112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Menu/Buttons/Quit
+  m_EditorClassIdentifier: 
+  Path: event:/Menu/Buttons/Quit
+  guid: ac246d30830c294885002a3b3e3e5fc0
+  Banks:
+  - {fileID: 2545407025938720555}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &8008296921586986664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.bank
+  Name: Master
+  lastModified: 637429547206932176
   LoadResult: 0
   FileSizes: []
   Exists: 1
