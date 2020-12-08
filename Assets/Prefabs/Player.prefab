@@ -722,8 +722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bc6c63c735a864dab8bd2f99e45e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 20
+  autoHealing: {fileID: 0}
+  currentHealth: 20
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -825,6 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aeaef56e94f8124eaecfc12e89430e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistance: 50
   playerActions:
   - {fileID: 106218994}
   - {fileID: 106219005}

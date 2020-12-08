@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 2072211179428251249}
   - component: {fileID: 3289029407707899222}
   - component: {fileID: 4158873431110996488}
+  - component: {fileID: 5009376748037338348}
+  - component: {fileID: 6598208390726081408}
   m_Layer: 0
   m_Name: MixedPatrolEnemy
   m_TagString: Enemy
@@ -162,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  autoHealing: {fileID: 0}
   currentHealth: 10
   onMaxHealthSet:
     m_PersistentCalls:
@@ -187,6 +190,9 @@ MonoBehaviour:
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
+  onHealthIncreased:
+    m_PersistentCalls:
+      m_Calls: []
   onDefeat:
     m_PersistentCalls:
       m_Calls: []
@@ -208,6 +214,7 @@ MonoBehaviour:
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
+  updatesPerSecond: 4
   target: {fileID: 0}
   interactionRange: 0
 --- !u!114 &2072211179428251249
@@ -223,8 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 0
-  maxRange: 5
+  priority: 4
+  drawAttackLine: {fileID: 0}
   range: 2
   attackDamage: 10
   coolDown: 3
@@ -242,11 +249,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 0
-  maxRange: 12312
+  priority: 2
   range: 8
   attackDamage: 10
   coolDown: 3
+  windUpTime: 0.4
   showGizmos: 1
 --- !u!114 &4158873431110996488
 MonoBehaviour:
@@ -270,6 +277,38 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 10}
   patrolSpeed: 0
   coolDown: 0
+--- !u!114 &5009376748037338348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072211179428251248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9570acde0f24f9046a95387fcd7bed13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  priority: 1
+  maxRange: 10
+  showGizmos: 1
+--- !u!114 &6598208390726081408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072211179428251248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9570acde0f24f9046a95387fcd7bed13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  priority: 3
+  maxRange: 10
+  showGizmos: 1
 --- !u!1 &2283607601616027216
 GameObject:
   m_ObjectHideFlags: 0

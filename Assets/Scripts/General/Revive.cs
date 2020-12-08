@@ -6,60 +6,52 @@ using UnityEngine.SceneManagement;
 
 public class Revive : MonoBehaviour
 {
-    public int sceneIndex;
+    public string scene;
     public Vector3 currentRespawnPoint;
-    private Vector3 _fixedLocation;
-    private int _fixedSceneIndex;
-    public PlayerController playerController;
     private static Revive _revive;
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         if (_revive != null)
-            Destroy(gameObject);
-        else
         {
-            DontDestroyOnLoad(gameObject);
-            SetMover();
-            _fixedLocation = currentRespawnPoint;
-            _fixedSceneIndex = sceneIndex;
-            _revive = this;
+            scene = _revive.scene;
+            currentRespawnPoint = _revive.currentRespawnPoint;
+            Destroy(_revive.gameObject);
+            
+            ReviveFixedLocation();
         }
-    }
-
-    public void SetMover()
-    {
-        playerController = PlayerController.playerController;
+            
+        _revive = this;
     }
 
     [ContextMenu("Revive At Fixed Location")]
     public void ReviveFixedLocation()
     {
-        if (SceneManager.GetActiveScene().buildIndex == sceneIndex)
+        if (SceneManager.GetActiveScene().name == scene)
         {
-            playerController.transform.position = currentRespawnPoint;
-            playerController.GetComponent<Health>().Revive();
+            PlayerController.playerController.transform.position = currentRespawnPoint;
+            PlayerController.playerController.GetComponent<Health>().Revive();
         }
         else
-            StartCoroutine(LoadSceneAsync());
+            SceneManager.LoadScene(scene);
+    }
+    
+    public void ReviveCurrentLocation()
+    {
+        PlayerController.playerController.GetComponent<Health>().Revive();
     }
 
-    IEnumerator LoadSceneAsync()
+    public void SetRespawnPoint()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneIndex);
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-        playerController.navMeshAgent.enabled = false;
-        playerController.transform.position = currentRespawnPoint;
-        playerController.GetComponent<Health>().Revive();
-        playerController.navMeshAgent.enabled = true;
+        currentRespawnPoint = PlayerController.playerController.transform.position;
+        scene = SceneManager.GetActiveScene().name;
     }
 
     [ContextMenu("SaveRespawnPoint")]
     public void SaveRespawnPoint()
     {
         currentRespawnPoint = FindObjectOfType<PlayerController>().transform.position;
+        scene = SceneManager.GetActiveScene().name;
     }
 }
