@@ -7,25 +7,29 @@ using UnityEngine.SceneManagement;
 public class Revive : MonoBehaviour
 {
     public int sceneIndex;
-    public Vector3 fixedLocation;
+    public Vector3 currentRespawnPoint;
+    private Vector3 _fixedLocation;
+    private int _fixedSceneIndex;
     public PlayerController playerController;
-    public static Revive revive;
+    private static Revive _revive;
 
     private void Awake()
     {
-        if (revive != null)
+        if (_revive != null)
             Destroy(gameObject);
         else
         {
             DontDestroyOnLoad(gameObject);
             SetMover();
-            revive = this;
+            _fixedLocation = currentRespawnPoint;
+            _fixedSceneIndex = sceneIndex;
+            _revive = this;
         }
     }
 
     public void SetMover()
     {
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = PlayerController.playerController;
     }
 
     [ContextMenu("Revive At Fixed Location")]
@@ -33,7 +37,7 @@ public class Revive : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == sceneIndex)
         {
-            playerController.transform.position = fixedLocation;
+            playerController.transform.position = currentRespawnPoint;
             playerController.GetComponent<Health>().Revive();
         }
         else
@@ -47,10 +51,15 @@ public class Revive : MonoBehaviour
         {
             yield return null;
         }
-        SetMover();
         playerController.navMeshAgent.enabled = false;
-        playerController.transform.position = fixedLocation;
+        playerController.transform.position = currentRespawnPoint;
         playerController.GetComponent<Health>().Revive();
         playerController.navMeshAgent.enabled = true;
+    }
+
+    [ContextMenu("SaveRespawnPoint")]
+    public void SaveRespawnPoint()
+    {
+        currentRespawnPoint = FindObjectOfType<PlayerController>().transform.position;
     }
 }

@@ -17,13 +17,19 @@ public class CameraFollow : MonoBehaviour
     [Header("Speeds")]
     public float smoothSpeed = 5f;
     public float scrollSensitivity = 1;
+
+    private static CameraFollow _camera;
        
 
     void Start()
     {
-        
-
-
+        if (_camera != null)
+            Destroy(gameObject);
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            _camera = this;
+        }
     }
 
     private void LateUpdate()
