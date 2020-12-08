@@ -27,7 +27,8 @@ public class Mover : MonoBehaviour {
         cameraToMouseRay = camera.ScreenPointToRay(Input.mousePosition);
         var hasHit = Physics.Raycast(cameraToMouseRay, out var hitPoint);
 
-        if (!hasHit || FindObjectOfType<EventSystem>().IsPointerOverGameObject())
+        var eventSystem = FindObjectOfType<EventSystem>();
+        if (!hasHit || eventSystem != null && eventSystem.IsPointerOverGameObject())
             return;
         navMeshAgent.destination = hitPoint.point;
         if (currentAnimation != null)

@@ -31,7 +31,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187003103660486963}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.56, y: 0.936, z: 11.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -211,7 +211,7 @@ MonoBehaviour:
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
-  updateRate: 25
+  updatesPerSecond: 1
   target: {fileID: 0}
   interactionRange: 0
 --- !u!114 &1187003103660486962
@@ -242,9 +242,9 @@ GameObject:
   - component: {fileID: 8865946093373515984}
   - component: {fileID: 8409419169032915452}
   - component: {fileID: 5731929092511823974}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EarRight
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 7374584992527848413}
   m_Layer: 2
   m_Name: Sensor
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -396,9 +396,9 @@ GameObject:
   - component: {fileID: 1692478614091051080}
   - component: {fileID: 3487700027960689325}
   - component: {fileID: 1582066675493102792}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EyeRight
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -491,9 +491,9 @@ GameObject:
   - component: {fileID: 4627776926301876266}
   - component: {fileID: 4627776926301876268}
   - component: {fileID: 4627776926301876267}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthText
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -587,9 +587,9 @@ GameObject:
   - component: {fileID: 5577862977265830294}
   - component: {fileID: 7452092030488711839}
   - component: {fileID: 839557671447009302}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Nose
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -683,9 +683,9 @@ GameObject:
   - component: {fileID: 5729154439209968016}
   - component: {fileID: 5729154439209968017}
   - component: {fileID: 5729154439209968030}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -778,9 +778,9 @@ GameObject:
   - component: {fileID: 5729154439430101698}
   - component: {fileID: 5729154439430101699}
   - component: {fileID: 5729154439430101696}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -873,9 +873,9 @@ GameObject:
   - component: {fileID: 8432294266709387285}
   - component: {fileID: 4296989778890144911}
   - component: {fileID: 2575217119228814013}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EyeLeft
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -969,9 +969,9 @@ GameObject:
   - component: {fileID: 1822831687370462831}
   - component: {fileID: 9206599461114841879}
   - component: {fileID: 2815849631446075901}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Mouth
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1065,9 +1065,9 @@ GameObject:
   - component: {fileID: 4290627271019827001}
   - component: {fileID: 3377549712048254984}
   - component: {fileID: 588506729797892919}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EarLeft
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
