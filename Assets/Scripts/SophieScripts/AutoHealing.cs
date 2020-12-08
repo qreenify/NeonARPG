@@ -32,7 +32,6 @@ public class AutoHealing : MonoBehaviour
         {
             health.CurrentHealth += addHealth;
             time -= healTime;
-            Debug.Log(health.CurrentHealth);
         }
     }
 }
