@@ -18,5 +18,6 @@ public class Portal : MonoBehaviour
         controller.transform.position = teleportLocation;
         controller.navMeshAgent.enabled = true;
         controller.navMeshAgent.destination = teleportLocation;
+
     }
 }
