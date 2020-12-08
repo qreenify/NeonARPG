@@ -15,23 +15,15 @@ public class AutoHealing : MonoBehaviour
     }
     void Update()
     {
-        if(health.CurrentHealth < health.maxHealth)
-        {
-            time += Time.deltaTime;
-        }
-        else
-        {
-            time = 0.0f;
-        }
+      
         AutoHeal();
     }
 
     public void AutoHeal()
     {
-        if(time >=healTime)
+        if (health.CurrentHealth < health.maxHealth)
         {
-            health.CurrentHealth += addHealth;
-            time -= healTime;
+            health.CurrentHealth += addHealth * Time.deltaTime;
         }
     }
 }
