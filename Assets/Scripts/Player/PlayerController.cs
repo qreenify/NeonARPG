@@ -15,6 +15,18 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public NavMeshAgent navMeshAgent;
     public GameObject moveAnimation;
     public GameObject currentAnimation;
+    public static PlayerController playerController;
+
+    private void Awake()
+    {
+        if (playerController != null)
+            Destroy(gameObject);
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            playerController = this;
+        }
+    }
 
     private void Start()
     {
@@ -22,6 +34,11 @@ public class PlayerController : MonoBehaviour
         _camera = Camera.main;
         _unit = GetComponent<Unit.Unit>();
         SetWeapon();
+    }
+
+    public void ReInitialize()
+    {
+        _camera = Camera.main;
     }
 
     private void Update()
