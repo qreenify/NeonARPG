@@ -21,7 +21,7 @@ public class CameraFollow : MonoBehaviour
     private static CameraFollow _camera;
        
 
-    void Start()
+    void Awake()
     {
         if (_camera != null)
             Destroy(gameObject);
