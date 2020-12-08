@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
                 if (!inRange)
                 {
-                    navMeshAgent.destination = hit.point;
+                    navMeshAgent.destination = hit.collider.transform.position;
                 }
             }
             
