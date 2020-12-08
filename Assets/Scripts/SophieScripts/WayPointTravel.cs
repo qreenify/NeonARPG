@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class WayPointTravel : MonoBehaviour
 {
-    public GameObject Button;
+    public GameObject[] Button;
 
     private void Start()
     {
-        Button.SetActive(false);
+        for (int i = 0; i < Button.Length; i++)
+        {
+
+            Button[i].SetActive(false);
+        }
     }
 
 
@@ -17,16 +21,11 @@ public class WayPointTravel : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            Button.SetActive(true);
-            //foreach (WayPointTravel wp in FindObjectsOfType<WayPointTravel>()) {
+            for (int i = 0; i < Button.Length; i++)
+            {
 
-            // if (wp.code == code && wp != this)
-            // {
-            //     wp.time = 2;
-            //     Vector3 position = wp.gameObject.transform.position;                   
-            //     position.y += 2;
-            //     collision.gameObject.transform.position = position;
-            // }
+                Button[i].SetActive(true);
+            }
         }
     }
 
@@ -34,7 +33,11 @@ public class WayPointTravel : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            Button.SetActive(false);
+            for (int i = 0; i < Button.Length; i++)
+            {
+
+                Button[i].SetActive(false);
+            }
         }
     }
 }
