@@ -5,39 +5,32 @@ using UnityEngine;
 
 public class WayPointTravel : MonoBehaviour
 {
-    public GameObject[] Button;
+    public GameObject[] Buttons;
+    public bool isActive;
 
     private void Start()
     {
-        for (int i = 0; i < Button.Length; i++)
+        for (int i = 0; i < Buttons.Length; i++)
         {
-
-            Button[i].SetActive(false);
+            Buttons[i].SetActive(false);
         }
     }
 
-
-    private void OnTriggerEnter(Collider collision)
+    public void SpawnItems()
     {
-        if (collision.gameObject.name == "Player")
+        for (int i = 0; i < Buttons.Length; i++)
         {
-            for (int i = 0; i < Button.Length; i++)
-            {
-
-                Button[i].SetActive(true);
-            }
+            Buttons[i].SetActive(true);
         }
     }
 
-    private void OnTriggerExit(Collider collision)
+    public void RemoveItems()
     {
-        if (collision.gameObject.name == "Player")
+        for (int i = 0; i < Buttons.Length; i++)
         {
-            for (int i = 0; i < Button.Length; i++)
-            {
-
-                Button[i].SetActive(false);
-            }
+            Buttons[i].SetActive(false);
         }
     }
+
+
 }
