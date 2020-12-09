@@ -1312,7 +1312,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitTime: 1
-  exitStartTime: 0
 --- !u!114 &1231232733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2087,7 +2086,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 20.05
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2622,7 +2621,6 @@ GameObject:
   - component: {fileID: 680724745673753131}
   - component: {fileID: 680724745673753130}
   - component: {fileID: 680724745673753129}
-  - component: {fileID: 680724745673753132}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -2743,21 +2741,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680724745673753127}
   m_CullTransparentMesh: 0
---- !u!114 &680724745673753132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680724745673753127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 057a841de6b9d7241b19bbdc758ccb48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onToggleActive:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &680724746023208178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,6 +2755,7 @@ GameObject:
   - component: {fileID: 680724746023208182}
   - component: {fileID: 680724746023208183}
   - component: {fileID: 680724746023208185}
+  - component: {fileID: 680724746023208184}
   m_Layer: 5
   m_Name: MenuPanel
   m_TagString: Untagged
@@ -2853,9 +2837,9 @@ MonoBehaviour:
   onToggleActive:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SetTimePlayed, Assembly-CSharp
-        m_MethodName: SetTimePlayedText
+      - m_Target: {fileID: 680724746023208184}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2877,6 +2861,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0053355cf4640b44bb5df32d67e4e02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &680724746023208184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680724746023208178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Menu/Buttons/Quit
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!114 &680724746023208185
 MonoBehaviour:
   m_ObjectHideFlags: 0
