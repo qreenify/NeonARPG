@@ -25,6 +25,8 @@ public class DamagePopup : MonoBehaviour
         transform.position = position;
         if (IsTextMeshPro)
             textMeshPro.SetText(damageAmount.ToString());
+        else 
+            textMesh.text = damageAmount.ToString();
         if (!isCriticalHit)
         {
             if (IsTextMeshPro)
