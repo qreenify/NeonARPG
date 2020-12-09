@@ -7,9 +7,6 @@ public class EnterExitMenu : MonoBehaviour
     public void ToggleActive()
     {
         gameObject.SetActive(!gameObject.activeSelf);
-        if (gameObject.activeSelf)
-        {
-            onToggleActive.Invoke();
-        }
+        onToggleActive.Invoke();
     }
 }
