@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1154395053478331595, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1154395053478331595, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
+      propertyPath: currentHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921473423398513641, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
+      propertyPath: m_Radius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921473423398513642, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
+      propertyPath: range
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4393878026394862796, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -63,9 +79,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4631111914531391745, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
+      propertyPath: attackDamage
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4631111914531391748, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
       propertyPath: m_Name
-      value: MeleeEnemy (12)
+      value: Boss 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}

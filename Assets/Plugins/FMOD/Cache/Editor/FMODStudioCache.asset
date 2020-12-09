@@ -93,14 +93,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Desktop/Master.strings.bank
   m_EditorClassIdentifier: 
   Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  lastModified: 637430527724696584
+  Name: Desktop/Master.strings
+  lastModified: 637430473134859367
   LoadResult: 0
   FileSizes:
-  - Name: Desktop
+  - Name: 
     Value: 1052
   Exists: 1
 --- !u!114 &-2995483146303973931
@@ -150,7 +150,7 @@ MonoBehaviour:
   - {fileID: 8008296921586986664}
   StringsBanks:
   - {fileID: -4170133795930077985}
-  stringsBankWriteTime: 637430527724696584
+  stringsBankWriteTime: 637430473134859367
   cacheVersion: 5
 --- !u!114 &1976510763957569994
 MonoBehaviour:
@@ -192,7 +192,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -5781086295770163003}
+  - {fileID: 6926944204215565380}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/SFX.bank
   Name: SFX
-  lastModified: 637430527725195254
+  lastModified: 637429597856785488
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Music.bank
   Name: Music
-  lastModified: 637430527724995787
+  lastModified: 637429597856775522
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -358,6 +358,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &6926944204215565380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Hover_Click/CharacterMoving
+  m_EditorClassIdentifier: 
+  Name: CharacterMoving
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &8008296921586986664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/FMOD/Team5_Neon_Knights/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637430527724666662
+  lastModified: 637431070486194009
   LoadResult: 0
   FileSizes: []
   Exists: 1
