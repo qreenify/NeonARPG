@@ -651,6 +651,7 @@ GameObject:
   - component: {fileID: 8151515844709064747}
   - component: {fileID: 4631111913639379721}
   - component: {fileID: 3559255235070534441}
+  - component: {fileID: 9144876130908941096}
   m_Layer: 0
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -794,6 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  autoHealing: {fileID: 0}
   currentHealth: 10
   onMaxHealthSet:
     m_PersistentCalls:
@@ -819,6 +821,9 @@ MonoBehaviour:
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
+  onHealthIncreased:
+    m_PersistentCalls:
+      m_Calls: []
   onDefeat:
     m_PersistentCalls:
       m_Calls: []
@@ -840,6 +845,7 @@ MonoBehaviour:
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
+  updatesPerSecond: 4
   target: {fileID: 0}
   interactionRange: 0
 --- !u!114 &4631111913639379721
@@ -856,10 +862,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   priority: 0
-  maxRange: 10
   range: 8
   attackDamage: 10
   coolDown: 3
+  windUpTime: 0.4
   showGizmos: 1
 --- !u!114 &3559255235070534441
 MonoBehaviour:
@@ -877,6 +883,19 @@ MonoBehaviour:
   priority: 1
   maxRange: 5
   showGizmos: 1
+--- !u!135 &9144876130908941096
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151515844709064751}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8237356869472245775
 GameObject:
   m_ObjectHideFlags: 0
