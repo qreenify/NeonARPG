@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 1619846488856154971}
   - component: {fileID: 7647693274487044555}
   - component: {fileID: 2819339979424397464}
+  - component: {fileID: -476581987860635167}
   m_Layer: 0
   m_Name: MixedEnemy
   m_TagString: Enemy
@@ -536,6 +537,19 @@ MonoBehaviour:
   priority: 2
   maxRange: 10
   showGizmos: 1
+--- !u!135 &-476581987860635167
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819211636055437437}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4816025790500362262
 GameObject:
   m_ObjectHideFlags: 0
