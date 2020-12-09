@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using FMODUnity;
 
 public class DamagePopUpSpawner : MonoBehaviour
 {
