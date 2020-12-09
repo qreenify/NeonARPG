@@ -724,7 +724,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
+  autoHealing: {fileID: 0}
   currentHealth: 30
+  damagePopUp: 1
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -772,6 +774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   priority: 4
+  drawAttackLine: {fileID: 0}
   range: 3.75
   attackDamage: 10
   coolDown: 3
@@ -810,7 +813,7 @@ MonoBehaviour:
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
-  updateRate: 12
+  updatesPerSecond: 4
   target: {fileID: 0}
   interactionRange: 0
 --- !u!114 &6133157753091492733
