@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6723918013360812519}
   - component: {fileID: 6723918013255970043}
   - component: {fileID: 7373766382861774211}
+  - component: {fileID: 1656919578006966987}
   m_Layer: 0
   m_Name: WanderingEnemy
   m_TagString: Enemy
@@ -162,7 +163,7 @@ MonoBehaviour:
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
-  updateRate: 25
+  updatesPerSecond: 4
   target: {fileID: 0}
   interactionRange: 0
 --- !u!114 &6723918013255970043
@@ -195,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  autoHealing: {fileID: 0}
   currentHealth: 100
   onMaxHealthSet:
     m_PersistentCalls:
@@ -217,6 +219,19 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
+--- !u!135 &1656919578006966987
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941279114186496860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1036074527262172028
 GameObject:
   m_ObjectHideFlags: 0
