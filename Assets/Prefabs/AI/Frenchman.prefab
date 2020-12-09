@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4627776924780494076}
   - component: {fileID: 1187003103660486967}
   - component: {fileID: 1187003103660486962}
+  - component: {fileID: -6583462442607106636}
   m_Layer: 0
   m_Name: Frenchman
   m_TagString: Enemy
@@ -162,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  autoHealing: {fileID: 0}
   currentHealth: 10
   onMaxHealthSet:
     m_PersistentCalls:
@@ -228,8 +230,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   priority: 0
-  maxRange: 5000
+  maxRange: 10
   showGizmos: 1
+--- !u!135 &-6583462442607106636
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187003103660486963}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1371888273158719763
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +384,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7374584992527848413
 MonoBehaviour:
@@ -383,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07147bdfc8c3357488734e2d880526a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  range: 0
 --- !u!1 &4396667627868245552
 GameObject:
   m_ObjectHideFlags: 0

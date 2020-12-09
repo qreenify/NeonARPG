@@ -2,15 +2,25 @@
 
 public class ExitGame : MonoBehaviour
 {
-    public AudioSource endGameSound;
+    public float exitTime = 1;
+    public float exitStartTime;
+    public void Awake()
+    {
+        enabled = false;
+    }
+    public void Update()
+    {
+        if(Time.time - exitStartTime > exitTime)
+        {
+            Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        }
+    }
     public void Quit()
     {
-        if(endGameSound != null)
-            endGameSound.Play();
-        Application.Quit();
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
+        exitStartTime = Time.time;
+        enabled = true;
     }
 }
