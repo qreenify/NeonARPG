@@ -23,16 +23,20 @@ public class CameraFollow : MonoBehaviour
     {
         if (_camera != null)
         {
-            target = _camera.target != null ? _camera.target : PlayerController.playerController.transform;
             Destroy(_camera.gameObject);
             DontDestroyOnLoad(gameObject);
             _camera = this;
+            if (PlayerController.playerController == null) return;
+            target = _camera.target != null ? _camera.target : PlayerController.playerController.transform;
+            PlayerController.playerController.camera = GetComponent<Camera>();
         }
         else
         {
             DontDestroyOnLoad(gameObject);
-            target = PlayerController.playerController != null ? PlayerController.playerController.transform : null;
             _camera = this;
+            if (PlayerController.playerController == null) return;
+            target = PlayerController.playerController != null ? PlayerController.playerController.transform : null;
+            PlayerController.playerController.camera = GetComponent<Camera>();
         }
     }
 

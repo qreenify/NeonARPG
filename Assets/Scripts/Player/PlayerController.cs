@@ -3,15 +3,17 @@ using Unit;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    private Camera _camera;
+    [HideInInspector] public Camera camera;
     private Unit.Unit _unit;
     public float maxDistance = 50;
     public UnitAction[] playerActions;
     public bool ranged;
     public KeyCode weaponSwitch;
+    public KeyCode lookAroundKey = KeyCode.LeftShift;
     [HideInInspector] public NavMeshAgent navMeshAgent;
     public GameObject moveAnimation;
     public GameObject currentAnimation;
@@ -31,14 +33,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        _camera = Camera.main;
         _unit = GetComponent<Unit.Unit>();
         SetWeapon();
-    }
-
-    public void ReInitialize()
-    {
-        _camera = Camera.main;
     }
 
     private void Update()
@@ -49,49 +45,65 @@ public class PlayerController : MonoBehaviour
 
     private void Select()
     {
-        if (!Input.GetMouseButton(0)) return;
-        var eventSystem = FindObjectOfType<EventSystem>();
-        if (!Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit) || eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
-        if (Vector3.Distance(hit.point, transform.position) > maxDistance) return;
-        if (hit.collider != null)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (hit.collider.gameObject.CompareTag("Enemy") && hit.collider.gameObject.TryGetComponent(out Health health))
+            var eventSystem = FindObjectOfType<EventSystem>();
+            if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) ||
+                eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
+            if (Vector3.Distance(hit.point, transform.position) > maxDistance) return;
+            if (hit.collider != null)
             {
-                var enemy = hit.collider.gameObject;
-                _unit.target = enemy.transform;
-                if (currentAnimation != null) 
-                { 
-                    Destroy(currentAnimation);
-                }
-
-                var inRange = false;
-                switch (_unit.currentAction)
+                if (hit.collider.gameObject.CompareTag("Enemy") &&
+                    hit.collider.gameObject.TryGetComponent(out Health health))
                 {
-                    case Unit.RangedAttack rangedAttack:
-                        inRange = rangedAttack.InAttackRange;
-                        break;
-                    case MeleeAttack meleeAttack:
-                        inRange = meleeAttack.InAttackRange;
-                        break;
-                }
+                    var enemy = hit.collider.gameObject;
+                    _unit.target = enemy.transform;
+                    if (currentAnimation != null)
+                    {
+                        Destroy(currentAnimation);
+                    }
 
-                if (!inRange)
-                {
-                    navMeshAgent.destination = hit.collider.transform.position;
+                    var inRange = false;
+                    switch (_unit.currentAction)
+                    {
+                        case Unit.RangedAttack rangedAttack:
+                            inRange = rangedAttack.InAttackRange;
+                            break;
+                        case MeleeAttack meleeAttack:
+                            inRange = meleeAttack.InAttackRange;
+                            break;
+                    }
+
+                    if (!inRange)
+                    {
+                        navMeshAgent.destination = hit.collider.transform.position;
+                    }
                 }
             }
+        }
+
+        else if (Input.GetMouseButton(1))
+        {
+            var eventSystem = FindObjectOfType<EventSystem>();
+            if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) || eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
+            if (Vector3.Distance(hit.point, transform.position) > maxDistance) return;
             
-            else
-            {
-                _unit.target = null;
-                if (currentAnimation != null) 
-                { 
-                    Destroy(currentAnimation);
-                }
-                currentAnimation = Instantiate(moveAnimation);
-                currentAnimation.transform.position = hit.point;
-                navMeshAgent.destination = hit.point;
+            _unit.target = null;
+            if (currentAnimation != null) 
+            { 
+                Destroy(currentAnimation);
             }
+            currentAnimation = Instantiate(moveAnimation);
+            currentAnimation.transform.position = hit.point;
+            navMeshAgent.destination = hit.point;
+        }
+        
+        else if (Input.GetKey(lookAroundKey))
+        {
+            var eventSystem = FindObjectOfType<EventSystem>();
+            if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) ||
+                eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
+            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
         }
     }
 
