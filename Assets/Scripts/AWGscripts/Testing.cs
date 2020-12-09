@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Random = System.Random;
+using Random = UnityEngine.Random;
 
 public class Testing : MonoBehaviour {
     private void Start() {
@@ -15,8 +15,8 @@ public class Testing : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //bool isCriticalHit = Random.Range(0, 100) < 30;
-            //DamagePopup.Create(MouseCursor(),100, isCriticalHit);
+            bool isCriticalHit = Random.Range(0, 100) < 30;
+            //DamagePopup.Create(,100, isCriticalHit);
         }
     }
 }

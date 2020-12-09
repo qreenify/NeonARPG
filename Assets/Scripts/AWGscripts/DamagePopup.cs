@@ -3,42 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class DamagePopup : MonoBehaviour
 {
-    public static DamagePopup Create(Vector3 position, int damageAmount, bool isCriticalHit)
-    {
-        Transform damagePopupTransform = Instantiate(GameAssets.i.pfDamagePopup, position, Quaternion.identity);
-        
-        DamagePopup damagePopup = damagePopupTransform.GetComponent<DamagePopup>();
-        damagePopup.Setup(damageAmount, isCriticalHit);
-
-        return damagePopup;
-    }
-
     private const float Disappear_Timer_Max = 1f;
-    private TextMeshPro textMesh;
+    private TextMeshPro textMeshPro;
+    private TextMesh textMesh;
     private float disappearTimer;
     private Color textColor;
+
+    private bool IsTextMeshPro => textMeshPro != null;
     
     public void Awake() {
-        textMesh = transform.GetComponent<TextMeshPro>();
+        textMeshPro = transform.GetComponent<TextMeshPro>();
+        textMesh = transform.GetComponent<TextMesh>();
     }
 
-    public void Setup(int damageAmount, bool isCriticalHit) {
-        textMesh.SetText(damageAmount.ToString());
+    public void Setup(Vector3 position, float damageAmount, bool isCriticalHit)
+    {
+        transform.position = position;
+        if (IsTextMeshPro)
+            textMeshPro.SetText(damageAmount.ToString());
         if (!isCriticalHit)
         {
-            textMesh.fontSize = 36;
+            if (IsTextMeshPro)
+                textMeshPro.fontSize = 36;
             textColor = Color.yellow;
         }
 
         else {
-                textMesh.fontSize = 45;
-                textColor = Color.red;
+            if (IsTextMeshPro)
+                textMeshPro.fontSize = 45;
+            textColor = Color.red;
         }
 
-        textColor = textMesh.color;
+        if (IsTextMeshPro)
+            textMeshPro.color = textColor;
+        else
+            textMesh.color = textColor;
         disappearTimer = Disappear_Timer_Max;
     }
 
@@ -63,7 +66,10 @@ public class DamagePopup : MonoBehaviour
         {
             float disappearSpeed = 3f;
             textColor.a -= disappearSpeed * Time.deltaTime;
-            textMesh.color = textColor;
+            if (IsTextMeshPro)
+                textMeshPro.color = textColor;
+            else
+                textMesh.color = textColor;
 
             if (textColor.a < 0)
             {

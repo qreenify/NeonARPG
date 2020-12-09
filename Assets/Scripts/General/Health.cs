@@ -7,11 +7,12 @@ public class Health : MonoBehaviour
 {
     public float maxHealth;
     public AutoHealing autoHealing;
+    public static bool debug;
     [SerializeField] private float currentHealth;
     public UnityEvent<float> onMaxHealthSet;
     public UnityEvent<string> onHealthUI;
     public UnityEvent<float> onHealthChanged;
-    public UnityEvent<float> onDamageTaken;
+    public UnityEvent<Transform, float> onDamageTaken;
     public UnityEvent<float> onHealthIncreased;
     public UnityEvent onDefeat;
     public UnityEvent onRevive;
@@ -22,12 +23,13 @@ public class Health : MonoBehaviour
         set
         {
             if (value < currentHealth)
-                onDamageTaken.Invoke(currentHealth - value);
+                onDamageTaken.Invoke(transform, currentHealth - value);
             else if (value > currentHealth) 
                 onHealthIncreased.Invoke(value - currentHealth);
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
             onHealthUI.Invoke(currentHealth.ToString());
-            Debug.Log($"{gameObject.name} {currentHealth}/{maxHealth}");
+            if (debug)
+                Debug.Log($"{gameObject.name} {currentHealth}/{maxHealth}");
             Defeat();
             onHealthChanged.Invoke(currentHealth);
         }
@@ -41,14 +43,14 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
-        onDamageTaken.Invoke(damage);
+        //onDamageTaken.Invoke(this, damage);
     }
 
     [ContextMenu("TakeDamage")]
     public void TakeDamage()
     {
         CurrentHealth -= 5;
-        onDamageTaken.Invoke(5);
+        //onDamageTaken.Invoke(this, 5);
     }
     
     public void Defeat()
@@ -85,5 +87,11 @@ public class Health : MonoBehaviour
     private void OnValidate()
     {
         currentHealth = maxHealth;
+    }
+
+    [ContextMenu("ToggleDebug")]
+    private void ToggleDebug()
+    {
+        debug = !debug;
     }
 }
