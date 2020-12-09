@@ -16,7 +16,7 @@ public class PlayerAttackModeUI : MonoBehaviour
     {
         UpdateAttackModeText();
     }
-    public void UpdateAttackModeText()
+    void UpdateAttackModeText()
     {
         if (player.ranged)
         {
