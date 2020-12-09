@@ -18,6 +18,10 @@ public class PlayerAttackModeUI : MonoBehaviour
     }
     void UpdateAttackModeText()
     {
+        if(player == null)
+        {
+            return;
+        }
         if (player.ranged)
         {
             tmp.text = $"Attack Mode:\nRanged";
