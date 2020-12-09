@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public AutoHealing autoHealing;
     public static bool debug;
     [SerializeField] private float currentHealth;
+    public bool useDamagePopUp = true;
     public UnityEvent<float> onMaxHealthSet;
     public UnityEvent<string> onHealthUI;
     public UnityEvent<float> onHealthChanged;
@@ -23,7 +24,12 @@ public class Health : MonoBehaviour
         set
         {
             if (value < currentHealth)
+            {
                 onDamageTaken.Invoke(transform, currentHealth - value);
+                if (useDamagePopUp)
+                    DamagePopUpSpawner.Create(transform, currentHealth - value);
+            }
+                
             else if (value > currentHealth) 
                 onHealthIncreased.Invoke(value - currentHealth);
             currentHealth = Mathf.Clamp(value, 0, maxHealth);

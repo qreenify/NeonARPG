@@ -1,28 +1,21 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Reflection;
+﻿using UnityEngine;
 
 public class GameAssets : MonoBehaviour
 {
     private static GameAssets _i;
-    public GameObject pfDamagePopup;
-    public static GameObject damagePopup;
+    public GameObject damagePopup;
 
-    private void Start()
+    private void Awake()
     {
-        damagePopup = pfDamagePopup;
-    }
-
-    public static GameAssets i
-    {
-        get
+        if (_i == null)
         {
-            if (_i == null) _i = Instantiate(Resources.Load<GameAssets>("GameAssets"));
-            return _i;
+            _i = this;
         }
+        else
+            Destroy(gameObject);
     }
+
+    public static GameAssets Instance => _i;
 }
 
 
