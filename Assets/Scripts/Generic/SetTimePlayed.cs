@@ -20,5 +20,6 @@ public class SetTimePlayed : MonoBehaviour
     {
         TimePlayed.SaveDestroyedTime();
         TimePlayed.SaveTimePlayed();
+        Debug.Log(TimePlayed.GetTimePlayed());
     }
 }
