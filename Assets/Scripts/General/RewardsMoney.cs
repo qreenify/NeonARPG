@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+[System.Serializable]
 public class RewardsMoney : MonoBehaviour, IReward
 {
     public int reward;

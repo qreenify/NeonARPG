@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerLevel : MonoBehaviour
+public class PlayerLevel : MonoBehaviour, ISaveable
 {
     public float baseRequiredExp = 100;
     public float increasePerLevel = 5;
@@ -37,5 +38,36 @@ public class PlayerLevel : MonoBehaviour
         onLevelChanged.Invoke(level);
         _experience -= RequiredExp;
         level++;
+    }
+    
+    public bool Deserialize(string playerLevel)
+    {
+        var json = JsonUtility.FromJson<LevelSave>(playerLevel);
+        if (json.Equals(new LevelSave())) return false;
+        json.ApplyValues(this);
+        return true;
+    }
+    
+    public string Serialize() => JsonUtility.ToJson(new LevelSave(this));
+
+    [Serializable]
+    internal class LevelSave
+    {
+        public bool Equals(LevelSave other) => experience.Equals(other.experience) && level == other.level;
+        public float experience;
+        public int level;
+
+        public LevelSave() {}
+        public LevelSave(PlayerLevel playerLevel)
+        {
+            experience = playerLevel.Experience;
+            level = playerLevel.level;
+        }
+
+        public void ApplyValues(PlayerLevel playerLevel)
+        {
+            playerLevel.Experience = experience;
+            playerLevel.level = level;
+        }
     }
 }

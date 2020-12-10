@@ -1,9 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, ISaveable
 {
     public float maxHealth;
     public AutoHealing autoHealing;
@@ -97,12 +96,46 @@ public class Health : MonoBehaviour
 
     private void OnValidate()
     {
-        currentHealth = maxHealth;
+        #if UNITY_EDITOR
+        if (!UnityEditor.EditorApplication.isPlaying)
+            currentHealth = maxHealth;
+        #endif
     }
 
     [ContextMenu("ToggleDebug")]
     private void ToggleDebug()
     {
         debug = !debug;
+    }
+
+    public bool Deserialize(string save)
+    {
+        var json = JsonUtility.FromJson<HealthSave>(save);
+        if (json.Equals(new HealthSave(this))) return false;
+        json.ApplyValues(this);
+        return true;
+    }
+
+    public string Serialize() => JsonUtility.ToJson(new HealthSave(this));
+    
+    [Serializable]
+    internal class HealthSave
+    {
+        public bool Equals(HealthSave other) => health == other.health && maxHealth == other.health;
+        public float health;
+        public float maxHealth;
+        public HealthSave(){}
+
+        public HealthSave(Health health)
+        {
+            this.health = health.currentHealth; 
+            maxHealth = health.maxHealth;
+        }
+
+        public void ApplyValues(Health health)
+        {
+            health.maxHealth = maxHealth;
+            health.currentHealth = this.health;
+        }
     }
 }
