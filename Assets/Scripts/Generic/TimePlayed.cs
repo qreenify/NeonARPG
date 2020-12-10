@@ -21,7 +21,7 @@ public static class TimePlayed
             Debug.Log(lastUpdatedTime.ToString(CultureInfo.InvariantCulture) + " LastUpdatedTime");
             Debug.Log(destroyedTime.ToString(CultureInfo.InvariantCulture) + " DestroyedTime");
             var difference = (lastUpdatedTime - destroyedTime).TotalMinutes;
-            Debug.Log(difference + " Difference");
+            //Debug.Log(difference + " Difference");
             return true;
         }
 
