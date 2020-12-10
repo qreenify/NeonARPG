@@ -1345,6 +1345,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8eb27d8cfcdc57347a71773ee14882ff, type: 3}
   m_PrefabInstance: {fileID: 172854718}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &176877198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3190427669084539317, guid: 17d870586d4f26246a9f0756d18d846a, type: 3}
+  m_PrefabInstance: {fileID: 289189881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &176877211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176877198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Player/Move/MoveParam
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &180433434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2599,6 +2627,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3362111887591042042, guid: 17d870586d4f26246a9f0756d18d846a, type: 3}
+      propertyPath: range
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -3362111887591042042, guid: 17d870586d4f26246a9f0756d18d846a, type: 3}
       propertyPath: volume
       value: 0.05
@@ -13330,9 +13362,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPath: event:/Player/Move/MoveParam
-  volume: 1
+  volume: 0.05
   parameterName: CharacterMoving
   parameterValue: 0
+  globalSound: 0
+  range: 10
+--- !u!114 &1937627089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937627072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8349bd87b861544b9b8dfa2bcbb4467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoveringSound: {fileID: 1937627087}
 --- !u!1001 &1946179767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16032,6 +16079,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 518534557}
     m_Modifications:
     - target: {fileID: -5330884372206079570, guid: bfc9e26e942444f42b7321a1b5624d8a, type: 3}
+      propertyPath: range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -5330884372206079570, guid: bfc9e26e942444f42b7321a1b5624d8a, type: 3}
       propertyPath: parameterValue
       value: 0
       objectReference: {fileID: 0}
@@ -16101,6 +16152,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 518534557}
     m_Modifications:
+    - target: {fileID: 979445853634881835, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
+      propertyPath: range
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 979445853634881835, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
       propertyPath: parameterValue
       value: 0
@@ -16177,6 +16232,29 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3921473423398513642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3921473423398513640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Player/Move/MoveParam
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &4250997835860350354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16254,6 +16332,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 518534557}
     m_Modifications:
+    - target: {fileID: -6712297603434465160, guid: 43fbb4ad060177d4c9590202e91632b9, type: 3}
+      propertyPath: range
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2072211179428251248, guid: 43fbb4ad060177d4c9590202e91632b9, type: 3}
       propertyPath: m_Name
       value: MixedPatrolEnemy
@@ -16396,6 +16478,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 518534557}
     m_Modifications:
+    - target: {fileID: -5464854389967347002, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
+      propertyPath: range
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -5464854389967347002, guid: c644f8a55b4047f44949dd18227cbe89, type: 3}
       propertyPath: parameterValue
       value: 0
