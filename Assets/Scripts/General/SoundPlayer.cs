@@ -14,6 +14,10 @@ public class SoundPlayer : MonoBehaviour
     [Range(0f, 1f)]
     public float parameterValue;
 
+
+    public bool globalSound = false;
+    public float range;
+
     FMOD.Studio.EventInstance music;
     //FMOD.Studio.System system;
     //public StudioEventEmitter studioEventEmitter;
@@ -25,16 +29,42 @@ public class SoundPlayer : MonoBehaviour
             //system.setParameterByName("CharacterMoving", walking);
             //music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
             //music.setParameterByName("CharacterMoving", walking);
-            //music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
             music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
             music.start();
+            //if (!GlobalSound)
+            //{
+            //    music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject, GetComponent<Rigidbody>()));
+            //    FMODUnity.RuntimeManager.AttachInstanceToGameObject(music, transform, GetComponent<Rigidbody>());
+                //music.setProperty(FMOD.Studio.EVENT_PROPERTY.MINIMUM_DISTANCE, minDistance);
+                //music.setProperty(FMOD.Studio.EVENT_PROPERTY.MAXIMUM_DISTANCE, maxDistance);
+            //}
         }
     }
     void Update()
     {
-        music.setVolume(volume);
         //if(parameterName != "")
         music.setParameterByName("CharacterMoving", parameterValue);
+        if (!globalSound)
+        {
+            if (PlayerController.playerController != null)
+            {
+                Debug.Log(this + "Shit" +  Vector3.Distance(transform.position, PlayerController.playerController.transform.position));
+                if(Vector3.Distance(transform.position, PlayerController.playerController.transform.position) < range)
+                {
+                    music.setVolume(volume);
+                }
+                else
+                {
+                    music.setVolume(0);
+                }
+            }
+        }
+        else
+        {
+            music.setVolume(volume);
+        }
+
+        //music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
         //FMOD.Studio.
         //music.setProperty(FMOD.Studio.EVENT_PROPERTY 1, 10);
         //music.release();
