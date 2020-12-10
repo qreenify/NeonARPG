@@ -271,6 +271,8 @@ GameObject:
   - component: {fileID: 7647693274487044555}
   - component: {fileID: 2819339979424397464}
   - component: {fileID: -476581987860635167}
+  - component: {fileID: -5464854389967347002}
+  - component: {fileID: -100526497565788426}
   m_Layer: 0
   m_Name: MixedEnemy
   m_TagString: Enemy
@@ -416,6 +418,7 @@ MonoBehaviour:
   maxHealth: 10
   autoHealing: {fileID: 0}
   currentHealth: 10
+  useDamagePopUp: 1
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -550,6 +553,35 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5464854389967347002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819211636055437437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/Player/Move/MoveParam
+  volume: 0.05
+  parameterName: CharacterMoving
+  parameterValue: 0
+--- !u!114 &-100526497565788426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819211636055437437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8349bd87b861544b9b8dfa2bcbb4467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoveringSound: {fileID: 979445853634881835, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
 --- !u!1 &4816025790500362262
 GameObject:
   m_ObjectHideFlags: 0

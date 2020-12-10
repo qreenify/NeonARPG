@@ -498,6 +498,8 @@ GameObject:
   - component: {fileID: 4631111914531391745}
   - component: {fileID: -5415959304005635073}
   - component: {fileID: 6536048147363671168}
+  - component: {fileID: 979445853634881835}
+  - component: {fileID: 4715781511654852221}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -643,6 +645,7 @@ MonoBehaviour:
   maxHealth: 10
   autoHealing: {fileID: 0}
   currentHealth: 10
+  useDamagePopUp: 1
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -742,6 +745,35 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &979445853634881835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4631111914531391748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/Player/Move/MoveParam
+  volume: 0.05
+  parameterName: CharacterMoving
+  parameterValue: 0
+--- !u!114 &4715781511654852221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4631111914531391748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8349bd87b861544b9b8dfa2bcbb4467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoveringSound: {fileID: 979445853634881835}
 --- !u!1 &4843053685785719076
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 6723918013255970043}
   - component: {fileID: 7373766382861774211}
   - component: {fileID: 1656919578006966987}
+  - component: {fileID: 3140205912655023989}
+  - component: {fileID: 6916745254131351489}
   m_Layer: 0
   m_Name: WanderingEnemy
   m_TagString: Enemy
@@ -33,7 +35,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941279114186496860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.7, y: 1, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6736191454879557365}
@@ -198,6 +200,7 @@ MonoBehaviour:
   maxHealth: 100
   autoHealing: {fileID: 0}
   currentHealth: 100
+  useDamagePopUp: 1
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -232,6 +235,35 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3140205912655023989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941279114186496860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/Player/Move/MoveParam
+  volume: 0.05
+  parameterName: CharacterMoving
+  parameterValue: 0
+--- !u!114 &6916745254131351489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941279114186496860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8349bd87b861544b9b8dfa2bcbb4467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoveringSound: {fileID: 979445853634881835, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
 --- !u!1 &1036074527262172028
 GameObject:
   m_ObjectHideFlags: 0
