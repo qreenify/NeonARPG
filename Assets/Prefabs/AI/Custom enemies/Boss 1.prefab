@@ -9,15 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5415959304005635073, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
       propertyPath: maxRange
-      value: 1000
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1154395053478331595, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
       propertyPath: maxHealth
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1154395053478331595, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
       propertyPath: currentHealth
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3921473423398513641, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
       propertyPath: m_Radius
@@ -84,12 +84,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4631111914531391745, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
+      propertyPath: range
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631111914531391745, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
       propertyPath: attackDamage
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4631111914531391748, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
       propertyPath: m_Name
       value: Boss 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536048147363671168, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1eb0fba63b8c740854fa996c747609, type: 3}
