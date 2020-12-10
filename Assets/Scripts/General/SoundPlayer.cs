@@ -48,7 +48,7 @@ public class SoundPlayer : MonoBehaviour
         {
             if (PlayerController.playerController != null)
             {
-                Debug.Log(this + "Shit" +  Vector3.Distance(transform.position, PlayerController.playerController.transform.position));
+                //Debug.Log(this + "Shit" +  Vector3.Distance(transform.position, PlayerController.playerController.transform.position));
                 if(Vector3.Distance(transform.position, PlayerController.playerController.transform.position) < range)
                 {
                     music.setVolume(volume);
