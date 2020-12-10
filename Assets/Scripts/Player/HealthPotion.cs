@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class HealthPotion : MonoBehaviour
+public class HealthPotion : MonoBehaviour, ISaveable
 {
     public int amount;
     [Range(0, 1.0f)]
@@ -48,5 +48,25 @@ public class HealthPotion : MonoBehaviour
             var addHealth = health.maxHealth / healPercentage;
             health.CurrentHealth += addHealth;
         }
+    }
+
+    public bool Deserialize(string healthPotions)
+    {
+        var json = JsonUtility.FromJson<HealthPotionSave>(healthPotions);
+        if (json.Equals(new HealthPotionSave())) return false;
+        json.ApplyValues(this);
+        return true;
+    }
+
+    public string Serialize() => JsonUtility.ToJson(new HealthPotionSave(this)); 
+
+    [Serializable]
+    internal class HealthPotionSave
+    {
+        public bool Equals(HealthPotionSave other) => healthPotions == other.healthPotions;
+        public int healthPotions;
+        public HealthPotionSave(){}
+        public HealthPotionSave(HealthPotion healthPotion) => healthPotions = healthPotion.Amount;
+        public void ApplyValues(HealthPotion healthPotion) => healthPotion.Amount = healthPotions;
     }
 }
