@@ -5,6 +5,8 @@ public class Portal : MonoBehaviour
 {
     public Portal otherPortal;
     public Vector3 offset;
+    [Header("For Switching Scenes")]
+    public Vector3 position;
     public void Start()
     {
         if(otherPortal != null && gameObject.TryGetComponent<PlayerEnter>(out PlayerEnter playerEnter))
@@ -14,7 +16,10 @@ public class Portal : MonoBehaviour
     }
     public void LoadScene(string sceneName)
     {
+        DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene(sceneName);
+        TeleportToLocation(position);
+        Destroy(gameObject);
     }
 
     public void TeleportToLocation(PlayerController controller)
@@ -25,6 +30,14 @@ public class Portal : MonoBehaviour
         controller.transform.position = teleportLocation;
         controller.navMeshAgent.enabled = true;
         controller.navMeshAgent.destination = teleportLocation;
+    }
+    
+    public void TeleportToLocation(Vector3 position)
+    {
+        PlayerController.playerController.navMeshAgent.enabled = false;
+        PlayerController.playerController.transform.position = position;
+        PlayerController.playerController.navMeshAgent.enabled = true;
+        PlayerController.playerController.navMeshAgent.destination = position;
     }
     public void OnDrawGizmos()
     {
