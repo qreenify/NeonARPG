@@ -6,11 +6,12 @@ public class Portal : MonoBehaviour
 {
     public Portal otherPortal;
     public Vector3 offset;
+    public bool autoAdd = true;
     [Header("For Switching Scenes")]
     public Vector3 position;
     public void Start()
     {
-        if(otherPortal != null && gameObject.TryGetComponent<PlayerEnter>(out PlayerEnter playerEnter))
+        if(autoAdd && otherPortal != null && gameObject.TryGetComponent<PlayerEnter>(out PlayerEnter playerEnter))
         {
             playerEnter.playerEnterEvent.AddListener(delegate { TeleportToLocation(PlayerController.playerController); });
         }
@@ -18,6 +19,7 @@ public class Portal : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         DontDestroyOnLoad(gameObject);
+        PlayerController.playerController.navMeshAgent.enabled = false;
         StartCoroutine(LoadAsync(sceneName));
     }
 
@@ -39,7 +41,6 @@ public class Portal : MonoBehaviour
     public void TeleportToLocation(Vector3 position)
     {
         if (position == Vector3.zero) return;
-        PlayerController.playerController.navMeshAgent.enabled = false;
         PlayerController.playerController.transform.position = position;
         PlayerController.playerController.navMeshAgent.enabled = true;
         PlayerController.playerController.navMeshAgent.destination = position;
