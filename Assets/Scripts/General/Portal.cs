@@ -5,11 +5,12 @@ public class Portal : MonoBehaviour
 {
     public Portal otherPortal;
     public Vector3 offset;
+    public bool autoAdd = true;
     [Header("For Switching Scenes")]
     public Vector3 position;
     public void Start()
     {
-        if(otherPortal != null && gameObject.TryGetComponent<PlayerEnter>(out PlayerEnter playerEnter))
+        if(autoAdd && otherPortal != null && gameObject.TryGetComponent<PlayerEnter>(out PlayerEnter playerEnter))
         {
             playerEnter.playerEnterEvent.AddListener(delegate { TeleportToLocation(PlayerController.playerController); });
         }
