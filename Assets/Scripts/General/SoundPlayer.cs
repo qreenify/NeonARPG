@@ -17,7 +17,7 @@ public class SoundPlayer : MonoBehaviour
     FMOD.Studio.EventInstance music;
     //FMOD.Studio.System system;
     //public StudioEventEmitter studioEventEmitter;
-    private void Start()
+    private void OnEnable()
     {
         //FMOD.Studio.System.create(out system);
         if (eventPath != null)
@@ -43,7 +43,7 @@ public class SoundPlayer : MonoBehaviour
         //music.setParameterByName("CharacterMoving", walking);
         //system.setParameterByName("CharacterMoving", walking);
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
