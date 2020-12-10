@@ -5,8 +5,9 @@ public class PlayerLevel : MonoBehaviour
 {
     public float baseRequiredExp = 100;
     public float increasePerLevel = 5;
-    public float level;
-    public UnityEvent<float> onExpChanged;
+    public int level;
+    [HideInInspector] public UnityEvent<float> onExpChanged;
+    [HideInInspector] public UnityEvent<int> onLevelChanged;
     private float _experience;
 
     public float RequiredExp => increasePerLevel * level + baseRequiredExp;
@@ -33,6 +34,7 @@ public class PlayerLevel : MonoBehaviour
 
     public void IncreaseLevel()
     {
+        onLevelChanged.Invoke(level);
         _experience -= RequiredExp;
         level++;
     }
