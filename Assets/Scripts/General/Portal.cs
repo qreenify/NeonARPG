@@ -17,6 +17,7 @@ public class Portal : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         DontDestroyOnLoad(gameObject);
+        PlayerController.playerController.navMeshAgent.enabled = false;
         SceneManager.LoadScene(sceneName);
         TeleportToLocation(position);
         Destroy(gameObject);
