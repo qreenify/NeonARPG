@@ -102,6 +102,8 @@ namespace Unit
 
         public void Clear()
         {
+            target = null;
+            navMeshAgent.destination = transform.position;
             currentAction = null;
 
             possibleActions = new List<UnitAction>();

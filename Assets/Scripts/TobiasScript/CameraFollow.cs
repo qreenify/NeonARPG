@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -24,11 +22,21 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         if (_camera != null)
-            Destroy(gameObject);
+        {
+            Destroy(_camera.gameObject);
+            DontDestroyOnLoad(gameObject);
+            _camera = this;
+            if (PlayerController.playerController == null) return;
+            target = _camera.target != null ? _camera.target : PlayerController.playerController.transform;
+            PlayerController.playerController.camera = GetComponent<Camera>();
+        }
         else
         {
             DontDestroyOnLoad(gameObject);
             _camera = this;
+            if (PlayerController.playerController == null) return;
+            target = PlayerController.playerController != null ? PlayerController.playerController.transform : null;
+            PlayerController.playerController.camera = GetComponent<Camera>();
         }
     }
 

@@ -268,6 +268,9 @@ GameObject:
   - component: {fileID: 2819211636055437433}
   - component: {fileID: 2819211636055437436}
   - component: {fileID: 1619846488856154971}
+  - component: {fileID: 7647693274487044555}
+  - component: {fileID: 2819339979424397464}
+  - component: {fileID: -476581987860635167}
   m_Layer: 0
   m_Name: MixedEnemy
   m_TagString: Enemy
@@ -411,6 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  autoHealing: {fileID: 0}
   currentHealth: 10
   onMaxHealthSet:
     m_PersistentCalls:
@@ -436,6 +440,9 @@ MonoBehaviour:
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
+  onHealthIncreased:
+    m_PersistentCalls:
+      m_Calls: []
   onDefeat:
     m_PersistentCalls:
       m_Calls: []
@@ -457,6 +464,7 @@ MonoBehaviour:
   possibleActions: []
   currentAction: {fileID: 0}
   tagToSearchFor: Player
+  updatesPerSecond: 4
   target: {fileID: 0}
   interactionRange: 0
 --- !u!114 &2819211636055437436
@@ -472,8 +480,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 0
-  maxRange: 5
+  priority: 3
+  drawAttackLine: {fileID: 0}
   range: 2
   attackDamage: 10
   coolDown: 3
@@ -491,12 +499,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 0
-  maxRange: 12312
+  priority: 1
   range: 8
   attackDamage: 10
   coolDown: 3
+  windUpTime: 0.4
   showGizmos: 1
+--- !u!114 &7647693274487044555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819211636055437437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9570acde0f24f9046a95387fcd7bed13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  priority: 0
+  maxRange: 10
+  showGizmos: 1
+--- !u!114 &2819339979424397464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819211636055437437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9570acde0f24f9046a95387fcd7bed13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  priority: 2
+  maxRange: 10
+  showGizmos: 1
+--- !u!135 &-476581987860635167
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819211636055437437}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4816025790500362262
 GameObject:
   m_ObjectHideFlags: 0

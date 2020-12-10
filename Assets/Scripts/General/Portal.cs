@@ -5,9 +5,9 @@ public class Portal : MonoBehaviour
 {
     public Portal otherPortal;
     public Vector3 offset;
-    public void LoadScene(int sceneIndex)
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void TeleportToLocation(PlayerController controller)
