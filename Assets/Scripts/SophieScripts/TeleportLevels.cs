@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TeleportLevels : MonoBehaviour
 {
-    public int Scenes = 1;
-
-    public void onClickEnterScene()
+    public void onClickEnterScene(int Scene)
     {
-        SceneManager.LoadScene(Scenes);
+        SceneManager.LoadScene(Scene);
     } 
 
 }
