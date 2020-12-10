@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
                     if (!inRange)
                     {
-                        navMeshAgent.destination = hit.collider.transform.position;
+                        _unit.MoveTo(hit.collider.transform.position);
                     }
                 }
             }
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
             }
             currentAnimation = Instantiate(moveAnimation);
             currentAnimation.transform.position = hit.point;
-            navMeshAgent.destination = hit.point;
+            _unit.MoveTo(hit.point);
         }
         
         else if (Input.GetKey(lookAroundKey))

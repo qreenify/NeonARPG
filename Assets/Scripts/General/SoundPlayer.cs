@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSounds : MonoBehaviour
+public class SoundPlayer : MonoBehaviour
 {
     [FMODUnity.EventRef] // Use the search function to fill in the path string below
     public string eventPath;
 
     [Range(0f, 2f)]
-    public float volume;
+    public float volume = 1f;
 
+    public string parameterName = "CharacterMoving";
     [Range(0f, 1f)]
-    public float walking;
+    public float parameterValue;
 
     FMOD.Studio.EventInstance music;
     //FMOD.Studio.System system;
     //public StudioEventEmitter studioEventEmitter;
-    private void Awake()
+    private void Start()
     {
         //FMOD.Studio.System.create(out system);
         if (eventPath != null)
@@ -25,12 +26,15 @@ public class PlayerSounds : MonoBehaviour
             //music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
             //music.setParameterByName("CharacterMoving", walking);
             //music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
+            music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
             music.start();
         }
     }
     void Update()
     {
         music.setVolume(volume);
+        //if(parameterName != "")
+        music.setParameterByName("CharacterMoving", parameterValue);
         //FMOD.Studio.
         //music.setProperty(FMOD.Studio.EVENT_PROPERTY 1, 10);
         //music.release();

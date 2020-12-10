@@ -66,9 +66,10 @@ public class Health : MonoBehaviour
             return;
         }
         onDefeat.Invoke();
-        if (TryGetComponent(out RewardsExp rewardsExp))
+        var rewards = GetComponents<IReward>();
+        foreach (var reward in rewards)
         {
-            rewardsExp.RewardExp();
+            reward.Reward();
         }
         gameObject.SetActive(false);
         //TODO: Trigger defeat sound / animation
