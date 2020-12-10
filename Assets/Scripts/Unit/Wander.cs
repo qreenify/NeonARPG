@@ -57,13 +57,13 @@ namespace Unit
          return true;
       }
 
-      private void OnDrawGizmos()
-      {
-         if (!EditorApplication.isPlaying)
-            Gizmos.DrawWireCube(transform.position, new Vector3(wanderRange, 0.1f, wanderRange) * 2);
-         else
-            Gizmos.DrawWireCube(_startPos, new Vector3(wanderRange, 0.1f, wanderRange) * 2);
-      }
+      //private void OnDrawGizmos()
+      //{
+      //   if (!EditorApplication.isPlaying)
+      //      Gizmos.DrawWireCube(transform.position, new Vector3(wanderRange, 0.1f, wanderRange) * 2);
+      //   else
+      //      Gizmos.DrawWireCube(_startPos, new Vector3(wanderRange, 0.1f, wanderRange) * 2);
+      //}
    }
 }
 
