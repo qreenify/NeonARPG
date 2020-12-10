@@ -14,6 +14,7 @@ namespace Unit
         [Range(1, 10)]
         public float updatesPerSecond = 4;
         private int _tick;
+        public SoundPlayer hoveringSound;
 
         private NavMeshAgent navMeshAgent;
 
@@ -43,7 +44,8 @@ namespace Unit
                 {
                    currentAction.Exit();
                    currentAction = null;
-                } 
+                }
+                hoveringSound.parameterValue = navMeshAgent.velocity.magnitude;
             }
             _tick++;
         }
