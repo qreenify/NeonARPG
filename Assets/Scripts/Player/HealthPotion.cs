@@ -17,7 +17,7 @@ public class HealthPotion : MonoBehaviour
         {
             onHealthPotionChange.Invoke(value);
             amount = value;
-            Debug.Log("Health Potions " + amount);
+            //Debug.Log("Health Potions " + amount);
         }
     }
 
