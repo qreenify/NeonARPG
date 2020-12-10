@@ -27,7 +27,7 @@ public class PlayerLevel : MonoBehaviour
         }
     }
 
-    public void IncreaseExp(float amount)
+    public void Increase(float amount)
     {
         Experience += amount;
     }

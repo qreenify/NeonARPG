@@ -43,7 +43,7 @@ namespace Unit
                 {
                    currentAction.Exit();
                    currentAction = null;
-                } 
+                }
             }
             _tick++;
         }
