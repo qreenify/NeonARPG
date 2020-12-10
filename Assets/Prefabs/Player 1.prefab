@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 5254239998644592545}
   - component: {fileID: 5254239998652807887}
   - component: {fileID: 5254239999492286959}
+  - component: {fileID: -7153639085895890325}
+  - component: {fileID: -7578959768681475490}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -289,6 +291,37 @@ MonoBehaviour:
   onMoneyChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-7153639085895890325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353408327811430337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/Player/Move/MoveParam
+  volume: 0.05
+  parameterName: CharacterMoving
+  parameterValue: 0
+  globalSound: 0
+  range: 10
+--- !u!114 &-7578959768681475490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353408327811430337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8349bd87b861544b9b8dfa2bcbb4467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoveringSound: {fileID: -7153639085895890325}
 --- !u!1001 &5254239999144885437
 PrefabInstance:
   m_ObjectHideFlags: 0

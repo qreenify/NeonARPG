@@ -19,8 +19,11 @@ public class Portal : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         DontDestroyOnLoad(gameObject);
-        PlayerController.playerController.navMeshAgent.enabled = false;
-        StartCoroutine(LoadAsync(sceneName));
+        PlayerController.playerController.navMeshAgent.enabled = false; 
+        SceneManager.LoadScene(sceneName);
+        TeleportToLocation(position);
+        Destroy(gameObject);
+        //StartCoroutine(LoadAsync(sceneName));
     }
 
     public void TeleportToLocation(PlayerController controller)
@@ -48,6 +51,7 @@ public class Portal : MonoBehaviour
 
     IEnumerator LoadAsync(string sceneName)
     {
+        PlayerController.playerController.navMeshAgent.enabled = false;
         var wait = SceneManager.LoadSceneAsync(sceneName);
         while (!wait.isDone)
         {

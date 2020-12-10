@@ -23,7 +23,7 @@ public class HealthPotion : MonoBehaviour, ISaveable
 
     private void Start()
     {
-        Amount = Amount;
+        onHealthPotionChange.Invoke(Amount);
     }
 
     public void Add()
