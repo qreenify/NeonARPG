@@ -582,6 +582,7 @@ GameObject:
   - component: {fileID: 5352683844936759058}
   - component: {fileID: 392867301}
   - component: {fileID: 543205996}
+  - component: {fileID: 669372162}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -726,7 +727,7 @@ MonoBehaviour:
   maxHealth: 40
   autoHealing: {fileID: 0}
   currentHealth: 40
-  damagePopUp: 1
+  useDamagePopUp: 1
   onMaxHealthSet:
     m_PersistentCalls:
       m_Calls: []
@@ -856,6 +857,27 @@ MonoBehaviour:
   amount: 0
   healPercentage: 0.2
   drinkKey: 32
+  onHealthPotionChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &669372162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6494906191284388364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305b95540c5244843aa92c525d4080ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseRequiredExp: 100
+  increasePerLevel: 5
+  level: 0
+  onExpChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8601741310573821199
 GameObject:
   m_ObjectHideFlags: 0
