@@ -731,7 +731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 82903066219181417, guid: be543b9e361073b48a589e022d413b2b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.45996
+      value: 34.93
       objectReference: {fileID: 0}
     - target: {fileID: 82903066219181417, guid: be543b9e361073b48a589e022d413b2b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -739,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 82903066219181417, guid: be543b9e361073b48a589e022d413b2b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.190002
+      value: 19.11
       objectReference: {fileID: 0}
     - target: {fileID: 82903066219181417, guid: be543b9e361073b48a589e022d413b2b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1659,18 +1659,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2676304940724828766, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2676304940724828766, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4528805115746166799}
     - target: {fileID: 2676304940724828766, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TeleportToLocation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676304940724828766, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: PlayerController, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+--- !u!4 &1673733268337377542 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 920954108297597782, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+  m_PrefabInstance: {fileID: 2016954488975462992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4528805115746166799 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2676304940724828767, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
@@ -1682,11 +1691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a90ba2becaad1349aadacd144573666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1673733268337377542 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 920954108297597782, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
-  m_PrefabInstance: {fileID: 2016954488975462992}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2158924228087014502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1936,6 +1940,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 2676304940724828766, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 884576285850562781}
+    - target: {fileID: 2676304940724828766, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TeleportToLocation
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
 --- !u!4 &2712682900622285268 stripped
@@ -1943,6 +1955,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 920954108297597782, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
   m_PrefabInstance: {fileID: 2982087018858531458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &884576285850562781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2676304940724828767, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+  m_PrefabInstance: {fileID: 2982087018858531458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a90ba2becaad1349aadacd144573666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3015491090988409429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2452,8 +2475,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2676304940724828766, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1186207977153433866}
+    - target: {fileID: 2676304940724828766, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TeleportToLocation
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+--- !u!114 &1186207977153433866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2676304940724828767, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+  m_PrefabInstance: {fileID: 3842244444748360533}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a90ba2becaad1349aadacd144573666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4149370064680941571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 920954108297597782, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
@@ -11885,14 +11927,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75c9a668815daa24a8fd1053ddd6800e, type: 3}
---- !u!1 &9116708452589017208 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4480026123045612866, guid: 75c9a668815daa24a8fd1053ddd6800e, type: 3}
-  m_PrefabInstance: {fileID: 4659341106524468538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8488967150574158530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3848203463379580920, guid: 75c9a668815daa24a8fd1053ddd6800e, type: 3}
+  m_PrefabInstance: {fileID: 4659341106524468538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9116708452589017208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4480026123045612866, guid: 75c9a668815daa24a8fd1053ddd6800e, type: 3}
   m_PrefabInstance: {fileID: 4659341106524468538}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4659341106529478691
@@ -15758,12 +15800,35 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 2676304940724828752, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6dff613dca8cb2744ba65c2fdd5d44f8, type: 2}
     - target: {fileID: 2676304940724828765, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
       propertyPath: m_Name
       value: Hub Entrance Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 2676304940724828766, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7567632969720939596}
+    - target: {fileID: 2676304940724828766, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TeleportToLocation
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+--- !u!114 &7567632969720939596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2676304940724828767, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
+  m_PrefabInstance: {fileID: 5485814524429139475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a90ba2becaad1349aadacd144573666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4676537273666579781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 920954108297597782, guid: 3d3a479ced735ea42911e7c654df9c9a, type: 3}
