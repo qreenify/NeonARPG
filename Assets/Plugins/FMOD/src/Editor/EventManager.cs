@@ -722,7 +722,7 @@ namespace FMODUnity
                 EditorUtils.ValidateSource(out isValid, out validateMessage);
                 if (!isValid)
                 {
-                    //Debug.LogError("FMOD Studio: " + validateMessage);
+                    Debug.LogError("FMOD Studio: " + validateMessage);
                 }
                 firstUpdate = false;
                 lastCheckTime = Time.realtimeSinceStartup;
