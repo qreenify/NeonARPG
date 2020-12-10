@@ -9,6 +9,7 @@ public class AttackRangeDebug : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (attackAction == null || debugSphere == null) return;
         var newPos = debugSphere.position;
         newPos.y = 0.1f;
         debugSphere.position = newPos;

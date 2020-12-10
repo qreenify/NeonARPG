@@ -804,17 +804,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e48ce7b356d7e54da5b96cdafd0c6dc, type: 3}
---- !u!114 &275060846 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4583086303625967930, guid: d9e351921f03f3645ab4a39866f71179, type: 3}
-  m_PrefabInstance: {fileID: 1955879555}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a90ba2becaad1349aadacd144573666, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &285782268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,7 +1614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4583086303625967925, guid: d9e351921f03f3645ab4a39866f71179, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: MainMenu
+      value: Jack_J_Scene
       objectReference: {fileID: 0}
     - target: {fileID: 4583086303625967925, guid: d9e351921f03f3645ab4a39866f71179, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1680,9 +1669,21 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4583086303625967930, guid: d9e351921f03f3645ab4a39866f71179, type: 3}
+      propertyPath: position.x
+      value: -581.421
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583086303625967930, guid: d9e351921f03f3645ab4a39866f71179, type: 3}
+      propertyPath: position.y
+      value: 805.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583086303625967930, guid: d9e351921f03f3645ab4a39866f71179, type: 3}
+      propertyPath: position.z
+      value: 347.321
+      objectReference: {fileID: 0}
+    - target: {fileID: 4583086303625967930, guid: d9e351921f03f3645ab4a39866f71179, type: 3}
       propertyPath: otherPortal
       value: 
-      objectReference: {fileID: 275060846}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9e351921f03f3645ab4a39866f71179, type: 3}
 --- !u!4 &699964641 stripped

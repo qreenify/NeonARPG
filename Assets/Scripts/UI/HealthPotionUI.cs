@@ -11,6 +11,7 @@ public class HealthPotionUI : MonoBehaviour
         if (PlayerController.playerController.TryGetComponent<HealthPotion>(out var healthPotion))
         { 
             healthPotion.onHealthPotionChange.AddListener(UpdatePotionAmount);  
+            UpdatePotionAmount(healthPotion.amount);
         }
     }
 
