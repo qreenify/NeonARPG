@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 37323403}
   - component: {fileID: 37323404}
   - component: {fileID: 37323405}
-  - component: {fileID: 37323402}
+  - component: {fileID: 37323406}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -246,20 +246,6 @@ MonoBehaviour:
   sceneName: Jack_J_Scene
   mode: 0
   onAwake: 0
---- !u!114 &37323402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37323396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26ce0c9470bf56646a0702d52260ef5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventPath: event:/Menu/Music/MenuMusic
-  volume: 0.105
 --- !u!114 &37323403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +304,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d547da25f31703469af43dac3f034b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &37323406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37323396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/Menu/Music/MenuMusic
+  volume: 0.178
+  parameterName: 
+  parameterValue: 0
 --- !u!1 &117214829
 GameObject:
   m_ObjectHideFlags: 0
