@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public GameObject moveAnimation;
     public GameObject currentAnimation;
     public static PlayerController playerController;
+    public event Action<bool> ONWeaponSwap;
+    public event Action<bool> ONHoverOverEnemy;
 
     private void Awake()
     {
@@ -45,16 +47,20 @@ public class PlayerController : MonoBehaviour
 
     private void Select()
     {
+        var eventSystem = FindObjectOfType<EventSystem>();
+        if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) ||
+            eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
+
+
+        var hoverEnemy = hit.collider.gameObject.CompareTag("Enemy") &&
+                         hit.collider.gameObject.TryGetComponent(out Health health);
+
         if (Input.GetMouseButtonDown(0))
         {
-            var eventSystem = FindObjectOfType<EventSystem>();
-            if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) ||
-                eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
             if (Vector3.Distance(hit.point, transform.position) > maxDistance) return;
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.CompareTag("Enemy") &&
-                    hit.collider.gameObject.TryGetComponent(out Health health))
+                if (hoverEnemy)
                 {
                     var enemy = hit.collider.gameObject;
                     _unit.target = enemy.transform;
@@ -84,27 +90,25 @@ public class PlayerController : MonoBehaviour
 
         else if (Input.GetMouseButton(1))
         {
-            var eventSystem = FindObjectOfType<EventSystem>();
-            if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) || eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
-            if (Vector3.Distance(hit.point, transform.position) > maxDistance) return;
-            
-            _unit.target = null;
-            if (currentAnimation != null) 
-            { 
-                Destroy(currentAnimation);
+            if (!(Vector3.Distance(hit.point, transform.position) > maxDistance))
+            {
+                _unit.target = null;
+                if (currentAnimation != null) 
+                { 
+                    Destroy(currentAnimation);
+                }
+                currentAnimation = Instantiate(moveAnimation);
+                currentAnimation.transform.position = hit.point + new Vector3(0, 0.1f, 0);
+                _unit.MoveTo(hit.point);  
             }
-            currentAnimation = Instantiate(moveAnimation);
-            currentAnimation.transform.position = hit.point;
-            _unit.MoveTo(hit.point);
         }
         
         else if (Input.GetKey(lookAroundKey))
         {
-            var eventSystem = FindObjectOfType<EventSystem>();
-            if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) ||
-                eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+            hoverEnemy = true;
         }
+        ONHoverOverEnemy?.Invoke(hoverEnemy);
     }
 
     private void ToggleWeapon()
@@ -112,6 +116,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(weaponSwitch))
         {
             ranged = !ranged;
+            ONWeaponSwap?.Invoke(ranged);
             SetWeapon();
         }
     }
