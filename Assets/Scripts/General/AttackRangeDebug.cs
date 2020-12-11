@@ -1,31 +1,35 @@
-﻿using System;
-using Unit;
+﻿using Unit;
 using UnityEngine;
 
 public class AttackRangeDebug : MonoBehaviour
 {
-    public UnitAction attackAction;
-    public Transform debugSphere;
+    public Transform attackRange;
+    public SpriteRenderer spriteRenderer;
 
-    private void LateUpdate()
+    private void Start()
     {
-        if (attackAction == null || debugSphere == null) return;
-        var newPos = debugSphere.position;
-        newPos.y = 0.1f;
-        debugSphere.position = newPos;
+        PlayerController.playerController.ONWeaponSwap += ChangeWeapon;
+        PlayerController.playerController.ONHoverOverEnemy += Toggle;
     }
-    
-    private void OnValidate()
+
+    private void Toggle(bool showAttackRange)
     {
-        if (attackAction == null || debugSphere == null) return;
-        switch (attackAction)
+        if (attackRange == null || spriteRenderer == null) return;
+        spriteRenderer.enabled = showAttackRange;
+    }
+
+    private void ChangeWeapon(bool ranged)
+    {
+        if (attackRange == null) return;
+        if (ranged)
         {
-            case MeleeAttack meleeAttack:
-                debugSphere.localScale = new Vector3(meleeAttack.range * 2, debugSphere.localScale.y, meleeAttack.range * 2);
-                break;
-            case Unit.RangedAttack rangedAttack:
-                debugSphere.localScale = new Vector3(rangedAttack.range * 2, debugSphere.localScale.y, rangedAttack.range * 2);
-                break;
+            var rangedAttack = GetComponent<Unit.RangedAttack>();
+            attackRange.localScale = new Vector3(rangedAttack.range, rangedAttack.range, attackRange.localScale.z);
+        }
+        else
+        {
+            var meleeAttack = GetComponent<MeleeAttack>();
+            attackRange.localScale = new Vector3(meleeAttack.range, meleeAttack.range, attackRange.localScale.z);
         }
     }
 }
