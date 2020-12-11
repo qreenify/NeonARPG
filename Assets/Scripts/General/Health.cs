@@ -111,7 +111,7 @@ public class Health : MonoBehaviour, ISaveable
     public bool Deserialize(string save)
     {
         var json = JsonUtility.FromJson<HealthSave>(save);
-        if (json.Equals(new HealthSave(this))) return false;
+        if (json.Equals(new HealthSave())) return false;
         json.ApplyValues(this);
         return true;
     }
@@ -125,7 +125,6 @@ public class Health : MonoBehaviour, ISaveable
         public float health;
         public float maxHealth;
         public HealthSave(){}
-
         public HealthSave(Health health)
         {
             this.health = health.currentHealth; 

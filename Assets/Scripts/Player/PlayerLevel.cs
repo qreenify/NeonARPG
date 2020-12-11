@@ -56,8 +56,7 @@ public class PlayerLevel : MonoBehaviour, ISaveable
         public bool Equals(LevelSave other) => experience.Equals(other.experience) && level == other.level;
         public float experience;
         public int level;
-
-        public LevelSave() {}
+        public LevelSave(){}
         public LevelSave(PlayerLevel playerLevel)
         {
             experience = playerLevel.Experience;
