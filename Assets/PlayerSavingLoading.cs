@@ -19,7 +19,7 @@ public class PlayerSavingLoading : MonoBehaviour
         var json = JsonUtility.FromJson<SaveData>(saveFile);
         Debug.Log(saveFile);
         var saveables = GetComponents<ISaveable>();
-        foreach (var saveable in saveables.Reverse())
+        foreach (var saveable in saveables)
         {
             var i = 0;
             while (!saveable.Deserialize(json.data[i]) && i < saveables.Length - 1)
