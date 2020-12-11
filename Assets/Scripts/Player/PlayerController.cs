@@ -93,12 +93,6 @@ public class PlayerController : MonoBehaviour
             if (!(Vector3.Distance(hit.point, transform.position) > maxDistance))
             {
                 _unit.target = null;
-                if (currentAnimation != null) 
-                { 
-                    Destroy(currentAnimation);
-                }
-                currentAnimation = Instantiate(moveAnimation);
-                currentAnimation.transform.position = hit.point + new Vector3(0, 0.1f, 0);
                 _unit.MoveTo(hit.point);  
             }
         }
@@ -109,6 +103,16 @@ public class PlayerController : MonoBehaviour
             hoverEnemy = true;
         }
         ONHoverOverEnemy?.Invoke(hoverEnemy);
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            if (currentAnimation != null) 
+            { 
+                Destroy(currentAnimation);
+            }
+            currentAnimation = Instantiate(moveAnimation);
+            currentAnimation.transform.position = hit.point + new Vector3(0, 0.1f, 0);
+        }
     }
 
     private void ToggleWeapon()
