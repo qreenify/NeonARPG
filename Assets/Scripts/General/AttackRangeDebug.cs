@@ -31,12 +31,12 @@ public class AttackRangeDebug : MonoBehaviour
         if (attackRange == null) return;
         if (ranged)
         {
-            var rangedAttack = GetComponent<Unit.RangedAttack>();
+            var rangedAttack = GetComponentInParent<Unit.RangedAttack>();
             attackRange.localScale = new Vector3(rangedAttack.range, rangedAttack.range, attackRange.localScale.z);
         }
         else
         {
-            var meleeAttack = GetComponent<MeleeAttack>();
+            var meleeAttack = GetComponentInParent<MeleeAttack>();
             attackRange.localScale = new Vector3(meleeAttack.range, meleeAttack.range, attackRange.localScale.z);
         }
     }
