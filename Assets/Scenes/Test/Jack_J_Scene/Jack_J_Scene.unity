@@ -156,6 +156,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a90ba2becaad1349aadacd144573666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &162238146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1353408327811430337, guid: 893e1edf4da5128449e058731ed72bde, type: 3}
+  m_PrefabInstance: {fileID: 1951245257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &162238147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162238146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/level1_finalMix
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!114 &164219646 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 211966670506487980, guid: e46c1f8ad5ec12c4cb3e12406079fde9, type: 3}
@@ -177,6 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 285782269}
   - component: {fileID: 285782270}
+  - component: {fileID: 285782271}
   m_Layer: 0
   m_Name: ---Core---
   m_TagString: Untagged
@@ -192,7 +221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285782268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -567.17, y: 806.16, z: 345.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -213,6 +242,20 @@ MonoBehaviour:
   sceneName: MainHUD
   mode: 1
   onAwake: 1
+--- !u!114 &285782271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285782268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16befad9eb966554d94f574db17b9abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: Jack_J_Scene
+  currentRespawnPoint: {x: -567.17, y: 806.16, z: 345.2}
 --- !u!1 &367365945
 GameObject:
   m_ObjectHideFlags: 1
