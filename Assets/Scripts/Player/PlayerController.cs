@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
                     Destroy(currentAnimation);
                 }
                 currentAnimation = Instantiate(moveAnimation);
-                currentAnimation.transform.position = hit.point;
+                currentAnimation.transform.position = hit.point + new Vector3(0, 0.1f, 0);
                 _unit.MoveTo(hit.point);  
             }
         }
