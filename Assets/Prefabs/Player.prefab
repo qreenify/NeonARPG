@@ -580,7 +580,6 @@ GameObject:
   - component: {fileID: 106218996}
   - component: {fileID: 106219005}
   - component: {fileID: 5352683844936759058}
-  - component: {fileID: 392867301}
   - component: {fileID: 543205996}
   - component: {fileID: 669372162}
   - component: {fileID: 366894114}
@@ -831,22 +830,6 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   moveAnimation: {fileID: 6019112211287591810, guid: df9b3f812db9f9240a2eb0f8453991c9, type: 3}
   currentAnimation: {fileID: 0}
---- !u!114 &392867301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6494906191284388364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4325f08802e9e2340a9bb516be29dabc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 3981526437848399015}
-  attackRange: {fileID: 425547656378929659}
-  spriteRenderer: {fileID: 1676041996951698934}
-  rotateSpeed: 90
 --- !u!114 &543205996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,15 +1053,5 @@ PrefabInstance:
 --- !u!4 &3981526437848399015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2208598758212806365, guid: 3352b1e22b941c34a884e096bd8d7cf4, type: 3}
-  m_PrefabInstance: {fileID: 3019590902078446202}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &425547656378929659 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3170644896018353025, guid: 3352b1e22b941c34a884e096bd8d7cf4, type: 3}
-  m_PrefabInstance: {fileID: 3019590902078446202}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1676041996951698934 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4514228321693869964, guid: 3352b1e22b941c34a884e096bd8d7cf4, type: 3}
   m_PrefabInstance: {fileID: 3019590902078446202}
   m_PrefabAsset: {fileID: 0}
