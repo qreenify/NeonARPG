@@ -16,7 +16,7 @@ public class AttackRangeDebug : MonoBehaviour
 
     private void LateUpdate()
     {
-        parent.rotation = Quaternion.identity;
+        //parent.rotation = Quaternion.identity;
         attackRange.transform.Rotate(Vector3.back * (rotateSpeed * Time.deltaTime));
     }
 
