@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 9067104147397004304}
   - component: {fileID: 7738235287862699520}
   - component: {fileID: 4203350555438811466}
+  - component: {fileID: 8979790653527353546}
   m_Layer: 0
   m_Name: BossMeleeShade
   m_TagString: Enemy
@@ -514,10 +515,13 @@ MonoBehaviour:
       m_Calls: []
   onHealthUI:
     m_PersistentCalls:
+      m_Calls: []
+  onHealthChanged:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 473708127144328104}
-        m_TargetAssemblyTypeName: UnityEngine.TextMesh, UnityEngine
-        m_MethodName: set_text
+      - m_Target: {fileID: 8979790653527353546}
+        m_TargetAssemblyTypeName: HoveringHealthbar, Assembly-CSharp
+        m_MethodName: UpdateHealth
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -527,9 +531,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
   onDamageTaken:
     m_PersistentCalls:
       m_Calls: []
@@ -638,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8349bd87b861544b9b8dfa2bcbb4467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoveringSound: {fileID: 0}
+  hoveringSound: {fileID: 7057968308665164294}
 --- !u!114 &7738235287862699520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,6 +666,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reward: 10
+--- !u!114 &8979790653527353546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683710742376659251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb82ec29382d0846b4d9e5fcf91fd53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbar: {fileID: 1627997558596307201}
 --- !u!183 &1627997557249702626
 Cloth:
   m_ObjectHideFlags: 0

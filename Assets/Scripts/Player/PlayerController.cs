@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private void Select()
     {
         var eventSystem = FindObjectOfType<EventSystem>();
-        if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) ||
+        if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit, LayerMask.NameToLayer("Player")) ||
             eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
 
 
