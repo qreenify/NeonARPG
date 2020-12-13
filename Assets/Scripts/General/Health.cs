@@ -70,7 +70,11 @@ public class Health : MonoBehaviour, ISaveable
         {
             reward.Reward();
         }
-        gameObject.SetActive(false);
+
+        if (TryGetComponent<Dissolve>(out var dissolve))
+        {
+            StartCoroutine(dissolve.DoDissolve());
+        }
         //TODO: Trigger defeat sound / animation
     }
     
