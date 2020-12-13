@@ -9,7 +9,7 @@ public class PlayerLevel : MonoBehaviour, ISaveable
     public int level;
     [HideInInspector] public UnityEvent<float> onExpChanged;
     [HideInInspector] public UnityEvent<int> onLevelChanged;
-    private float _experience;
+    public float _experience;
 
     public float RequiredExp => increasePerLevel * level + baseRequiredExp;
 
@@ -23,7 +23,6 @@ public class PlayerLevel : MonoBehaviour, ISaveable
             {
                 IncreaseLevel();
             }
-
             onExpChanged.Invoke(_experience);
         }
     }
