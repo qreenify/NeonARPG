@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.3371, g: 325.05005, b: 430.21954, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -530,36 +530,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.086
       objectReference: {fileID: 0}
-    - target: {fileID: 2208598756848481036, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.36
+    - target: {fileID: 7394461287680868078, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_Intensity
+      value: 12732.3955
       objectReference: {fileID: 0}
-    - target: {fileID: 2208598756848481036, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 2208598756848481036, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: 0.4527638
-      objectReference: {fileID: 0}
-    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 1.6936758
-      objectReference: {fileID: 0}
-    - target: {fileID: 7222689361880935967, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: playerMask.m_Bits
-      value: 51
+    - target: {fileID: 7394461287680868079, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_Intensity
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 8382926140812516097, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3347485338479113448, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
 --- !u!1 &432108102
 GameObject:
@@ -2195,24 +2178,28 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6774888444796530855, guid: 3bd0fcf9e7788ff4e9444c295a458e21, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.08131075
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774888444796530855, guid: 3bd0fcf9e7788ff4e9444c295a458e21, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: 0.75460625
+      value: 0.60368514
       objectReference: {fileID: 0}
     - target: {fileID: 6774888444796530855, guid: 3bd0fcf9e7788ff4e9444c295a458e21, type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: -0.8875358
+      value: -0.71002865
       objectReference: {fileID: 0}
     - target: {fileID: 6774888444796530855, guid: 3bd0fcf9e7788ff4e9444c295a458e21, type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 3.61346
+      value: 2.890768
       objectReference: {fileID: 0}
     - target: {fileID: 6774888444796530855, guid: 3bd0fcf9e7788ff4e9444c295a458e21, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 2.822793
+      value: 2.2582347
       objectReference: {fileID: 0}
     - target: {fileID: 6774888444796530855, guid: 3bd0fcf9e7788ff4e9444c295a458e21, type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 2.213654
+      value: 1.7709234
       objectReference: {fileID: 0}
     - target: {fileID: 6995966951070511726, guid: 3bd0fcf9e7788ff4e9444c295a458e21, type: 3}
       propertyPath: m_AABB.m_Center.y
