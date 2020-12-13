@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour, ISaveable
+public class Health : MonoBehaviour
 {
     public float maxHealth;
     public AutoHealing autoHealing;
@@ -75,6 +75,8 @@ public class Health : MonoBehaviour, ISaveable
         {
             StartCoroutine(dissolve.DoDissolve());
         }
+        else
+            gameObject.SetActive(false);
         //TODO: Trigger defeat sound / animation
     }
     
@@ -110,35 +112,5 @@ public class Health : MonoBehaviour, ISaveable
     private void ToggleDebug()
     {
         debug = !debug;
-    }
-
-    public bool Deserialize(string save)
-    {
-        var json = JsonUtility.FromJson<HealthSave>(save);
-        if (json.Equals(new HealthSave())) return false;
-        json.ApplyValues(this);
-        return true;
-    }
-
-    public string Serialize() => JsonUtility.ToJson(new HealthSave(this));
-    
-    [Serializable]
-    internal class HealthSave
-    {
-        public bool Equals(HealthSave other) => health == other.health && maxHealth == other.health;
-        public float health;
-        public float maxHealth;
-        public HealthSave(){}
-        public HealthSave(Health health)
-        {
-            this.health = health.currentHealth; 
-            maxHealth = health.maxHealth;
-        }
-
-        public void ApplyValues(Health health)
-        {
-            health.maxHealth = maxHealth;
-            health.currentHealth = this.health;
-        }
     }
 }
