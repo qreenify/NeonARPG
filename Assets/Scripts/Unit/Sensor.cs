@@ -14,7 +14,7 @@ namespace Unit
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && other.GetComponent<Unit>().isActiveAndEnabled)
             {
                 GetComponentInParent<Unit>().target = other.transform;
             }
@@ -28,6 +28,11 @@ namespace Unit
             }
         }
 
+        public void OnPlayerDeath()
+        {
+            GetComponentInParent<Unit>().target = null;
+        }
+        
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.blue;

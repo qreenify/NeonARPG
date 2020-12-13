@@ -1,4 +1,5 @@
 ﻿using System;
+using Unit;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -71,7 +72,6 @@ public class Health : MonoBehaviour
         {
             return;
         }
-        onDefeat.Invoke();
         var rewards = GetComponents<IReward>();
         foreach (var reward in rewards)
         {
@@ -81,9 +81,16 @@ public class Health : MonoBehaviour
         if (TryGetComponent<Dissolve>(out var dissolve))
         {
             StartCoroutine(dissolve.DoDissolve());
+            var unit = GetComponent<Unit.Unit>();
+            unit.StopMove();
+            unit.enabled = false;
         }
         else
+        {
             gameObject.SetActive(false);
+        } 
+        onDefeat.Invoke();
+            
         //TODO: Trigger defeat sound / animation
     }
     
@@ -92,9 +99,13 @@ public class Health : MonoBehaviour
         CurrentHealth = maxHealth;
         gameObject.SetActive(true);
         onRevive.Invoke();
-        if (TryGetComponent(out Unit.Unit unit))
+        if (TryGetComponent<Dissolve>(out var dissolve))
         {
-            unit.Clear();
+            StartCoroutine(dissolve.DoCondense());
+        }
+        else if (TryGetComponent(out Unit.Unit unit1))
+        {
+            unit1.Clear();
         }
         //TODO: Trigger revive sound / animation
     }
