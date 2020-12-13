@@ -230,6 +230,8 @@ GameObject:
   - component: {fileID: 8091921124544593566}
   - component: {fileID: 8382926140812516096}
   - component: {fileID: 4975312896942299}
+  - component: {fileID: 2143345353}
+  - component: {fileID: 2143345354}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -272,10 +274,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.32
+  m_Height: 1.34
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.33, z: 0}
 --- !u!54 &3347485337758429454
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -422,7 +424,7 @@ MonoBehaviour:
   camera: {fileID: 0}
   playerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 51
   maxDistance: 120
   playerActions:
   - {fileID: 3347485338227334399}
@@ -488,6 +490,7 @@ MonoBehaviour:
   onLevelChanged:
     m_PersistentCalls:
       m_Calls: []
+  _experience: 0
 --- !u!114 &3347485338436420911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,10 +548,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 1.03
+  m_Radius: 0.19
+  m_Height: 0.9
   m_Direction: 1
-  m_Center: {x: 0, y: -0.27, z: -0.03}
+  m_Center: {x: 0, y: -0.4, z: -0.02}
 --- !u!114 &4975312896942299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,6 +564,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9c740cd0850e24eb8d8e3487f27aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &2143345353
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382926140812516097}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.16
+  m_Height: 0.63
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.49, z: 0.09}
+--- !u!136 &2143345354
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382926140812516097}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.22
+  m_Height: 0.57
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.64, z: 0.12}
 --- !u!183 &7394461288812367126
 Cloth:
   m_ObjectHideFlags: 0
@@ -2407,6 +2438,8 @@ Cloth:
     collisionSphereDistance: 3.4028235e+38
   m_CapsuleColliders:
   - {fileID: 8382926140812516096}
+  - {fileID: 2143345354}
+  - {fileID: 2143345353}
   m_SphereColliders: []
   m_SelfCollisionDistance: 0
   m_SelfCollisionStiffness: 0.2
