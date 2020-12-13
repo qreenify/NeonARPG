@@ -14,6 +14,7 @@ namespace Unit
         private float _currentCooldown;
         private float _windUpTime;
         private NavMeshAgent _agent;
+        private float _startAttackDamage;
         public bool showGizmos = true;
 
         public bool CooldownFinished => _currentCooldown <= 0;
@@ -27,6 +28,12 @@ namespace Unit
         {
             _windUpTime = windUpTime;
             _agent = GetComponent<NavMeshAgent>();
+            _startAttackDamage = attackDamage;
+            if (TryGetComponent<PlayerLevel>(out var level))
+            {
+                SetDamage(level);
+                level.ONLevelUp += SetDamage;
+            }
         }
 
         public override bool IsPossible()
@@ -86,6 +93,11 @@ namespace Unit
                 return false;
             }
             return false;
+        }
+
+        private void SetDamage(PlayerLevel level)
+        {
+            attackDamage = _startAttackDamage + level.rangedDamageIncrease * level.level;
         }
 
         private void OnDrawGizmos()

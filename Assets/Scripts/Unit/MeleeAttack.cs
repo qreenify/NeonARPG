@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Unit
 {
@@ -12,10 +13,26 @@ namespace Unit
         public float coolDown = 3;
         private float _currentCooldown;
         public bool showGizmos = true;
+        private float _startAttackDamage;
         public bool CooldownFinished => _currentCooldown <= 0;
         public bool InAttackRange
         {
             get => Vector3.Distance(transform.position, unit.target.position) < range;
+        }
+
+        private void Start()
+        {
+            _startAttackDamage = attackDamage;
+            if (TryGetComponent<PlayerLevel>(out var level))
+            {
+                SetDamage(level);
+                level.ONLevelUp += SetDamage;
+            }
+        }
+
+        private void SetDamage(PlayerLevel level)
+        {
+            attackDamage = _startAttackDamage + level.meleeDamageIncrease * level.level;
         }
 
         public override bool IsPossible()

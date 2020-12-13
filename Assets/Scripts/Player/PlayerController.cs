@@ -52,8 +52,13 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit, Mathf.Infinity, playerMask) || !EventSystem.current.IsPointerOverGameObject())
         {
-            var hoverEnemy = hit.collider.gameObject.CompareTag("Enemy") &&
-                             hit.collider.gameObject.TryGetComponent(out Health health);
+            var hoverEnemy = false;
+            if (hit.collider != null)
+            {
+              hoverEnemy = hit.collider.gameObject.CompareTag("Enemy") &&
+                                           hit.collider.gameObject.TryGetComponent(out Health health);  
+            }
+            
 
             if (Input.GetMouseButtonDown(0))
             {

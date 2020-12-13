@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour, ISaveable
+public class Health : MonoBehaviour
 {
     public float maxHealth;
     public AutoHealing autoHealing;
@@ -16,6 +16,7 @@ public class Health : MonoBehaviour, ISaveable
     public UnityEvent<float> onHealthIncreased;
     public UnityEvent onDefeat;
     public UnityEvent onRevive;
+    private float _baseMaxHealth;
 
     public float CurrentHealth
     {
@@ -43,6 +44,12 @@ public class Health : MonoBehaviour, ISaveable
     private void Start()
     {
         onMaxHealthSet.Invoke(maxHealth);
+        if (TryGetComponent<PlayerLevel>(out var level))
+        {
+            _baseMaxHealth = maxHealth;
+            SetMaxHealth(level);
+            level.ONLevelUp += SetMaxHealth;
+        }
     }
     
     public void TakeDamage(float damage)
@@ -75,6 +82,8 @@ public class Health : MonoBehaviour, ISaveable
         {
             StartCoroutine(dissolve.DoDissolve());
         }
+        else
+            gameObject.SetActive(false);
         //TODO: Trigger defeat sound / animation
     }
     
@@ -89,13 +98,12 @@ public class Health : MonoBehaviour, ISaveable
         }
         //TODO: Trigger revive sound / animation
     }
-    
-    public void Update()
+
+    private void SetMaxHealth(PlayerLevel level)
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            TakeDamage();
-        }
+        maxHealth = _baseMaxHealth + level.level * level.healthIncrease;
+        currentHealth = maxHealth;
+        onMaxHealthSet.Invoke(maxHealth);
     }
 
     private void OnValidate()
@@ -110,35 +118,5 @@ public class Health : MonoBehaviour, ISaveable
     private void ToggleDebug()
     {
         debug = !debug;
-    }
-
-    public bool Deserialize(string save)
-    {
-        var json = JsonUtility.FromJson<HealthSave>(save);
-        if (json.Equals(new HealthSave())) return false;
-        json.ApplyValues(this);
-        return true;
-    }
-
-    public string Serialize() => JsonUtility.ToJson(new HealthSave(this));
-    
-    [Serializable]
-    internal class HealthSave
-    {
-        public bool Equals(HealthSave other) => health == other.health && maxHealth == other.health;
-        public float health;
-        public float maxHealth;
-        public HealthSave(){}
-        public HealthSave(Health health)
-        {
-            this.health = health.currentHealth; 
-            maxHealth = health.maxHealth;
-        }
-
-        public void ApplyValues(Health health)
-        {
-            health.maxHealth = maxHealth;
-            health.currentHealth = this.health;
-        }
     }
 }
