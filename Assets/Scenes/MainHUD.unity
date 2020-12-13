@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 134136542}
   - component: {fileID: 134136541}
   m_Layer: 5
-  m_Name: LevelText (1)
+  m_Name: LevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1714,7 +1714,7 @@ GameObject:
   - component: {fileID: 1019391660}
   - component: {fileID: 1019391659}
   m_Layer: 5
-  m_Name: HealthPanel (1)
+  m_Name: HealthPanelBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2216,7 +2216,7 @@ GameObject:
   - component: {fileID: 1414801677}
   - component: {fileID: 1414801676}
   m_Layer: 5
-  m_Name: HealthPanel (2)
+  m_Name: XpPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2253,7 +2253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 214d0dac16a0a3b48a36b66b89f2e048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmpText: {fileID: 1880155250}
+  levelText: {fileID: 134136541}
   image: {fileID: 1414801677}
   exp: {fileID: 0}
 --- !u!114 &1414801677
@@ -2748,7 +2748,7 @@ GameObject:
   - component: {fileID: 1880155251}
   - component: {fileID: 1880155250}
   m_Layer: 5
-  m_Name: LevelText
+  m_Name: LevelTextOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
