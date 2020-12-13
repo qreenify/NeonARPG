@@ -7,9 +7,14 @@ public class PlayerLevel : MonoBehaviour, ISaveable
     public float baseRequiredExp = 100;
     public float increasePerLevel = 5;
     public int level;
+    [Header("Increases Per Level")]
+    public float rangedDamageIncrease = 1;
+    public float meleeDamageIncrease = 1;
+    public float healthIncrease = 5;
+    public event Action<PlayerLevel> ONLevelUp; 
     [HideInInspector] public UnityEvent<float> onExpChanged;
     [HideInInspector] public UnityEvent<int> onLevelChanged;
-    public float _experience;
+    private float _experience;
 
     public float RequiredExp => increasePerLevel * level + baseRequiredExp;
 
@@ -35,6 +40,7 @@ public class PlayerLevel : MonoBehaviour, ISaveable
     public void IncreaseLevel()
     {
         onLevelChanged.Invoke(level);
+        ONLevelUp?.Invoke(this);
         _experience -= RequiredExp;
         level++;
     }

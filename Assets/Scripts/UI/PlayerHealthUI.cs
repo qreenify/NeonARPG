@@ -28,19 +28,4 @@ public class PlayerHealthUI : MonoBehaviour
     {
         image.fillAmount = Mathf.InverseLerp(0, this.health.maxHealth, health);
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            UpdateAmount(10);
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            UpdateAmount(50);
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            UpdateAmount(100);
-        }
-    }
 }

@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
     public UnityEvent<float> onHealthIncreased;
     public UnityEvent onDefeat;
     public UnityEvent onRevive;
+    private float _baseMaxHealth;
 
     public float CurrentHealth
     {
@@ -43,6 +44,12 @@ public class Health : MonoBehaviour
     private void Start()
     {
         onMaxHealthSet.Invoke(maxHealth);
+        if (TryGetComponent<PlayerLevel>(out var level))
+        {
+            _baseMaxHealth = maxHealth;
+            SetMaxHealth(level);
+            level.ONLevelUp += SetMaxHealth;
+        }
     }
     
     public void TakeDamage(float damage)
@@ -91,13 +98,12 @@ public class Health : MonoBehaviour
         }
         //TODO: Trigger revive sound / animation
     }
-    
-    public void Update()
+
+    private void SetMaxHealth(PlayerLevel level)
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            TakeDamage();
-        }
+        maxHealth = _baseMaxHealth + level.level * level.healthIncrease;
+        currentHealth = maxHealth;
+        onMaxHealthSet.Invoke(maxHealth);
     }
 
     private void OnValidate()
