@@ -20,7 +20,7 @@ public class AttackRangeDebug : MonoBehaviour
         attackRange.transform.Rotate(Vector3.back * (rotateSpeed * Time.deltaTime));
     }
 
-    private void Toggle(bool showAttackRange)
+    private void Toggle(bool showAttackRange, Transform targetTransform)
     {
         if (attackRange == null || spriteRenderer == null) return;
         spriteRenderer.enabled = showAttackRange;
