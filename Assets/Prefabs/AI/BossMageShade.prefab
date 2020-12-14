@@ -685,9 +685,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPath: event:/Player/Move/MoveParam
-  volume: 0.05
+  playOnEnable: 1
+  _volume: 1
   parameterName: CharacterMoving
-  parameterValue: 0
+  _parameterValue: 0
   globalSound: 0
   range: 80
 --- !u!114 &5253077415123187021
@@ -2692,7 +2693,7 @@ PrefabInstance:
     - target: {fileID: -6605812048558524323, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e5b46af71ea840f4ca0cc0bfd2dc1840, type: 2}
+      objectReference: {fileID: 2100000, guid: cc1bb2762f6bc4a3fb805a5336cccda2, type: 2}
     - target: {fileID: -6433246756994444709, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2700,11 +2701,11 @@ PrefabInstance:
     - target: {fileID: -2640810160984643108, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5317ad86b3f5c084d95cd9b6bae9cc8c, type: 2}
+      objectReference: {fileID: 2100000, guid: cc1bb2762f6bc4a3fb805a5336cccda2, type: 2}
     - target: {fileID: -901188359865313987, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0b3efac71f9ec664c8c2723a1fe2e76f, type: 2}
+      objectReference: {fileID: 2100000, guid: cc1bb2762f6bc4a3fb805a5336cccda2, type: 2}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.x
       value: 0.10163832
@@ -2732,7 +2733,7 @@ PrefabInstance:
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4bc1c3f3d50333c4ba4e82686e971306, type: 2}
+      objectReference: {fileID: 2100000, guid: cc1bb2762f6bc4a3fb805a5336cccda2, type: 2}
     - target: {fileID: 919132149155446097, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_Name
       value: _eroTexture (1)
@@ -2744,7 +2745,7 @@ PrefabInstance:
     - target: {fileID: 2144847745799719311, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e5b46af71ea840f4ca0cc0bfd2dc1840, type: 2}
+      objectReference: {fileID: 2100000, guid: cc1bb2762f6bc4a3fb805a5336cccda2, type: 2}
     - target: {fileID: 4295415885629102513, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2760,7 +2761,7 @@ PrefabInstance:
     - target: {fileID: 6052846547121197963, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e5b46af71ea840f4ca0cc0bfd2dc1840, type: 2}
+      objectReference: {fileID: 2100000, guid: cc1bb2762f6bc4a3fb805a5336cccda2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
 --- !u!1 &8533585143652325014 stripped
