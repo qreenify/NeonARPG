@@ -21,7 +21,25 @@ public class PlayerController : MonoBehaviour
     public static PlayerController playerController;
     public event Action<bool> ONWeaponSwap;
     public event Action<bool> ONHoverOverEnemy;
-
+    
+    
+    public bool InRange
+    {
+        get
+        {
+            if (ranged)
+            {
+                var rangedAttack = GetComponent<Unit.RangedAttack>();
+                return rangedAttack.InAttackRange;
+            }
+            else
+            {
+                var meleeAttack = GetComponent<Unit.MeleeAttack>();
+                return meleeAttack.InAttackRange;
+            }
+        }
+    }
+    
     private void Awake()
     {
         if (playerController != null)
@@ -44,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         ToggleWeapon();
         Select();
+        
     }
 
     private void Select()
@@ -64,28 +83,17 @@ public class PlayerController : MonoBehaviour
             {
                 if (Vector3.Distance(hit.point, transform.position) > maxDistance) return;
                 if (hit.collider != null)
-                {
+                {    
                     if (hoverEnemy)
-                    {
+                    {    
+                        
                         var enemy = hit.collider.gameObject;
                         _unit.target = enemy.transform;
                         if (currentAnimation != null)
                         {
                             Destroy(currentAnimation);
                         }
-
-                        var inRange = false;
-                        switch (_unit.currentAction)
-                        {
-                            case Unit.RangedAttack rangedAttack:
-                                inRange = rangedAttack.InAttackRange;
-                                break;
-                            case MeleeAttack meleeAttack:
-                                inRange = meleeAttack.InAttackRange;
-                                break;
-                        }
-
-                        if (!inRange)
+                        if (!InRange)
                         {
                             _unit.MoveTo(hit.collider.transform.position);
                         }
