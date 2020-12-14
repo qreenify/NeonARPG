@@ -6,9 +6,10 @@ public class SoundPlayer : MonoBehaviour
 {
     [FMODUnity.EventRef] // Use the search function to fill in the path string below
     public string eventPath;
+    public bool playOnEnable = true;
 
     [Range(0f, 2f)]
-    public float volume = 1f;
+    public float _volume = 1f;
     public float Volume 
     {
         get => volume;
@@ -21,14 +22,14 @@ public class SoundPlayer : MonoBehaviour
 
     public string parameterName = "CharacterMoving";
     [Range(0f, 1f)]
-    public float parameterValue;
+    public float _parameterValue;
     public float ParameterValue
     {
         get => parameterValue;
         set
         {
-            volume = value;
-            music.setVolume(value);
+            parameterValue = value;
+            music.setParameterByName(parameterName, parameterValue);
         }
     }
 
@@ -57,13 +58,13 @@ public class SoundPlayer : MonoBehaviour
         //music.setProperty(FMOD.Studio.EVENT_PROPERTY.MAXIMUM_DISTANCE, maxDistance);
         //}
         //}
-        Play();
+        if(playOnEnable)
+            Play();
     }
 
     void Update()
     {
         //if(parameterName != "")
-        music.setParameterByName("CharacterMoving", parameterValue);
         if (!globalSound)
         {
             if (PlayerController.playerController != null)
@@ -71,17 +72,13 @@ public class SoundPlayer : MonoBehaviour
                 //Debug.Log(this + "Shit" +  Vector3.Distance(transform.position, PlayerController.playerController.transform.position));
                 if(Vector3.Distance(transform.position, PlayerController.playerController.transform.position) < range)
                 {
-                    music.setVolume(volume);
+                    music.setVolume(_volume);
                 }
                 else
                 {
                     music.setVolume(0);
                 }
             }
-        }
-        else
-        {
-            music.setVolume(volume);
         }
 
         //music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));

@@ -64,8 +64,8 @@
 	<object class="GroupTrack" id="{591f1e8d-9e78-4ec6-84ea-2cb5af6ff15b}">
 		<relationship name="modules">
 			<destination>{b54c1f5b-216d-496e-83b2-f2e629685202}</destination>
-			<destination>{6f980f09-6612-4df1-95ac-7ce88244ac05}</destination>
 			<destination>{4372c63d-c1f2-4e20-9100-5498dd8776ec}</destination>
+			<destination>{95eec0f6-a788-432d-be50-220e32b4fefa}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{432f3dfb-b344-44c6-a017-844da0c48183}</destination>
@@ -78,8 +78,8 @@
 	</object>
 	<object class="ParameterProxy" id="{23d6ee34-f7e2-4e75-9cd4-fc43d78eb5d2}">
 		<relationship name="modules">
-			<destination>{6f980f09-6612-4df1-95ac-7ce88244ac05}</destination>
 			<destination>{4372c63d-c1f2-4e20-9100-5498dd8776ec}</destination>
+			<destination>{95eec0f6-a788-432d-be50-220e32b4fefa}</destination>
 		</relationship>
 		<relationship name="preset">
 			<destination>{8ee47fd8-f2ec-44fc-ae39-4327e6125829}</destination>
@@ -104,10 +104,10 @@
 	<object class="MixerBusPanner" id="{fb433407-eb4b-4750-92e6-ac03a89ffc71}" />
 	<object class="MultiSound" id="{b54c1f5b-216d-496e-83b2-f2e629685202}">
 		<property name="length">
-			<value>25</value>
+			<value>1.5</value>
 		</property>
 		<property name="volume">
-			<value>-9</value>
+			<value>-7</value>
 		</property>
 		<property name="playlistMode">
 			<value>1</value>
@@ -118,23 +118,23 @@
 			<destination>{2112a0d4-eebd-4255-a165-f2d124c509fa}</destination>
 		</relationship>
 	</object>
-	<object class="CommandSound" id="{6f980f09-6612-4df1-95ac-7ce88244ac05}">
-		<property name="length">
-			<value>0.10000000000000001</value>
-		</property>
-		<property name="commandType">
-			<value>1</value>
-		</property>
-		<relationship name="commandTarget">
-			<destination>{3c3b7c7e-4b74-4022-bdd2-6f08c093d5d4}</destination>
-		</relationship>
-	</object>
 	<object class="CommandSound" id="{4372c63d-c1f2-4e20-9100-5498dd8776ec}">
 		<property name="start">
 			<value>0.90000000000000002</value>
 		</property>
 		<property name="length">
 			<value>0.10000000000000001</value>
+		</property>
+		<relationship name="commandTarget">
+			<destination>{3c3b7c7e-4b74-4022-bdd2-6f08c093d5d4}</destination>
+		</relationship>
+	</object>
+	<object class="CommandSound" id="{95eec0f6-a788-432d-be50-220e32b4fefa}">
+		<property name="length">
+			<value>0.10000000000000001</value>
+		</property>
+		<property name="commandType">
+			<value>1</value>
 		</property>
 		<relationship name="commandTarget">
 			<destination>{3c3b7c7e-4b74-4022-bdd2-6f08c093d5d4}</destination>
@@ -175,7 +175,7 @@
 	</object>
 	<object class="SingleSound" id="{2112a0d4-eebd-4255-a165-f2d124c509fa}">
 		<property name="pitch">
-			<value>1.20000005</value>
+			<value>1</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{6684c971-72a8-4193-8f85-553d1ffeae80}</destination>
