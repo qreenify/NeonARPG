@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 public class SaveState : MonoBehaviour
@@ -18,7 +19,21 @@ public class SaveState : MonoBehaviour
     {
         if (Collected == (int) CollectedState.Collected)
         {
-            gameObject.SetActive(false);
+            SetActive(false);
+        }
+    }
+
+    private void SetActive(bool active)
+    {
+        var renderers = GetComponents<Renderer>();
+        var colliders = GetComponents<Collider>();
+        foreach (var collider in colliders)
+        {
+            collider.enabled = active;
+        }
+        foreach (var renderer in renderers)
+        {
+            renderer.enabled = active;
         }
     }
 

@@ -39,12 +39,21 @@ public class PlayerLevel : MonoBehaviour, ISaveable
 
     public void IncreaseLevel()
     {
-        onLevelChanged.Invoke(level);
-        ONLevelUp?.Invoke(this);
-        _experience -= RequiredExp;
-        level++;
+        while (true)
+        {
+            onLevelChanged.Invoke(level);
+            ONLevelUp?.Invoke(this);
+            _experience -= RequiredExp;
+            level++;
+            if (Experience > RequiredExp)
+            {
+                continue;
+            }
+
+            break;
+        }
     }
-    
+
     public bool Deserialize(string playerLevel)
     {
         var json = JsonUtility.FromJson<LevelSave>(playerLevel);
