@@ -13,10 +13,13 @@ public class Dissolve : MonoBehaviour
 
     public IEnumerator DoDissolve()
     {
-        var sensors = FindObjectsOfType<Sensor>();
-        foreach (var sensor in sensors)
+        if (TryGetComponent<PlayerController>(out var playerController))
         {
-            sensor.OnPlayerDeath();
+            var sensors = FindObjectsOfType<Sensor>();
+            foreach (var sensor in sensors)
+            {
+                sensor.OnPlayerDeath();
+            }
         }
         var colliders = GetComponentsInChildren<Collider>();
         foreach (var collider in colliders)
@@ -39,6 +42,7 @@ public class Dissolve : MonoBehaviour
 
             yield return null;
         }
+        GetComponent<Health>().onDefeat.Invoke();
         gameObject.SetActive(false);
     }
     
