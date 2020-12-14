@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{dd887b44-6692-441e-9ee1-daf1133c3d2b}">
 		<property name="name">
 			<value>stepsHovering_enemy_SFX</value>
@@ -41,6 +41,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{4757caee-fa49-4786-9fb2-ddd409c4a99e}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{35d86f10-05bf-4925-95e6-d707b229a800}</destination>
 		</relationship>
@@ -57,8 +60,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{c229e721-543a-41b0-b68b-fabdb4e8385c}" />
-	<object class="MarkerTrack" id="{2d3c1a5f-799f-4336-bc19-5335f541c600}" />
+	<object class="MarkerTrack" id="{2d3c1a5f-799f-4336-bc19-5335f541c600}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{b0463e38-fb36-4aad-8526-f37240bf72a4}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{7c0916de-f1cc-4d23-87ea-2fad82232ed3}</destination>
 		</relationship>

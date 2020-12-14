@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{7c8b6a9b-9384-4c3b-859f-4c005fda0b8a}">
 		<property name="name">
 			<value>recieveHP_SFX</value>
@@ -41,6 +41,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{12965c47-8e41-4dbc-94a2-1305ec3a921f}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{e992572e-a84c-41d4-a3e2-202ddbd264ca}</destination>
 		</relationship>
@@ -57,8 +60,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{9d567a34-edcf-44a5-b785-69536ee4c691}" />
-	<object class="MarkerTrack" id="{66532093-fb8a-4ffe-89c4-cdaf0a628768}" />
+	<object class="MarkerTrack" id="{66532093-fb8a-4ffe-89c4-cdaf0a628768}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{9bbb98f5-c840-4c43-8665-c9f65995fe97}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{9f592096-37e9-49b0-b919-332080944593}</destination>
 		</relationship>

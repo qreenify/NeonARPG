@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{3c3b7c7e-4b74-4022-bdd2-6f08c093d5d4}">
 		<property name="name">
 			<value>enemySword_SFX</value>
@@ -41,6 +41,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{fc4c2c49-8e0d-4a6d-9521-f287f4b79d14}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{6daee19c-908b-49a2-95df-9135a5ad70fe}</destination>
 		</relationship>
@@ -57,8 +60,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{702431e3-9baa-4438-9145-f3aabc9f60db}" />
-	<object class="MarkerTrack" id="{5d5ab289-ac6c-48e8-97a3-66e453041540}" />
+	<object class="MarkerTrack" id="{5d5ab289-ac6c-48e8-97a3-66e453041540}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{591f1e8d-9e78-4ec6-84ea-2cb5af6ff15b}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{432f3dfb-b344-44c6-a017-844da0c48183}</destination>
 		</relationship>

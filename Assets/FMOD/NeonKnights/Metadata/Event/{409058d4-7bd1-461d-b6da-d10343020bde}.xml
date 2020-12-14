@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{409058d4-7bd1-461d-b6da-d10343020bde}">
 		<property name="name">
 			<value>characterBow_SFX</value>
@@ -41,6 +41,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{8d9a290b-dec5-4326-888b-a52fb3f2bd1c}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{57647881-333e-4b0e-8bb0-964079a63b04}</destination>
 		</relationship>
@@ -57,8 +60,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{752060ed-797a-4069-bad8-ae71f1a674bc}" />
-	<object class="MarkerTrack" id="{247499c0-be36-4728-acf7-cc827f701a0f}" />
+	<object class="MarkerTrack" id="{247499c0-be36-4728-acf7-cc827f701a0f}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{9e68342e-aa4d-42dc-9e58-029af92ab241}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{10b144d4-9197-4f68-98ca-454a69607253}</destination>
 		</relationship>

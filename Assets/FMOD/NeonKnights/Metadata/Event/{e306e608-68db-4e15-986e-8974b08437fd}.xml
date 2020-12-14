@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{e306e608-68db-4e15-986e-8974b08437fd}">
 		<property name="name">
 			<value>pause_play_SFX</value>
@@ -41,6 +41,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{502e2f38-3959-40e0-aa25-bef5dd97418e}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{1c880e3c-2ad3-4221-8f6a-e7c3f2a8d0de}</destination>
 		</relationship>
@@ -57,8 +60,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{c89d5549-868d-404b-9564-97d653a2cf60}" />
-	<object class="MarkerTrack" id="{4b4f21cb-db40-4da4-a7dc-b0a8773c0991}" />
+	<object class="MarkerTrack" id="{4b4f21cb-db40-4da4-a7dc-b0a8773c0991}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{8949dd4e-4ef7-4573-9015-7ef5217acd1c}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{39b9b26a-47e1-4641-9446-31d0114e7380}</destination>
 		</relationship>
