@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{97d24353-e7c3-45d9-bcd4-154b6265e120}">
 		<property name="name">
 			<value>inflictDamage_SFX</value>
@@ -41,6 +41,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{a9e36569-ffb5-4d6b-a2e3-4429a805c628}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{a91e0b13-7a5b-41fe-8182-7ada241a0f1b}</destination>
 		</relationship>
@@ -57,8 +60,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{9e71e9b8-1d13-42cb-9759-b50e15ffc353}" />
-	<object class="MarkerTrack" id="{51c3dafd-cd18-424c-8182-eca76378d1d7}" />
+	<object class="MarkerTrack" id="{51c3dafd-cd18-424c-8182-eca76378d1d7}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{ed5a7e24-4f49-403a-88ba-d043c165efb5}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{7afb68b1-8e74-4c41-8a19-5a4c38449db0}</destination>
 		</relationship>
