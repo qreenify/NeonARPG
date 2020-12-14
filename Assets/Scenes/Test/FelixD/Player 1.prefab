@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 2143345354}
   - component: {fileID: 7360463406742339531}
   - component: {fileID: 202651258}
+  - component: {fileID: 2756392397159738505}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -609,6 +610,22 @@ MonoBehaviour:
   inRangeCursor: {fileID: 2800000, guid: 56880dba132f1574f92c383058e936a4, type: 3}
   hoverCursor: {fileID: 2800000, guid: 0f3fb9207a72041468bbf1057947c1f3, type: 3}
   originalCursor: {fileID: 2800000, guid: 3e35f5f726cdc9d4089d593840c36e49, type: 3}
+--- !u!114 &2756392397159738505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382926140812516097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9570acde0f24f9046a95387fcd7bed13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  priority: -1
+  maxRange: 10
+  showGizmos: 1
 --- !u!183 &7394461288812367126
 Cloth:
   m_ObjectHideFlags: 0
@@ -2865,7 +2882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: 0.4527638
+      value: 0.45276368
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.z
@@ -2877,7 +2894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 1.6936758
+      value: 1.6936754
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Extent.z
