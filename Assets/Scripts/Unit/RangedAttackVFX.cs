@@ -21,6 +21,10 @@ namespace Unit
             _rangedAttack.ONCancelAttack += CancelAttack;
             _rangedAttack.ONAttack += Attack;
             _rangedAttack.ONLoadingAttack += LoadAttack;
+            if (TryGetComponent<PlayerController>(out var playerController))
+            {
+                playerController.ONWeaponSwap += WeaponSwapped;
+            }
             _unit = GetComponent<Unit>();
         }
 
@@ -30,11 +34,23 @@ namespace Unit
             if (_beamInstantiateTime < 0) DestroyBeam();
         }
 
+        void WeaponSwapped(bool ranged)
+        {
+            if (ranged == false)
+            {
+                CancelAttack();
+            }
+        }
+
         void CancelAttack()
         {
             _rangedAttack.IsLoadingAttack = false;
             _beamInstantiateTime = 0.5f;
-            Destroy(_loadFieldInstance);
+            if (_loadFieldInstance != null)
+            {
+                Destroy(_loadFieldInstance);
+            }
+            DestroyBeam();
         }
         
         void LoadAttack()
@@ -52,7 +68,10 @@ namespace Unit
 
         void DestroyBeam()
         {
-            Destroy(_beamInstance);
+            if (_beamInstance != null)
+            {
+                Destroy(_beamInstance);
+            }
         }
     }
 }
