@@ -41,10 +41,10 @@ public class PlayerLevel : MonoBehaviour, ISaveable
     {
         while (true)
         {
-            onLevelChanged.Invoke(level);
-            ONLevelUp?.Invoke(this);
             _experience -= RequiredExp;
             level++;
+            ONLevelUp?.Invoke(this);
+            onLevelChanged.Invoke(level);
             if (Experience > RequiredExp)
             {
                 continue;
@@ -79,7 +79,7 @@ public class PlayerLevel : MonoBehaviour, ISaveable
 
         public void ApplyValues(PlayerLevel playerLevel)
         {
-            playerLevel.Experience = experience;
+            playerLevel._experience = experience;
             playerLevel.level = level;
         }
     }
