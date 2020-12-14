@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
 
@@ -14,20 +15,19 @@ namespace Unit
         public float windUpTime = 0.4f;
         private float _currentCooldown;
         private float _windUpTime;
-        [SerializeField] GameObject beamVFXPrefab;
-        [SerializeField] GameObject loadFieldVFXPrefab;
-        [SerializeField] Transform beamSpawnPoint;
         private NavMeshAgent _agent;
         private float _startAttackDamage;
         public bool showGizmos = true;
+        public event Action ONCancelAttack, ONLoadingAttack, ONAttack;
 
         public bool CooldownFinished => _currentCooldown <= 0;
         public bool WindUpFinished => _windUpTime <= 0;
-        public bool IsLoadingAttack { get; set; }
         public bool InAttackRange
         {
             get => Vector3.Distance(transform.position, unit.target.position) < range;
         }
+        
+        public bool IsLoadingAttack { get; set; }
 
         private void Start()
         {
@@ -52,7 +52,7 @@ namespace Unit
         }
         public override bool Enter()
         {
-            unit.MoveTo(unit.target.position);
+            //unit.MoveTo(unit.target.position);
             return true;
         }
         public override bool DoUpdate()
@@ -71,11 +71,14 @@ namespace Unit
         private void Update()
         {
             if (_currentCooldown > 0) _currentCooldown -= Time.deltaTime;
-            
-            if (_windUpTime > 0 && unit.target != null && _agent.velocity.magnitude == 0) 
+
+            if (_windUpTime > 0 && unit.target != null && _agent.velocity.magnitude == 0 && CooldownFinished) 
                 _windUpTime -= Time.deltaTime;
-            else if (unit.target == null || _agent.velocity.magnitude != 0) 
+            else if (unit.target == null || _agent.velocity.magnitude != 0)
+            {
+                ONCancelAttack?.Invoke();
                 _windUpTime = windUpTime;
+            }
         }
 
         bool Attack()
@@ -87,16 +90,16 @@ namespace Unit
             if (InAttackRange && unit.TargetInView())
             {
                 unit.StopMove();
-                if (!IsLoadingAttack)
+                if (!IsLoadingAttack && CooldownFinished)
                 {
-                    LoadAttack();
+                    ONLoadingAttack?.Invoke();
                 }
 
                 if (CooldownFinished && WindUpFinished)
                 {
                     //Debug.Log("Damage!");
-                    
-                    var beamInstance = Instantiate(beamVFXPrefab, beamSpawnPoint.transform);
+                    ONCancelAttack?.Invoke();
+                    ONAttack?.Invoke();
                     unit.target.GetComponent<Health>().TakeDamage(attackDamage);
                     _currentCooldown = coolDown;
                     _windUpTime = windUpTime;
@@ -108,11 +111,6 @@ namespace Unit
             return false;
         }
 
-        void LoadAttack()
-        {
-            var loadFieldInstance = Instantiate(loadFieldVFXPrefab, beamSpawnPoint.transform);
-            IsLoadingAttack = true;
-        }
         private void SetDamage(PlayerLevel level)
         {
             attackDamage = _startAttackDamage + level.rangedDamageIncrease * level.level;

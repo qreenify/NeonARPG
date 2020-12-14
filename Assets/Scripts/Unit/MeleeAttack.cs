@@ -45,7 +45,7 @@ namespace Unit
         }
         public override bool Enter()
         {
-            unit.MoveTo(unit.target.position);
+            //unit.MoveTo(unit.target.position);
             return true;
         }
         public override bool DoUpdate()
