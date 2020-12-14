@@ -88,8 +88,7 @@ public class PlayerController : MonoBehaviour
             Transform hoverTransform = null;
             if (hit.collider != null)
             {
-              hoverEnemy = hit.collider.gameObject.CompareTag("Enemy") &&
-                                           hit.collider.gameObject.TryGetComponent(out Health health);
+              hoverEnemy = hit.collider.gameObject.CompareTag("Enemy") && hit.collider.gameObject.TryGetComponent(out Health health);
               hoverTransform = hit.transform;
             }
             
