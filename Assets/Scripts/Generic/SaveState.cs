@@ -80,7 +80,7 @@ public class SaveState : MonoBehaviour
 
     public void SetCollected(bool state) => Collected = state ? 1 : 0;
     private void SetCollected(CollectedState state) => Collected = (int) state;
-
+#if UNITY_EDITOR
     private void OnValidate()
     {
         if (gameObject.scene.name == null) return;
@@ -89,6 +89,7 @@ public class SaveState : MonoBehaviour
             id = GlobalId += 1;
         }
     }
+#endif
 
     [ContextMenu("ResetID")]
     private void ResetID()
