@@ -127,6 +127,7 @@ public class PlayerController : MonoBehaviour
 
             else if (Input.GetKey(lookAroundKey))
             {
+                _unit.StopMove();
                 transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
                 hoverEnemy = true;
             }
