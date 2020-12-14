@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExperienceUI : MonoBehaviour
 {
-    public TMP_Text tmpText;
+    public TMP_Text levelText;
     public Image image;
     public PlayerLevel exp;
 
@@ -35,6 +35,6 @@ public class ExperienceUI : MonoBehaviour
 
     public void UpdateText(int level)
     {
-        tmpText.SetText($"Player Level {level}");
+        levelText.SetText($"Player Level {level}");
     }
 }

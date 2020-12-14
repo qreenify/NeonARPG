@@ -1,31 +1,43 @@
-﻿using System;
-using Unit;
+﻿using Unit;
 using UnityEngine;
 
 public class AttackRangeDebug : MonoBehaviour
 {
-    public UnitAction attackAction;
-    public Transform debugSphere;
+    public Transform parent;
+    public Transform attackRange;
+    public SpriteRenderer spriteRenderer;
+    public float rotateSpeed;
+
+    private void Start()
+    {
+        PlayerController.playerController.ONWeaponSwap += ChangeWeapon;
+        PlayerController.playerController.ONHoverOverEnemy += Toggle;
+    }
 
     private void LateUpdate()
     {
-        if (attackAction == null || debugSphere == null) return;
-        var newPos = debugSphere.position;
-        newPos.y = 0.1f;
-        debugSphere.position = newPos;
+        //parent.rotation = Quaternion.identity;
+        attackRange.transform.Rotate(Vector3.back * (rotateSpeed * Time.deltaTime));
     }
-    
-    private void OnValidate()
+
+    private void Toggle(bool showAttackRange)
     {
-        if (attackAction == null || debugSphere == null) return;
-        switch (attackAction)
+        if (attackRange == null || spriteRenderer == null) return;
+        spriteRenderer.enabled = showAttackRange;
+    }
+
+    private void ChangeWeapon(bool ranged)
+    {
+        if (attackRange == null) return;
+        if (ranged)
         {
-            case MeleeAttack meleeAttack:
-                debugSphere.localScale = new Vector3(meleeAttack.range * 2, debugSphere.localScale.y, meleeAttack.range * 2);
-                break;
-            case Unit.RangedAttack rangedAttack:
-                debugSphere.localScale = new Vector3(rangedAttack.range * 2, debugSphere.localScale.y, rangedAttack.range * 2);
-                break;
+            var rangedAttack = GetComponentInParent<Unit.RangedAttack>();
+            attackRange.localScale = new Vector3(rangedAttack.range, rangedAttack.range, attackRange.localScale.z);
+        }
+        else
+        {
+            var meleeAttack = GetComponentInParent<MeleeAttack>();
+            attackRange.localScale = new Vector3(meleeAttack.range, meleeAttack.range, attackRange.localScale.z);
         }
     }
 }

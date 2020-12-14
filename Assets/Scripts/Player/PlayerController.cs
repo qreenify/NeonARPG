@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector] public Camera camera;
+    public LayerMask playerMask;
     private Unit.Unit _unit;
     public float maxDistance = 50;
     public UnitAction[] playerActions;
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public GameObject moveAnimation;
     public GameObject currentAnimation;
     public static PlayerController playerController;
+    public event Action<bool> ONWeaponSwap;
+    public event Action<bool> ONHoverOverEnemy;
 
     private void Awake()
     {
@@ -45,65 +48,76 @@ public class PlayerController : MonoBehaviour
 
     private void Select()
     {
-        if (Input.GetMouseButtonDown(0))
+        var eventSystem = FindObjectOfType<EventSystem>();
+
+        if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit, Mathf.Infinity, playerMask) || !EventSystem.current.IsPointerOverGameObject())
         {
-            var eventSystem = FindObjectOfType<EventSystem>();
-            if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) ||
-                eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
-            if (Vector3.Distance(hit.point, transform.position) > maxDistance) return;
+            var hoverEnemy = false;
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.CompareTag("Enemy") &&
-                    hit.collider.gameObject.TryGetComponent(out Health health))
+              hoverEnemy = hit.collider.gameObject.CompareTag("Enemy") &&
+                                           hit.collider.gameObject.TryGetComponent(out Health health);  
+            }
+            
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (Vector3.Distance(hit.point, transform.position) > maxDistance) return;
+                if (hit.collider != null)
                 {
-                    var enemy = hit.collider.gameObject;
-                    _unit.target = enemy.transform;
-                    if (currentAnimation != null)
+                    if (hoverEnemy)
                     {
-                        Destroy(currentAnimation);
-                    }
+                        var enemy = hit.collider.gameObject;
+                        _unit.target = enemy.transform;
+                        if (currentAnimation != null)
+                        {
+                            Destroy(currentAnimation);
+                        }
 
-                    var inRange = false;
-                    switch (_unit.currentAction)
-                    {
-                        case Unit.RangedAttack rangedAttack:
-                            inRange = rangedAttack.InAttackRange;
-                            break;
-                        case MeleeAttack meleeAttack:
-                            inRange = meleeAttack.InAttackRange;
-                            break;
-                    }
+                        var inRange = false;
+                        switch (_unit.currentAction)
+                        {
+                            case Unit.RangedAttack rangedAttack:
+                                inRange = rangedAttack.InAttackRange;
+                                break;
+                            case MeleeAttack meleeAttack:
+                                inRange = meleeAttack.InAttackRange;
+                                break;
+                        }
 
-                    if (!inRange)
-                    {
-                        _unit.MoveTo(hit.collider.transform.position);
+                        if (!inRange)
+                        {
+                            _unit.MoveTo(hit.collider.transform.position);
+                        }
                     }
                 }
             }
-        }
 
-        else if (Input.GetMouseButton(1))
-        {
-            var eventSystem = FindObjectOfType<EventSystem>();
-            if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) || eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
-            if (Vector3.Distance(hit.point, transform.position) > maxDistance) return;
-            
-            _unit.target = null;
-            if (currentAnimation != null) 
-            { 
-                Destroy(currentAnimation);
+            else if (Input.GetMouseButton(1))
+            {
+                if (!(Vector3.Distance(hit.point, transform.position) > maxDistance))
+                {
+                    _unit.target = null;
+                    _unit.MoveTo(hit.point);
+                }
             }
-            currentAnimation = Instantiate(moveAnimation);
-            currentAnimation.transform.position = hit.point;
-            _unit.MoveTo(hit.point);
-        }
-        
-        else if (Input.GetKey(lookAroundKey))
-        {
-            var eventSystem = FindObjectOfType<EventSystem>();
-            if (!Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit) ||
-                eventSystem != null && eventSystem.IsPointerOverGameObject()) return;
-            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+
+            else if (Input.GetKey(lookAroundKey))
+            {
+                transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+                hoverEnemy = true;
+            }
+            ONHoverOverEnemy?.Invoke(hoverEnemy);
+
+            if (Input.GetMouseButtonUp(1))
+            {
+                if (currentAnimation != null)
+                {
+                    Destroy(currentAnimation);
+                }
+                currentAnimation = Instantiate(moveAnimation);
+                currentAnimation.transform.position = hit.point + new Vector3(0, 0.1f, 0);
+            }
         }
     }
 
@@ -112,6 +126,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(weaponSwitch))
         {
             ranged = !ranged;
+            ONWeaponSwap?.Invoke(ranged);
             SetWeapon();
         }
     }
