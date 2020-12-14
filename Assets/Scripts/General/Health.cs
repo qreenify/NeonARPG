@@ -87,6 +87,7 @@ public class Health : MonoBehaviour
         }
         else
         {
+            onDefeat.Invoke();
             gameObject.SetActive(false);
         }
 
