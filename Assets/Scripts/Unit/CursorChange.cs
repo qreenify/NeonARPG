@@ -4,20 +4,39 @@ namespace Unit
 {
     public class CursorChange : MonoBehaviour
     {
-        public PlayerController PlayerController;
-        public Texture2D cursor;
+        public Texture2D inRangeCursor;
+        public Texture2D hoverCursor;
         public Texture2D originalCursor;
+        private Texture2D[] cursors;
+        private Vector2 _hotSpot = new Vector2(20, 20);
+        private CursorState _state;
+        private CursorState _previousState;
 
-        public void Update()
+        public void Start()
         {
-            if (PlayerController.InRange)
+            cursors = new[] {originalCursor, hoverCursor, inRangeCursor};
+            PlayerController.playerController.ONHoverOverEnemy += ChangeCursor;
+        }
+
+        private void ChangeCursor(bool overEnemy, Transform targetTransform)
+        {
+            if (!overEnemy)
             {
-                Cursor.SetCursor(cursor, Vector2.zero, CursorMode.ForceSoftware);
+                _state = CursorState.NotOverEnemy;
             }
             else
             {
-                Cursor.SetCursor(originalCursor, Vector2.zero, CursorMode.ForceSoftware);
+                _state = PlayerController.playerController.InRange(targetTransform) ? CursorState.InRangeAndOverEnemy : CursorState.OverEnemy;
             }
+            if (_state != _previousState)
+                Cursor.SetCursor(cursors[(int)_state], _hotSpot, CursorMode.Auto);
+            _previousState = _state;
+        }
+        private enum CursorState
+        {
+            NotOverEnemy,
+            OverEnemy,
+            InRangeAndOverEnemy
         }
     }
 }
