@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1016796060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016796061}
+  m_Layer: 8
+  m_Name: Range Attack SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1016796061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016796060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.471, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1562877159537138682}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7394461287680868073
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +285,7 @@ Transform:
   - {fileID: 3025875037369841558}
   - {fileID: 7394461287680868072}
   - {fileID: 2208598756848481036}
+  - {fileID: 1016796061}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.12, y: 79.991, z: 0.086}
@@ -410,6 +441,9 @@ MonoBehaviour:
   attackDamage: 10
   coolDown: 3
   windUpTime: 0.4
+  beamVFXPrefab: {fileID: 354874553096489612, guid: 10e0c87324224794885358a769a482e2, type: 3}
+  loadFieldVFXPrefab: {fileID: 8566906769537120968, guid: e3ff84f1037bd5749bf5ce80da5a321a, type: 3}
+  beamSpawnPoint: {fileID: 1016796061}
   showGizmos: 1
 --- !u!114 &7222689361880935967
 MonoBehaviour:
@@ -2882,7 +2916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: 0.45276368
+      value: 0.4527638
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.z
@@ -2894,7 +2928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 1.6936754
+      value: 1.6936758
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Extent.z
@@ -3098,13 +3132,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
---- !u!4 &3025875037369841558 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
-  m_PrefabInstance: {fileID: 3347485338290081917}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8916133640138753361 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6181419615306536236, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
+  m_PrefabInstance: {fileID: 3347485338290081917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3025875037369841558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
   m_PrefabInstance: {fileID: 3347485338290081917}
   m_PrefabAsset: {fileID: 0}

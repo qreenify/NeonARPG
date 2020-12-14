@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace Unit
 {
@@ -13,12 +14,16 @@ namespace Unit
         public float windUpTime = 0.4f;
         private float _currentCooldown;
         private float _windUpTime;
+        [SerializeField] GameObject beamVFXPrefab;
+        [SerializeField] GameObject loadFieldVFXPrefab;
+        [SerializeField] Transform beamSpawnPoint;
         private NavMeshAgent _agent;
         private float _startAttackDamage;
         public bool showGizmos = true;
 
         public bool CooldownFinished => _currentCooldown <= 0;
         public bool WindUpFinished => _windUpTime <= 0;
+        public bool IsLoadingAttack { get; set; }
         public bool InAttackRange
         {
             get => Vector3.Distance(transform.position, unit.target.position) < range;
@@ -29,6 +34,7 @@ namespace Unit
             _windUpTime = windUpTime;
             _agent = GetComponent<NavMeshAgent>();
             _startAttackDamage = attackDamage;
+
             if (TryGetComponent<PlayerLevel>(out var level))
             {
                 SetDamage(level);
@@ -81,9 +87,16 @@ namespace Unit
             if (InAttackRange && unit.TargetInView())
             {
                 unit.StopMove();
+                if (!IsLoadingAttack)
+                {
+                    LoadAttack();
+                }
+
                 if (CooldownFinished && WindUpFinished)
                 {
                     //Debug.Log("Damage!");
+                    
+                    var beamInstance = Instantiate(beamVFXPrefab, beamSpawnPoint.transform);
                     unit.target.GetComponent<Health>().TakeDamage(attackDamage);
                     _currentCooldown = coolDown;
                     _windUpTime = windUpTime;
@@ -95,6 +108,11 @@ namespace Unit
             return false;
         }
 
+        void LoadAttack()
+        {
+            var loadFieldInstance = Instantiate(loadFieldVFXPrefab, beamSpawnPoint.transform);
+            IsLoadingAttack = true;
+        }
         private void SetDamage(PlayerLevel level)
         {
             attackDamage = _startAttackDamage + level.rangedDamageIncrease * level.level;
