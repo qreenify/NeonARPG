@@ -9,10 +9,28 @@ public class SoundPlayer : MonoBehaviour
 
     [Range(0f, 2f)]
     public float volume = 1f;
+    public float Volume 
+    {
+        get => volume;
+        set
+        {
+            volume = value;
+            music.setVolume(value);
+        }
+    }
 
     public string parameterName = "CharacterMoving";
     [Range(0f, 1f)]
     public float parameterValue;
+    public float ParameterValue
+    {
+        get => parameterValue;
+        set
+        {
+            volume = value;
+            music.setVolume(value);
+        }
+    }
 
 
     public bool globalSound = false;
@@ -24,22 +42,24 @@ public class SoundPlayer : MonoBehaviour
     private void OnEnable()
     {
         //FMOD.Studio.System.create(out system);
-        if (eventPath != null)
-        {
-            //system.setParameterByName("CharacterMoving", walking);
-            //music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
-            //music.setParameterByName("CharacterMoving", walking);
-            music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
-            music.start();
-            //if (!GlobalSound)
-            //{
-            //    music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject, GetComponent<Rigidbody>()));
-            //    FMODUnity.RuntimeManager.AttachInstanceToGameObject(music, transform, GetComponent<Rigidbody>());
-                //music.setProperty(FMOD.Studio.EVENT_PROPERTY.MINIMUM_DISTANCE, minDistance);
-                //music.setProperty(FMOD.Studio.EVENT_PROPERTY.MAXIMUM_DISTANCE, maxDistance);
-            //}
-        }
+        //if (eventPath != null)
+        //{
+        //system.setParameterByName("CharacterMoving", walking);
+        //music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        //music.setParameterByName("CharacterMoving", walking);
+        //music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        //music.start();
+        //if (!GlobalSound)
+        //{
+        //    music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject, GetComponent<Rigidbody>()));
+        //    FMODUnity.RuntimeManager.AttachInstanceToGameObject(music, transform, GetComponent<Rigidbody>());
+        //music.setProperty(FMOD.Studio.EVENT_PROPERTY.MINIMUM_DISTANCE, minDistance);
+        //music.setProperty(FMOD.Studio.EVENT_PROPERTY.MAXIMUM_DISTANCE, maxDistance);
+        //}
+        //}
+        Play();
     }
+
     void Update()
     {
         //if(parameterName != "")
@@ -73,6 +93,24 @@ public class SoundPlayer : MonoBehaviour
         //music.setParameterByName("CharacterMoving", walking);
         //system.setParameterByName("CharacterMoving", walking);
     }
+
+    void Play()
+    {
+        if (eventPath != null)
+        {
+            music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+            music.start();
+        }
+    }
+    void Stop()
+    {
+        if (eventPath != null)
+        {
+            music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+            music.start();
+        }
+    }
+
     private void OnDisable()
     {
         music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
