@@ -8,7 +8,7 @@ public class CoreHideForBaking : MonoBehaviour
 
     void OnValidate()
     {
-        foreach (var hideObject in FindObjectsOfType<HideForBaking>())
+        foreach (var hideObject in FindObjectsOfType<HideForBaking>(true))
         {
             hideObject.gameObject.SetActive(hide);
         }
