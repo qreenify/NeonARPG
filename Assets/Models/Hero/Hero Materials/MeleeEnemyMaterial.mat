@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hero New Texture
+  m_Name: MeleeEnemyMaterial
   m_Shader: {fileID: -6465566751694194690, guid: b0a2daf4618ae7d49871c22ab6182920, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON _DISABLE_SSR _DOUBLESIDED_ON
   m_LightmapFlags: 4
@@ -129,6 +129,7 @@ Material:
     m_Floats:
     - Vector1_2A679C55: 0.007
     - Vector1_2E13D496: 0.64
+    - Vector1_3ED09F6A: 1
     - Vector1_6CC0D36C: 40.7
     - Vector1_A2836AF9: 0
     - Vector1_D3561167: 0.012
@@ -204,6 +205,7 @@ Material:
     - _Metallic: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1
+    - _Override_Color: 1
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
@@ -259,7 +261,7 @@ Material:
     - Color_70BD1405: {r: 196351, g: 0, b: 167566.56, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 0, b: 0, a: 0}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
