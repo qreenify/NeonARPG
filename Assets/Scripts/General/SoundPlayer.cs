@@ -12,10 +12,10 @@ public class SoundPlayer : MonoBehaviour
     public float _volume = 1f;
     public float Volume 
     {
-        get => volume;
+        get => _volume;
         set
         {
-            volume = value;
+            _volume = value;
             music.setVolume(value);
         }
     }
@@ -25,11 +25,11 @@ public class SoundPlayer : MonoBehaviour
     public float _parameterValue;
     public float ParameterValue
     {
-        get => parameterValue;
+        get => _parameterValue;
         set
         {
-            parameterValue = value;
-            music.setParameterByName(parameterName, parameterValue);
+            _parameterValue = value;
+            music.setParameterByName(parameterName, _parameterValue);
         }
     }
 

@@ -14,6 +14,6 @@ public class UnitMovementSound : MonoBehaviour
     }
     void Update()
     {
-        hoveringSound.parameterValue = Mathf.Clamp(navMeshAgent.velocity.magnitude, 0, 1);
+        hoveringSound.ParameterValue = Mathf.Clamp(navMeshAgent.velocity.magnitude, 0, 1);
     }
 }
