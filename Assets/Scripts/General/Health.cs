@@ -87,8 +87,8 @@ public class Health : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
             onDefeat.Invoke();
+            gameObject.SetActive(false);
         }
 
         //TODO: Trigger defeat sound / animation
