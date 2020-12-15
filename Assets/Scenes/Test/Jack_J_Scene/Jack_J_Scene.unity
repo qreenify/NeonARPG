@@ -601,6 +601,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.109
       objectReference: {fileID: 0}
+    - target: {fileID: 1813957081024247211, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: damageSound
+      value: event:/SFX/Character/recieveDamage_SFX
+      objectReference: {fileID: 0}
     - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_AABB.m_Center.y
       value: 0.4527638
@@ -617,25 +621,13 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.y
       value: 1.6936758
       objectReference: {fileID: 0}
-    - target: {fileID: 7394461287680868078, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_Intensity
-      value: 12732.3955
-      objectReference: {fileID: 0}
-    - target: {fileID: 7394461287680868079, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_Intensity
-      value: 10000
+    - target: {fileID: 6542509833638795328, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: eventPath
+      value: event:/BGM/Levels/Level_1_BGM
       objectReference: {fileID: 0}
     - target: {fileID: 8382926140812516097, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_Name
       value: Player 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382926140812516097, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8802088084392208043, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: eventPath
-      value: event:/SFX/Character/stepsHovering_character_SFX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
