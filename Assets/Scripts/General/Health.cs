@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
     public UnityEvent onRevive;
     private float _baseMaxHealth;
 
+
     private void Awake()
     {
         for (int i = 0; i < materials.Length; i++)
@@ -28,6 +29,19 @@ public class Health : MonoBehaviour
             damageFeedback[i] = materials[i].GetComponent<DamageFeedback>();
         }
     }
+
+    [FMODUnity.EventRef]
+    public string damageSound;
+    [FMODUnity.EventRef]
+    public string defeatSound;
+    [FMODUnity.EventRef]
+    public string reviveSound;
+
+    //public bool isHurt
+    //{
+    //    if()
+    //}
+
     public float CurrentHealth
     {
         get => currentHealth;
@@ -45,6 +59,10 @@ public class Health : MonoBehaviour
                 }
                 if (useDamagePopUp)
                     DamagePopUpSpawner.Create(transform, currentHealth - value);
+            }
+            if (damageSound != null)
+            {
+                //GlobalSoundPlayer.globalSoundPlayer.PlaySound(damageSound);
             }
                 
             else if (value > currentHealth) 
@@ -95,6 +113,10 @@ public class Health : MonoBehaviour
             reward.Reward();
         }
 
+        if (defeatSound != null)
+        {
+            GlobalSoundPlayer.globalSoundPlayer.PlaySound(defeatSound);
+        }
         if (TryGetComponent<Dissolve>(out var dissolve))
         {
             StartCoroutine(dissolve.DoDissolve());
@@ -123,6 +145,10 @@ public class Health : MonoBehaviour
         else if (TryGetComponent(out Unit.Unit unit1))
         {
             unit1.Clear();
+        }
+        if (reviveSound != null)
+        {
+            GlobalSoundPlayer.globalSoundPlayer.PlaySound(reviveSound);
         }
         //TODO: Trigger revive sound / animation
     }

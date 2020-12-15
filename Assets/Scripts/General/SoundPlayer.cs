@@ -22,7 +22,7 @@ public class SoundPlayer : MonoBehaviour
 
     public string parameterName = "CharacterMoving";
     [Range(0f, 1f)]
-    public float _parameterValue;
+    public float _parameterValue = 1;
     public float ParameterValue
     {
         get => _parameterValue;
