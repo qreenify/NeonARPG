@@ -31,6 +31,22 @@ namespace Unit
         {
             _agent = GetComponent<NavMeshAgent>();
             _coolDown = coolDown;
+            DestinationIndex = GetClosestPoint();
+        }
+
+        int GetClosestPoint()
+        {
+            int closestPoint = -1;
+            float closestRange = 0;
+            for (int i = 0; i < destinations.Count; i++)
+            {
+                if(closestPoint == -1 || Vector3.Distance(transform.position, destinations[i]) < closestRange)
+                {
+                    closestPoint = i;
+                    closestRange = Vector3.Distance(transform.position, destinations[i]);
+                }
+            }
+            return closestPoint;
         }
 
         public override bool IsPossible()
