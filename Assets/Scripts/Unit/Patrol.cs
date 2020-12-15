@@ -67,7 +67,7 @@ namespace Unit
 
         private void Update()
         {
-            if (IsPossible() && !InRange() && _coolDown > 0)
+            if (IsPossible() && InRange() && _coolDown > 0)
             {
                 _coolDown -= Time.deltaTime;
             }
