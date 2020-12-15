@@ -10,9 +10,13 @@ public class Portal : MonoBehaviour
     [Header("For Switching Scenes")]
     public Vector3 position;
 
-    public SoundPlayer portalSound;
-    float savedTime; //For later
-    public float warmUp; //For later /F
+    [FMODUnity.EventRef]
+    public string soundStart;
+    [FMODUnity.EventRef]
+    public string soundEnd;
+    float savedTime;
+    public float warmUp = 2;
+    bool triggeringJump = false;
     public void Start()
     {
         if(autoAdd && otherPortal != null && gameObject.TryGetComponent<PlayerEnter>(out PlayerEnter playerEnter))
@@ -40,11 +44,21 @@ public class Portal : MonoBehaviour
         var position = otherPortal.transform.position + otherPortal.offset;
         TeleportToLocation(position);
     }
-    
+
+    private void Update()
+    {
+        if(triggeringJump && Time.time - savedTime > warmUp)
+        {
+            triggeringJump = false;
+            GlobalSoundPlayer.globalSoundPlayer.PlaySound(soundEnd);
+        }
+    }
+
     public void TeleportToLocation(Vector3 position)
     {
-        portalSound.enabled = true;
-        Debug.Log("Apple");
+        GlobalSoundPlayer.globalSoundPlayer.PlaySound(soundStart);
+        triggeringJump = true;
+        savedTime = Time.time;
         if (position == Vector3.zero) return;
         PlayerController.playerController.navMeshAgent.enabled = false;
         PlayerController.playerController.transform.position = position;
