@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     public float maxHealth;
+    public GameObject[] materials;
+    public DamageFeedback[] damageFeedback;
     public AutoHealing autoHealing;
     public static bool debug;
     [SerializeField] private float currentHealth;
@@ -18,7 +20,15 @@ public class Health : MonoBehaviour
     public UnityEvent onDefeat;
     public UnityEvent onRevive;
     private float _baseMaxHealth;
-    public DamageFeedback damageFeedback;
+    
+
+    private void Awake()
+    {
+        for (int i = 0; i < materials.Length; i++)
+        {
+            damageFeedback[i] = materials[i].GetComponent<DamageFeedback>();
+        }
+    }
 
     [FMODUnity.EventRef]
     public string damageSound;
@@ -31,6 +41,7 @@ public class Health : MonoBehaviour
     //{
     //    if()
     //}
+
     public float CurrentHealth
     {
         get => currentHealth;
@@ -41,7 +52,10 @@ public class Health : MonoBehaviour
                 onDamageTaken.Invoke(transform, currentHealth - value);
                 if (damageFeedback != null)
                 {
-                    damageFeedback.Feedback();
+                    for (int i = 0; i < materials.Length; i++)
+                    {
+                        damageFeedback[i].Feedback();
+                    }
                 }
                 if (useDamagePopUp)
                     DamagePopUpSpawner.Create(transform, currentHealth - value);
