@@ -106,9 +106,6 @@
 		<property name="length">
 			<value>0.90000000000000002</value>
 		</property>
-		<relationship name="parameters">
-			<destination>{82ce3f67-9fa7-4cdd-a9cb-0b90b7a970d8}</destination>
-		</relationship>
 		<relationship name="event">
 			<destination>{3776d6cd-b950-4e32-98c1-0bec785988c9}</destination>
 		</relationship>
@@ -148,11 +145,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{c15b1a42-c84d-44c2-9bbe-ca128ce40869}" />
 	<object class="MixerBusFader" id="{03fd967e-4bde-4767-b6ba-d9e2ee75218c}" />
-	<object class="ParameterProperty" id="{82ce3f67-9fa7-4cdd-a9cb-0b90b7a970d8}">
-		<relationship name="parameter">
-			<destination>{2144075a-c21e-4ca6-91cb-9ab691bfa361}</destination>
-		</relationship>
-	</object>
 	<object class="MixerBusEffectChain" id="{5c841cc5-6458-4b0b-a698-d52315d24c35}">
 		<relationship name="effects">
 			<destination>{b27c27b7-23af-4b26-893a-10b3f760b823}</destination>
