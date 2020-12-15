@@ -6,6 +6,7 @@ namespace Unit
     [RequireComponent(typeof(Unit))]
     public class MeleeAttack : UnitAction
     {
+        public GameObject meeleeDisplay;
 
         public DrawAttackLine drawAttackLine;
         public float range = 2;
@@ -14,6 +15,9 @@ namespace Unit
         private float _currentCooldown;
         public bool showGizmos = true;
         private float _startAttackDamage;
+
+        [FMODUnity.EventRef]
+        public string meleeSound;
         public bool CooldownFinished => _currentCooldown <= 0;
         public bool InAttackRange
         {
@@ -69,12 +73,26 @@ namespace Unit
         bool Attack()
         {
             if (InAttackRange && unit.TargetInView())
-            {
+            {          
                 unit.StopMove();
                 if (CooldownFinished)
                 {
+                    if (meleeSound != null)
+                    {
+                        GlobalSoundPlayer.globalSoundPlayer.PlaySound(meleeSound);
+                    }
+                    /////////////////////////////////////////////////Meelee Feedback Instantiation//////////////////////////////////
+                    //if (meeleeDisplay != null)
+                    //{
+                    //   var thisMeleeDisplay = Instantiate(meeleeDisplay, unit.target.transform.position, unit.target.transform.rotation);
+                    //    thisMeleeDisplay.transform.SetParent(unit.target.transform);
+                    //    Debug.Log(thisMeleeDisplay.transform.parent);
+                    //    //meeleeParticleSystem.StartParticleSystem();
+                    //}
+                    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
                     //Debug.Log("Damage!");
-                    unit.target.GetComponent<Health>().TakeDamage(attackDamage);
+                    unit.target.GetComponent<Health>().CurrentHealth -= attackDamage;
                     _currentCooldown = coolDown;
                     drawAttackLine?.DrawLine(unit.target);
                     return true;
@@ -82,6 +100,8 @@ namespace Unit
                 transform.LookAt(new Vector3(unit.target.position.x, transform.position.y, unit.target.position.z));
                 return false;
             }
+           // meeleeParticleSystem.StopParticleSystem();
+            //Destroy(meeleeParticleSystem);
             return false;
         }
 

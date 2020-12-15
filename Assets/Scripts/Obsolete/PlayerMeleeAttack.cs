@@ -27,7 +27,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     {
         if (InRange(target.transform) && ReadyToAttack)
         {
-            target.GetComponent<Health>().TakeDamage(damage);
+            target.GetComponent<Health>().CurrentHealth -= damage;
             _currentCooldown = timeBetweenAttacks;
         }
     }

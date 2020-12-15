@@ -18,7 +18,19 @@ public class Health : MonoBehaviour
     public UnityEvent onDefeat;
     public UnityEvent onRevive;
     private float _baseMaxHealth;
+    public DamageFeedback damageFeedback;
 
+    [FMODUnity.EventRef]
+    public string damageSound;
+    [FMODUnity.EventRef]
+    public string defeatSound;
+    [FMODUnity.EventRef]
+    public string reviveSound;
+
+    //public bool isHurt
+    //{
+    //    if()
+    //}
     public float CurrentHealth
     {
         get => currentHealth;
@@ -27,8 +39,16 @@ public class Health : MonoBehaviour
             if (value < currentHealth)
             {
                 onDamageTaken.Invoke(transform, currentHealth - value);
+                if (damageFeedback != null)
+                {
+                    damageFeedback.Feedback();
+                }
                 if (useDamagePopUp)
                     DamagePopUpSpawner.Create(transform, currentHealth - value);
+            }
+            if (damageSound != null)
+            {
+                GlobalSoundPlayer.globalSoundPlayer.PlaySound(damageSound);
             }
                 
             else if (value > currentHealth) 
@@ -53,18 +73,19 @@ public class Health : MonoBehaviour
         }
     }
     
-    public void TakeDamage(float damage)
-    {
-        CurrentHealth -= damage;
-        //onDamageTaken.Invoke(this, damage);
-    }
+    //public void TakeDamage(float damage)
+    //{    
+    //    CurrentHealth -= damage;
+    //    damageFeedback.Feedback();
+    //    //onDamageTaken.Invoke(this, damage);
+    //}
 
-    [ContextMenu("TakeDamage")]
-    public void TakeDamage()
-    {
-        CurrentHealth -= 5;
-        //onDamageTaken.Invoke(this, 5);
-    }
+    //[ContextMenu("TakeDamage")]
+    //public void TakeDamage()
+    //{
+    //    CurrentHealth -= 5;
+    //    //onDamageTaken.Invoke(this, 5);
+    //}
     
     public void Defeat()
     {
@@ -78,6 +99,10 @@ public class Health : MonoBehaviour
             reward.Reward();
         }
 
+        if (defeatSound != null)
+        {
+            GlobalSoundPlayer.globalSoundPlayer.PlaySound(defeatSound);
+        }
         if (TryGetComponent<Dissolve>(out var dissolve))
         {
             StartCoroutine(dissolve.DoDissolve());
@@ -106,6 +131,10 @@ public class Health : MonoBehaviour
         else if (TryGetComponent(out Unit.Unit unit1))
         {
             unit1.Clear();
+        }
+        if (reviveSound != null)
+        {
+            GlobalSoundPlayer.globalSoundPlayer.PlaySound(reviveSound);
         }
         //TODO: Trigger revive sound / animation
     }

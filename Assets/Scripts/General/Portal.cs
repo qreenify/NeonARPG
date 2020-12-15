@@ -9,6 +9,10 @@ public class Portal : MonoBehaviour
     public bool autoAdd = true;
     [Header("For Switching Scenes")]
     public Vector3 position;
+
+    public SoundPlayer portalSound;
+    float savedTime; //For later
+    public float warmUp; //For later /F
     public void Start()
     {
         if(autoAdd && otherPortal != null && gameObject.TryGetComponent<PlayerEnter>(out PlayerEnter playerEnter))
@@ -19,7 +23,7 @@ public class Portal : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         DontDestroyOnLoad(gameObject);
-        PlayerController.playerController.navMeshAgent.enabled = false; 
+        PlayerController.playerController.navMeshAgent.enabled = false;
         SceneManager.LoadScene(sceneName);
         TeleportToLocation(position);
         Destroy(gameObject);
@@ -33,17 +37,16 @@ public class Portal : MonoBehaviour
             Debug.LogError("OtherPortal is not assigned either assign it or don't call the method TeleportToLocation(PlayerController controller)");
             return;
         }
-        var position = otherPortal.transform.position;
-        var teleportLocation = position + otherPortal.offset;
-        controller.navMeshAgent.enabled = false;
-        controller.transform.position = teleportLocation;
-        controller.navMeshAgent.enabled = true;
-        controller.navMeshAgent.destination = teleportLocation;
+        var position = otherPortal.transform.position + otherPortal.offset;
+        TeleportToLocation(position);
     }
     
     public void TeleportToLocation(Vector3 position)
     {
+        portalSound.enabled = true;
+        Debug.Log("Apple");
         if (position == Vector3.zero) return;
+        PlayerController.playerController.navMeshAgent.enabled = false;
         PlayerController.playerController.transform.position = position;
         PlayerController.playerController.navMeshAgent.enabled = true;
         PlayerController.playerController.navMeshAgent.destination = position;
