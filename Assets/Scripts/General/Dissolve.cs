@@ -57,10 +57,6 @@ public class Dissolve : MonoBehaviour
     
     public IEnumerator DoCondense()
     {
-        if (TryGetComponent<PlayerController>(out var playerController))
-        {
-            playerController.enabled = true;
-        }
         var renderers = GetComponentsInChildren<Renderer>();
         foreach (var renderer in renderers)
         {
@@ -88,6 +84,10 @@ public class Dissolve : MonoBehaviour
         foreach (var renderer in renderers)
         {
             renderer.material.SetColor("Color_70BD1405", condenseColor);
+        }
+        if (TryGetComponent<PlayerController>(out var playerController))
+        {
+            playerController.enabled = true;
         }
     }
 }

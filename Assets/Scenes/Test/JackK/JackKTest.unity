@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.3371, g: 325.05005, b: 430.21954, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -714,6 +714,14 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.y
       value: 1.6936758
       objectReference: {fileID: 0}
+    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29afe47ae16bf52479ba59dc9503fd75, type: 2}
+    - target: {fileID: 6704450116379018560, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 29afe47ae16bf52479ba59dc9503fd75, type: 2}
     - target: {fileID: 8382926140812516097, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_Name
       value: Player 1
@@ -4417,27 +4425,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6285040095594376486, guid: e46c1f8ad5ec12c4cb3e12406079fde9, type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: 0.10163832
+      value: 0.08131075
       objectReference: {fileID: 0}
     - target: {fileID: 6285040095594376486, guid: e46c1f8ad5ec12c4cb3e12406079fde9, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: 0.7546065
+      value: 0.6036853
       objectReference: {fileID: 0}
     - target: {fileID: 6285040095594376486, guid: e46c1f8ad5ec12c4cb3e12406079fde9, type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: -0.8875358
+      value: -0.71002877
       objectReference: {fileID: 0}
     - target: {fileID: 6285040095594376486, guid: e46c1f8ad5ec12c4cb3e12406079fde9, type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 3.6134605
+      value: 2.8907685
       objectReference: {fileID: 0}
     - target: {fileID: 6285040095594376486, guid: e46c1f8ad5ec12c4cb3e12406079fde9, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 2.8227935
+      value: 2.258235
       objectReference: {fileID: 0}
     - target: {fileID: 6285040095594376486, guid: e46c1f8ad5ec12c4cb3e12406079fde9, type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 2.2136545
+      value: 1.7709237
       objectReference: {fileID: 0}
     - target: {fileID: 6290458699014702979, guid: e46c1f8ad5ec12c4cb3e12406079fde9, type: 3}
       propertyPath: m_AABB.m_Center.x
