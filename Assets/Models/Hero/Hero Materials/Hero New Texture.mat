@@ -22,10 +22,10 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Hero New Texture
   m_Shader: {fileID: -6465566751694194690, guid: b0a2daf4618ae7d49871c22ab6182920, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _DISABLE_SSR _DOUBLESIDED_ON
+  m_ShaderKeywords: _ALPHATEST_ON _DISABLE_SSR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 1
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2450
   stringTagMap:
     MotionVector: User
@@ -43,7 +43,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_CD72DCCD:
-        m_Texture: {fileID: 2800000, guid: 451601feb8114435b914719ac6c06dc5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7d81cc0b02787407c9f2927906f49c2a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -136,7 +136,7 @@ Material:
     - Vector1_3ED09F6A: 0
     - Vector1_6CC0D36C: 40.7
     - Vector1_A2836AF9: 0
-    - Vector1_A2CBF79E: 1
+    - Vector1_A2CBF79E: 0
     - Vector1_AF7B9D7B: 1
     - Vector1_C471400F: 0
     - Vector1_D3561167: 0.012
@@ -159,8 +159,8 @@ Material:
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
-    - _CullMode: 0
-    - _CullModeForward: 0
+    - _CullMode: 2
+    - _CullModeForward: 2
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
@@ -185,7 +185,7 @@ Material:
     - _DistortionSrcBlend: 1
     - _DistortionVectorBias: -1
     - _DistortionVectorScale: 2
-    - _DoubleSidedEnable: 1
+    - _DoubleSidedEnable: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
     - _EmissiveColorMode: 1
@@ -268,7 +268,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_70BD1405: {r: 196351, g: 0, b: 167566.56, a: 1}
-    - Color_9B01C273: {r: 0, g: 0, b: 0, a: 0}
+    - Color_9B01C273: {r: 6.602789, g: 2.696427, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 0}

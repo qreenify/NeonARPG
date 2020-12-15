@@ -64,6 +64,7 @@ namespace Unit
             _beamInstantiateTime = beamLifeTime;
             _beamInstance.transform.LookAt(_unit.target.position);
             _beamInstance.GetComponent<LineRenderer>().SetPosition(1, new Vector3(0, 0, Vector3.Distance(transform.position, _unit.target.position) / 3));
+            _beamInstance.transform.parent = null;
         }
 
         void DestroyBeam()

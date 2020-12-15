@@ -20,6 +20,8 @@ namespace Unit
         public bool showGizmos = true;
         public event Action ONCancelAttack, ONLoadingAttack, ONAttack;
 
+        [FMODUnity.EventRef]
+        public string rangedSound;
         public bool CooldownFinished => _currentCooldown <= 0;
         public bool WindUpFinished => _windUpTime <= 0;
         public bool InAttackRange
@@ -97,10 +99,14 @@ namespace Unit
 
                 if (CooldownFinished && WindUpFinished)
                 {
+                    if (rangedSound != null)
+                    {
+                        GlobalSoundPlayer.globalSoundPlayer.PlaySound(rangedSound);
+                    }
                     //Debug.Log("Damage!");
                     ONCancelAttack?.Invoke();
                     ONAttack?.Invoke();
-                    unit.target.GetComponent<Health>().TakeDamage(attackDamage);
+                    unit.target.GetComponent<Health>().CurrentHealth -= attackDamage;
                     _currentCooldown = coolDown;
                     _windUpTime = windUpTime;
                     return true;

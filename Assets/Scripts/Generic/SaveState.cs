@@ -1,45 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System;
-using System.IO;
-using System.Linq;
 
 public class SaveState : MonoBehaviour
 {
-    [SerializeField] private int id;
+    [SerializeField] private string id = Guid.NewGuid().ToString();
     private static List<SaveState> _savedStates = new List<SaveState>();
     private int Collected
     { 
-        get => PlayerPrefs.GetInt($"state_{SceneManager.GetActiveScene().name}_{id}", 0);
-        set => PlayerPrefs.SetInt($"state_{SceneManager.GetActiveScene().name}_{id}", value);
-    }
-
-    private static int GlobalId
-    {
-        get => GetGlobalId();
-        set => SaveGlobalId(value);
-    }
-
-    static void SaveGlobalId(int value)
-    {
-        var path = $"{Application.dataPath}/EditorData/GlobalId.txt";
-        if (!File.Exists(path))
-        {
-            Debug.LogError($"GlobalId File Does Not Exist At {path}");
-        }
-        File.WriteAllText(path, value.ToString());
-    }
-    
-    static int GetGlobalId()
-    {
-        var path = $"{Application.dataPath}/EditorData/GlobalId.txt";
-        if (!File.Exists(path))
-        {
-            Debug.LogError($"GlobalId File Does Not Exist At {path}");
-        }
-        var lines = File.ReadAllLines(path);
-        return lines.Select(int.Parse).FirstOrDefault();
+        get => PlayerPrefs.GetInt($"state_{id}", 0);
+        set => PlayerPrefs.SetInt($"state_{id}", value);
     }
 
     private void Awake()
@@ -84,18 +54,16 @@ public class SaveState : MonoBehaviour
     private void OnValidate()
     {
         if (gameObject.scene.name == null) return;
-        if (id == 0)
-        {
-            id = GlobalId += 1;
-        }
+        if (id == "")
+            id = Guid.NewGuid().ToString();
     }
-#endif
 
     [ContextMenu("ResetID")]
     private void ResetID()
     {
-        id = 0;
+        id = "";
     }
+#endif
 }
 
 public enum CollectedState
