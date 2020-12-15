@@ -6,6 +6,7 @@ namespace Unit
     [RequireComponent(typeof(Unit))]
     public class MeleeAttack : UnitAction
     {
+        public GameObject meeleeDisplay;
 
         public DrawAttackLine drawAttackLine;
         public float range = 2;
@@ -69,12 +70,23 @@ namespace Unit
         bool Attack()
         {
             if (InAttackRange && unit.TargetInView())
-            {
+            {          
                 unit.StopMove();
                 if (CooldownFinished)
                 {
+
+                    /////////////////////////////////////////////////Meelee Feedback Instantiation//////////////////////////////////
+                    //if (meeleeDisplay != null)
+                    //{
+                    //   var thisMeleeDisplay = Instantiate(meeleeDisplay, unit.target.transform.position, unit.target.transform.rotation);
+                    //    thisMeleeDisplay.transform.SetParent(unit.target.transform);
+                    //    Debug.Log(thisMeleeDisplay.transform.parent);
+                    //    //meeleeParticleSystem.StartParticleSystem();
+                    //}
+                    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
                     //Debug.Log("Damage!");
-                    unit.target.GetComponent<Health>().TakeDamage(attackDamage);
+                    unit.target.GetComponent<Health>().CurrentHealth -= attackDamage;
                     _currentCooldown = coolDown;
                     drawAttackLine?.DrawLine(unit.target);
                     return true;
@@ -82,6 +94,8 @@ namespace Unit
                 transform.LookAt(new Vector3(unit.target.position.x, transform.position.y, unit.target.position.z));
                 return false;
             }
+           // meeleeParticleSystem.StopParticleSystem();
+            //Destroy(meeleeParticleSystem);
             return false;
         }
 
