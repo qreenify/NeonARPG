@@ -15,6 +15,8 @@ public class Dissolve : MonoBehaviour
     {
         if (TryGetComponent<PlayerController>(out var playerController))
         {
+            playerController.enabled = false;
+            playerController.GetComponent<Unit.Unit>().StopMove();
             var sensors = FindObjectsOfType<Sensor>();
             foreach (var sensor in sensors)
             {
@@ -55,6 +57,10 @@ public class Dissolve : MonoBehaviour
     
     public IEnumerator DoCondense()
     {
+        if (TryGetComponent<PlayerController>(out var playerController))
+        {
+            playerController.enabled = true;
+        }
         var renderers = GetComponentsInChildren<Renderer>();
         foreach (var renderer in renderers)
         {
