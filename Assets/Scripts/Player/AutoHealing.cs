@@ -6,8 +6,6 @@ public class AutoHealing : MonoBehaviour
 {
     public float addHealth = 5;
     private Health health;
-    public float time;
-    public float healTime;
 
     private void Start()
     {
@@ -15,7 +13,6 @@ public class AutoHealing : MonoBehaviour
     }
     void Update()
     {
-      
         AutoHeal();
     }
 

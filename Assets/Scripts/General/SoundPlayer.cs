@@ -22,7 +22,7 @@ public class SoundPlayer : MonoBehaviour
 
     public string parameterName = "CharacterMoving";
     [Range(0f, 1f)]
-    public float _parameterValue;
+    public float _parameterValue = 1;
     public float ParameterValue
     {
         get => _parameterValue;
@@ -96,6 +96,24 @@ public class SoundPlayer : MonoBehaviour
         if (eventPath != null)
         {
             music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+            bool is3D;
+            FMODUnity.RuntimeManager.GetEventDescription(eventPath).is3D(out is3D);
+            if (is3D)
+            {
+                var rigidBody = GetComponent<Rigidbody>();
+                var rigidBody2D = GetComponent<Rigidbody2D>();
+                var transform = GetComponent<Transform>();
+                if (rigidBody)
+                {
+                    music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject, rigidBody));
+                    FMODUnity.RuntimeManager.AttachInstanceToGameObject(music, transform, rigidBody);
+                }
+                else
+                {
+                    music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject, rigidBody2D));
+                    FMODUnity.RuntimeManager.AttachInstanceToGameObject(music, transform, rigidBody2D);
+                }
+            }
             music.start();
         }
     }

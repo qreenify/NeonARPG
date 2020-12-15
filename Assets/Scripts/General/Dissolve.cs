@@ -15,6 +15,8 @@ public class Dissolve : MonoBehaviour
     {
         if (TryGetComponent<PlayerController>(out var playerController))
         {
+            playerController.enabled = false;
+            playerController.GetComponent<Unit.Unit>().StopMove();
             var sensors = FindObjectsOfType<Sensor>();
             foreach (var sensor in sensors)
             {
@@ -82,6 +84,10 @@ public class Dissolve : MonoBehaviour
         foreach (var renderer in renderers)
         {
             renderer.material.SetColor("Color_70BD1405", condenseColor);
+        }
+        if (TryGetComponent<PlayerController>(out var playerController))
+        {
+            playerController.enabled = true;
         }
     }
 }
