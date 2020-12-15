@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 82903066219181417}
   - component: {fileID: 82903066219181416}
   - component: {fileID: 82903066219181415}
-  - component: {fileID: 82903066219181414}
   - component: {fileID: 82903066219181413}
   - component: {fileID: 82903066219181411}
   - component: {fileID: 3336390702407053075}
+  - component: {fileID: 8402835296908565017}
   m_Layer: 0
   m_Name: HealthPotion
   m_TagString: Untagged
@@ -85,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &82903066219181414
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 82903066219181412}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &82903066219181413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,4 +160,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a660e213879ebd34c8e46735748d71b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: 699be453-e26f-474b-9473-7ccbee067983
+--- !u!65 &8402835296908565017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82903066219181412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 99.99999, y: 190.14908, z: 99.99999}
+  m_Center: {x: -50.00002, y: 95.07454, z: 49.999958}
