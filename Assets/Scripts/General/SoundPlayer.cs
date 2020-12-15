@@ -91,7 +91,7 @@ public class SoundPlayer : MonoBehaviour
         //system.setParameterByName("CharacterMoving", walking);
     }
 
-    void Play()
+    public void Play()
     {
         if (eventPath != null)
         {
@@ -99,13 +99,9 @@ public class SoundPlayer : MonoBehaviour
             music.start();
         }
     }
-    void Stop()
+    public void Stop()
     {
-        if (eventPath != null)
-        {
-            music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
-            music.start();
-        }
+        music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     private void OnDisable()
