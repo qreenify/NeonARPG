@@ -4,7 +4,7 @@ using System;
 
 public class SaveState : MonoBehaviour
 {
-    [SerializeField] private string id = Guid.NewGuid().ToString();
+    [SerializeField] private string id = "";
     private static List<SaveState> _savedStates = new List<SaveState>();
     private int Collected
     { 
