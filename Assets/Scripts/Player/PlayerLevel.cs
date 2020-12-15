@@ -15,6 +15,7 @@ public class PlayerLevel : MonoBehaviour, ISaveable
     [HideInInspector] public UnityEvent<float> onExpChanged;
     [HideInInspector] public UnityEvent<int> onLevelChanged;
     private float _experience;
+    FeedbackDisplays feedback;
 
     public float RequiredExp => increasePerLevel * level + baseRequiredExp;
 
@@ -31,6 +32,10 @@ public class PlayerLevel : MonoBehaviour, ISaveable
             onExpChanged.Invoke(_experience);
         }
     }
+    private void Awake()
+    {
+        feedback = GetComponent<FeedbackDisplays>();
+    }
 
     public void Increase(float amount)
     {
@@ -45,6 +50,10 @@ public class PlayerLevel : MonoBehaviour, ISaveable
             level++;
             ONLevelUp?.Invoke(this);
             onLevelChanged.Invoke(level);
+            if (feedback != null)
+            {
+                feedback.LevelUpFeedback();
+            }
             if (Experience > RequiredExp)
             {
                 continue;

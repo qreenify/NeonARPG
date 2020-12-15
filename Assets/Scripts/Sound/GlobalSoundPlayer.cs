@@ -22,7 +22,7 @@ public class GlobalSoundPlayer : MonoBehaviour
     {
         foreach (var sound in soundPlayers)
         {
-            if(sound.eventPath == eventPath)
+            if(sound.eventPath == eventPath && eventPath != "")
             {
                 sound.Play();
                 return;
