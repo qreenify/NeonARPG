@@ -16,7 +16,7 @@ public class DamageFeedback : MonoBehaviour
     {
         if(DamageAmount > 0)
         {
-            DamageAmount -= Time.deltaTime/ FadeTime;
+            DamageAmount -= Time.deltaTime / FadeTime;
             myMaterial.material.SetFloat("_DamageAmount", DamageAmount);
         }
     }
@@ -24,7 +24,6 @@ public class DamageFeedback : MonoBehaviour
     {
         DamageAmount = 1;
         myMaterial.material.SetFloat("_DamageAmount", DamageAmount);
-        //myMaterial.material.SetColor("_Color", damageColor);
      
     }
 

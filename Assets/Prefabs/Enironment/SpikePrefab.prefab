@@ -31,19 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5312887021080056473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9071483434481015200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f5833905c5e77448759aae3f299407, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dps: 10
 --- !u!65 &2324924592654507527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57,6 +44,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 300, y: 75.99751, z: 300}
   m_Center: {x: -0.000045776367, y: 37.998756, z: 0}
+--- !u!114 &5312887021080056473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9071483434481015200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f5833905c5e77448759aae3f299407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dps: 10
+  damageIntervalInSec: 0.5
 --- !u!1001 &8152935684481082609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 87101841f17693c49a9d19b8db5f5fd5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 505dc2adfc14c3b4dba86295fa6826eb, type: 2}
+      objectReference: {fileID: 2100000, guid: e0509a0e51f316f4f8314d0ad7a9008a, type: 2}
     - target: {fileID: 919132149155446097, guid: 87101841f17693c49a9d19b8db5f5fd5, type: 3}
       propertyPath: m_Name
       value: Spike_Trap
