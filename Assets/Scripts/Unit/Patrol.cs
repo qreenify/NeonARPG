@@ -19,7 +19,12 @@ namespace Unit
         private int DestinationIndex
         {
             get => _destinationIndex;
-            set => _destinationIndex = value == destinations.Count ? 0 : value;
+            set 
+            {
+                if (value >= destinations.Count)
+                    value = 0;
+                _destinationIndex = value ;
+            }
         }
 
         void Start()
