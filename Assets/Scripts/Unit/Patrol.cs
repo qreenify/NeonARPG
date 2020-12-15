@@ -30,6 +30,10 @@ namespace Unit
 
         public override bool IsPossible()
         {
+            if(destinations.Count == 0)
+            {
+                return false;
+            }
             return true;
         }
 
@@ -42,8 +46,7 @@ namespace Unit
 
         private void Update()
         {
-            if (!InRange()) return; 
-            if (_coolDown > 0)
+            if (IsPossible() && !InRange() && _coolDown > 0)
             {
                 _coolDown -= Time.deltaTime;
             }
@@ -76,9 +79,8 @@ namespace Unit
 
         bool InRange()
         {
-            var difference = transform.position - destinations[DestinationIndex];
-            return Mathf.Abs(difference.x) < range && Mathf.Abs(difference.y) < range &&
-                   Mathf.Abs(difference.z) < range;
+            Debug.Log(_destinationIndex);
+            return Vector3.Distance(transform.position, destinations[DestinationIndex]) < range;
         }
 
         [ContextMenu("ClearPos")]
