@@ -7,9 +7,9 @@ public class Dissolve : MonoBehaviour
 {
     public float dissolveTime = 2.5f;
     [ColorUsage(true, true)]
-    public Color dissolveColor;
+    public Color dissolveColor = new Color(191, 0, 0, 125);
     [ColorUsage(true, true)]
-    public Color condenseColor;
+    public Color condenseColor = new Color(0, 191, 0, 125);
 
     public IEnumerator DoDissolve()
     {
@@ -19,6 +19,13 @@ public class Dissolve : MonoBehaviour
             foreach (var sensor in sensors)
             {
                 sensor.OnPlayerDeath();
+            }
+        }
+        else
+        {
+            if (PlayerController.playerController.GetComponent<Unit.Unit>().target == transform)
+            {
+                PlayerController.playerController.GetComponent<Unit.Unit>().target = null;
             }
         }
         var colliders = GetComponentsInChildren<Collider>();
@@ -71,6 +78,10 @@ public class Dissolve : MonoBehaviour
         foreach (var collider in colliders)
         {
             collider.enabled = true;
+        }
+        foreach (var renderer in renderers)
+        {
+            renderer.material.SetColor("Color_70BD1405", condenseColor);
         }
     }
 }
