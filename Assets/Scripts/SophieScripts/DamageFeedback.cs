@@ -3,8 +3,10 @@
 public class DamageFeedback : MonoBehaviour
 {
     Renderer myMaterial;
-    public float tintFadeSpeed = 6f;
-    Color damageColor = Color.black;
+    public float FadeTime = 2f;
+
+    float DamageAmount = 0;
+     
     private void Awake()
     {
         myMaterial = GetComponent<Renderer>();
@@ -12,18 +14,17 @@ public class DamageFeedback : MonoBehaviour
 
     private void Update()
     {
-        if (myMaterial.material.color == damageColor)
+        if(DamageAmount > 0)
         {
-            if (damageColor.a > 0)
-            {
-                damageColor.a -= tintFadeSpeed * Time.deltaTime;
-            }
+            DamageAmount -= Time.deltaTime/ FadeTime;
+            myMaterial.material.SetFloat("_DamageAmount", DamageAmount);
         }
-        Debug.Log(damageColor.a);
     }
     public void Feedback()
     {
-        myMaterial.material.SetColor("_Color", damageColor);
+        DamageAmount = 1;
+        myMaterial.material.SetFloat("_DamageAmount", DamageAmount);
+        //myMaterial.material.SetColor("_Color", damageColor);
      
     }
 
