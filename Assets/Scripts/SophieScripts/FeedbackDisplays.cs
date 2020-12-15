@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class DamageFeedback : MonoBehaviour
+public class FeedbackDisplays : MonoBehaviour
 {
     Renderer[] myMaterials;
     public float fadeTime = 2f;
@@ -33,7 +33,7 @@ public class DamageFeedback : MonoBehaviour
             }
         }
     }
-    public void DamagedFeedback()
+    public void DamageFeedback()
     {
         Amount = fadeDamageMultiplier;
 
