@@ -1,11 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DamageFeedback : MonoBehaviour
 {
-   public void Feedback()
+    Renderer myMaterial;
+    public float FadeTime = 2f;
+
+    float DamageAmount = 0;
+     
+    private void Awake()
     {
-        Debug.Log("Hello");
+        myMaterial = GetComponent<Renderer>();
     }
+
+    private void Update()
+    {
+        if(DamageAmount > 0)
+        {
+            DamageAmount -= Time.deltaTime/ FadeTime;
+            myMaterial.material.SetFloat("_DamageAmount", DamageAmount);
+        }
+    }
+    public void Feedback()
+    {
+        DamageAmount = 1;
+        myMaterial.material.SetFloat("_DamageAmount", DamageAmount);
+        //myMaterial.material.SetColor("_Color", damageColor);
+     
+    }
+
 }
