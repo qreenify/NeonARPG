@@ -100,7 +100,7 @@ namespace Unit
                     //Debug.Log("Damage!");
                     ONCancelAttack?.Invoke();
                     ONAttack?.Invoke();
-                    unit.target.GetComponent<Health>().TakeDamage(attackDamage);
+                    unit.target.GetComponent<Health>().CurrentHealth -= attackDamage;
                     _currentCooldown = coolDown;
                     _windUpTime = windUpTime;
                     return true;

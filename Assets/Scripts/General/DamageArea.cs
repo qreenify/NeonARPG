@@ -8,7 +8,7 @@ using UnityEngine;
         void OnTriggerStay(Collider other) {
             if (other.TryGetComponent(out Health health)) 
             {
-                health.TakeDamage(dps * Time.fixedDeltaTime);
+                health.CurrentHealth -= (dps * Time.fixedDeltaTime);
             }
         }
     }

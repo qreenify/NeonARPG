@@ -18,7 +18,12 @@ public class Health : MonoBehaviour
     public UnityEvent onDefeat;
     public UnityEvent onRevive;
     private float _baseMaxHealth;
+    public DamageFeedback damageFeedback;
 
+    //public bool isHurt
+    //{
+    //    if()
+    //}
     public float CurrentHealth
     {
         get => currentHealth;
@@ -27,6 +32,10 @@ public class Health : MonoBehaviour
             if (value < currentHealth)
             {
                 onDamageTaken.Invoke(transform, currentHealth - value);
+                if (damageFeedback != null)
+                {
+                    damageFeedback.Feedback();
+                }
                 if (useDamagePopUp)
                     DamagePopUpSpawner.Create(transform, currentHealth - value);
             }
@@ -53,18 +62,19 @@ public class Health : MonoBehaviour
         }
     }
     
-    public void TakeDamage(float damage)
-    {
-        CurrentHealth -= damage;
-        //onDamageTaken.Invoke(this, damage);
-    }
+    //public void TakeDamage(float damage)
+    //{    
+    //    CurrentHealth -= damage;
+    //    damageFeedback.Feedback();
+    //    //onDamageTaken.Invoke(this, damage);
+    //}
 
-    [ContextMenu("TakeDamage")]
-    public void TakeDamage()
-    {
-        CurrentHealth -= 5;
-        //onDamageTaken.Invoke(this, 5);
-    }
+    //[ContextMenu("TakeDamage")]
+    //public void TakeDamage()
+    //{
+    //    CurrentHealth -= 5;
+    //    //onDamageTaken.Invoke(this, 5);
+    //}
     
     public void Defeat()
     {
