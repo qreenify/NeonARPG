@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 8689941002320014751}
   - component: {fileID: 2917910189442300230}
   m_Layer: 0
-  m_Name: BossMageShade
+  m_Name: BossMageShade 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,9 +564,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bc6c63c735a864dab8bd2f99e45e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   autoHealing: {fileID: 0}
-  currentHealth: 100
+  currentHealth: 200
   useDamagePopUp: 1
   onMaxHealthSet:
     m_PersistentCalls:
@@ -625,6 +625,10 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
+  damageFeedback: {fileID: 0}
+  damageSound: 
+  defeatSound: 
+  reviveSound: 
 --- !u!114 &9133839687884237211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,6 +753,7 @@ MonoBehaviour:
   coolDown: 3
   windUpTime: 0.4
   showGizmos: 1
+  rangedSound: 
 --- !u!114 &2917910189442300230
 MonoBehaviour:
   m_ObjectHideFlags: 0
