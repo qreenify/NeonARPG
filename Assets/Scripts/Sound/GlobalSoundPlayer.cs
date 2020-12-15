@@ -25,6 +25,7 @@ public class GlobalSoundPlayer : MonoBehaviour
             if(sound.eventPath == eventPath)
             {
                 sound.Play();
+                return;
             }
         }
     }

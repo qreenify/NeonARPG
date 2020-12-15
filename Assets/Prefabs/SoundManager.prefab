@@ -48,7 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d77321e8ec00444cbb46cd2aaa80e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundPlayers: []
+  soundPlayers:
+  - {fileID: -7116165117933527886}
+  - {fileID: 2942110887499758911}
+  - {fileID: 1094854431936388686}
+  - {fileID: 6184035814744155265}
+  - {fileID: 8794349684732192353}
 --- !u!114 &8794349684732192353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,11 +67,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPath: event:/SFX/Character/characterSword_SFX
-  playOnEnable: 1
+  playOnEnable: 0
   _volume: 1
-  parameterName: CharacterMoving
+  parameterName: Sword
   _parameterValue: 1
-  globalSound: 0
+  globalSound: 1
   range: 0
 --- !u!114 &6184035814744155265
 MonoBehaviour:
@@ -81,11 +86,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPath: event:/SFX/Character/characterStaff_SFX
-  playOnEnable: 1
+  playOnEnable: 0
   _volume: 1
-  parameterName: CharacterMoving
+  parameterName: Staff
   _parameterValue: 1
-  globalSound: 0
+  globalSound: 1
   range: 0
 --- !u!114 &1094854431936388686
 MonoBehaviour:
@@ -100,11 +105,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPath: event:/SFX/Character/recieveDamage_SFX
-  playOnEnable: 1
+  playOnEnable: 0
   _volume: 1
-  parameterName: CharacterMoving
+  parameterName: Damagesound
   _parameterValue: 1
-  globalSound: 0
+  globalSound: 1
   range: 0
 --- !u!114 &2942110887499758911
 MonoBehaviour:
@@ -119,11 +124,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPath: 
-  playOnEnable: 1
+  playOnEnable: 0
   _volume: 1
-  parameterName: CharacterMoving
+  parameterName: Revivesound
   _parameterValue: 1
-  globalSound: 0
+  globalSound: 1
   range: 0
 --- !u!114 &-7116165117933527886
 MonoBehaviour:
@@ -138,9 +143,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPath: 
-  playOnEnable: 1
+  playOnEnable: 0
   _volume: 1
-  parameterName: CharacterMoving
+  parameterName: Deathsound
   _parameterValue: 1
-  globalSound: 0
+  globalSound: 1
   range: 0
