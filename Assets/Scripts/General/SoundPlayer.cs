@@ -33,7 +33,6 @@ public class SoundPlayer : MonoBehaviour
         }
     }
 
-
     public bool globalSound = false;
     public float range;
 
@@ -58,8 +57,10 @@ public class SoundPlayer : MonoBehaviour
         //music.setProperty(FMOD.Studio.EVENT_PROPERTY.MAXIMUM_DISTANCE, maxDistance);
         //}
         //}
-        if(playOnEnable)
+        if (playOnEnable)
+        {
             Play();
+        }
     }
 
     void Update()
@@ -96,6 +97,25 @@ public class SoundPlayer : MonoBehaviour
         if (eventPath != null)
         {
             music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+            music.setVolume(_volume);
+            bool is3D;
+            FMODUnity.RuntimeManager.GetEventDescription(eventPath).is3D(out is3D);
+            if (is3D)
+            {
+                var rigidBody = GetComponent<Rigidbody>();
+                var rigidBody2D = GetComponent<Rigidbody2D>();
+                var transform = GetComponent<Transform>();
+                if (rigidBody)
+                {
+                    music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject, rigidBody));
+                    FMODUnity.RuntimeManager.AttachInstanceToGameObject(music, transform, rigidBody);
+                }
+                else
+                {
+                    music.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject, rigidBody2D));
+                    FMODUnity.RuntimeManager.AttachInstanceToGameObject(music, transform, rigidBody2D);
+                }
+            }
             music.start();
         }
     }
