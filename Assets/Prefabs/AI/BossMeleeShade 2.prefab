@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 7738235287862699520}
   - component: {fileID: 4203350555438811466}
   - component: {fileID: 8979790653527353546}
+  - component: {fileID: 4688335115688473604}
   m_Layer: 0
   m_Name: BossMeleeShade 2
   m_TagString: Enemy
@@ -544,6 +545,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   damageFeedback: {fileID: 0}
+  damageSound: 
+  defeatSound: 
+  reviveSound: 
 --- !u!114 &5472885031425724614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +586,7 @@ MonoBehaviour:
   attackDamage: 10
   coolDown: 3
   showGizmos: 1
+  meleeSound: 
 --- !u!114 &3035815455197609992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,6 +687,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbar: {fileID: 1627997558596307201}
+--- !u!114 &4688335115688473604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683710742376659251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500b059f4580ed24182f6e1fcc770e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveTime: 1.2
+  dissolveColor: {r: 24543.875, g: 0, b: 0, a: 125}
+  condenseColor: {r: 0, g: 24543.875, b: 0, a: 125}
 --- !u!183 &1627997557249702626
 Cloth:
   m_ObjectHideFlags: 0

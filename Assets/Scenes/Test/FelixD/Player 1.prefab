@@ -335,6 +335,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  materials: []
+  damageFeedback:
+  - {fileID: 0}
   autoHealing: {fileID: 0}
   currentHealth: 100
   useDamagePopUp: 1
@@ -359,8 +362,7 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
-  damageFeedback: {fileID: 0}
-  damageSound: 
+  damageSound: event:/SFX/Character/recieveDamage_SFX
   defeatSound: 
   reviveSound: 
 --- !u!114 &3347485338227334399
@@ -518,9 +520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath: event:/SFX/Character/stepsHovering_character_SFX
+  eventPath: event:/SFX/Character/Hovering/stepsHovering_Event
   playOnEnable: 1
-  _volume: 1
+  _volume: 0.025
   parameterName: CharacterMoving
   _parameterValue: 1
   globalSound: 1
@@ -666,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath: event:/BGM/Levels/Level_1_BGM
+  eventPath: event:/BGM/Main Menu/MainTheme_BGM
   playOnEnable: 1
   _volume: 1
   parameterName: CharacterMoving
