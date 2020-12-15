@@ -6,6 +6,7 @@ namespace Unit
     [RequireComponent(typeof(RangedAttack))]
     public class RangedAttackVFX : MonoBehaviour
     {
+        [SerializeField] private float beamLifeTime = 0.5f;
         [SerializeField] GameObject beamVFXPrefab;
         [SerializeField] GameObject loadFieldVFXPrefab;
         [SerializeField] Transform beamSpawnPoint;
@@ -45,12 +46,10 @@ namespace Unit
         void CancelAttack()
         {
             _rangedAttack.IsLoadingAttack = false;
-            _beamInstantiateTime = 0.5f;
             if (_loadFieldInstance != null)
             {
                 Destroy(_loadFieldInstance);
             }
-            DestroyBeam();
         }
         
         void LoadAttack()
@@ -62,6 +61,7 @@ namespace Unit
         void Attack()
         {
             _beamInstance = Instantiate(beamVFXPrefab, beamSpawnPoint.transform);
+            _beamInstantiateTime = beamLifeTime;
             _beamInstance.transform.LookAt(_unit.target.position);
             _beamInstance.GetComponent<LineRenderer>().SetPosition(1, new Vector3(0, 0, Vector3.Distance(transform.position, _unit.target.position) / 3));
         }

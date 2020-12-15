@@ -21,6 +21,13 @@ public class Dissolve : MonoBehaviour
                 sensor.OnPlayerDeath();
             }
         }
+        else
+        {
+            if (PlayerController.playerController.GetComponent<Unit.Unit>().target == transform)
+            {
+                PlayerController.playerController.GetComponent<Unit.Unit>().target = null;
+            }
+        }
         var colliders = GetComponentsInChildren<Collider>();
         foreach (var collider in colliders)
         {
