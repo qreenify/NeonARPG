@@ -263,7 +263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3458850a91abe774d856454afa88d853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTime: 0.5
+  fadeTime: 2
+  fadeLevelMultiplier: 1
+  fadeDamageMultiplier: 1
+  levelColor: {r: 0, g: 0, b: 0, a: 0}
+  damageColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &164219646 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 211966670506487980, guid: e46c1f8ad5ec12c4cb3e12406079fde9, type: 3}
@@ -1919,7 +1923,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3458850a91abe774d856454afa88d853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTime: 0.5
+  fadeTime: 0.5
+  fadeLevelMultiplier: 2
+  fadeDamageMultiplier: 1
+  levelColor: {r: 0, g: 1, b: 0, a: 1}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1633049211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9118777595796519655, guid: 1c1157cfc3aa06a408a7d4d311f28c37, type: 3}
@@ -3007,6 +3015,10 @@ PrefabInstance:
     - target: {fileID: 2758783888703923137, guid: 910a6b51e7ffe1a4db6168661926bb83, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.086
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144810744328266810, guid: 910a6b51e7ffe1a4db6168661926bb83, type: 3}
+      propertyPath: reward
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7944283558686146352, guid: 910a6b51e7ffe1a4db6168661926bb83, type: 3}
       propertyPath: range

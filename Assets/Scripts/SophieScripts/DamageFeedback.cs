@@ -3,10 +3,17 @@
 public class DamageFeedback : MonoBehaviour
 {
     Renderer[] myMaterials;
-    public float FadeTime = 2f;
+    public float fadeTime = 2f;
+    public float fadeLevelMultiplier = 1;
+    public float fadeDamageMultiplier = 1;
+    [ColorUsage(true, true)]
+    public Color levelColor;
+    [ColorUsage(true, true)]
+    public Color damageColor;
 
-    float DamageAmount = 0;
-     
+
+    float Amount = 0f;
+  
     private void Awake()
     {
         
@@ -15,27 +22,39 @@ public class DamageFeedback : MonoBehaviour
 
     private void Update()
     {
-        if (DamageAmount > 0)
+        if (Amount > 0)
         {
-            DamageAmount -= Time.deltaTime / FadeTime;
+            Amount -= Time.deltaTime / fadeTime;
 
             foreach (var material in myMaterials)
             {
-                material.material.SetFloat("_DamageAmount", DamageAmount);
+                material.material.SetFloat("_DamageAmount", Amount);
 
             }
         }
     }
-    public void Feedback()
+    public void DamagedFeedback()
     {
-        DamageAmount = 1;
+        Amount = fadeDamageMultiplier;
 
         foreach (var material in myMaterials)
         {
-            material.material.SetFloat("_DamageAmount", DamageAmount);
+            material.material.SetColor("_PulseColor", damageColor);
+            material.material.SetFloat("_DamageAmount", Amount);
 
         }
+    }
 
+    public void LevelUpFeedback()
+    {
+        Amount = fadeLevelMultiplier;
+
+        foreach (var material in myMaterials)
+        {
+            material.material.SetColor("_PulseColor", levelColor);
+            material.material.SetFloat("_DamageAmount", Amount);
+
+        }
     }
 
 }
