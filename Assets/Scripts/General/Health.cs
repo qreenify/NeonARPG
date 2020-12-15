@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
             }
             if (damageSound != null)
             {
-                GlobalSoundPlayer.globalSoundPlayer.PlaySound(damageSound);
+                //GlobalSoundPlayer.globalSoundPlayer.PlaySound(damageSound);
             }
                 
             else if (value > currentHealth) 
