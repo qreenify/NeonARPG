@@ -104,6 +104,8 @@ namespace Unit
         {
             if (destinations.Count > 1)
             {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(destinations[0], transform.position);
                 for (int i = 0; i < destinations.Count; i++)
                 {
                     Gizmos.color = Color.red;
