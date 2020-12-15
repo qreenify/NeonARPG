@@ -8,7 +8,7 @@ namespace Unit
     public class Patrol : UnitAction
     {
         public float range = 1.5f;
-        public List<Vector3> destinations;
+        public List<Vector3> destinations = new List<Vector3>();
         private NavMeshAgent _agent;
         private int _destinationIndex;
         public float patrolSpeed = 3;

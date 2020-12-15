@@ -740,7 +740,7 @@ MonoBehaviour:
     CallbackHandler:
       Value: {fileID: 0}
       HasValue: 0
-  outputType: 
+  outputType: AUTODETECT
 --- !u!114 &-594333335797368734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,10 +868,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 0
+  HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Assets/FMOD/NeonKnights/NeonKnights.fspro
-  sourceBankPath: Assets\FMOD\NeonKnights\Build
+  sourceProjectPath: Assets/NeonKnights_forreal (kopia)/NeonKnights_forreal.fspro
+  sourceBankPath: Assets\NeonKnights_forreal (kopia)\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -890,7 +890,8 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks: []
+  MasterBanks:
+  - Master
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
