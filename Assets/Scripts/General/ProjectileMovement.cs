@@ -21,7 +21,7 @@ public class ProjectileMovement : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out Health health))
             {
-                health.TakeDamage(_damage);
+                //health.TakeDamage(_damage);
             }
             Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.yellow);
             Debug.Log("Did Hit");

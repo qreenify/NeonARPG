@@ -7,13 +7,14 @@ using UnityEngine;
         public float damageIntervalInSec = 0.5f;
         private float _timeCounter;
 
-        void OnTriggerStay(Collider other) {
+        void OnTriggerStay(Collider other) 
+        {
             if (!other.isTrigger && other.TryGetComponent(out Health health))
             {
                 _timeCounter += Time.deltaTime;
                 if (_timeCounter >= damageIntervalInSec)
                 {
-                    health.TakeDamage(dps * damageIntervalInSec);
+                    health.CurrentHealth -= dps * damageIntervalInSec;
                     _timeCounter -= damageIntervalInSec;
                 }
             }
