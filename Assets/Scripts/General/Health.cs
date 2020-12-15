@@ -43,7 +43,7 @@ public class Health : MonoBehaviour
                 onDamageTaken.Invoke(transform, currentHealth - value);
                 if (damageFeedback != null)
                 {
-                        damageFeedback.Feedback();   
+                        damageFeedback.DamagedFeedback();   
                 }
                 if (useDamagePopUp)
                     DamagePopUpSpawner.Create(transform, currentHealth - value);
