@@ -52,10 +52,7 @@ namespace Unit
         }
         public override bool Enter()
         {
-            if (TryGetComponent<PlayerController>(out var playerController))
-            {
-                unit.MoveTo(unit.target.position);
-            }
+            unit.MoveTo(unit.target.position);
             return true;
         }
         public override bool DoUpdate()

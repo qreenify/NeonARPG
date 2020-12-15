@@ -29,7 +29,6 @@ public class Dissolve : MonoBehaviour
         var renderers = GetComponentsInChildren<Renderer>();
         foreach (var renderer in renderers)
         {
-            renderer.material.SetInt("_ActivateDissolve", 1);
             renderer.material.SetColor("Color_70BD1405", dissolveColor);
         }
         var dissolveAmount = 0.0f;
@@ -76,7 +75,6 @@ public class Dissolve : MonoBehaviour
         foreach (var renderer in renderers)
         {
             renderer.material.SetColor("Color_70BD1405", condenseColor);
-            renderer.material.SetInt("_ActivateDissolve", 0);
         }
     }
 }
