@@ -42,14 +42,6 @@ public class Health : MonoBehaviour
             {
                 GlobalSoundPlayer.globalSoundPlayer.PlaySound(damageSound);
             }
-            if (defeatSound != null && defeatSound != "")
-            {
-                GlobalSoundPlayer.globalSoundPlayer.PlaySound(defeatSound);
-            }
-            if (reviveSound != null && reviveSound != "")
-            {
-                GlobalSoundPlayer.globalSoundPlayer.PlaySound(reviveSound);
-            }
 
             if (value < currentHealth)
             {
@@ -109,7 +101,7 @@ public class Health : MonoBehaviour
             reward.Reward();
         }
 
-        if (defeatSound != null)
+        if (defeatSound != null && defeatSound != "")
         {
             GlobalSoundPlayer.globalSoundPlayer.PlaySound(defeatSound);
         }
@@ -142,7 +134,7 @@ public class Health : MonoBehaviour
         {
             unit1.Clear();
         }
-        if (reviveSound != null)
+        if (reviveSound != null && reviveSound != "")
         {
             GlobalSoundPlayer.globalSoundPlayer.PlaySound(reviveSound);
         }
