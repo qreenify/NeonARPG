@@ -26,9 +26,9 @@ public class Health : MonoBehaviour
     }
 
     [FMODUnity.EventRef]
-    public string damageSound;
+    public string damageSound = "event:/SFX/Enemies/receivingDamage";
     [FMODUnity.EventRef]
-    public string defeatSound;
+    public string defeatSound = "event:/SFX/Enemies/enemyDies";
     [FMODUnity.EventRef]
     public string reviveSound;
 
