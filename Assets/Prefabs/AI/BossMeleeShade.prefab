@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 7738235287862699520}
   - component: {fileID: 4203350555438811466}
   - component: {fileID: 8979790653527353546}
+  - component: {fileID: -2230743409646089450}
   m_Layer: 0
   m_Name: BossMeleeShade
   m_TagString: Enemy
@@ -686,6 +687,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthbar: {fileID: 1627997558596307201}
+--- !u!114 &-2230743409646089450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683710742376659251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3458850a91abe774d856454afa88d853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 2
+  fadeLevelMultiplier: 1
+  fadeDamageMultiplier: 1
+  levelColor: {r: 0, g: 25.09804, b: 0, a: 32}
+  damageColor: {r: 25.09804, g: 0, b: 0, a: 32}
 --- !u!183 &1627997557249702626
 Cloth:
   m_ObjectHideFlags: 0
