@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
     [FMODUnity.EventRef]
     public string defeatSound = "event:/SFX/Enemies/enemyDies";
     [FMODUnity.EventRef]
-    public string reviveSound;
+    public string reviveSound = "event:/SFX/Character/revive";
 
 
     public float CurrentHealth
