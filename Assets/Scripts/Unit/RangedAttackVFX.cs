@@ -19,7 +19,8 @@ namespace Unit
             _rangedAttack.ONCancelAttack += CancelAttack;
             _rangedAttack.ONAttack += Attack;
             _rangedAttack.ONLoadingAttack += LoadAttack;
-            if (TryGetComponent<PlayerController>(out var playerController))
+            var playerController = GetComponentInParent<PlayerController>();
+            if (playerController != null)
             {
                 playerController.ONWeaponSwap += WeaponSwapped;
             }
@@ -34,10 +35,7 @@ namespace Unit
 
         void WeaponSwapped(bool ranged)
         {
-            if (ranged == false)
-            {
-                CancelAttack();
-            }
+            CancelAttack();
         }
 
         void CancelAttack()
