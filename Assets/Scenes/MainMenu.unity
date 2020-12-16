@@ -136,11 +136,8 @@ GameObject:
   - component: {fileID: 37323398}
   - component: {fileID: 37323397}
   - component: {fileID: 37323401}
-  - component: {fileID: 37323403}
-  - component: {fileID: 37323404}
   - component: {fileID: 37323405}
   - component: {fileID: 37323406}
-  - component: {fileID: 37323402}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -247,148 +244,6 @@ MonoBehaviour:
   sceneName: Jack_J_Scene
   mode: 0
   onAwake: 0
---- !u!82 &37323402
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37323396}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d86fdf4e72cf37646a9fce4379a02c5d, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.25
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &37323403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37323396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Menu/Buttons/Quit
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
---- !u!114 &37323404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37323396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Menu/Buttons/Start
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!114 &37323405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,9 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath: event:/Menu/Music/MenuMusic
+  eventPath: event:/BGM/Main Menu/MainTheme_BGM
   playOnEnable: 1
-  _volume: 1
+  _volume: 0
   parameterName: 
   _parameterValue: 0
   globalSound: 1
@@ -456,7 +311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75.01865, y: -101.82327}
+  m_AnchoredPosition: {x: 75.01865, y: -98.4}
   m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &117214831
@@ -1345,8 +1200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 142.09, y: -228.6}
-  m_SizeDelta: {x: 228.21521, y: 44.846527}
+  m_AnchoredPosition: {x: 120.1, y: -228.6}
+  m_SizeDelta: {x: 218.40631, y: 44.846527}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709545859
 MonoBehaviour:
@@ -1435,7 +1290,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86fb58b90465e4d3c9416603dac01178, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0368295e2cf464e8b8f050fde2bb2187, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1466,7 +1321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Menu/Buttons/Start
+  Event: event:/Buttons/UI_Buttons/mainMenu/continueGame_button
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
@@ -1591,7 +1446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86fb58b90465e4d3c9416603dac01178, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51927d31d949c487a821af3b027bd05c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1622,7 +1477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Menu/Buttons/Quit
+  Event: event:/Buttons/clickInGame
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
@@ -1800,8 +1655,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.399994, y: 0}
-  m_SizeDelta: {x: -88.38106, y: 0}
+  m_AnchoredPosition: {x: -1.11, y: 0}
+  m_SizeDelta: {x: -66.39972, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1601227654
 MonoBehaviour:
@@ -1935,7 +1790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 103.8, y: -112.3}
+  m_AnchoredPosition: {x: 195.7, y: -112.7}
   m_SizeDelta: {x: 156.39523, y: 33.450108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831389431
@@ -1958,7 +1813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86fb58b90465e4d3c9416603dac01178, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51927d31d949c487a821af3b027bd05c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2104,7 +1959,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86fb58b90465e4d3c9416603dac01178, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51927d31d949c487a821af3b027bd05c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2148,7 +2003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Menu/Buttons/Quit
+  Event: event:/SFX/Menus/mainMenu/quitGame_SFX
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
@@ -2285,7 +2140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86fb58b90465e4d3c9416603dac01178, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51927d31d949c487a821af3b027bd05c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2316,7 +2171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Menu/Buttons/Start
+  Event: event:/SFX/Menus/mainMenu/newGame_SFX
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
@@ -2360,8 +2215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -4.44, y: 0}
+  m_SizeDelta: {x: 17.282288, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2047751562
 MonoBehaviour:
@@ -2392,8 +2247,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2495,8 +2350,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 171.1, y: -68.8}
-  m_SizeDelta: {x: 323.51782, y: 60}
+  m_AnchoredPosition: {x: 154.19, y: -68.8}
+  m_SizeDelta: {x: 289.69177, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2133625846
 MonoBehaviour:
@@ -2518,7 +2373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86fb58b90465e4d3c9416603dac01178, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51927d31d949c487a821af3b027bd05c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
