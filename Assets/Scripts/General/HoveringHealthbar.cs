@@ -1,21 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(Health))]
 public class HoveringHealthbar : MonoBehaviour
 {
-    public Transform healthbar;
-    private Health health;
-    private float originalScale;
+    private Health _health;
+    private float _originalScale;
     private void Start()
     {
-        //Health newHealth = 
-        if (TryGetComponent(out Health health))
+        _health = GetComponentInParent<Health>();
+        if (_health != null)
         {
-            this.health = health;
-            originalScale = healthbar.localScale.x;
+            _originalScale = transform.localScale.x;
+            _health.onHealthChanged.AddListener(UpdateHealth);
         }
         else
         {
@@ -24,6 +19,6 @@ public class HoveringHealthbar : MonoBehaviour
     }
     public void UpdateHealth(float value)
     {
-        healthbar.localScale = new Vector3(Mathf.InverseLerp(0, this.health.maxHealth, value) * originalScale, healthbar.localScale.y);
+        transform.localScale = new Vector3(Mathf.InverseLerp(0, this._health.maxHealth, value) * _originalScale, transform.localScale.y);
     }
 }
