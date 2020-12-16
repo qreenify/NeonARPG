@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 2756392397159738505}
   - component: {fileID: 6542509833638795328}
   - component: {fileID: 3521777178161042479}
+  - component: {fileID: 6579407075377524874}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -335,7 +336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  damageFeedback: {fileID: 0}
   autoHealing: {fileID: 0}
   currentHealth: 100
   useDamagePopUp: 1
@@ -421,7 +421,6 @@ MonoBehaviour:
   coolDown: 3
   windUpTime: 1
   showGizmos: 1
-  rangedSound: event:/SFX/Character/laserbeamSound 2
 --- !u!114 &7222689361880935967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,6 +670,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
   ListenerNumber: -1
+--- !u!114 &6579407075377524874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382926140812516097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc6e9534e09ca043978eea4d43fbd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 0.5
+  fadeLevelMultiplier: 3
+  fadeDamageMultiplier: 1
+  levelColor: {r: 0, g: 25.09804, b: 0, a: 32}
+  damageColor: {r: 25.09804, g: 0, b: 0, a: 32}
 --- !u!183 &7394461288812367126
 Cloth:
   m_ObjectHideFlags: 0

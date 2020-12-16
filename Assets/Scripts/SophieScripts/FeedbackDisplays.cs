@@ -3,7 +3,7 @@
 public class FeedbackDisplays : MonoBehaviour
 {
     Renderer[] myMaterials;
-    public float fadeTime = 2f;
+    public float fadeTime = 0.5f;
     public float fadeLevelMultiplier = 1;
     public float fadeDamageMultiplier = 1;
     [ColorUsage(true, true)]
