@@ -38,13 +38,12 @@ public class Health : MonoBehaviour
         get => currentHealth;
         set
         {
-            if (damageSound != null && damageSound != "")
-            {
-                GlobalSoundPlayer.globalSoundPlayer.PlaySound(damageSound);
-            }
-
             if (value < currentHealth)
             {
+                if (damageSound != null && damageSound != "")
+                {
+                    GlobalSoundPlayer.globalSoundPlayer.PlaySound(damageSound);
+                }
                 onDamageTaken.Invoke(transform, currentHealth - value);
                 if (_damageFeedback != null)
                 {
