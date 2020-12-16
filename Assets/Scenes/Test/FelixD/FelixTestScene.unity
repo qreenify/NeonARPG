@@ -547,34 +547,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.096
       objectReference: {fileID: 0}
-    - target: {fileID: 1813957081024247211, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: damageSound
-      value: event:/SFX/Character/recieveDamage_SFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_AABB.m_Center.y
-      value: 0.45276403
-      objectReference: {fileID: 0}
-    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_AABB.m_Center.z
-      value: -0.5325215
-      objectReference: {fileID: 0}
-    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_AABB.m_Extent.x
-      value: 2.1680765
-      objectReference: {fileID: 0}
-    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_AABB.m_Extent.y
-      value: 1.693676
-      objectReference: {fileID: 0}
-    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: m_AABB.m_Extent.z
-      value: 1.3281927
-      objectReference: {fileID: 0}
-    - target: {fileID: 7522184517199577859, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: playOnEnable
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8382926140812516097, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_Name
       value: Player 1
@@ -3825,6 +3797,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 926216919942178754, guid: c641418212dde0449b51dc59b84b55f2, type: 3}
+      propertyPath: meleeSound
+      value: event:/SFX/Enemies/enemySword_SFX
+      objectReference: {fileID: 0}
     - target: {fileID: 1980410846530846108, guid: c641418212dde0449b51dc59b84b55f2, type: 3}
       propertyPath: otherPortal
       value: 

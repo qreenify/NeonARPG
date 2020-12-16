@@ -100,7 +100,7 @@ namespace Unit
 
         bool InRange()
         {
-            Debug.Log(_destinationIndex);
+            //Debug.Log(_destinationIndex);
             return Vector3.Distance(transform.position, destinations[DestinationIndex]) < range;
         }
 
