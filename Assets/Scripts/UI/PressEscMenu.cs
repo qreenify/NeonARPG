@@ -11,7 +11,6 @@ public class PressEscMenu : MonoBehaviour
     public UnityEvent onActivate;
     public UnityEvent onDeactivate;
 
-
     void Update()
     {
         if (Input.GetKeyDown(enterMenuKey))
@@ -22,7 +21,14 @@ public class PressEscMenu : MonoBehaviour
     void ToggleUI()
     {
         enterExitMenu.ToggleActive();
-
         //Make sound
+        if (enterExitMenu.gameObject.activeSelf)
+        {
+            onActivate.Invoke();
+        }
+        else
+        {
+            onDeactivate.Invoke();
+        }
     }
 }
