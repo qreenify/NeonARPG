@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     public float maxHealth;
-    public FeedbackDisplays damageFeedback;
     public AutoHealing autoHealing;
     public static bool debug;
     [SerializeField] private float currentHealth;
@@ -19,10 +18,11 @@ public class Health : MonoBehaviour
     public UnityEvent onDefeat;
     public UnityEvent onRevive;
     private float _baseMaxHealth;
+    private FeedbackDisplays _damageFeedback;
 
     private void Awake()
     {
-        damageFeedback = GetComponent<FeedbackDisplays>();
+        _damageFeedback = GetComponent<FeedbackDisplays>();
     }
 
     [FMODUnity.EventRef]
@@ -46,9 +46,9 @@ public class Health : MonoBehaviour
             if (value < currentHealth)
             {
                 onDamageTaken.Invoke(transform, currentHealth - value);
-                if (damageFeedback != null)
+                if (_damageFeedback != null)
                 {
-                    damageFeedback.DamageFeedback();
+                    _damageFeedback.DamageFeedback();
                 }
                 if (useDamagePopUp)
                     DamagePopUpSpawner.Create(transform, currentHealth - value);
@@ -78,7 +78,7 @@ public class Health : MonoBehaviour
     //public void TakeDamage(float damage)
     //{    
     //    CurrentHealth -= damage;
-    //    damageFeedback.Feedback();
+    //    _damageFeedback.Feedback();
     //    //onDamageTaken.Invoke(this, damage);
     //}
 
