@@ -38,21 +38,21 @@ public class Health : MonoBehaviour
         get => currentHealth;
         set
         {
+            if (damageSound != null && damageSound != "")
+            {
+                GlobalSoundPlayer.globalSoundPlayer.PlaySound(damageSound);
+            }
+
             if (value < currentHealth)
             {
                 onDamageTaken.Invoke(transform, currentHealth - value);
                 if (damageFeedback != null)
                 {
-                        damageFeedback.DamageFeedback();   
+                    damageFeedback.DamageFeedback();
                 }
                 if (useDamagePopUp)
                     DamagePopUpSpawner.Create(transform, currentHealth - value);
             }
-            if (damageSound != null)
-            {
-                //GlobalSoundPlayer.globalSoundPlayer.PlaySound(damageSound);
-            }
-                
             else if (value > currentHealth) 
                 onHealthIncreased.Invoke(value - currentHealth);
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
@@ -101,7 +101,7 @@ public class Health : MonoBehaviour
             reward.Reward();
         }
 
-        if (defeatSound != null)
+        if (defeatSound != null && defeatSound != "")
         {
             GlobalSoundPlayer.globalSoundPlayer.PlaySound(defeatSound);
         }
@@ -134,7 +134,7 @@ public class Health : MonoBehaviour
         {
             unit1.Clear();
         }
-        if (reviveSound != null)
+        if (reviveSound != null && reviveSound != "")
         {
             GlobalSoundPlayer.globalSoundPlayer.PlaySound(reviveSound);
         }

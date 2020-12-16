@@ -234,10 +234,9 @@ GameObject:
   - component: {fileID: 7360463406742339531}
   - component: {fileID: 202651258}
   - component: {fileID: 2756392397159738505}
+  - component: {fileID: 7975620}
   - component: {fileID: 6542509833638795328}
   - component: {fileID: 3521777178161042479}
-  - component: {fileID: 7522184517199577859}
-  - component: {fileID: 6531489520469436381}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -363,8 +362,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   damageSound: event:/SFX/Character/recieveDamage_SFX
-  defeatSound: 
-  reviveSound: 
+  defeatSound: event:/SFX/Character/CharacterK.O.
+  reviveSound: event:/SFX/Character/revive
 --- !u!114 &3347485338227334399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,7 +384,7 @@ MonoBehaviour:
   attackDamage: 5
   coolDown: 1
   showGizmos: 1
-  meleeSound: event:/SFX/Character/characterSword_SFX
+  meleeSound: event:/SFX/Character/CharacterSword_SFX
 --- !u!114 &3347485338227334393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,7 +422,7 @@ MonoBehaviour:
   coolDown: 3
   windUpTime: 1
   showGizmos: 1
-  rangedSound: event:/SFX/Character/characterStaff_SFX
+  rangedSound: event:/SFX/Character/laserbeamSound 2
 --- !u!114 &7222689361880935967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath: event:/SFX/Character/Hovering/stepsHovering_Event
+  eventPath: event:/SFX/Character/CharacterMoving/CharacterMoving_Event
   playOnEnable: 1
   _volume: 0.05
   parameterName: CharacterMoving
@@ -640,6 +639,22 @@ MonoBehaviour:
   priority: -1
   maxRange: 10
   showGizmos: 1
+--- !u!114 &7975620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382926140812516097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61816139075693458ba0d7994768824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beamLifeTime: 0.5
+  beamVFXPrefab: {fileID: 354874553096489612, guid: 10e0c87324224794885358a769a482e2, type: 3}
+  loadFieldVFXPrefab: {fileID: 8566906769537120968, guid: e3ff84f1037bd5749bf5ce80da5a321a, type: 3}
+  beamSpawnPoint: {fileID: 1016796061}
 --- !u!114 &6542509833638795328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,42 +688,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
   ListenerNumber: -1
---- !u!114 &7522184517199577859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382926140812516097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventPath: 
-  playOnEnable: 1
-  _volume: 1
-  parameterName: CharacterMoving
-  _parameterValue: 1
-  globalSound: 0
-  range: 0
---- !u!114 &6531489520469436381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382926140812516097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3458850a91abe774d856454afa88d853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTime: 0.5
-  fadeLevelMultiplier: 4
-  fadeDamageMultiplier: 1
-  levelColor: {r: 0, g: 25.09804, b: 0, a: 32}
-  damageColor: {r: 25.09804, g: 0, b: 0, a: 32}
 --- !u!183 &7394461288812367126
 Cloth:
   m_ObjectHideFlags: 0
@@ -2633,14 +2612,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3170644896018353025, guid: 3352b1e22b941c34a884e096bd8d7cf4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3170644896018353025, guid: 3352b1e22b941c34a884e096bd8d7cf4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6236644692991532576, guid: 3352b1e22b941c34a884e096bd8d7cf4, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -2665,15 +2636,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1075746513316559877, guid: 32a620cbe6e2cb44682d04762a6d0b82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -439.6921
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1075746513316559877, guid: 32a620cbe6e2cb44682d04762a6d0b82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 741.2308
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1075746513316559877, guid: 32a620cbe6e2cb44682d04762a6d0b82, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 750.02185
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1075746513316559877, guid: 32a620cbe6e2cb44682d04762a6d0b82, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2706,6 +2677,10 @@ PrefabInstance:
     - target: {fileID: 7067531808701039612, guid: 32a620cbe6e2cb44682d04762a6d0b82, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8794349684732192353, guid: 32a620cbe6e2cb44682d04762a6d0b82, type: 3}
+      propertyPath: _volume
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a620cbe6e2cb44682d04762a6d0b82, type: 3}
@@ -3031,27 +3006,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: 0.3615054
+      value: 0.060982943
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: -0.374342
+      value: 0.45276403
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: 0.01986289
+      value: -0.5325215
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 1.7379919
+      value: 2.1680765
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 1.2444491
+      value: 1.693676
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 1.9235499
+      value: 1.3281927
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_Materials.Array.data[0]
