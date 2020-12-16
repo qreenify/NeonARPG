@@ -99,7 +99,7 @@ namespace Unit
 
                 if (CooldownFinished && WindUpFinished)
                 {
-                    if (!string.IsNullOrEmpty(rangedSound))
+                    if (rangedSound != null || rangedSound != "")
                     {
                         GlobalSoundPlayer.globalSoundPlayer.PlaySound(rangedSound);
                     }

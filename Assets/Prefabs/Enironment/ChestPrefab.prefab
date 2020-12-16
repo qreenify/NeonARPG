@@ -59,9 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  materials: []
-  damageFeedback:
-  - {fileID: 0}
+  damageFeedback: {fileID: 0}
   autoHealing: {fileID: 0}
   currentHealth: 1
   useDamagePopUp: 1
@@ -110,8 +108,8 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
-  damageSound: 
-  defeatSound: 
+  damageSound: event:/SFX/Objects/Ceramic_Container
+  defeatSound: event:/SFX/Objects/Ceramic_Container
   reviveSound: 
 --- !u!1001 &2243989418738076854
 PrefabInstance:
@@ -179,6 +177,10 @@ PrefabInstance:
     - target: {fileID: 82903066219181417, guid: be543b9e361073b48a589e022d413b2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336390702407053075, guid: be543b9e361073b48a589e022d413b2b, type: 3}
+      propertyPath: id
+      value: 30599841-e71a-4b1e-8e18-ced0754c9384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be543b9e361073b48a589e022d413b2b, type: 3}
