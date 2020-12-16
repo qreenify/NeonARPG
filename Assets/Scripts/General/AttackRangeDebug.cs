@@ -1,5 +1,4 @@
-﻿using System;
-using Unit;
+﻿using Unit;
 using UnityEngine;
 
 public class AttackRangeDebug : MonoBehaviour
@@ -8,26 +7,49 @@ public class AttackRangeDebug : MonoBehaviour
     public Transform attackRange;
     public SpriteRenderer spriteRenderer;
     public float rotateSpeed;
+    private float _timeToShowFor;
+    [SerializeField] private bool isPlayer;
 
     private void Start()
     {
-        var isPlayerController = GetComponentInParent<PlayerController>();
-        if (isPlayerController != null)
+        if (isPlayer)
         {
-           PlayerController.playerController.ONWeaponSwap += ChangeWeapon; 
+           PlayerController.playerController.ONWeaponSwap += ChangeWeapon;
+           PlayerController.playerController.ONHoverOverEnemy += Toggle;
         }
-        PlayerController.playerController.ONHoverOverEnemy += Toggle;
+
+        var thisScale = parent.localScale;
+        var parentScale = transform.parent.localScale;
+        thisScale = new Vector3(1 / parentScale.x, 1 / parentScale.y, 1 / parentScale.z) * 1.05f;
+        parent.localScale = thisScale;
+        attackRange.transform.localPosition = new Vector3(attackRange.transform.localPosition.x, -parentScale.x + 0.2f);
     }
 
     private void LateUpdate()
     {
         //parent.rotation = Quaternion.identity;
+        if (!isPlayer)
+        {
+           if (_timeToShowFor > 0)
+           {
+               _timeToShowFor -= Time.deltaTime;
+           }
+           else
+           {
+               spriteRenderer.enabled = false;
+               _timeToShowFor = 0;
+           } 
+        }
         attackRange.transform.Rotate(Vector3.back * (rotateSpeed * Time.deltaTime));
     }
 
     public void Toggle(bool showAttackRange, Transform targetTransform)
     {
         if (attackRange == null || spriteRenderer == null) return;
+        if (!isPlayer)
+        {
+            _timeToShowFor += Time.deltaTime;
+        }
         spriteRenderer.enabled = showAttackRange;
     }
 

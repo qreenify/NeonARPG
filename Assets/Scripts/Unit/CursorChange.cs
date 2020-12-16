@@ -26,7 +26,14 @@ namespace Unit
             }
             else
             {
-                _state = PlayerController.playerController.InRange(targetTransform) ? CursorState.InRangeAndOverEnemy : CursorState.OverEnemy;
+                if (targetTransform != null)
+                {
+                    _state = PlayerController.playerController.InRange(targetTransform)
+                        ? CursorState.InRangeAndOverEnemy
+                        : CursorState.OverEnemy;
+                }
+                else
+                    _state = CursorState.NotOverEnemy;
             }
             if (_state != _previousState)
                 Cursor.SetCursor(cursors[(int)_state], _hotSpot, CursorMode.Auto);
