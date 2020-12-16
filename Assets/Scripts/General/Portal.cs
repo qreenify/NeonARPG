@@ -56,6 +56,7 @@ public class Portal : MonoBehaviour
 
     public void TeleportToLocation(Vector3 position)
     {
+        Debug.Log("Playing:" + soundStart);
         GlobalSoundPlayer.globalSoundPlayer.PlaySound(soundStart);
         triggeringJump = true;
         savedTime = Time.time;
