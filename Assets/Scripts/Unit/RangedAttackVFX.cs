@@ -7,6 +7,7 @@ namespace Unit
         [SerializeField] private float beamLifeTime = 0.5f;
         [SerializeField] GameObject beamVFXPrefab;
         [SerializeField] GameObject loadFieldVFXPrefab;
+        [SerializeField] private float scaling = 3;
         private Unit _unit;
         private bool _isLoadingAttacking;
         private float _beamInstantiateTime;
@@ -60,7 +61,7 @@ namespace Unit
             _beamInstance = Instantiate(beamVFXPrefab, transform);
             _beamInstantiateTime = beamLifeTime;
             _beamInstance.transform.LookAt(_unit.target.position);
-            _beamInstance.GetComponent<LineRenderer>().SetPosition(1, new Vector3(0, 0, Vector3.Distance(transform.position, _unit.target.position) / 3));
+            _beamInstance.GetComponent<LineRenderer>().SetPosition(1, new Vector3(0, 0, Vector3.Distance(transform.position, _unit.target.position) / scaling));
             _beamInstance.transform.parent = null;
         }
 
