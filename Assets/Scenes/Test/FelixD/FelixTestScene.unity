@@ -767,11 +767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3458850a91abe774d856454afa88d853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 2
-  fadeLevelMultiplier: 1
-  fadeDamageMultiplier: 1
-  levelColor: {r: 0, g: 0, b: 0, a: 0}
-  damageColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &348637494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1163,15 +1158,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 136.5
+      value: 45.54
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 54.16
+      value: -7.35
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 841.9
+      value: 479.53
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1200,6 +1195,26 @@ PrefabInstance:
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.096
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.45276403
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.5325215
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2.1680765
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.693676
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455641747491245873, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 1.3281927
       objectReference: {fileID: 0}
     - target: {fileID: 3170644894740012624, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalScale.x
