@@ -565,6 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  damageFeedback: {fileID: 0}
   autoHealing: {fileID: 0}
   currentHealth: 200
   useDamagePopUp: 1
@@ -625,7 +626,6 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
-  damageFeedback: {fileID: 0}
   damageSound: 
   defeatSound: 
   reviveSound: 
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8488615866191052910}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 436571613e27efe42907d3ea64536194, type: 3}
   m_Name: 
@@ -768,7 +768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   priority: 2
-  maxRange: 3
+  maxRange: 4
   showGizmos: 1
 --- !u!183 &2568654987526194111
 Cloth:

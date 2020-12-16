@@ -2325,6 +2325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  damageFeedback: {fileID: 0}
   autoHealing: {fileID: 0}
   currentHealth: 10
   useDamagePopUp: 1
@@ -2361,7 +2362,9 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
-  damageFeedback: {fileID: 0}
+  damageSound: 
+  defeatSound: 
+  reviveSound: 
 --- !u!114 &8491234589579973372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2396,10 +2399,11 @@ MonoBehaviour:
   priority: 1
   meeleeDisplay: {fileID: 0}
   drawAttackLine: {fileID: 0}
-  range: 4
+  range: 6
   attackDamage: 10
   coolDown: 3
   showGizmos: 0
+  meleeSound: 
 --- !u!114 &1442305526564356658
 MonoBehaviour:
   m_ObjectHideFlags: 0
