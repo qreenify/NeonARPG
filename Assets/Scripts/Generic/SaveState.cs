@@ -22,7 +22,7 @@ public class SaveState : MonoBehaviour
     {
         if (Collected == (int) CollectedState.Collected)
         {
-            SetActive(false);
+            //SetActive(false);
         }
     }
 

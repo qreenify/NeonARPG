@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class PickupDisplay : MonoBehaviour
 {
     public GameObject item;
     public float spawntime = 1f;
     public bool itemDisplayed;
+    public Vector3 offset = new Vector3(0, 2, 0);
 
 
     GameObject spawnedItem;
@@ -18,6 +20,7 @@ public class PickupDisplay : MonoBehaviour
         if (itemDisplayed)
         {
             time += Time.deltaTime;
+            spawnedItem.transform.eulerAngles = new Vector3(0, -90, 0);
 
             if (time > spawntime)
             {
@@ -30,10 +33,12 @@ public class PickupDisplay : MonoBehaviour
     }
     public void PickupConfirmation()
     {
-        var newItem = Instantiate(item, transform.position, transform.rotation);
-        newItem.transform.SetParent(transform);
+        if (spawnedItem != null)
+            Destroy(spawnedItem);
+        var newItem = Instantiate(item, transform);
+        newItem.transform.position = offset + transform.position;
+        newItem.transform.eulerAngles = new Vector3(0, -90, 0);
         spawnedItem = newItem;
         itemDisplayed = true;
-
     }
 }
