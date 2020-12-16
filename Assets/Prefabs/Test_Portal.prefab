@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 9058266112268557657}
   - component: {fileID: 9058266112268557654}
   - component: {fileID: 9058266112268557655}
-  - component: {fileID: 4528566263327870717}
   m_Layer: 0
   m_Name: Test_Portal
   m_TagString: Untagged
@@ -129,24 +128,6 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   autoAdd: 1
   position: {x: 0, y: 0, z: 0}
-  portalSound: {fileID: 4528566263327870717}
+  soundStart: 
+  soundEnd: 
   warmUp: 0
---- !u!114 &4528566263327870717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9058266112268557653}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventPath: event:/BGM/Main Menu/MainTheme_BGM
-  playOnEnable: 1
-  _volume: 1
-  parameterName: CharacterMoving
-  _parameterValue: 1
-  globalSound: 1
-  range: 0

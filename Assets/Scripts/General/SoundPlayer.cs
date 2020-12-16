@@ -94,7 +94,7 @@ public class SoundPlayer : MonoBehaviour
 
     public void Play()
     {
-        if (eventPath != null)
+        if (eventPath != null && eventPath != "" && FMODUnity.RuntimeManager.GetEventDescription(eventPath).isValid())
         {
             music = FMODUnity.RuntimeManager.CreateInstance(eventPath);
             music.setVolume(_volume);

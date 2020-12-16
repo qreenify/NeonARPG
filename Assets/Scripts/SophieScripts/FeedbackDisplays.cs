@@ -7,9 +7,9 @@ public class FeedbackDisplays : MonoBehaviour
     public float fadeLevelMultiplier = 1;
     public float fadeDamageMultiplier = 1;
     [ColorUsage(true, true)]
-    public Color levelColor;
+    public Color levelColor = new Color(0, 200/255f, 0) * 32;
     [ColorUsage(true, true)]
-    public Color damageColor;
+    public Color damageColor = new Color(200/255f, 0, 0) * 32;
 
 
     float Amount = 0f;

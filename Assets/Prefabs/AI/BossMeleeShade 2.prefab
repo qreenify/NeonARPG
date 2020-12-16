@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 4203350555438811466}
   - component: {fileID: 8979790653527353546}
   - component: {fileID: 4688335115688473604}
+  - component: {fileID: -3003103427201126974}
   m_Layer: 0
   m_Name: BossMeleeShade 2
   m_TagString: Enemy
@@ -508,6 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  damageFeedback: {fileID: 0}
   autoHealing: {fileID: 0}
   currentHealth: 200
   useDamagePopUp: 1
@@ -544,7 +546,6 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
-  damageFeedback: {fileID: 0}
   damageSound: 
   defeatSound: 
   reviveSound: 
@@ -702,6 +703,23 @@ MonoBehaviour:
   dissolveTime: 1.2
   dissolveColor: {r: 24543.875, g: 0, b: 0, a: 125}
   condenseColor: {r: 0, g: 24543.875, b: 0, a: 125}
+--- !u!114 &-3003103427201126974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683710742376659251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3458850a91abe774d856454afa88d853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 2
+  fadeLevelMultiplier: 1
+  fadeDamageMultiplier: 1
+  levelColor: {r: 0, g: 25.09804, b: 0, a: 32}
+  damageColor: {r: 25.09804, g: 0, b: 0, a: 32}
 --- !u!183 &1627997557249702626
 Cloth:
   m_ObjectHideFlags: 0
@@ -2756,13 +2774,13 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 735ac6fc400953f45a8cde99dfbd029d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
---- !u!1 &4854633303047155659 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6181419615306536236, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
-  m_PrefabInstance: {fileID: 1627997557249702631}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1233272003527384332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
+  m_PrefabInstance: {fileID: 1627997557249702631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4854633303047155659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6181419615306536236, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
   m_PrefabInstance: {fileID: 1627997557249702631}
   m_PrefabAsset: {fileID: 0}
