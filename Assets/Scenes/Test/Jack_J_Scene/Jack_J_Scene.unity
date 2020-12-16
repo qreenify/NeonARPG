@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.3371, g: 325.05005, b: 430.21954, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -802,6 +802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hub_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4528805115746166797, guid: fba324b6bb898ba4296bc2cac8286602, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4528805115746166799, guid: fba324b6bb898ba4296bc2cac8286602, type: 3}
       propertyPath: otherPortal
       value: 
@@ -878,6 +882,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2624473462418825891, guid: e1820e09a41d94746a97f931e4c989e3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d6f971e981d6164fb60ad0ac3a2e7e2, type: 2}
     - target: {fileID: 5802711461012634134, guid: e1820e09a41d94746a97f931e4c989e3, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1012,12 +1020,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 59646047}
     - target: {fileID: 6447476028108433595, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447476028108433595, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6447476028108433595, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447476028108433595, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2077682703}
+    - target: {fileID: 6447476028108433595, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447476028108433595, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TeleportToLocation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447476028108433595, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447476028108433595, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447476028108433595, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447476028108433595, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8120377947111426783, guid: 76121c9a99725024f90149b90e28ca37, type: 3}
       propertyPath: otherPortal
@@ -1969,6 +2009,11 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2799101638685419138, guid: c641418212dde0449b51dc59b84b55f2, type: 3}
   m_PrefabInstance: {fileID: 2773571078373894441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2077682703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4528805115746166797, guid: fba324b6bb898ba4296bc2cac8286602, type: 3}
+  m_PrefabInstance: {fileID: 1134051019}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2094770758
 PrefabInstance:
