@@ -46,7 +46,7 @@ public class HealthPotion : MonoBehaviour, ISaveable
         if (amount > 0)
         {
             Amount--;
-            var addHealth = healPercentage / health.maxHealth;
+            var addHealth = healPercentage * health.maxHealth;
             health.CurrentHealth += addHealth;
         }
     }

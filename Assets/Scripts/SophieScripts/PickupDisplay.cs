@@ -33,6 +33,8 @@ public class PickupDisplay : MonoBehaviour
     }
     public void PickupConfirmation()
     {
+        if (spawnedItem != null)
+            Destroy(spawnedItem);
         var newItem = Instantiate(item, transform);
         newItem.transform.position = offset + transform.position;
         newItem.transform.eulerAngles = new Vector3(0, -90, 0);
