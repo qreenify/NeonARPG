@@ -75,7 +75,6 @@ public class PlayerController : MonoBehaviour
     {
         ToggleWeapon();
         Select();
-        
     }
 
     private void Select()
@@ -88,6 +87,11 @@ public class PlayerController : MonoBehaviour
             {
               hoverEnemy = hit.collider.gameObject.CompareTag("Enemy") && hit.collider.gameObject.TryGetComponent(out Health health);
               hoverTransform = hit.transform;
+              var attackRangeDebug = hit.collider.GetComponentInChildren<AttackRangeDebug>();
+              if (attackRangeDebug != null)
+              {
+                  attackRangeDebug.Toggle(true, transform);
+              }
             }
             
 
