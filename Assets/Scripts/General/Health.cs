@@ -95,16 +95,16 @@ public class Health : MonoBehaviour
         {
             return;
         }
+        if (defeatSound != null && defeatSound != "")
+        {
+            GlobalSoundPlayer.globalSoundPlayer.PlaySound(defeatSound);
+        }
         var rewards = GetComponents<IReward>();
         foreach (var reward in rewards)
         {
             reward.Reward();
         }
 
-        if (defeatSound != null && defeatSound != "")
-        {
-            GlobalSoundPlayer.globalSoundPlayer.PlaySound(defeatSound);
-        }
         if (TryGetComponent<Dissolve>(out var dissolve))
         {
             StartCoroutine(dissolve.DoDissolve());

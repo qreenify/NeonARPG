@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1937065105873431563}
   - component: {fileID: 3342320819248970080}
   - component: {fileID: 6941769491358626351}
+  - component: {fileID: 1464935788623088939}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -184,11 +185,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPath: event:/SFX/Enemies/Weapons/Laserbeam/LaserbeamEvent
-  playOnEnable: 1
+  playOnEnable: 0
   _volume: 1
   parameterName: CharacterMoving
   _parameterValue: 1
-  globalSound: 0
+  globalSound: 1
   range: 0
 --- !u!114 &6941769491358626351
 MonoBehaviour:
@@ -203,9 +204,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventPath: event:/SFX/Enemies/enemyDies
-  playOnEnable: 1
+  playOnEnable: 0
   _volume: 1
   parameterName: CharacterMoving
   _parameterValue: 1
-  globalSound: 0
+  globalSound: 1
+  range: 0
+--- !u!114 &1464935788623088939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067531808701039612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/SFX/Character/CharacterK.O.
+  playOnEnable: 0
+  _volume: 1
+  parameterName: CharacterMoving
+  _parameterValue: 0.54
+  globalSound: 1
   range: 0

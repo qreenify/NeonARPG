@@ -123,6 +123,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: d9be5aa891ad7f34988a1f1660444bce, type: 2}
+--- !u!1 &1873417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5390720706970700203, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+  m_PrefabInstance: {fileID: 428555571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1873419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/SFX/Environment/portal_step_in
+  playOnEnable: 1
+  _volume: 1
+  parameterName: CharacterMoving
+  _parameterValue: 1
+  globalSound: 0
+  range: 0
+--- !u!114 &1873429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/SFX/Environment/portal_step_out
+  playOnEnable: 1
+  _volume: 1
+  parameterName: CharacterMoving
+  _parameterValue: 1
+  globalSound: 0
+  range: 0
 --- !u!114 &40727765 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4570251401952103576, guid: e1820e09a41d94746a97f931e4c989e3, type: 3}
@@ -509,15 +552,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37
+      value: 117.7
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.3
+      value: 54.16
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 483.3
+      value: 790.4
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -547,9 +590,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.096
       objectReference: {fileID: 0}
-    - target: {fileID: 5967422503658023990, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-      propertyPath: _volume
-      value: 0.5
+    - target: {fileID: 3170644894740012624, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170644894740012624, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8382926140812516097, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_Name
@@ -1966,7 +2013,7 @@ PrefabInstance:
     - target: {fileID: 4528805115746166799, guid: fba324b6bb898ba4296bc2cac8286602, type: 3}
       propertyPath: portalSound
       value: 
-      objectReference: {fileID: 1863590976}
+      objectReference: {fileID: 0}
     - target: {fileID: 6526147447082400518, guid: fba324b6bb898ba4296bc2cac8286602, type: 3}
       propertyPath: id
       value: 386
@@ -2193,6 +2240,18 @@ PrefabInstance:
     - target: {fileID: 5802711461012634135, guid: e1820e09a41d94746a97f931e4c989e3, type: 3}
       propertyPath: m_Name
       value: Level3Transition
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791685250890848912, guid: e1820e09a41d94746a97f931e4c989e3, type: 3}
+      propertyPath: warmUp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791685250890848912, guid: e1820e09a41d94746a97f931e4c989e3, type: 3}
+      propertyPath: soundEnd
+      value: event:/SFX/Environment/portal_step_out
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791685250890848912, guid: e1820e09a41d94746a97f931e4c989e3, type: 3}
+      propertyPath: soundStart
+      value: event:/SFX/Environment/portal_step_in
       objectReference: {fileID: 0}
     - target: {fileID: 6791685250890848912, guid: e1820e09a41d94746a97f931e4c989e3, type: 3}
       propertyPath: otherPortal
@@ -3234,17 +3293,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bd0fcf9e7788ff4e9444c295a458e21, type: 3}
---- !u!114 &1863590976 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9057955248475585445, guid: fba324b6bb898ba4296bc2cac8286602, type: 3}
-  m_PrefabInstance: {fileID: 1134051019}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!850595691 &1923179882
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -3872,6 +3920,10 @@ PrefabInstance:
     - target: {fileID: 6113126284184051510, guid: c641418212dde0449b51dc59b84b55f2, type: 3}
       propertyPath: m_LocalPosition.z
       value: -30.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392348915873744113, guid: c641418212dde0449b51dc59b84b55f2, type: 3}
+      propertyPath: attackDamage
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c641418212dde0449b51dc59b84b55f2, type: 3}
