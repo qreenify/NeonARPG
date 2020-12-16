@@ -11,7 +11,11 @@ public class AttackRangeDebug : MonoBehaviour
 
     private void Start()
     {
-        PlayerController.playerController.ONWeaponSwap += ChangeWeapon;
+        var isPlayerController = GetComponentInParent<PlayerController>();
+        if (isPlayerController != null)
+        {
+           PlayerController.playerController.ONWeaponSwap += ChangeWeapon; 
+        }
         PlayerController.playerController.ONHoverOverEnemy += Toggle;
     }
 
