@@ -69,7 +69,7 @@ public class Health : MonoBehaviour
         if (TryGetComponent<PlayerLevel>(out var level))
         {
             _baseMaxHealth = maxHealth;
-            SetMaxHealth(level);
+            SetMaxHealthStart(level);
             level.ONLevelUp += SetMaxHealth;
         }
     }
@@ -139,11 +139,18 @@ public class Health : MonoBehaviour
         }
         //TODO: Trigger revive sound / animation
     }
+    
+    private void SetMaxHealthStart(PlayerLevel level)
+    {
+        maxHealth = _baseMaxHealth + level.level * level.healthIncrease;
+        currentHealth = maxHealth;
+        onMaxHealthSet.Invoke(maxHealth);
+    }
 
     private void SetMaxHealth(PlayerLevel level)
     {
         maxHealth = _baseMaxHealth + level.level * level.healthIncrease;
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
         onMaxHealthSet.Invoke(maxHealth);
     }
 
