@@ -1,4 +1,5 @@
-﻿using Unit;
+﻿using System;
+using Unit;
 using UnityEngine;
 
 public class AttackRangeDebug : MonoBehaviour
@@ -20,7 +21,7 @@ public class AttackRangeDebug : MonoBehaviour
         attackRange.transform.Rotate(Vector3.back * (rotateSpeed * Time.deltaTime));
     }
 
-    private void Toggle(bool showAttackRange, Transform targetTransform)
+    public void Toggle(bool showAttackRange, Transform targetTransform)
     {
         if (attackRange == null || spriteRenderer == null) return;
         spriteRenderer.enabled = showAttackRange;
@@ -38,6 +39,23 @@ public class AttackRangeDebug : MonoBehaviour
         {
             var meleeAttack = GetComponentInParent<MeleeAttack>();
             attackRange.localScale = new Vector3(meleeAttack.range, meleeAttack.range, attackRange.localScale.z);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (attackRange == null) return;
+        {
+            var meleeAttack = GetComponentInParent<MeleeAttack>();
+            var rangedAttack = GetComponentInParent<Unit.RangedAttack>();
+            if (meleeAttack != null)
+            {
+               attackRange.localScale = new Vector3(meleeAttack.range, meleeAttack.range, attackRange.localScale.z);
+            }
+            else if (rangedAttack != null)
+            {
+                attackRange.localScale = new Vector3(rangedAttack.range, rangedAttack.range, attackRange.localScale.z);
+            }
         }
     }
 }
