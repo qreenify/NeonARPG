@@ -11,6 +11,7 @@ public class HoveringHealthbar : MonoBehaviour
     private float originalScale;
     private void Start()
     {
+        //Health newHealth = 
         if (TryGetComponent(out Health health))
         {
             this.health = health;
