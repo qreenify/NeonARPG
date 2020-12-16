@@ -1057,6 +1057,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a90ba2becaad1349aadacd144573666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1288780084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 317330331337635997, guid: 97d89c6e98af63041a061938e98701e3, type: 3}
+  m_PrefabInstance: {fileID: 906592036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a90ba2becaad1349aadacd144573666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1346290766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1448,6 +1459,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4129845765100816155, guid: 773d8ef44ba9c764f9739b1e67ee7866, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 1288780084}
     - target: {fileID: 6119567544743047042, guid: 773d8ef44ba9c764f9739b1e67ee7866, type: 3}
       propertyPath: m_Name
       value: Level_1.1
@@ -1644,10 +1659,70 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4089479306180768062, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.45276392
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089479306180768062, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.53252125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089479306180768062, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2.1680763
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089479306180768062, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.6936756
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315885584108182802, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.45276392
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315885584108182802, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.53252125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5315885584108182802, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.6936756
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712358074536387099, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.45276392
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712358074536387099, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.53252125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712358074536387099, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.6936756
+      objectReference: {fileID: 0}
     - target: {fileID: 5803547072300987342, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
       propertyPath: otherPortal
       value: 
       objectReference: {fileID: 987398449}
+    - target: {fileID: 7154653503207031538, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.4527638
+      objectReference: {fileID: 0}
+    - target: {fileID: 7154653503207031538, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.53252125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7154653503207031538, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 2.1680758
+      objectReference: {fileID: 0}
+    - target: {fileID: 7154653503207031538, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.6936755
+      objectReference: {fileID: 0}
+    - target: {fileID: 7154653503207031538, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 1.328192
+      objectReference: {fileID: 0}
     - target: {fileID: 7535958850078519918, guid: 938c4497c4efd5c4f8b53da7547bbc07, type: 3}
       propertyPath: m_Name
       value: Level 2.1
