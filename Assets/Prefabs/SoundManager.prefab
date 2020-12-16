@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 1094854431936388686}
   - component: {fileID: 2942110887499758911}
   - component: {fileID: -7116165117933527886}
+  - component: {fileID: 1937065105873431563}
+  - component: {fileID: 3342320819248970080}
+  - component: {fileID: 3979059355482450089}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -85,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath: event:/SFX/Character/characterStaff_SFX
+  eventPath: event:/SFX/Character/laserbeamSound 2
   playOnEnable: 0
   _volume: 1
   parameterName: Staff
@@ -146,6 +149,63 @@ MonoBehaviour:
   playOnEnable: 0
   _volume: 1
   parameterName: Deathsound
+  _parameterValue: 1
+  globalSound: 1
+  range: 0
+--- !u!114 &1937065105873431563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067531808701039612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/SFX/Character/recieveDamage_SFX
+  playOnEnable: 0
+  _volume: 2
+  parameterName: CharacterMoving
+  _parameterValue: 1
+  globalSound: 1
+  range: 0
+--- !u!114 &3342320819248970080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067531808701039612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: 
+  playOnEnable: 1
+  _volume: 1
+  parameterName: CharacterMoving
+  _parameterValue: 1
+  globalSound: 0
+  range: 0
+--- !u!114 &3979059355482450089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067531808701039612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/SFX/Enemies/receivingDamage
+  playOnEnable: 0
+  _volume: 2
+  parameterName: CharacterMoving
   _parameterValue: 1
   globalSound: 1
   range: 0

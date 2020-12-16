@@ -237,7 +237,6 @@ GameObject:
   - component: {fileID: 7975620}
   - component: {fileID: 6542509833638795328}
   - component: {fileID: 3521777178161042479}
-  - component: {fileID: 7522184517199577859}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -363,8 +362,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   damageSound: event:/SFX/Character/recieveDamage_SFX
-  defeatSound: 
-  reviveSound: 
+  defeatSound: event:/SFX/Character/CharacterK.O.
+  reviveSound: event:/SFX/Character/revive
 --- !u!114 &3347485338227334399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,25 +688,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
   ListenerNumber: -1
---- !u!114 &7522184517199577859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382926140812516097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventPath: 
-  playOnEnable: 1
-  _volume: 1
-  parameterName: CharacterMoving
-  _parameterValue: 1
-  globalSound: 0
-  range: 0
 --- !u!183 &7394461288812367126
 Cloth:
   m_ObjectHideFlags: 0
