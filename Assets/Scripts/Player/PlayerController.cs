@@ -163,6 +163,7 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < playerActions.Length; i++)
             {
                 playerActions[i].enabled = i == (int) PlayerActions.Ranged;
+                _unit.currentAction = null;
             }
         }
         else
@@ -170,6 +171,7 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < playerActions.Length; i++)
             {
                 playerActions[i].enabled = i == (int) PlayerActions.Melee;
+                _unit.currentAction = null;
             }
         }
     }
