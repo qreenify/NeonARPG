@@ -18,7 +18,7 @@ public class PressEscMenu : MonoBehaviour
             ToggleUI();
         }
     }
-    void ToggleUI()
+    public void ToggleUI()
     {
         enterExitMenu.ToggleActive();
         //Make sound
