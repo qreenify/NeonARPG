@@ -2235,6 +2235,7 @@ GameObject:
   - component: {fileID: 319815089871735664}
   - component: {fileID: 3974347847612357003}
   - component: {fileID: 241985293075002674}
+  - component: {fileID: 1009108362775883988}
   m_Layer: 0
   m_Name: MeleeShade
   m_TagString: Enemy
@@ -2519,6 +2520,23 @@ MonoBehaviour:
   dissolveTime: 1.2
   dissolveColor: {r: 24730.566, g: 0, b: 0, a: 0.49803922}
   condenseColor: {r: 0, g: 24158.37, b: 0, a: 0.5254902}
+--- !u!114 &1009108362775883988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9140786845486480137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3458850a91abe774d856454afa88d853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 2
+  fadeLevelMultiplier: 1
+  fadeDamageMultiplier: 1
+  levelColor: {r: 0, g: 25.09804, b: 0, a: 32}
+  damageColor: {r: 25.09804, g: 0, b: 0, a: 32}
 --- !u!1001 &2932604260095899869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2664,13 +2682,13 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 19fb722e15dcf4d7ebecdc9b5b3180e0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
---- !u!4 &3402484310537494326 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
-  m_PrefabInstance: {fileID: 2932604260095899869}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9041649611754335729 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6181419615306536236, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
+  m_PrefabInstance: {fileID: 2932604260095899869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3402484310537494326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
   m_PrefabInstance: {fileID: 2932604260095899869}
   m_PrefabAsset: {fileID: 0}

@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 8515208527397118444}
   - component: {fileID: 131719796424621156}
   - component: {fileID: 5851678826237995197}
-  - component: {fileID: 1994512204809853329}
   - component: {fileID: 8598040489132137969}
+  - component: {fileID: -1750244757149100761}
   m_Layer: 0
   m_Name: MageShade 2
   m_TagString: Enemy
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  damageFeedback: {fileID: 0}
   autoHealing: {fileID: 0}
   currentHealth: 50
   useDamagePopUp: 1
@@ -152,7 +153,9 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
-  damageFeedback: {fileID: 0}
+  damageSound: 
+  defeatSound: 
+  reviveSound: 
 --- !u!114 &543462164603615328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +280,7 @@ MonoBehaviour:
   coolDown: 3
   windUpTime: 0.4
   showGizmos: 1
+  rangedSound: 
 --- !u!114 &5851678826237995197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,22 +297,6 @@ MonoBehaviour:
   priority: 2
   maxRange: 7
   showGizmos: 1
---- !u!114 &1994512204809853329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902609022861201813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c61816139075693458ba0d7994768824, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beamLifeTime: 0.5
-  beamVFXPrefab: {fileID: 354874553096489612, guid: 10e0c87324224794885358a769a482e2, type: 3}
-  loadFieldVFXPrefab: {fileID: 8566906769537120968, guid: e3ff84f1037bd5749bf5ce80da5a321a, type: 3}
-  beamSpawnPoint: {fileID: 6613733715238707289}
 --- !u!114 &8598040489132137969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +312,23 @@ MonoBehaviour:
   dissolveTime: 1.2
   dissolveColor: {r: 24543.875, g: 0, b: 0, a: 125}
   condenseColor: {r: 0, g: 24543.875, b: 0, a: 125}
+--- !u!114 &-1750244757149100761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902609022861201813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3458850a91abe774d856454afa88d853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 2
+  fadeLevelMultiplier: 1
+  fadeDamageMultiplier: 1
+  levelColor: {r: 0, g: 25.09804, b: 0, a: 32}
+  damageColor: {r: 25.09804, g: 0, b: 0, a: 32}
 --- !u!183 &6552345078397702724
 Cloth:
   m_ObjectHideFlags: 0
@@ -2652,7 +2657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6613733713944155691, guid: b301da131a9f73842b938961dc95c7a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.674
       objectReference: {fileID: 0}
     - target: {fileID: 6613733713944155691, guid: b301da131a9f73842b938961dc95c7a9, type: 3}
       propertyPath: m_LocalPosition.z
