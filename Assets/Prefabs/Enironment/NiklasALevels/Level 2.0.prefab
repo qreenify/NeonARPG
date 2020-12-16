@@ -29965,13 +29965,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4bc1c3f3d50333c4ba4e82686e971306, type: 2}
+    - target: {fileID: 5319236475680629786, guid: 333ae984023784140978598e6c4a0f03, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -29982,12 +29990,28 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
+      value: TeleportToLocation
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Portal, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -29995,6 +30019,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319236475680629787, guid: 333ae984023784140978598e6c4a0f03, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6057160603208744305, guid: 333ae984023784140978598e6c4a0f03, type: 3}
@@ -34560,7 +34588,7 @@ PrefabInstance:
     - target: {fileID: 4697290115226904736, guid: 9efbf23a53cd194428ddd26cb9a920d0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4bc1c3f3d50333c4ba4e82686e971306, type: 2}
+      objectReference: {fileID: 2100000, guid: 904f3ed8bd2dc954584143bd719a147b, type: 2}
     - target: {fileID: 4697290115226904750, guid: 9efbf23a53cd194428ddd26cb9a920d0, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -34584,6 +34612,10 @@ PrefabInstance:
     - target: {fileID: 4697290115226904750, guid: 9efbf23a53cd194428ddd26cb9a920d0, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4697290115226904751, guid: 9efbf23a53cd194428ddd26cb9a920d0, type: 3}
+      propertyPath: otherPortal
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5273556273490375910, guid: 9efbf23a53cd194428ddd26cb9a920d0, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -64754,11 +64786,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3269100166335715494, guid: d89f27418ab9a48468bf229323404526, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3269100166335715494, guid: d89f27418ab9a48468bf229323404526, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3269100166335715494, guid: d89f27418ab9a48468bf229323404526, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64802,27 +64834,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3442204903869963510, guid: d89f27418ab9a48468bf229323404526, type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: 0.10163832
+      value: 0.08131075
       objectReference: {fileID: 0}
     - target: {fileID: 3442204903869963510, guid: d89f27418ab9a48468bf229323404526, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: 0.75460625
+      value: 0.6036849
       objectReference: {fileID: 0}
     - target: {fileID: 3442204903869963510, guid: d89f27418ab9a48468bf229323404526, type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: -0.8875356
+      value: -0.7100284
       objectReference: {fileID: 0}
     - target: {fileID: 3442204903869963510, guid: d89f27418ab9a48468bf229323404526, type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 3.6134596
+      value: 2.8907676
       objectReference: {fileID: 0}
     - target: {fileID: 3442204903869963510, guid: d89f27418ab9a48468bf229323404526, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 2.8227925
+      value: 2.258234
       objectReference: {fileID: 0}
     - target: {fileID: 3442204903869963510, guid: d89f27418ab9a48468bf229323404526, type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 2.2136536
+      value: 1.7709227
       objectReference: {fileID: 0}
     - target: {fileID: 8488615866191052910, guid: d89f27418ab9a48468bf229323404526, type: 3}
       propertyPath: m_Name

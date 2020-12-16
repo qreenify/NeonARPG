@@ -12702,12 +12702,40 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4605186282911943780, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605186282911943780, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605186282911943780, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2210053481997310844}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605186282911943780, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4605186282911943780, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
       propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TeleportToLocation
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605186282911943780, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605186282911943780, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605186282911943780, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
+      propertyPath: playerEnterEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605186282911943781, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
+      propertyPath: otherPortal
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4605186282911943783, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12784,17 +12812,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8078700934244706093, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
   m_PrefabInstance: {fileID: 2396837942391166745}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2210053481997310844 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4605186282911943781, guid: 2b700deacf4c17c4ca3ee7e20d892371, type: 3}
-  m_PrefabInstance: {fileID: 2396837942391166745}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a90ba2becaad1349aadacd144573666, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2396837942410938377
 PrefabInstance:
   m_ObjectHideFlags: 0
