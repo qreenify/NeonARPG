@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlobalSoundPlayer : MonoBehaviour
 {
     public static GlobalSoundPlayer globalSoundPlayer;
-    public SoundPlayer[] soundPlayers;
+    public List<SoundPlayer> soundPlayers = new List<SoundPlayer>();
 
     private void Awake()
     {
@@ -16,6 +16,10 @@ public class GlobalSoundPlayer : MonoBehaviour
         else
         {
             Destroy(this);
+        }
+        foreach (var item in GetComponents<SoundPlayer>())
+        {
+            soundPlayers.Add(item);
         }
     }
     public void PlaySound(string eventPath)

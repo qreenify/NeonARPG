@@ -123,49 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: d9be5aa891ad7f34988a1f1660444bce, type: 2}
---- !u!1 &1873417 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5390720706970700203, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
-  m_PrefabInstance: {fileID: 428555571}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1873419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventPath: event:/SFX/Environment/portal_step_in
-  playOnEnable: 1
-  _volume: 1
-  parameterName: CharacterMoving
-  _parameterValue: 1
-  globalSound: 0
-  range: 0
---- !u!114 &1873429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventPath: event:/SFX/Environment/portal_step_out
-  playOnEnable: 1
-  _volume: 1
-  parameterName: CharacterMoving
-  _parameterValue: 1
-  globalSound: 0
-  range: 0
 --- !u!114 &40727765 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4570251401952103576, guid: e1820e09a41d94746a97f931e4c989e3, type: 3}
@@ -546,13 +503,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 452785353468348952, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: playOnEnable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 117.7
+      value: 136.5
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -560,7 +521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 790.4
+      value: 841.9
       objectReference: {fileID: 0}
     - target: {fileID: 1562877159537138682, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -597,6 +558,14 @@ PrefabInstance:
     - target: {fileID: 3170644894740012624, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_LocalScale.y
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801141674676850753, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: soundPlayers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6798326190680466409, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
+      propertyPath: playOnEnable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8382926140812516097, guid: 7d23f9d51ac32604783a107945984bc8, type: 3}
       propertyPath: m_Name
@@ -3849,10 +3818,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 926216919942178754, guid: c641418212dde0449b51dc59b84b55f2, type: 3}
-      propertyPath: meleeSound
-      value: event:/SFX/Enemies/enemySword_SFX
-      objectReference: {fileID: 0}
     - target: {fileID: 1980410846530846108, guid: c641418212dde0449b51dc59b84b55f2, type: 3}
       propertyPath: otherPortal
       value: 
