@@ -342,7 +342,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 40
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1571313541414772995
 MonoBehaviour:
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07147bdfc8c3357488734e2d880526a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 30
+  range: 40
 --- !u!1 &8488615866191052910
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   priority: 0
-  maxRange: 30
+  maxRange: 40
   showGizmos: 1
 --- !u!135 &276150394293733681
 SphereCollider:
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath: event:/SFX/Enemies/stepsHovering_enemy_SFX
+  eventPath: event:/SFX/Enemies/stepsHovering_enemy_Event
   playOnEnable: 1
   _volume: 1
   parameterName: CharacterMoving
@@ -656,8 +656,8 @@ MonoBehaviour:
   fadeTime: 0.5
   fadeLevelMultiplier: 1
   fadeDamageMultiplier: 1
-  levelColor: {r: 0, g: 25.09804, b: 0, a: 32}
-  damageColor: {r: 25.09804, g: 0, b: 0, a: 32}
+  levelUpColor: {r: 0, g: 256, b: 0, a: 256}
+  damageFeedback: {r: 256, g: 0, b: 0, a: 256}
 --- !u!114 &-3954048854802573227
 MonoBehaviour:
   m_ObjectHideFlags: 0
