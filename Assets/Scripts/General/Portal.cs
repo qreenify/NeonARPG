@@ -28,13 +28,16 @@ public class Portal : MonoBehaviour
     }
     public void LoadScene(string sceneName)
     {
+        if (LevelFader.levelFader != null)
+        {
+            LevelFader.levelFader.Fade();
+        }
         transform.parent = null;
         DontDestroyOnLoad(gameObject);
         PlayerController.playerController.navMeshAgent.enabled = false;
-        SceneManager.LoadScene(sceneName);
-        TeleportToLocation(position);
         PlayerPrefs.SetInt(portalName + "_state", 1);
         toBeDestroyed = true;
+        StartCoroutine(LoadSceneDelayed(LevelFader.FadeOutTime, sceneName));
         //StartCoroutine(LoadAsync(sceneName));
     }
 
@@ -45,8 +48,12 @@ public class Portal : MonoBehaviour
             Debug.LogError("OtherPortal is not assigned either assign it or don't call the method TeleportToLocation(PlayerController controller)");
             return;
         }
-        var position = otherPortal.transform.position + otherPortal.offset;
-        TeleportToLocation(position);
+        if (LevelFader.levelFader != null)
+        {
+            LevelFader.levelFader.Fade();
+        }
+
+        StartCoroutine(TeleportDelay(LevelFader.FadeOutTime));
     }
 
     private void Update()
@@ -70,6 +77,20 @@ public class Portal : MonoBehaviour
         PlayerController.playerController.navMeshAgent.enabled = false;
         PlayerController.playerController.transform.position = position;
         PlayerController.playerController.navMeshAgent.enabled = true;
+    }
+
+    IEnumerator LoadSceneDelayed(float delay, string sceneName)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName);
+        TeleportToLocation(position);
+    }
+
+    IEnumerator TeleportDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        var position = otherPortal.transform.position + otherPortal.offset;
+        TeleportToLocation(position);
     }
 
     IEnumerator LoadAsync(string sceneName)

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelFader : MonoBehaviour
 {
+    public static LevelFader levelFader;
     CanvasGroup canvasGroup;
     [Range(0.1f, 5.0f)]
     [SerializeField] float fadeOutTime = 0.5f;
@@ -11,20 +13,30 @@ public class LevelFader : MonoBehaviour
     [SerializeField] float darkTime = 1f;
     [Range(0.1f, 5.0f)]
     [SerializeField] float fadeInTime = 1f;
+    public static float FadeOutTime; 
 
     float timer;
 
     void Awake()
     {
+        if (levelFader != null) Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
+        levelFader = this;
         canvasGroup = GetComponent<CanvasGroup>();
+        FadeOutTime = fadeOutTime;
         //StartCoroutine(FadeInOut());
     }
 
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         timer += Time.deltaTime;
-    }
+    }*/
 
+    public void Fade()
+    {
+        StartCoroutine(FadeInOut());
+    }
+    
     IEnumerator FadeInOut()
     {
         yield return StartCoroutine(FadeOut(fadeOutTime));
@@ -55,6 +67,7 @@ public class LevelFader : MonoBehaviour
         timer = 0f;
         while (timer < darkTime)
         {
+            timer += Time.deltaTime;
             canvasGroup.alpha = 1;
             yield return null;
         }
