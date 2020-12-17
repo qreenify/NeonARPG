@@ -110,9 +110,13 @@ namespace Unit
                     //}
                     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                    animator.SetTrigger("Attack");
-                    sword?.SetActive(true);
-                    swordtimer = 0.7f;
+                    if(animator != null)
+                        animator?.SetTrigger("Attack");
+                    if (sword != null)
+                    {
+                        sword?.SetActive(true);
+                        swordtimer = 0.7f;
+                    }
 
 
 
