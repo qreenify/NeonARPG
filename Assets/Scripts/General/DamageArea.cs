@@ -1,11 +1,13 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
     public class DamageArea : MonoBehaviour
     {
         public float dps = 1.0f;
         public float damageIntervalInSec = 0.5f;
         private float _timeCounter;
+        public UnityEvent onDamage;
 
         void OnTriggerStay(Collider other) 
         {
@@ -16,6 +18,7 @@ using UnityEngine;
                 {
                     health.CurrentHealth -= dps * damageIntervalInSec;
                     _timeCounter -= damageIntervalInSec;
+                    onDamage.Invoke();
                 }
             }
         }

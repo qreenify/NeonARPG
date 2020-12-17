@@ -48,6 +48,7 @@ public class HealthPotion : MonoBehaviour, ISaveable
             Amount--;
             var addHealth = healPercentage * health.maxHealth;
             health.CurrentHealth += addHealth;
+            GlobalSoundPlayer.globalSoundPlayer.PlaySound("event:/SFX/Items/usePotion_SFX");
         }
     }
 
