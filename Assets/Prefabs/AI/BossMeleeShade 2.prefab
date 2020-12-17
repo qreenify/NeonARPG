@@ -376,13 +376,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 1
+  priority: 2
   meeleeDisplay: {fileID: 0}
   drawAttackLine: {fileID: 0}
   range: 7
   attackDamage: 10
   coolDown: 3
   showGizmos: 1
+  animator: {fileID: 0}
+  sword: {fileID: 0}
+  swordtimer: 0
   meleeSound: event:/SFX/Enemies/enemySword_SFX
 --- !u!114 &3035815455197609992
 MonoBehaviour:
@@ -397,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 0
+  priority: 1
   maxRange: 25
   showGizmos: 0
 --- !u!135 &3956245623642845292
@@ -501,8 +504,8 @@ MonoBehaviour:
   fadeTime: 0.5
   fadeLevelMultiplier: 1
   fadeDamageMultiplier: 1
-  levelColor: {r: 0, g: 25.09804, b: 0, a: 32}
-  damageColor: {r: 25.09804, g: 0, b: 0, a: 32}
+  levelUpColor: {r: 0, g: 256, b: 0, a: 256}
+  damageFeedback: {r: 256, g: 0, b: 0, a: 256}
 --- !u!183 &1627997557249702626
 Cloth:
   m_ObjectHideFlags: 0
@@ -2501,27 +2504,27 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d16e87a5ff8c95e4f8a3461ea5437e66, type: 2}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: 0.08131075
+      value: 0.47390795
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.y
-      value: 0.60368496
+      value: -0.530494
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Center.z
-      value: -0.71002865
+      value: 0.030957699
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 2.890768
+      value: 2.3129642
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 2.258234
+      value: 1.6793001
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 1.7709234
+      value: 2.627017
       objectReference: {fileID: 0}
     - target: {fileID: 891880974203101004, guid: 414111dbce0f14b16aace5cb4f6e68d9, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2625,6 +2628,14 @@ PrefabInstance:
     - target: {fileID: 2208598758212806365, guid: 3352b1e22b941c34a884e096bd8d7cf4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170644896018353025, guid: 3352b1e22b941c34a884e096bd8d7cf4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170644896018353025, guid: 3352b1e22b941c34a884e096bd8d7cf4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3352b1e22b941c34a884e096bd8d7cf4, type: 3}
