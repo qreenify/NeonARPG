@@ -7,9 +7,9 @@ public class FeedbackDisplays : MonoBehaviour
     public float fadeLevelMultiplier = 1;
     public float fadeDamageMultiplier = 1;
     [ColorUsage(true, true)]
-    public Color levelColor = new Color(0, 200/255f, 0) * 32;
+    public Color levelUpColor = new Color(0, 1, 0) * 256;
     [ColorUsage(true, true)]
-    public Color damageColor = new Color(200/255f, 0, 0) * 32;
+    public Color damageFeedback = new Color(1, 0, 0) * 256;
 
 
     float Amount = 0f;
@@ -39,7 +39,7 @@ public class FeedbackDisplays : MonoBehaviour
 
         foreach (var material in myMaterials)
         {
-            material.material.SetColor("_PulseColor", damageColor);
+            material.material.SetColor("_PulseColor", damageFeedback);
             material.material.SetFloat("_DamageAmount", Amount);
 
         }
@@ -51,7 +51,7 @@ public class FeedbackDisplays : MonoBehaviour
 
         foreach (var material in myMaterials)
         {
-            material.material.SetColor("_PulseColor", levelColor);
+            material.material.SetColor("_PulseColor", levelUpColor);
             material.material.SetFloat("_DamageAmount", Amount);
 
         }

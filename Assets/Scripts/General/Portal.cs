@@ -34,7 +34,7 @@ public class Portal : MonoBehaviour
         var portalStates = FindObjectsOfType<PortalState>();
         foreach (var portalState in portalStates)
         {
-            if (portalState.gameObject.name == portalName);
+            if (portalState.portalName == portalName);
             {
                 portalState.Unlock();
             }
