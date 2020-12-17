@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 6125579192945535687}
   - component: {fileID: 8539885859276384702}
   - component: {fileID: 3356264426449240143}
+  - component: {fileID: 1322497430424198224}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -288,4 +289,23 @@ MonoBehaviour:
   parameterName: CharacterMoving
   _parameterValue: 1
   globalSound: 0
+  range: 0
+--- !u!114 &1322497430424198224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067531808701039612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPath: event:/SFX/Items/usePotion_SFX
+  playOnEnable: 0
+  _volume: 1
+  parameterName: CharacterMoving
+  _parameterValue: 1
+  globalSound: 1
   range: 0
