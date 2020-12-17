@@ -2289,13 +2289,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 1
+  priority: 2
   meeleeDisplay: {fileID: 0}
   drawAttackLine: {fileID: 0}
   range: 6
   attackDamage: 10
   coolDown: 3
-  showGizmos: 0
+  showGizmos: 1
+  animator: {fileID: 0}
+  sword: {fileID: 0}
+  swordtimer: 0
   meleeSound: event:/SFX/Enemies/enemySword_SFX
 --- !u!114 &1442305526564356658
 MonoBehaviour:
@@ -2310,7 +2313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
-  priority: 0
+  priority: 1
   maxRange: 25
   showGizmos: 0
 --- !u!135 &631088069485703766
@@ -2414,8 +2417,8 @@ MonoBehaviour:
   fadeTime: 0.5
   fadeLevelMultiplier: 1
   fadeDamageMultiplier: 1
-  levelColor: {r: 0, g: 25.09804, b: 0, a: 32}
-  damageColor: {r: 25.09804, g: 0, b: 0, a: 32}
+  levelUpColor: {r: 0, g: 256, b: 0, a: 256}
+  damageFeedback: {r: 256, g: 0, b: 0, a: 256}
 --- !u!1001 &2932604260095899869
 PrefabInstance:
   m_ObjectHideFlags: 0
