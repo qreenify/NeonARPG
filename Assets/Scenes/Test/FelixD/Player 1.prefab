@@ -253,7 +253,6 @@ GameObject:
   - component: {fileID: 7360463406742339531}
   - component: {fileID: 202651258}
   - component: {fileID: 2756392397159738505}
-  - component: {fileID: 6542509833638795328}
   - component: {fileID: 3521777178161042479}
   - component: {fileID: 6579407075377524874}
   m_Layer: 8
@@ -660,25 +659,6 @@ MonoBehaviour:
   priority: -1
   maxRange: 10
   showGizmos: 1
---- !u!114 &6542509833638795328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382926140812516097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c84295772b242d43bbce5eba22bf4ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventPath: event:/BGM/Battle/Battle_BGM
-  playOnEnable: 1
-  _volume: 0.1
-  parameterName: CharacterMoving
-  _parameterValue: 1
-  globalSound: 1
-  range: 0
 --- !u!114 &3521777178161042479
 MonoBehaviour:
   m_ObjectHideFlags: 0
