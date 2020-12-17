@@ -56,8 +56,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f5833905c5e77448759aae3f299407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dps: 10
+  dps: 50
   damageIntervalInSec: 0.5
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8152935684481082609
 PrefabInstance:
   m_ObjectHideFlags: 0
