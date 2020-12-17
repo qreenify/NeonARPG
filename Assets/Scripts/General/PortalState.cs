@@ -34,6 +34,11 @@ public class PortalState : MonoBehaviour
         _portal.SetActive(IsOpen);
     }
 
+    public void Unlock()
+    {
+        _portal.SetActive(true);
+    }
+
     private void OnDestroy()
     {
         IsOpen = _portal.activeSelf;

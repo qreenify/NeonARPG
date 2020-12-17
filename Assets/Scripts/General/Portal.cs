@@ -9,6 +9,7 @@ public class Portal : MonoBehaviour
     public bool autoAdd = true;
     [Header("For Switching Scenes")]
     public Vector3 position;
+    public string portalName;
 
     [FMODUnity.EventRef]
     public string soundStart;
@@ -30,6 +31,14 @@ public class Portal : MonoBehaviour
         PlayerController.playerController.navMeshAgent.enabled = false;
         SceneManager.LoadScene(sceneName);
         TeleportToLocation(position);
+        var portalStates = FindObjectsOfType<PortalState>();
+        foreach (var portalState in portalStates)
+        {
+            if (portalState.gameObject.name == portalName);
+            {
+                portalState.Unlock();
+            }
+        }
         Destroy(gameObject);
         //StartCoroutine(LoadAsync(sceneName));
     }

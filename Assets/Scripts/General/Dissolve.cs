@@ -46,7 +46,8 @@ public class Dissolve : MonoBehaviour
             dissolveAmount += Time.deltaTime / dissolveTime;
             foreach (var renderer in renderers)
             {
-                renderer.material.SetFloat("Vector1_F96551CF", dissolveAmount);
+                if (renderer != null)
+                    renderer.material.SetFloat("Vector1_F96551CF", dissolveAmount);
             }
 
             yield return null;

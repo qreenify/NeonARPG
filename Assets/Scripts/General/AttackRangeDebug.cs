@@ -22,7 +22,7 @@ public class AttackRangeDebug : MonoBehaviour
         var parentScale = transform.parent.localScale;
         thisScale = new Vector3(1 / parentScale.x, 1 / parentScale.y, 1 / parentScale.z) * 1.05f;
         parent.localScale = thisScale;
-        attackRange.transform.localPosition = new Vector3(attackRange.transform.localPosition.x, -parentScale.x + 0.2f);
+        attackRange.transform.localPosition = new Vector3(attackRange.transform.localPosition.y, -parentScale.y + 0.2f);
     }
 
     private void LateUpdate()
