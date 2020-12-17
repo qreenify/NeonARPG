@@ -1,15 +1,12 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Unit
 {
-    [RequireComponent(typeof(RangedAttack))]
     public class RangedAttackVFX : MonoBehaviour
     {
         [SerializeField] private float beamLifeTime = 0.5f;
         [SerializeField] GameObject beamVFXPrefab;
         [SerializeField] GameObject loadFieldVFXPrefab;
-        [SerializeField] Transform beamSpawnPoint;
         private Unit _unit;
         private bool _isLoadingAttacking;
         private float _beamInstantiateTime;
@@ -18,15 +15,16 @@ namespace Unit
         
         private void Start()
         {
-            _rangedAttack = GetComponent<RangedAttack>();
+            _rangedAttack = GetComponentInParent<RangedAttack>();
             _rangedAttack.ONCancelAttack += CancelAttack;
             _rangedAttack.ONAttack += Attack;
             _rangedAttack.ONLoadingAttack += LoadAttack;
-            if (TryGetComponent<PlayerController>(out var playerController))
+            var playerController = GetComponentInParent<PlayerController>();
+            if (playerController != null)
             {
                 playerController.ONWeaponSwap += WeaponSwapped;
             }
-            _unit = GetComponent<Unit>();
+            _unit = GetComponentInParent<Unit>();
         }
 
         private void Update()
@@ -37,10 +35,7 @@ namespace Unit
 
         void WeaponSwapped(bool ranged)
         {
-            if (ranged == false)
-            {
-                CancelAttack();
-            }
+            CancelAttack();
         }
 
         void CancelAttack()
@@ -54,16 +49,17 @@ namespace Unit
         
         void LoadAttack()
         {
-            _loadFieldInstance = Instantiate(loadFieldVFXPrefab, beamSpawnPoint.transform);
+            _loadFieldInstance = Instantiate(loadFieldVFXPrefab, transform);
             _rangedAttack.IsLoadingAttack = true;
         }
 
         void Attack()
         {
-            _beamInstance = Instantiate(beamVFXPrefab, beamSpawnPoint.transform);
+            _beamInstance = Instantiate(beamVFXPrefab, transform);
             _beamInstantiateTime = beamLifeTime;
             _beamInstance.transform.LookAt(_unit.target.position);
-            _beamInstance.GetComponent<LineRenderer>().SetPosition(1, new Vector3(0, 0, Vector3.Distance(transform.position, _unit.target.position) / 3));
+            _beamInstance.GetComponent<LineRenderer>().SetPosition(1, new Vector3(0, 0, Vector3.Distance(transform.position, _unit.target.position) / transform.parent.localScale.x));
+            _beamInstance.transform.parent = null;
         }
 
         void DestroyBeam()

@@ -18,12 +18,21 @@ public class Health : MonoBehaviour
     public UnityEvent onDefeat;
     public UnityEvent onRevive;
     private float _baseMaxHealth;
-    public DamageFeedback damageFeedback;
+    private FeedbackDisplays _damageFeedback;
 
-    //public bool isHurt
-    //{
-    //    if()
-    //}
+    private void Awake()
+    {
+        _damageFeedback = GetComponent<FeedbackDisplays>();
+    }
+
+    [FMODUnity.EventRef]
+    public string damageSound = "event:/SFX/Enemies/receivingDamage";
+    [FMODUnity.EventRef]
+    public string defeatSound = "event:/SFX/Enemies/enemyDies";
+    [FMODUnity.EventRef]
+    public string reviveSound = "event:/SFX/Character/revive";
+
+
     public float CurrentHealth
     {
         get => currentHealth;
@@ -31,15 +40,18 @@ public class Health : MonoBehaviour
         {
             if (value < currentHealth)
             {
-                onDamageTaken.Invoke(transform, currentHealth - value);
-                if (damageFeedback != null)
+                if (damageSound != null && damageSound != "")
                 {
-                    damageFeedback.Feedback();
+                    GlobalSoundPlayer.globalSoundPlayer.PlaySound(damageSound);
+                }
+                onDamageTaken.Invoke(transform, currentHealth - value);
+                if (_damageFeedback != null)
+                {
+                    _damageFeedback.DamageFeedback();
                 }
                 if (useDamagePopUp)
                     DamagePopUpSpawner.Create(transform, currentHealth - value);
             }
-                
             else if (value > currentHealth) 
                 onHealthIncreased.Invoke(value - currentHealth);
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
@@ -57,7 +69,7 @@ public class Health : MonoBehaviour
         if (TryGetComponent<PlayerLevel>(out var level))
         {
             _baseMaxHealth = maxHealth;
-            SetMaxHealth(level);
+            SetMaxHealthStart(level);
             level.ONLevelUp += SetMaxHealth;
         }
     }
@@ -65,7 +77,7 @@ public class Health : MonoBehaviour
     //public void TakeDamage(float damage)
     //{    
     //    CurrentHealth -= damage;
-    //    damageFeedback.Feedback();
+    //    _damageFeedback.Feedback();
     //    //onDamageTaken.Invoke(this, damage);
     //}
 
@@ -81,6 +93,10 @@ public class Health : MonoBehaviour
         if (CurrentHealth > 0)
         {
             return;
+        }
+        if (defeatSound != null && defeatSound != "")
+        {
+            GlobalSoundPlayer.globalSoundPlayer.PlaySound(defeatSound);
         }
         var rewards = GetComponents<IReward>();
         foreach (var reward in rewards)
@@ -117,13 +133,24 @@ public class Health : MonoBehaviour
         {
             unit1.Clear();
         }
+        if (reviveSound != null && reviveSound != "")
+        {
+            GlobalSoundPlayer.globalSoundPlayer.PlaySound(reviveSound);
+        }
         //TODO: Trigger revive sound / animation
+    }
+    
+    private void SetMaxHealthStart(PlayerLevel level)
+    {
+        maxHealth = _baseMaxHealth + level.level * level.healthIncrease;
+        currentHealth = maxHealth;
+        onMaxHealthSet.Invoke(maxHealth);
     }
 
     private void SetMaxHealth(PlayerLevel level)
     {
         maxHealth = _baseMaxHealth + level.level * level.healthIncrease;
-        currentHealth = maxHealth;
+        //currentHealth = maxHealth;
         onMaxHealthSet.Invoke(maxHealth);
     }
 

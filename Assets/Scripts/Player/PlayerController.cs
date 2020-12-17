@@ -75,13 +75,10 @@ public class PlayerController : MonoBehaviour
     {
         ToggleWeapon();
         Select();
-        
     }
 
     private void Select()
     {
-        var eventSystem = FindObjectOfType<EventSystem>();
-
         if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var hit, Mathf.Infinity, playerMask) || !EventSystem.current.IsPointerOverGameObject())
         {
             var hoverEnemy = false;
@@ -90,6 +87,11 @@ public class PlayerController : MonoBehaviour
             {
               hoverEnemy = hit.collider.gameObject.CompareTag("Enemy") && hit.collider.gameObject.TryGetComponent(out Health health);
               hoverTransform = hit.transform;
+              var attackRangeDebug = hit.collider.GetComponentInChildren<AttackRangeDebug>();
+              if (attackRangeDebug != null)
+              {
+                  attackRangeDebug.Toggle(true, transform);
+              }
             }
             
 
@@ -161,6 +163,7 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < playerActions.Length; i++)
             {
                 playerActions[i].enabled = i == (int) PlayerActions.Ranged;
+                _unit.currentAction = null;
             }
         }
         else
@@ -168,6 +171,7 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < playerActions.Length; i++)
             {
                 playerActions[i].enabled = i == (int) PlayerActions.Melee;
+                _unit.currentAction = null;
             }
         }
     }

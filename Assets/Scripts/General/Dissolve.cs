@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Unit;
 using UnityEngine;
 
 public class Dissolve : MonoBehaviour
 {
     public float dissolveTime = 2.5f;
+    const float Factor = 32768;
     [ColorUsage(true, true)]
-    public Color dissolveColor = new Color(191, 0, 0, 125);
+    public Color dissolveColor = new Color(191/255f, 0, 0, 125f/255f) * Factor;
     [ColorUsage(true, true)]
-    public Color condenseColor = new Color(0, 191, 0, 125);
+    public Color condenseColor = new Color(0, 191/255f, 0, 125f/255f) * Factor;
 
     public IEnumerator DoDissolve()
     {
         if (TryGetComponent<PlayerController>(out var playerController))
         {
+            playerController.enabled = false;
+            playerController.GetComponent<Unit.Unit>().StopMove();
             var sensors = FindObjectsOfType<Sensor>();
             foreach (var sensor in sensors)
             {
@@ -82,6 +84,10 @@ public class Dissolve : MonoBehaviour
         foreach (var renderer in renderers)
         {
             renderer.material.SetColor("Color_70BD1405", condenseColor);
+        }
+        if (TryGetComponent<PlayerController>(out var playerController))
+        {
+            playerController.enabled = true;
         }
     }
 }

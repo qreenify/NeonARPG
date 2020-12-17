@@ -15,6 +15,9 @@ namespace Unit
         private float _currentCooldown;
         public bool showGizmos = true;
         private float _startAttackDamage;
+
+        [FMODUnity.EventRef]
+        public string meleeSound = "event:/SFX/Enemies/enemySword_SFX";
         public bool CooldownFinished => _currentCooldown <= 0;
         public bool InAttackRange
         {
@@ -74,7 +77,10 @@ namespace Unit
                 unit.StopMove();
                 if (CooldownFinished)
                 {
-
+                    if (meleeSound != null && meleeSound != "")
+                    {
+                        GlobalSoundPlayer.globalSoundPlayer.PlaySound(meleeSound);
+                    }
                     /////////////////////////////////////////////////Meelee Feedback Instantiation//////////////////////////////////
                     //if (meeleeDisplay != null)
                     //{

@@ -41,11 +41,12 @@ public class HealthPotion : MonoBehaviour, ISaveable
 
     public void Use()
     {
+        var health = GetComponent<Health>();
+        if (health.CurrentHealth == health.maxHealth || health.CurrentHealth == 0) return;
         if (amount > 0)
         {
             Amount--;
-            var health = GetComponent<Health>();
-            var addHealth = health.maxHealth / healPercentage;
+            var addHealth = healPercentage * health.maxHealth;
             health.CurrentHealth += addHealth;
         }
     }

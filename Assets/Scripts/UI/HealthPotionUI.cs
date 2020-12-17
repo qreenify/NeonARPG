@@ -17,6 +17,6 @@ public class HealthPotionUI : MonoBehaviour
 
     void UpdatePotionAmount(int i)
     {
-        tmp.text = $"Health Potions: {i}";
+        tmp.text = $"{i}";
     }
 }

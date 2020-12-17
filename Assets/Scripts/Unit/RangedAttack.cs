@@ -72,9 +72,9 @@ namespace Unit
         {
             if (_currentCooldown > 0) _currentCooldown -= Time.deltaTime;
 
-            if (_windUpTime > 0 && unit.target != null && _agent.velocity.magnitude == 0 && CooldownFinished) 
+            if (_windUpTime > 0 && unit.target != null && _agent.velocity.magnitude == 0 && CooldownFinished && InAttackRange) 
                 _windUpTime -= Time.deltaTime;
-            else if (unit.target == null || _agent.velocity.magnitude != 0)
+            else if (unit.target == null || _agent.velocity.magnitude != 0 || !InAttackRange)
             {
                 ONCancelAttack?.Invoke();
                 _windUpTime = windUpTime;

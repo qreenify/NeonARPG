@@ -7,6 +7,11 @@ public class AddPotion : MonoBehaviour
         if (playerController.TryGetComponent<HealthPotion>(out var health))
         {
             health.Add();
+            var pickupDisplay = health.GetComponentInChildren<PickupDisplay>();
+            if (pickupDisplay != null)
+            {
+                pickupDisplay.PickupConfirmation();
+            }
         }
     }
 }

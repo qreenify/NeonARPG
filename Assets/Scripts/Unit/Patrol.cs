@@ -8,7 +8,7 @@ namespace Unit
     public class Patrol : UnitAction
     {
         public float range = 1.5f;
-        public List<Vector3> destinations;
+        public List<Vector3> destinations = new List<Vector3>();
         private NavMeshAgent _agent;
         private int _destinationIndex;
         public float patrolSpeed = 3;
@@ -19,17 +19,42 @@ namespace Unit
         private int DestinationIndex
         {
             get => _destinationIndex;
-            set => _destinationIndex = value == destinations.Count ? 0 : value;
+            set 
+            {
+                if (value >= destinations.Count)
+                    value = 0;
+                _destinationIndex = value ;
+            }
         }
 
         void Start()
         {
             _agent = GetComponent<NavMeshAgent>();
             _coolDown = coolDown;
+            DestinationIndex = GetClosestPoint();
+        }
+
+        int GetClosestPoint()
+        {
+            int closestPoint = -1;
+            float closestRange = 0;
+            for (int i = 0; i < destinations.Count; i++)
+            {
+                if(closestPoint == -1 || Vector3.Distance(transform.position, destinations[i]) < closestRange)
+                {
+                    closestPoint = i;
+                    closestRange = Vector3.Distance(transform.position, destinations[i]);
+                }
+            }
+            return closestPoint;
         }
 
         public override bool IsPossible()
         {
+            if(destinations.Count == 0)
+            {
+                return false;
+            }
             return true;
         }
 
@@ -42,8 +67,7 @@ namespace Unit
 
         private void Update()
         {
-            if (!InRange()) return; 
-            if (_coolDown > 0)
+            if (IsPossible() && InRange() && _coolDown > 0)
             {
                 _coolDown -= Time.deltaTime;
             }
@@ -76,9 +100,8 @@ namespace Unit
 
         bool InRange()
         {
-            var difference = transform.position - destinations[DestinationIndex];
-            return Mathf.Abs(difference.x) < range && Mathf.Abs(difference.y) < range &&
-                   Mathf.Abs(difference.z) < range;
+            //Debug.Log(_destinationIndex);
+            return Vector3.Distance(transform.position, destinations[DestinationIndex]) < range;
         }
 
         [ContextMenu("ClearPos")]
@@ -97,6 +120,8 @@ namespace Unit
         {
             if (destinations.Count > 1)
             {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(destinations[0], transform.position);
                 for (int i = 0; i < destinations.Count; i++)
                 {
                     Gizmos.color = Color.red;
