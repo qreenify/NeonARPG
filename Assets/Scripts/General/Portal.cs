@@ -37,6 +37,7 @@ public class Portal : MonoBehaviour
             if (portalState.portalName == portalName);
             {
                 portalState.Unlock();
+                Destroy(gameObject);
             }
         }
         Destroy(gameObject);
