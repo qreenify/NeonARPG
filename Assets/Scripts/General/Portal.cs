@@ -34,7 +34,7 @@ public class Portal : MonoBehaviour
         var portalStates = FindObjectsOfType<PortalState>();
         foreach (var portalState in portalStates)
         {
-            if (portalState.portalName == portalName);
+            if (portalState.gameObject.name != portalName)
             {
                 portalState.Unlock();
                 Destroy(gameObject);
