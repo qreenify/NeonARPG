@@ -29,11 +29,12 @@ namespace Unit
 
         public override bool IsPossible()
         {
-            if (unit.target == null || !unit.target.gameObject.activeSelf || !InMaxRange || !unit.TargetInView())
+            if (unit.target == null || !unit.target.gameObject.activeSelf || !InMaxRange)
             {
                 return false;
             }
-            return true;
+            
+            return TryGetComponent<PlayerController>(out var playerController) || unit.TargetInView();
         }
         public override bool Enter()
         {

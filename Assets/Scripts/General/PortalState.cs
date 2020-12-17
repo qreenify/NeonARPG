@@ -3,6 +3,7 @@
 public class PortalState : MonoBehaviour
 {
     public bool defaultState;
+    public string portalName;
     private GameObject _portal;
 
     private bool IsOpen
@@ -14,7 +15,7 @@ public class PortalState : MonoBehaviour
             {
                 defaultState = 1;
             }
-            var state = PlayerPrefs.GetInt(name + _portal.name + "_state", defaultState);
+            var state = PlayerPrefs.GetInt(gameObject.name + "_state", defaultState);
             return state != 0;
         }
         set
@@ -24,7 +25,7 @@ public class PortalState : MonoBehaviour
             {
                 state = 1;
             }
-            PlayerPrefs.SetInt(name + _portal.name + "_state", state);
+            PlayerPrefs.SetInt(gameObject.name + "_state", state);
         }
     }
 
@@ -32,10 +33,5 @@ public class PortalState : MonoBehaviour
     {
         _portal = GetComponentInChildren<Portal>(true).gameObject;
         _portal.SetActive(IsOpen);
-    }
-
-    private void OnDestroy()
-    {
-        IsOpen = _portal.activeSelf;
     }
 }

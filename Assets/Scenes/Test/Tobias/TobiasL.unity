@@ -1075,15 +1075,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9146f08074d5c184bac37e5e6e826fd1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9146f08074d5c184bac37e5e6e826fd1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9146f08074d5c184bac37e5e6e826fd1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9146f08074d5c184bac37e5e6e826fd1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1131,6 +1131,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9146f08074d5c184bac37e5e6e826fd1, type: 3}
+--- !u!1 &912538632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9146f08074d5c184bac37e5e6e826fd1, type: 3}
+  m_PrefabInstance: {fileID: 912538631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &912538633
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912538632}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 528207e498f9d9e4bbd5829ba911f686, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &937671210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,7 +1411,9 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
-  damageFeedback: {fileID: 0}
+  damageSound: event:/SFX/Enemies/receivingDamage
+  defeatSound: event:/SFX/Enemies/enemyDies
+  reviveSound: event:/SFX/Character/revive
 --- !u!114 &1010405765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7479,7 +7505,8 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   autoAdd: 1
   position: {x: 0, y: 0, z: 0}
-  portalSound: {fileID: 0}
+  soundStart: 
+  soundEnd: 
   warmUp: 0
 --- !u!1 &1544862577 stripped
 GameObject:
@@ -7589,7 +7616,9 @@ MonoBehaviour:
   onRevive:
     m_PersistentCalls:
       m_Calls: []
-  damageFeedback: {fileID: 0}
+  damageSound: event:/SFX/Enemies/receivingDamage
+  defeatSound: event:/SFX/Enemies/enemyDies
+  reviveSound: event:/SFX/Character/revive
 --- !u!4 &1544862588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3242324440534208899, guid: 6bcb78797279fef4a86891c13b8aa2ce, type: 3}

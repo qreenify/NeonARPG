@@ -15,6 +15,11 @@ namespace Unit
         private float _currentCooldown;
         public bool showGizmos = true;
         private float _startAttackDamage;
+        public Animator animator;
+        public GameObject sword;
+        public float swordtimer;
+
+
 
         [FMODUnity.EventRef]
         public string meleeSound = "event:/SFX/Enemies/enemySword_SFX";
@@ -24,9 +29,14 @@ namespace Unit
             get => Vector3.Distance(transform.position, unit.target.position) < range;
         }
 
+
+
+
         private void Start()
         {
             _startAttackDamage = attackDamage;
+            animator = GetComponentInChildren<Animator>();
+            sword = transform.Find("_eroNUEO/QuickRigCharacter_Ctrl_Reference/QuickRigCharacter_Ctrl_RightWristEffector/pCube9").gameObject;
             if (TryGetComponent<PlayerLevel>(out var level))
             {
                 SetDamage(level);
@@ -64,10 +74,19 @@ namespace Unit
             return true;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (_currentCooldown > 0) _currentCooldown -= Time.deltaTime;
+
+            if (swordtimer > 0)
+            {
+                swordtimer -= Time.deltaTime;
+                if (swordtimer <= 0) sword?.SetActive(false);
+
+            }
+
         }
+    
 
         bool Attack()
         {
@@ -91,17 +110,25 @@ namespace Unit
                     //}
                     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+                    animator.SetTrigger("Attack");
+                    sword?.SetActive(true);
+                    swordtimer = 0.7f;
+
+
+
                     //Debug.Log("Damage!");
                     unit.target.GetComponent<Health>().CurrentHealth -= attackDamage;
                     _currentCooldown = coolDown;
                     drawAttackLine?.DrawLine(unit.target);
                     return true;
                 }
-                return false;
             }
-           // meeleeParticleSystem.StopParticleSystem();
+            // meeleeParticleSystem.StopParticleSystem();
             //Destroy(meeleeParticleSystem);
+            //animator?.SetBool("PlayerAttacking", false);
             return false;
+
+            
         }
 
         private void OnDrawGizmos()

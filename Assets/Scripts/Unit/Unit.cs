@@ -130,6 +130,7 @@ namespace Unit
 
     public abstract class UnitAction : MonoBehaviour
     {
+        [HideInInspector]
         public Unit unit;
         public int priority;
         public abstract bool IsPossible();
