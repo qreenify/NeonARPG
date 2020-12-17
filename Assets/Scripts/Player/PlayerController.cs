@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public static PlayerController playerController;
     public event Action<bool> ONWeaponSwap;
     public event Action<bool, Transform> ONHoverOverEnemy;
+    public float timeUntilIdle = 10;
+    private float _idleTime;
     
     
     public bool InRange(Transform targetTransform)
@@ -62,6 +64,8 @@ public class PlayerController : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             playerController = this;
         }
+
+        _idleTime = timeUntilIdle;
     }
 
     private void Start()
@@ -75,6 +79,12 @@ public class PlayerController : MonoBehaviour
     {
         ToggleWeapon();
         Select();
+        if (_idleTime > 0)
+            _idleTime -= Time.deltaTime;
+        else if (TryGetComponent<MeleeAttack>(out var meleeAttack))
+        {
+            meleeAttack.animator.SetBool("Idle", true);
+        }
     }
 
     private void Select()
@@ -115,6 +125,12 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                 }
+
+                _idleTime = timeUntilIdle;
+                if (TryGetComponent<MeleeAttack>(out var meleeAttack))
+                {
+                    meleeAttack.animator.SetBool("Idle", false);
+                }
             }
 
             else if (Input.GetMouseButton(1))
@@ -124,6 +140,11 @@ public class PlayerController : MonoBehaviour
                     _unit.target = null;
                     _unit.MoveTo(hit.point);
                 }
+                _idleTime = timeUntilIdle;
+                if (TryGetComponent<MeleeAttack>(out var meleeAttack))
+                {
+                    meleeAttack.animator.SetBool("Idle", false);
+                }
             }
 
             else if (Input.GetKey(lookAroundKey))
@@ -131,6 +152,11 @@ public class PlayerController : MonoBehaviour
                 _unit.StopMove();
                 transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
                 hoverEnemy = true;
+                _idleTime = timeUntilIdle;
+                if (TryGetComponent<MeleeAttack>(out var meleeAttack))
+                {
+                    meleeAttack.animator.SetBool("Idle", false);
+                }
             }
             ONHoverOverEnemy?.Invoke(hoverEnemy, hoverTransform);
 
@@ -142,6 +168,11 @@ public class PlayerController : MonoBehaviour
                 }
                 currentAnimation = Instantiate(moveAnimation);
                 currentAnimation.transform.position = hit.point + new Vector3(0, 0.1f, 0);
+                _idleTime = timeUntilIdle;
+                if (TryGetComponent<MeleeAttack>(out var meleeAttack))
+                {
+                    meleeAttack.animator.SetBool("Idle", false);
+                }
             }
         }
     }

@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 7738235287862699520}
   - component: {fileID: 4203350555438811466}
   - component: {fileID: -2230743409646089450}
+  - component: {fileID: 1922018384585529579}
   m_Layer: 0
   m_Name: BossMeleeShade
   m_TagString: Enemy
@@ -586,6 +587,21 @@ MonoBehaviour:
   fadeDamageMultiplier: 1
   levelUpColor: {r: 0, g: 256, b: 0, a: 256}
   damageFeedback: {r: 256, g: 0, b: 0, a: 256}
+--- !u!114 &1922018384585529579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683710742376659251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500b059f4580ed24182f6e1fcc770e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveTime: 1.2
+  dissolveColor: {r: 24543.875, g: 0, b: 0, a: 16062.745}
+  condenseColor: {r: 0, g: 24543.875, b: 0, a: 16062.745}
 --- !u!1 &9000028870923486702
 GameObject:
   m_ObjectHideFlags: 0

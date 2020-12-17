@@ -44,6 +44,14 @@ namespace Unit
                    currentAction.Exit();
                    currentAction = null;
                 }
+
+                if (navMeshAgent.velocity.magnitude < 0.1f)
+                {
+                    if (TryGetComponent<MeleeAttack>(out var meleeAttack))
+                    {
+                        meleeAttack.animator.SetBool("Walk", false);
+                    }
+                }
             }
             _tick++;
         }
@@ -87,11 +95,19 @@ namespace Unit
             {
                 //Debug.Log("Moving!");
                 navMeshAgent.destination = position;
+                if (TryGetComponent<MeleeAttack>(out var meleeAttack))
+                {
+                    meleeAttack.animator.SetBool("Walk", true);
+                }
             }
         }
         public void StopMove()
         {
             navMeshAgent.destination = transform.position;
+            if (TryGetComponent<MeleeAttack>(out var meleeAttack))
+            {
+                meleeAttack.animator.SetBool("Walk", false);
+            }
         }
 
         public void SortActions()
