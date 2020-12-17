@@ -31,14 +31,7 @@ public class Portal : MonoBehaviour
         PlayerController.playerController.navMeshAgent.enabled = false;
         SceneManager.LoadScene(sceneName);
         TeleportToLocation(position);
-        var portalStates = FindObjectsOfType<PortalState>();
-        foreach (var portalState in portalStates)
-        {
-            if (portalState.portalName == portalName)
-            {
-                portalState.Unlock();
-            }
-        }
+        PlayerPrefs.SetInt(portalName + "_state", 1);
         Destroy(gameObject);
         //StartCoroutine(LoadAsync(sceneName));
     }
