@@ -3,6 +3,7 @@
 public class PortalState : MonoBehaviour
 {
     public bool defaultState;
+    public string portalName;
     private GameObject _portal;
 
     private bool IsOpen
