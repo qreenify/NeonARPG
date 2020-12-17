@@ -37,6 +37,7 @@ namespace Unit
             _startAttackDamage = attackDamage;
             animator = GetComponentInChildren<Animator>();
             sword = transform.Find("_eroNUEO/QuickRigCharacter_Ctrl_Reference/QuickRigCharacter_Ctrl_RightWristEffector/pCube9").gameObject;
+            if (sword != null) sword.SetActive(false);
             if (TryGetComponent<PlayerLevel>(out var level))
             {
                 SetDamage(level);
@@ -81,7 +82,7 @@ namespace Unit
             if (swordtimer > 0)
             {
                 swordtimer -= Time.deltaTime;
-                if (swordtimer <= 0) sword?.SetActive(false);
+                if (swordtimer <= 0 && sword != null) sword.SetActive(false);
 
             }
 
@@ -111,10 +112,10 @@ namespace Unit
                     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                     if(animator != null)
-                        animator?.SetTrigger("Attack");
+                        animator.SetTrigger("Attack");
                     if (sword != null)
                     {
-                        sword?.SetActive(true);
+                        sword.SetActive(true);
                         swordtimer = 0.7f;
                     }
 
