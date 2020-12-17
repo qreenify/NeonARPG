@@ -11,10 +11,25 @@ namespace Unit
         {
             get => Vector3.Distance(transform.position, unit.target.position) < maxRange;
         }
+        public bool PlayerInView
+        {
+            get
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, PlayerController.playerController.transform.position, out hit))
+                {
+                    if (hit.collider.gameObject == PlayerController.playerController.gameObject)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
 
         public override bool IsPossible()
         {
-            if (unit.target == null || !unit.target.gameObject.activeSelf || !InMaxRange)
+            if (unit.target == null || !unit.target.gameObject.activeSelf || !InMaxRange || !unit.TargetInView())
             {
                 return false;
             }
