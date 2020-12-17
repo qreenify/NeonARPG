@@ -35,6 +35,8 @@ namespace Unit
         private void Start()
         {
             _startAttackDamage = attackDamage;
+            animator = GetComponentInChildren<Animator>();
+            sword = transform.Find("_eroNUEO/QuickRigCharacter_Ctrl_Reference/QuickRigCharacter_Ctrl_RightWristEffector/pCube9").gameObject;
             if (TryGetComponent<PlayerLevel>(out var level))
             {
                 SetDamage(level);
@@ -69,7 +71,6 @@ namespace Unit
         }
         public override bool Exit()
         {
-            animator.SetBool("PlayerAttacking", false);
             return true;
         }
 
@@ -109,7 +110,7 @@ namespace Unit
                     //}
                     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                    animator?.SetBool("PlayerAttacking", true);
+                    animator.SetTrigger("Attack");
                     sword?.SetActive(true);
                     swordtimer = 0.7f;
 
@@ -121,12 +122,10 @@ namespace Unit
                     drawAttackLine?.DrawLine(unit.target);
                     return true;
                 }
-                animator?.SetBool("PlayerAttacking", false);
-                return false;
             }
             // meeleeParticleSystem.StopParticleSystem();
             //Destroy(meeleeParticleSystem);
-            animator?.SetBool("PlayerAttacking", false);
+            //animator?.SetBool("PlayerAttacking", false);
             return false;
 
             
