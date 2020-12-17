@@ -49,7 +49,6 @@ namespace Unit
         }
         public override bool Enter()
         {
-            unit.MoveTo(unit.target.position);
             return true;
         }
         public override bool DoUpdate()
@@ -75,6 +74,7 @@ namespace Unit
             if (InAttackRange && unit.TargetInView())
             {          
                 unit.StopMove();
+                transform.LookAt(new Vector3(unit.target.position.x, transform.position.y, unit.target.position.z));
                 if (CooldownFinished)
                 {
                     if (meleeSound != null && meleeSound != "")
@@ -97,7 +97,6 @@ namespace Unit
                     drawAttackLine?.DrawLine(unit.target);
                     return true;
                 }
-                transform.LookAt(new Vector3(unit.target.position.x, transform.position.y, unit.target.position.z));
                 return false;
             }
            // meeleeParticleSystem.StopParticleSystem();
