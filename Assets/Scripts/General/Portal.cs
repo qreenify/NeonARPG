@@ -66,10 +66,10 @@ public class Portal : MonoBehaviour
         triggeringJump = true;
         savedTime = Time.time;
         if (position == Vector3.zero) return;
+        PlayerController.playerController.navMeshAgent.destination = position;
         PlayerController.playerController.navMeshAgent.enabled = false;
         PlayerController.playerController.transform.position = position;
         PlayerController.playerController.navMeshAgent.enabled = true;
-        PlayerController.playerController.navMeshAgent.destination = position;
     }
 
     IEnumerator LoadAsync(string sceneName)
