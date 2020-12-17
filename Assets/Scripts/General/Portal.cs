@@ -18,6 +18,7 @@ public class Portal : MonoBehaviour
     float savedTime;
     public float warmUp = 2;
     bool triggeringJump = false;
+    public bool toBeDestroyed;
     public void Start()
     {
         if(autoAdd && otherPortal != null && gameObject.TryGetComponent<PlayerEnter>(out PlayerEnter playerEnter))
@@ -27,12 +28,13 @@ public class Portal : MonoBehaviour
     }
     public void LoadScene(string sceneName)
     {
+        transform.parent = null;
         DontDestroyOnLoad(gameObject);
         PlayerController.playerController.navMeshAgent.enabled = false;
         SceneManager.LoadScene(sceneName);
         TeleportToLocation(position);
         PlayerPrefs.SetInt(portalName + "_state", 1);
-        Destroy(gameObject);
+        toBeDestroyed = true;
         //StartCoroutine(LoadAsync(sceneName));
     }
 
@@ -53,6 +55,7 @@ public class Portal : MonoBehaviour
         {
             triggeringJump = false;
             GlobalSoundPlayer.globalSoundPlayer.PlaySound(soundEnd);
+            if(toBeDestroyed) Destroy(gameObject);
         }
     }
 
