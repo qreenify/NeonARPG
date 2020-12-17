@@ -19,7 +19,11 @@ public class LevelFader : MonoBehaviour
 
     void Awake()
     {
-        if (levelFader != null) Destroy(gameObject);
+        if (levelFader != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         DontDestroyOnLoad(gameObject);
         levelFader = this;
         canvasGroup = GetComponent<CanvasGroup>();
