@@ -8,9 +8,9 @@ public class LevelFader : MonoBehaviour
     [Range(0.1f, 5.0f)]
     [SerializeField] float fadeOutTime = 0.5f;
     [Range(0.1f, 5.0f)]
-    [SerializeField] float fadeInTime = 1f;
-    [Range(0.1f, 5.0f)]
     [SerializeField] float darkTime = 1f;
+    [Range(0.1f, 5.0f)]
+    [SerializeField] float fadeInTime = 1f;
 
     float timer;
 
