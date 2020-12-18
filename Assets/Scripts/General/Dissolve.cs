@@ -28,6 +28,7 @@ public class Dissolve : MonoBehaviour
             if (PlayerController.playerController.GetComponent<Unit.Unit>().target == transform)
             {
                 PlayerController.playerController.GetComponent<Unit.Unit>().target = null;
+                Destroy(PlayerController.playerController.currentAnimation);
             }
         }
         var colliders = GetComponentsInChildren<Collider>();

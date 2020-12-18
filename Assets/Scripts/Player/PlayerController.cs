@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode lookAroundKey = KeyCode.LeftShift;
     [HideInInspector] public NavMeshAgent navMeshAgent;
     public GameObject moveAnimation;
+    public GameObject targetAnimation;
     public GameObject currentAnimation;
     public static PlayerController playerController;
     public event Action<bool> ONWeaponSwap;
@@ -111,14 +112,15 @@ public class PlayerController : MonoBehaviour
                 if (hit.collider != null)
                 {    
                     if (hoverEnemy)
-                    {    
-                        
+                    {
                         var enemy = hit.collider.gameObject;
                         _unit.target = enemy.transform;
                         if (currentAnimation != null)
                         {
                             Destroy(currentAnimation);
                         }
+
+                        currentAnimation = Instantiate(targetAnimation, enemy.transform);
                         if (!InRange())
                         {
                             _unit.MoveTo(hit.collider.transform.position);
