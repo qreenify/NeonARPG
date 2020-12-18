@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.3371, g: 325.05005, b: 430.21954, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -539,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 3505114560245439019, guid: 3bd0fcf9e7788ff4e9444c295a458e21, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f3ea114cc548f3b4db1eef464b66da13, type: 2}
+      objectReference: {fileID: 2100000, guid: 6dff613dca8cb2744ba65c2fdd5d44f8, type: 2}
     - target: {fileID: 3718661078704496253, guid: 3bd0fcf9e7788ff4e9444c295a458e21, type: 3}
       propertyPath: m_AABB.m_Center.y
       value: 0.45276403
@@ -696,10 +696,6 @@ PrefabInstance:
     - target: {fileID: 3493622806985165897, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
       propertyPath: m_Name
       value: BGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 3493622806985165899, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
-      propertyPath: Event
-      value: event:/BGM/Levels/Level_3_BGM
       objectReference: {fileID: 0}
     - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
       propertyPath: m_RootOrder
