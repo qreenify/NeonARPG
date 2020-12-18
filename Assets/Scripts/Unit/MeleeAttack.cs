@@ -35,6 +35,9 @@ namespace Unit
         private void Start()
         {
             _startAttackDamage = attackDamage;
+            animator = GetComponentInChildren<Animator>();
+            sword = transform.Find("_eroNUEO/QuickRigCharacter_Ctrl_Reference/QuickRigCharacter_Ctrl_RightWristEffector/pCube9").gameObject;
+            if (sword != null) sword.SetActive(false);
             if (TryGetComponent<PlayerLevel>(out var level))
             {
                 SetDamage(level);
@@ -69,7 +72,6 @@ namespace Unit
         }
         public override bool Exit()
         {
-            animator.SetBool("PlayerAttacking", false);
             return true;
         }
 
@@ -80,7 +82,7 @@ namespace Unit
             if (swordtimer > 0)
             {
                 swordtimer -= Time.deltaTime;
-                if (swordtimer <= 0) sword?.SetActive(false);
+                if (swordtimer <= 0 && sword != null) sword.SetActive(false);
 
             }
 
@@ -109,9 +111,13 @@ namespace Unit
                     //}
                     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                    animator?.SetBool("PlayerAttacking", true);
-                    sword?.SetActive(true);
-                    swordtimer = 0.7f;
+                    if(animator != null)
+                        animator.SetTrigger("Attack");
+                    if (sword != null)
+                    {
+                        sword.SetActive(true);
+                        swordtimer = 0.7f;
+                    }
 
 
 
@@ -121,12 +127,10 @@ namespace Unit
                     drawAttackLine?.DrawLine(unit.target);
                     return true;
                 }
-                animator?.SetBool("PlayerAttacking", false);
-                return false;
             }
             // meeleeParticleSystem.StopParticleSystem();
             //Destroy(meeleeParticleSystem);
-            animator?.SetBool("PlayerAttacking", false);
+            //animator?.SetBool("PlayerAttacking", false);
             return false;
 
             

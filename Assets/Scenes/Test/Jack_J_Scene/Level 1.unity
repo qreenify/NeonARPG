@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: d9be5aa891ad7f34988a1f1660444bce, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: e6fe2b1635936d04eb09212188511e26, type: 2}
 --- !u!1 &285782268
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +311,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 317330331337635997, guid: 97d89c6e98af63041a061938e98701e3, type: 3}
+      propertyPath: autoAdd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317330331337635997, guid: 97d89c6e98af63041a061938e98701e3, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2210053481997310844, guid: 97d89c6e98af63041a061938e98701e3, type: 3}
       propertyPath: portalName
       value: Portal 2
@@ -423,6 +431,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a90ba2becaad1349aadacd144573666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1472184016
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1818516992, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: eventPath
+      value: event:/BGM/Levels/Level_1_BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165897, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_Name
+      value: BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165899, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: Event
+      value: event:/BGM/Levels/Level_1_BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -592.6881
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 825.9641
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 366.63675
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493622806985165900, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2202a88227fd9064db78f1eeffb4e3b9, type: 3}
 --- !u!1 &1570963268
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +537,14 @@ PrefabInstance:
       propertyPath: otherPortal
       value: 
       objectReference: {fileID: 1288780084}
+    - target: {fileID: 5873738774137527062, guid: 773d8ef44ba9c764f9739b1e67ee7866, type: 3}
+      propertyPath: autoAdd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873738774137527062, guid: 773d8ef44ba9c764f9739b1e67ee7866, type: 3}
+      propertyPath: otherPortal
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6119567544743047042, guid: 773d8ef44ba9c764f9739b1e67ee7866, type: 3}
       propertyPath: m_Name
       value: Level_1.1

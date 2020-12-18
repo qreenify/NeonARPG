@@ -32,6 +32,29 @@ public class Revive : MonoBehaviour
     [ContextMenu("Revive At Fixed Location")]
     public void ReviveFixedLocation()
     {
+        if (LevelFader.levelFader != null)
+        {
+            LevelFader.levelFader.Fade();
+            StartCoroutine(ReviveFixedDelayed(LevelFader.FadeOutTime));
+        }
+        else
+        {
+            if (SceneManager.GetActiveScene().name == scene)
+            {
+                PlayerController.playerController.transform.position = currentRespawnPoint;
+                PlayerController.playerController.GetComponent<Health>().Revive();
+            }
+            else
+            {
+                _revived = true;
+                SceneManager.LoadScene(scene);
+            }
+        }
+    }
+
+    IEnumerator ReviveFixedDelayed(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         if (SceneManager.GetActiveScene().name == scene)
         {
             PlayerController.playerController.transform.position = currentRespawnPoint;
